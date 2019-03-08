@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>团队盈亏</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+    <script type="text/javascript" src="/js/vendor/jquery.jedate.min.js"></script> 
+</head>
+
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+<div class="wrap-inner">
+    <!-- 侧边栏导航 --> 
+    <!--#include virtual="/view/module/sidebar.shtml"-->
+    <div class="main">
+        <div class="main-nav">
+            <a class="active">数字彩</a>
+            <a href="javascript:">竞彩</a>
+            <a href="javascript:">AG真人</a>
+            <a href="javascript:">GA游戏</a>
+        </div>
+        <div class="search-condition">
+            <div class="search-condition-content">
+                <div class="row">
+                    查询日期&nbsp; <input type="text" name="" class="input w-3" id="datebegin" placeholder="选择开始时间" readonly>&nbsp; <span style="color: #999">至</span> &nbsp;<input type="text" name="" class="input w-3"  id="dateend" placeholder="选择结束时间" readonly> <span class="active date-search">今日</span>|<span class="date-search">上周</span>|<span class="date-search">本周</span>|<span class="date-search">本月</span>|<span class="date-search">上半月</span>|<span class="date-search">下半月</span>
+                </div>
+                <div class="row">
+                    用 户 名&nbsp; &nbsp;<input type="text" name="" class="input w-2"><span data-showuser="" class="icon-users"></span>&nbsp;&nbsp;&nbsp;&nbsp;彩系 <select class="select"><option>全部</option><option>重庆分分彩</option></select>&nbsp;&nbsp;&nbsp;&nbsp;彩种 <select class="select"><option>全部</option><option>重庆时时彩</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="radio" name="aa" class="radio"> 按日期显示</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="radio" name="aa" class="radio"> 按汇总显示</label>
+                    <span class="btn btn-blue lg fr">搜 索</span>
+                </div>
+            </div>
+        </div>
+        <div class="total">
+            <div class="total-left">合计</div>
+            <div class="total-right">数字彩总盈亏 <span>￥0.00</span></div>
+            <div class="total-center">
+                <div class="row">销售总额&nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-right: 60px">￥0.00</span>中奖总额&nbsp;&nbsp;&nbsp;&nbsp;<span>￥0.00</span></div>
+                <div class="row">返点总额&nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-right: 60px">￥0.00</span>促销奖金&nbsp;&nbsp;&nbsp;&nbsp;<span>￥0.00</span></div>
+            </div>
+        </div>
+        <table class="table">
+        
+            <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>日期</th>
+                    <th>彩种</th>
+                    <th>销售总额</th>
+                    <th>返点总额</th>
+                    <th>中奖总额</th>
+                    <th>促销总额</th>
+                    <th>总盈亏</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="9" class="ti" >burning > burning0012 > <span class="blue">burning0018</span></td>
+            </tr>
+                <tr>
+                    <td>burning0013</td>
+                    <td>2017-01-03</td>
+                    <td>重庆时时彩</td>
+                    <td>194,017.000</td>
+                    <td>841.000</td>
+                    <td>194,017.000</td>
+                    <td>1,031.000</td>
+                    <td class="red">-194,017.000</td>
+                    <td><span class="btn btn-gray">查看下级</span></td>
+                </tr>
+                <tr>
+                    <td>burning0013</td>
+                    <td>2017-01-03</td>
+                    <td>重庆时时彩</td>
+                    <td>194,017.000</td>
+                    <td>841.000</td>
+                    <td>194,017.000</td>
+                    <td>1,031.000</td>
+                    <td class="red">-194,017.000</td>
+                    <td><span class="btn btn-gray">查看下级</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 分页 --> 
+        <!--#include virtual="/view/module/pages.shtml"-->
+    </div>
+</div>
+
+  
+<!--#include virtual="/view/module/footer.shtml"-->
+
+ 
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>游戏记录_竞彩</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+    <script type="text/javascript" src="/js/vendor/jquery.jedate.min.js"></script>
+</head>
+<!--#set var="locationUrl" value="gameRecord"-->
+<!--#set var="level2" value="1"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class="active" href="/view/ucenter/game_record/digital_lottery.shtml">游戏记录</a>
+            </div>
+            <div class="search-condition">
+                <div class="search-condition-content">
+                     <div class="row">
+                        查询日期&nbsp;
+                        <input type="text" name="" class="input w-3" id="datebegin" placeholder="选择开始时间" readonly>&nbsp; <span style="color: #999">至</span> &nbsp;<input type="text" name="" class="input w-3"  id="dateend" placeholder="选择结束时间" readonly> <span class="active date-search" data-time="0">今日</span>|<span class="date-search" data-time="1">上周</span>|<span class="date-search" data-time="2">本周</span>|<span class="date-search" data-time="3">本月</span>|<span class="date-search" data-time="4">上半月</span>|<span class="date-search" data-time="5">下半月</span>
+                        <span class="btn btn-blue lg search fr">搜 索</span>
+                    </div>
+                    <div class="row">
+                         期号&nbsp; &nbsp;
+                        <input type="text" name="" class="input w-2">&nbsp; &nbsp;&nbsp; &nbsp;
+                        用 户 名&nbsp; &nbsp;
+                        <input type="hidden" id="searchUserId">
+                        <input type="text" name="" id="searchUser" class="input w-2" ><span data-showuser="" class="icon-users">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; &nbsp;&nbsp; &nbsp;彩种
+                        <select class="select " id="lotteryList">
+                            <option>全部</option>
+                            <option>重庆时时彩</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <table class="table" id="listTable">
+                <thead>
+                    <tr>
+                        <th>方案编号</th>
+                        <th>彩种</th>
+                        <th>游戏类型</th>
+                        <th>倍数</th>
+                        <th>方案金额（￥）<a href="javascript:void(0);" class="glyphicon glyphicon-resize-vertical"></a></th>
+                        <th>奖金（￥）<a href="javascript:void(0);" class="glyphicon glyphicon-resize-vertical"></a></th>
+                        <th>方案状态</th>
+                        <th>投注时间<a href="javascript:void(0);" class="glyphicon glyphicon-resize-vertical"></a></th>
+                        <th>方案详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <!--#include virtual="/view/module/pages.shtml"-->
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+      <!--#include virtual="/view/module/teamUserSelect.shtml"-->
+       <!--#config timefmt="%Y-%m-%d %H:%M:%S" -->
+    
+  <script id="transactionList" type="text/x-dot-template"> 
+{{?it.data.length>0}} 
+    {{~it.data:value:index}} 
+        <tr>
+                <td><a href="/view/page/orderDetail.shtml?order={{= value.id}}">{{= value.serial_number}}</a></td>
+                <td>用戶名</td>
+                <td>{{= value.bought_at}}</td>
+                <td>
+                    <span class="red">苹果极速3D</span>
+                    <br>
+                    <span>{{= value.way}}</span>
+                </td>
+                <td>{{= value.prize_group}}</td>
+                <td>
+                    <span class="cell-label">期号</span>{{= value.issue}}
+                    <br>
+                </td>
+                <td>
+                    <a class="view-detail" href="javascript:void(0);">详细号码</a>
+                    <textarea class="data-textarea" style="display:none;">{{= value.bet_number}}</textarea>
+                </td>
+                <td>
+                    <span class="red">{{= value.winning_number}}</span>
+                </td>
+                <td><span data-money-format="" style="font-size: 13px;"><dfn>￥</dfn>{{= value.amount}}</span></td>
+                <!--判断是否有奖金-->
+            </tr>
+    {{~}}
+{{??}}
+    <tr><td colspan="11">没有符合条件的记录，请更改查询条件</td></tr>
+{{?}}
+</script> 
+    <script type="text/javascript" src="/js/vendor/jqPaginator.js"></script>
+    <script type="text/javascript" src="/js/page/help.js"></script>
+</body>
+<script type="text/javascript">
+          var deferred1 = $.Deferred();
+          var deferred2 = $.Deferred();
+          var deferred3 = $.Deferred();
+          registerTeamUserSelect({});
+
+
+
+          $(document).on('click','#searchUser',function(){
+            $('.icon-users').click();
+          })
+            //状态
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=getProjectStatus&terminal_id=" + terminal_id,
+                successCallback: function(data) {
+                    var selectArray = [];
+                    for (var i = 0, len = data.length; i < len; i++) {
+                        selectArray.push('<option value="' + data[i].id + '">' + data[i].description + '</option>');
+                    }
+                    $('#statusSelect').append(selectArray.join(''));
+                    deferred3.resolve('deferred3');
+                }
+            });
+
+           //彩系
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=getGameSeries&terminal_id=" + terminal_id,
+                successCallback: function(data) {
+                    var selectArray = []; 
+
+                     for (var i = 0, len = data.length; i < len; i++) {
+                        selectArray.push('<option value="' + data[i].id + '">' + data[i].name + '</option>');
+                    }
+                    $('#gameTypeLis').append(selectArray.join(''));
+                    deferred1.resolve('deferred1');
+                }
+            });
+            
+            var lotteryList = null;
+            //彩种
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=getLotteryList&terminal_id=" + terminal_id,
+                successCallback: function(data) {
+                    lotteryList = data;
+                    renderList(data, true);
+                    deferred2.resolve('deferred2');
+                }
+            });
+
+            $('#gameTypeLis').on('change', function() {
+                var value = $(this).val();
+                if (value == ""||value=="全部") {
+                    renderList(lotteryList, true);
+                    return;
+                }
+                var tmp = [];
+                for (var i = 0, len = lotteryList.length; i < len; i++) {
+                    if (value == lotteryList[i].game_type) {
+                        tmp.push(lotteryList[i]);
+                    }
+                }
+                renderList(tmp);
+            });
+
+            function renderList(data, all) {
+                if (all) {
+                    var selectArray = ['<option value="">全部</option>'];
+                } else {
+                    var selectArray = [];
+                }
+
+                for (var i = 0, len = data.length; i < len; i++) {
+                    selectArray.push('<option value="' + data[i].id + '" data-type="' + data[i].game_type + '">' + data[i].name + '</option>');
+                }
+                $('#lotteryList').html(selectArray.join(''));
+            }
+
+           $.when(deferred1, deferred2, deferred3).done(function() {
+                 doPullTableList(); 
+            });
+       
+
+            function createPagination(res, page) {
+                page = page || 1;
+                renderPagination('#pagination', res.count, page, function(num) {
+                    if(isCreateFirst){
+                        isCreateFirst = false;
+                        return;
+                    }
+                    ajaxData({
+                        url: getTableUrl(num),
+                        successCallback: function(response) {
+                            var data = response.list;
+                            renderTableList(data);
+                        }
+                    });
+                });
+            }
+
+            var isCreateFirst = true;
+            function doPullTableList() {
+                //表格pull
+                isCreateFirst = true;
+                ajaxData({
+                    url: getTableUrl(),
+                    successCallback: function(res) {
+                        renderTableList(res.list);
+                        $('#pagination').html(''); 
+                        if (res.count/20>1) {
+                            createPagination(res,1,isCreateFirst);
+                        }
+                    }
+                });
+            }
+
+            //search
+            $(document).on('click', '.search-condition-content .search', doPullTableList);
+
+            function renderTableList(data) {
+                doTrender({
+                    container: '#listTable tbody',
+                    tmplObj: '#transactionList',
+                    data: {
+                        data: data
+                    },
+                    needClear: true,
+                    prependDom: false
+                });
+            }
+
+            function getTableUrl(page) {
+                page = page || 1;  
+                var param = {
+                    action:'getProjectList',
+                    terminal_id:terminal_id,
+                    created_at_from:$('#datebegin').val(),
+                    created_at_to:$('#dateend').val(),
+                    page:page,
+                    lottery_id:$('#lotteryList').val().replace('全部','')
+                } 
+                return getWebsiteOfHost() + "?"+serializeObj2Params(param);
+            }
+
+            //今日，本周 点击注册
+            quickTimeClick('<!--#echo var="DATE_LOCAL"-->');
+              
+</script>
+</body>
+
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>提现</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+</head>
+<!--#set var="locationUrl" value="capitalCenter"-->
+<!--#set var="level2" value="1"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class="active">提现</a>
+            </div>
+            <div class="bg-fff">
+                <div class="content recharge-netbank">
+                    <div class="recharge-box"> 
+                        <div class="withdraw-text">尊敬的 <span class="c-red" id="customer"></span> </div>
+                        <div class="withdraw-text">您目前账户可用提现余额: <span class="c-red blod fs-17" id="customerBalance"></span> 元</div>
+                        <table width="100%" class="table-field">
+                            <tr>
+                                <td align="right" valign="top"><span class="field-name">提现金额：</span></td>
+                                <td>
+                                    <input type="text" class="input w-2 input-ico-money" id="J-input-money" name="amount" />
+                                    <span id="amount_notify" class="c-important"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top"><span class="field-name">收款银行卡：</span></td>
+                                <td>
+                                    <select class="select w-5" id="bankSelect"></select>
+                                    <span id="amount_notify" class="c-important"></span>
+                                </td>
+                            </tr>
+                            <tr id="doNextWrap">
+                                <td align="right" valign="top">&nbsp;</td>
+                                <td>
+                                    <input id="doNext" class="btn btn-red lg2" type="submit" value="   下一步   " />
+                                </td>
+                            </tr>
+                            <tr  style="display:none;" class="countdownBlock">
+                                <td align="right" valign="top">&nbsp;</td>
+                                <td> 
+                                     <div class="c-red">该银行卡在两小时内有新增/修改操作，请在保护时间结束后再提现。</div>
+                                      <div class="time-countdown">
+                                            <em id="hour_show">00:</em>
+                                            <em id="minute_show">00:</em>
+                                            <em id="second_show">00</em>
+                                        </div> 
+                                </td>
+                            </tr>
+                        </table> 
+                    </div>
+                    <div class="recharge-help">
+                        <h3>提现提示</h3>
+                        <div class="prompt c-important">
+                             提取余额到银行卡<br/>
+                             每天02:00AM-08:00AM累计提现不能超过<span class="max-amount">15</span>元；单日提现次数最多为<span class="max-times">5</span>次。
+                        </div>
+                        <p class="row-desc alert-message withdraw-time"><i class="alert-icon"></i><span>今日已提现次数：<span class="c-black" id="iWithdrawalNum"></span></span></p>
+                    </div>
+                </div>
+
+                 <div class="content recharge-netbank hide" id="withdrawConfirmContainer">
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+
+                <!-- 格式化时间显示 -->
+    <!--#config timefmt="%Y-%m-%d %H:%M:%S" -->
+
+    <script type="text/x-dot-template" id="withdrawConfirm">
+        <table width="100%" class="table-field">
+            <tr>
+                <td align="right" width="50%">用户名：</td>
+                <td align="left">
+                    {{=it.nickname}}
+                </td>
+            </tr>
+            <tr>
+                <td align="right">可提现金额：</td>
+                <td align="left">
+                    {{=it.abalance}}元
+                </td>
+            </tr>
+            <tr>
+                <td align="right">本次提现金额：</td>
+                <td align="left">
+                    {{=it.amount}}元
+                </td>
+            </tr>
+            <tr>
+                <td align="right">开户银行：</td>
+                <td align="left">
+                    {{=it.bank}}
+                </td>
+            </tr>
+            <tr>
+                <td align="right">开户地址：</td>
+                <td align="left">
+                    {{=it.branch_address}}
+                </td>
+            </tr>
+            <tr>
+                <td align="right">开户人：</td>
+                <td align="left">
+                    {{=it.account_name}}
+                </td>
+            </tr>
+            <tr>
+                <td align="right">提现银行卡号：</td>
+                <td align="left">
+                    {{=it.account}}
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2" class="c-red">为了确保您的资金安全,请输入资金密码以便确认您的身份!</td>
+            </tr>
+            <tr>
+                <td align="right">验证资金密码：</td>
+                <td align="left">
+                    <input type="text" class="input w-2 " name="amount"  id="fundsPassword" onfocus="this.type='password'"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="line-height: 100px;">
+                    <input id="J-submit" class="btn btn-red lg2" type="submit" value="   确认提现   " />
+                </td>
+            </tr>
+        </table>
+    </script>
+    <!-- <script type="text/javascript" src="/js/vendor/md5.js"></script> -->
+     <script type="text/javascript">
+
+     ajaxData({
+         url: getWebsiteOfHost() + "?action=getBankCardList&terminal_id=" + terminal_id,
+         successCallback: function(data) {
+               if (data.list.length==0) {
+                     window.location.href = "/view/ucenter/account_management/bank_card_management.shtml?bangFlag=1";
+               }
+         }
+     });
+
+  
+//{{ $iWithdrawLimitNum - $iWithdrawalNum }}/{{ $iWithdrawLimitNum }}
+      ajaxData({
+            url:host + "?action=getWithdrawalRules&terminal_id=" + terminal_id,
+            successCallback:function(res){ 
+                $('#iWithdrawalNum').html( res.withdraw_times+'/'+res.withdraw_limit_times);
+                $('.max-amount').html(res.max_amount);
+                $('.max-times').html(res.withdraw_limit_times);
+            }
+        });
+
+      //倒计时
+        var countdownId = null;
+        var currentTime = '<!--#echo var="DATE_LOCAL"-->';
+         //获取用户信息，设置用户相关信息
+         var userData = null;
+        ajaxData({
+            url:host + "?action=getAccount&terminal_id=" + terminal_id,
+            successCallback:function(res){ 
+                userData = res;
+                $("#customerBalance").text(formatMoney(res.withdrawable));
+            }
+        });
+
+//        ajaxData({
+//            url:host + "?action=getCurrentUserInfo&terminal_id=" + terminal_id,
+//            successCallback:function(res){
+//                userData = res;
+//                $("#customer").text(res.nickname);
+//            }
+//        });
+
+
+        var bankData = null;
+         //收款银行卡 
+         ajaxData({
+            url: getWebsiteOfHost() + "?action=getBankCardList&terminal_id=" + terminal_id,
+            successCallback: function(data) {
+                bankData = data.list;
+               var arr = [];
+               for(var i=0,len=data.list.length;i<len;i++){
+                arr.push('<option value="' + data.list[i].bank_id + '">' + data.list[i].bank + '</option>')
+               }
+               $('#bankSelect').html(arr.join(''));
+               doCheckoutWithdrawal();
+            }
+         });
+
+         // $(document).on('keydown', '#J-input-money', function(event) {
+         //        if (!(event.keyCode == 35) && !(event.keyCode == 36) && !(event.keyCode == 46) && !(event.keyCode == 8) && !(event.keyCode == 37) && !(event.keyCode == 39)) {
+         //            if (!((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105))) {
+         //                return false;
+         //            }
+         //            if ($.trim($(this).val()).length > 6) {
+         //                return false;
+         //            }
+         //        }
+         //    }).on('keyup', function() {
+         //        var v = parseInt($.trim(this.value));
+         //        if (v > 70000) {
+         //            this.value = 70000;
+         //        }
+         //        //todo 
+         //    });
+
+            var  moneyInput = $('#J-input-money');
+             moneyInput.keyup(function(e) {
+                 var v = $.trim(this.value),
+                     arr = [],
+                     code = e.keyCode;
+                 if (code == 37 || code == 39) {
+                     return;
+                 }
+                 v = v.replace(/[^\d|^\.]/g, '');
+                 arr = v.split('.');
+                 if (arr.length > 2) {
+                     v = '' + arr[0] + '.' + arr[1];
+                 }
+                 arr = v.split('.');
+                 if (arr.length > 1) {
+                     arr[1] = arr[1].substring(0, 2);
+                     v = arr.join('.');
+                 }
+                 this.value = v;
+                 v = v == '' ? '&nbsp;' : v;
+                 if (!isNaN(Number(v))) {
+                     v = formatMoney(v);
+                 }
+             });
+              var max='150000';
+              var min='100';
+                 moneyInput.blur(function() {
+                     var v = Number(this.value),
+                         minNum = Number(min.replace(/,/g, '')),
+                         maxNum = Number(max.replace(/,/g, '')),
+                         withdrawable = Number($('#customerBalance').text().replace(/,/g, ''));
+                     v = v < minNum ? minNum : v;
+                     v = v > maxNum ? maxNum : v;
+                     v = v > withdrawable ? withdrawable : v;
+                     this.value = formatMoney(v).replace(/,/g, '');
+                 });
+
+            $(document).on('click', '#doNext', function() {
+                var amount = $.trim($('#J-input-money').val());
+                if(amount.length==0) {
+                    layer.alert('请输入正确的提现金额');
+                    return;
+                }
+
+                if(Number(amount) > Number($("#customerBalance").text()) ){
+                    layer.alert('超出可提现金额');
+                    return;
+                }
+
+                if(Number(amount)  == 0){
+                     layer.alert('请输入正确的提现金额');
+                    return;
+                }
+                //currentTime 
+              
+                for(var i=0,len=bankData.length;i<len;i++){
+                    bankData[i]["nickname"] = $("#customer").text();
+                    if(bankData[i].bank_id == $('#bankSelect').val() ){
+                        var data = bankData[i];
+                        break;
+                    }
+                }
+                if(currentTime < data.intended_withdrawal_at){
+                    return;
+                }
+                $('.recharge-netbank:eq(0)').hide();
+                data.abalance = formatMoney(userData.abalance);
+                data.amount = amount;
+                doTrender({
+                    container: '#withdrawConfirmContainer',
+                    tmplObj: '#withdrawConfirm',
+                    data: data,
+                    needClear: true,
+                    prependDom: false,
+                })
+                ;
+                $('.recharge-netbank:eq(1)').show();
+                //修改返回事件
+                window.history.pushState('previous', null, window.location.href);
+            });
+
+            //确认提现
+            $(document).on('click', '#J-submit', function() {
+                var password = $('#fundsPassword').val();
+                if ($.trim(password).length == 0) {
+                    layer.alert('请输入资金密码');
+                    return;
+                }
+                for(var i=0,len=bankData.length;i<len;i++){
+                    if(bankData[i].bank_id == $('#bankSelect').val() ){
+                        var data = bankData[i];
+                        break;
+                    }
+                }
+                ajaxData({
+                    url: host ,
+                    data:{
+                        action:'withdraw',
+                        terminal_id:terminal_id,
+                        bankcard_id:data.id,
+                        amount:$('#J-input-money').val(),
+                        fund_password:password
+                    },
+                    type:'post',
+                    successCallback: function(msg) {
+                        layer.alert("提现成功");
+                        var a = 1;
+                        window.setTimeout(function(){
+                            window.location.reload();
+                        },1000)
+                    },
+                    errorCallback:function(msg){
+                        window.setTimeout(function(){
+                            window.location.reload();
+                        },1000)
+                        layer.alert(msg.error);
+                    }
+                });
+
+            });
+
+            $(document).on('change', '#bankSelect', doCheckoutWithdrawal);
+
+            function doCheckoutWithdrawal() {
+                for (var i = 0, len = bankData.length; i < len; i++) {
+                    if (bankData[i].bank_id == $('#bankSelect').val()) {
+                        var data = bankData[i];
+                        break;
+                    }
+                }  
+                countdownId && window.clearInterval(countdownId);
+                if (currentTime < data.intended_withdrawal_at) {
+                    var withdrawalTime = (new Date(data.intended_withdrawal_at).getTime() / 1000) - (new Date(currentTime).getTime() / 1000);
+                    countdown(withdrawalTime);
+                    $('.countdownBlock').show();
+                    $('#doNextWrap').hide();
+                } else {
+                    $('.countdownBlock').hide();
+                    $('#doNextWrap').show();
+                } 
+            } 
+
+             function countdown(seconds) {
+                countdownId = window.setInterval(function() {
+                    var day = 0,
+                        hour = 0,
+                        minute = 0,
+                        second = 0; //时间默认值
+                    if (seconds > 0) {
+                        day = Math.floor(seconds / (60 * 60 * 24));
+                        hour = Math.floor(seconds / (60 * 60)) - (day * 24);
+                        minute = Math.floor(seconds / 60) - (day * 24 * 60) - (hour * 60);
+                        second = Math.floor(seconds) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+                    }else{
+                        $('.countdownBlock').hide();
+                        $('#doNextWrap').show();
+                    }
+                    if (hour <= 9) hour = '0' + hour;
+                    if (minute <= 9) minute = '0' + minute;
+                    if (second <= 9) second = '0' + second;
+                    //$('#day_show').html(day+"天");
+                    $('#hour_show').html(hour + ':');
+                    $('#minute_show').html(minute + ':');
+                    $('#second_show').html(second);
+                    seconds--;
+                }, 1000);
+             }
+
+        //返回事件
+        $(document).ready(function () {
+            $(window).on('popstate', function () {
+                        if (window.history && window.history.pushState) {
+//                       if ($('#withdrawConfirmContainer').find('.table-field').length > 0) {
+                            window.history.go('previous');
+//                       }
+                        }
+                    }
+            )
+        });
+
+     </script>
+</body>
+
+</html>

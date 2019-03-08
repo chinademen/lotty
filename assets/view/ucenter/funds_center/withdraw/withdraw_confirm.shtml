@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>提现确认</title>
+   <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class="active">提现</a>
+            </div>
+            <div class="bg-fff">
+                <div class="content recharge-netbank">
+                    <div class="" style="margin: 0 auto">
+                        <form action="{{ route('user-recharges.quick', $oPlatform->id) }}" method="post" id="J-form">
+                            <table width="100%" class="table-field">
+                                <tr>
+                                    <td align="right" width="50%">用户名：</td>
+                                    <td align="left">
+                                        bunning
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">可提现金额：</td>
+                                    <td align="left">
+                                        9,852,120.00元
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">本次提现金额：</td>
+                                    <td align="left">
+                                        500.00元
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">开户银行：</td>
+                                    <td align="left">
+                                        中国工商银行
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">开户地址：</td>
+                                    <td align="left">
+                                        北京 东城区
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">开户人：</td>
+                                    <td align="left">
+                                        张三
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">提现银行卡号：</td>
+                                    <td align="left">
+                                        **** ***** **** 6666
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" colspan="2" class="c-red">为了确保您的资金安全,请输入资金密码以便确认您的身份!</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">验证资金密码：</td>
+                                    <td align="left">
+                                        <input type="text" class="input w-2 " name="amount" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center" style="line-height: 100px;">
+                                        <input id="J-submit" class="btn btn-red lg2" type="submit" value="   确认提现   " />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"--> 
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+<!--#include virtual="/view/module/sidebar-right.shtml"-->
+<!--<div class="nav-wrap">-->
+    <!--<div class="wrap-inner">-->
+        <!--<a href="/index.shtml"><span class="logo"></span></a>-->
+        <!--<a href="javascript:void(0);" class="olderVersion" id="old_version" onclick="javascript:old_version();">进入旧版</a>-->
+        <!--<ul class="fr nav-ul clearfix">-->
+            <!--<li ><a href="/index.shtml">首页</a></li>-->
+            <!--<li drow><a href="javascript:;" >彩票游戏</a></li>-->
+            <!--<li drow><a href="javascript:;" onclick="goGame('zrqjt')">真人娱乐</a></li>-->
+            <!--<li drow><a href="javascript:;" onclick="goGame('ga')">电子游艺</a></li>-->
+            <!--&lt;!&ndash; <li ><a href="javascript:;" onclick="goGame('zrbyw')">捕鱼王</a></li> &ndash;&gt;-->
+            <!--<li ><a href="javascript:;" onclick="goGame('JCZQ')">体育竞技</a></li>-->
+            <!--&lt;!&ndash; <li id="nav-agent"><a href="/view/ucenter/agent_center/team_profits/digital.shtml">代理中心</a></li> &ndash;&gt;-->
+        <!--</ul>-->
+        <!--<div class="gamelist-drow-wrap lottery-game-drow clearfix" dorw-list style="">-->
+            <!--<div class="lotteryList">-->
+
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="ag-game-list gamelist-drow-wrap " dorw-list>-->
+            <!--<ul class="clearfix  ag_game">-->
+
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div dorw-list class="gamelist-drow-wrap ag-game-list">-->
+            <!--<ul class="clearfix ga_game">-->
+
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; prop != "ag" && prop != "ga" && prop != "sport" && prop != "pk10" &&prop != "new" &&prop != "k3" &&prop != "kl12" &&prop != "other" &&it[prop]["count"] != 0 &ndash;&gt;-->
+
+<!--<script   type="text/x-dot-template" id="nav-tpl">-->
+    <!--{{for(var prop in it) { }}-->
+    <!--{{? prop != "999" }}-->
+    <!--<div class="div clearfix">-->
+        <!--<p>{{= it[prop]["name"] }}</p>-->
+        <!--{{for(var k in it[prop]["newresult"]) { }}-->
+        <!--<ul class="clearfix">-->
+            <!--{{  for(var a = 0; a<it[prop]["newresult"][k].length;a++) { }}-->
+            <!--{{ var url = lotteryNavObj[it[prop]["newresult"][k][a]["src"]]+'lottery='+it[prop]["newresult"][k][a].identifier;}}-->
+            <!--<li>-->
+                <!--<a class="{{? it[prop]["newresult"][k][a]["new"] != 0}}c-yellow{{?? it[prop]["newresult"][k][a]["hot"] != 0}}c-yellow{{?? it[prop]["newresult"][k][a]["24h"] != 0}}c-yellow{{?}}"   href="{{? it[prop]["newresult"][k][a]["is_third"] == 0 }}{{=url}}{{??}}###{{?}}" {{? it[prop]["newresult"][k][a]["new_win"] == 1 }}target="_blank"{{?}} {{? it[prop]["newresult"][k][a]["is_third"] == 1 }}onclick="goGame('{{=it[prop]["newresult"][k][a]["identifier"]}}')"{{?}}>{{= it[prop]["newresult"][k][a]["name"] }}-->
+                <!--<i class="home-icon {{? it[prop]["newresult"][k][a]["new"] != 0}}new{{?? it[prop]["newresult"][k][a]["hot"] != 0}}hot{{?? it[prop]["newresult"][k][a]["24h"] != 0}}h24{{?}}" >-->
+                <!--</i>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--{{ } }}-->
+        <!--</ul>-->
+        <!--{{ } }}-->
+    <!--</div>-->
+    <!--{{?}}-->
+    <!--{{ } }}-->
+
+<!--</script>-->
+
+<!--<script   type="text/x-dot-template" id="sidebar-right-tpl">-->
+    <!--{{for(var prop in it) { }}-->
+    <!--<li name="{{= it[prop]["en_name"]}}"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-{{= it[prop]["en_name"]}}"></i></li>-->
+    <!--{{ } }}-->
+    <!--<li name="opinion"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-opinion"></i></li>-->
+<!--</script>-->
+
+<!--<script   type="text/x-dot-template" id="sidebar-right-tpl2">-->
+    <!--{{for(var prop in it) { }}-->
+    <!--{{= it[prop]["html"]}}-->
+    <!--{{ } }}-->
+    <!--<div class="suspension-frame" style="display: none;" btn-online-chat=""><p class="title">用户反馈</p><p>关于游戏，充值/提款，手机APP，投诉意见等</p><a class="btn btn-important" href="/view/ucenter/message_center/myAdvice.shtml">提交意见</a></div>-->
+<!--</script>-->
+<!--<script   type="text/x-dot-template" id="nav-game-tpl">-->
+    <!--{{for(var prop in it) { }}-->
+    <!--<li>-->
+        <!--<a href="###" onclick="goGame('{{= it[prop]["identifier"]}}')">-->
+        <!--{{? it[prop]["game_type"] == 4}}-->
+        <!--<img src="/images/global/ag/{{= it[prop]['identifier']}}.png?20180417">-->
+        <!--{{?}}-->
+        <!--{{? it[prop]["game_type"] == 5}}-->
+        <!--<img src="/images/global/ga/ga/{{= it[prop]['identifier']}}.png?20180417">-->
+        <!--{{?}}-->
+        <!--<p>{{= it[prop].name}}</p>-->
+        <!--</a>-->
+    <!--</li>-->
+    <!--{{ } }}-->
+</script>
+
+<script type="text/javascript">
+    // function getGame() {
+    //     ajaxData({
+    //         url: getWebsiteOfHost() + "?action=getAllGames&terminal_id=" + terminal_id + "&lottery=" ,
+    //         successCallback: function(res) {
+    //             var agGames =[];
+    //             var gaGames =[];
+    //             var football = [];
+    //             for(var i=0;i<res.length;i++){
+    //                 if(res[i].game_type == 4){
+    //                     agGames.push(res[i]);
+    //                     res['agGames'] = agGames;
+    //                     res['isAgGame'] = 1;
+    //                     doTrender({
+    //                         container: '.ag_game',
+    //                         tmplObj: '#nav-game-tpl',
+    //                         data: agGames,
+    //                         needClear: true,
+    //                         prependDom: false
+    //                     });
+    //                 }
+    //                 if(res[i].game_type == 5){
+    //                     gaGames.push(res[i]);
+    //                     res['gaGames'] = gaGames;
+    //                     res['isGaGame'] = 1;
+    //                     doTrender({
+    //                         container: '.ga_game',
+    //                         tmplObj: '#nav-game-tpl',
+    //                         data: gaGames,
+    //                         needClear: true,
+    //                         prependDom: false
+    //                     });
+    //                 }
+    //                 if(res[i].game_type == 2){
+    //                     football.push(res[i]);
+    //                     res['football'] = football;
+    //                     res['isFootball'] = 1;
+    //                 }
+    //             }
+    //             doTrender({
+    //                 container: '.game-list-mask',
+    //                 tmplObj: '#allgame-tpl',
+    //                 data: res,
+    //                 needClear: true,
+    //                 prependDom: false
+    //             });
+    //
+    //         }
+    //     })
+    // }
+    // getGame();
+    $(function() {
+        /*****************************/
+        //渲染菜单选中
+        // renderNav();
+        //
+        // function renderNav() {
+        //     var locationUrl = '<!--#echo var="locationUrl"-->';
+        //     $('.nav-ul li.active').removeClass('active');
+        //     switch (locationUrl) {
+        //         case 'index':
+        //             $('.nav-ul li:eq(0)').addClass('active');
+        //             break;
+        //         case 'teamProfit':
+        //             $('.nav-ul li:eq(6)').addClass('active');
+        //             break;
+        //     }
+        // }
+        /*****************************/
+
+        /*****************************/
+        // 获取下拉彩种信息
+        // var o1 = {
+        //     url: host + "?action=getGameMenu&terminal_id=" + terminal_id,
+        //     successCallback: function(res) {
+        //         // var tpl = doT.template($("#nav-tpl").text());
+        //         // $(".lottery-game-drow").append(tpl(res));
+        //
+        //         // 重排彩种 筛选 合并
+        //         var newArr = []
+        //
+        //         if(res.recently.count>0){newArr.push(res.recently)}
+        //         if(res.ssc.count>0){newArr.push(res.ssc)}
+        //         if(res["11x5"].count>0){newArr.push(res["11x5"])}
+        //         if(res.k3.count>0){newArr.push(res.k3)}
+        //         if(res.kl12.count>0){newArr.push(res.kl12)}
+        //         if(res.other.count>0){newArr.push(res.other)}
+        //         if(res.pk10.count>0){newArr.push(res.pk10)}
+        //
+        //         for(var a = 0;a<newArr.length;a++){
+        //             // console.log(0)
+        //             newArr[a]["result"] = [];
+        //             for(var i in newArr[a].lotteries){
+        //                 newArr[a].lotteries[i]["src"] = i
+        //                 newArr[a]["result"].push(newArr[a].lotteries[i])
+        //             }
+        //         }
+        //
+        //         for(var a = 0;a<newArr.length;a++){
+        //             newArr[a]["newresult"] = [];
+        //             for(var i=0,len=newArr[a].result.length;i<len;i+=5){
+        //                 newArr[a]["newresult"].push(newArr[a].result.slice(i,i+5));
+        //             }
+        //         }
+        //
+        //
+        //
+        //         doTrender({
+        //             container: '.lotteryList',
+        //             tmplObj: '#nav-tpl',
+        //             data: newArr,
+        //             needClear: true,
+        //             prependDom: false
+        //         })
+        //         // console.log(res)
+        //         // console.log($(".lottery-game-drow").outerWidth(true))
+        //         // setTimeout(() => {
+        //
+        //         // }
+        //         // }, 5000);
+        //
+        //
+        //
+        //         if($(".game-list-mask").length > 0){
+        //             //    doTrender({
+        //             //    container: '.game-list-mask',
+        //             //    tmplObj: '#allgame-tpl',
+        //             //    data: res,
+        //             //    needClear: true,
+        //             //    prependDom: false
+        //             // });
+        //         }
+        //
+        //     }
+        // }
+        // ajaxData(o1);
+        /*****************************/
+
+        /*****************************/
+        //控制显示隐下拉菜单，定义一个显示下拉菜单的index和一个隐藏下拉菜单的index;
+        // var drow_show_index = 0,
+        //         drow_hide_index = 0,
+        //         $drowshow = $("[dorw-list]").eq(drow_show_index),
+        //         $drowhide = $("[dorw-list]").eq(drow_hide_index),
+        //         timeDrow;
+        //
+        // $("[drow]").on("mouseenter", function() {
+        //
+        //
+        //
+        //
+        //     drow_show_index = $("[drow]").index($(this)), $drowshow = $("[dorw-list]").eq(drow_show_index); //移入时更新drow_show_index和$drowshow
+        //     if (drow_hide_index != drow_show_index) { //判断如果index不一样需要把下拉菜单隐藏
+        //         $drowhide.hide();
+        //     }
+        //
+        //     if ($drowshow.is(":hidden")) {
+        //         $drowshow.fadeIn();
+        //     } else {
+        //         window.clearTimeout(timeDrow);
+        //     }
+        //     // 排列位置，始终让元素彩票列表居中
+        //     var outerWidths = 0;
+        //     var realwidth = 0;
+        //     for(var i = 0 ;i<$(".lotteryList .div").size();i++) {
+        //         var a = $(".lotteryList .div").eq(i).outerWidth(true);
+        //         // console.log(a)
+        //         outerWidths += parseInt(a)
+        //         if(outerWidths>=1198){
+        //             for(var b = 0 ; b<i;b++ ){
+        //                 var c =  $(".lotteryList .div").eq(b).outerWidth(true);
+        //                 realwidth += c
+        //             }
+        //             $(".lotteryList").css({
+        //                 "width":realwidth+i,
+        //                 "margin":"0 auto",
+        //             })
+        //             // console.log(realwidth)
+        //             break;
+        //         }
+        //     }
+        //
+        //
+        // }).on("mouseleave", function() {
+        //     drow_hide_index = $("[drow]").index($(this)), $drowhide = $("[dorw-list]").eq(drow_hide_index);
+        //     timeDrow = window.setTimeout(function() {
+        //         $drowhide.hide();
+        //     }, 200);
+        // })
+        //
+        // $("[dorw-list]").on("mouseenter", function() {
+        //     window.clearTimeout(timeDrow);
+        // }).on("mouseleave", function() {
+        //     timeDrow = window.setTimeout(function() {
+        //         $drowhide.hide();
+        //     }, 200);
+        // })
+        // /*****************************/
+        //
+        // /*****************************/
+        // //获取在线客服信息
+        // var o2 = {
+        //     url: host + "?action=getClientServices&terminal_id=" + terminal_id,
+        //     successCallback: function(data) {
+        //         //渲染右侧边栏图标
+        //         var tpl1 = doT.template($("#sidebar-right-tpl").text());
+        //         $(".sidebar-right-ul").append(tpl1(data.oKfs));
+        //         //渲染右侧边栏滑动内容
+        //         var tpl2 = doT.template($("#sidebar-right-tpl2").text());
+        //         $(".sidebar-right").append(tpl2(data.oKfs));
+        //         for (var i in data.oKfs) {
+        //             if (data.oKfs[i].en_name == "btn-online-chat") {
+        //                 $.getScript(data.oKfs[i].script);
+        //                 break;
+        //             }
+        //         }
+        //
+        //         //头部在线客服
+        //         if (data.oKf.en_name == "qq") {
+        //             $("#customer-service").attr("onclick", "window.open('" + data.oKf.script + "');")
+        //         } else {
+        //             $("#customer-service").addClass(data.oKf.en_name)
+        //         }
+        //         $("#customer-btn").text(data.oKf.cn_name);
+        //     }
+        // }
+
+        // ajaxData(o2);
+        /*****************************/
+        // var now = new Date(nowTime); //当前日期
+        // function formatDate(date) {
+        //     var myyear = date.getFullYear();
+        //     var mymonth = date.getMonth() + 1;
+        //     var myweekday = date.getDate();
+        //     if (mymonth < 10) {
+        //         mymonth = "0" + mymonth;
+        //     }
+        //     if (myweekday < 10) {
+        //         myweekday = "0" + myweekday;
+        //     }
+        //     return (myyear + "-" + mymonth + "-" + myweekday+" "+"00"+":"+"00"+":"+"00");
+        // }
+
+        // console.log($('#datebegin').val("66"))
+        /*****************************/
+        //时间控件初始化
+        if ($('#datebegin').length > 0) {
+            var start = {
+                format: 'YYYY-MM-DD 00:00:00',
+                choosefun: function(elem, val, date) {
+                    end.minDate = date; //开始日选好后，重置结束日的最小日期
+                }
+            };
+
+
+
+            $('#datebegin').jeDate(start);
+        }
+
+        if ($('#dateend').length > 0) {
+            var end = {
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun: function(elem, val, date) {
+                    /* start.maxDate = date; //将结束日的初始值设定为开始日的最大日期*/
+                }
+            };
+            $('#dateend').jeDate(end);
+        }
+        /*****************************/
+        // function openUrl(url) {
+        //     var a = $('<a href="'+url+'" target="_blank"></a>')[0];
+        //     var e = document.createEvent('MouseEvents');
+        //     e.initEvent('click', true, true);
+        //     a.dispatchEvent(e);
+        // }
+
+        // function goGame(s){
+        //     // var tempwindow=window.open();
+        //     ajaxData({
+        //         url: getWebsiteOfHost() + "?action=getThirdLotteryLink&terminal_id=" + terminal_id + "&lottery=" + s,
+        //         async: false,
+        //         successCallback: function(res) {
+        //             window.open(res.request_url)
+        //             // tempwindow.location=res.request_url;
+        //             // openUrl(res.request_url)
+        //         }
+        //     })
+        // }
+        // window.goGame = goGame;
+
+    });
+
+
+</script>

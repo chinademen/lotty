@@ -1,0 +1,24 @@
+<div class="footer">
+    <div class="wrap-inner" style="position: relative;">
+        <!--<div class="links">-->
+            <!--<a href="/view/app/index.shtml" target="_blank">客户端下载</a>-->
+            <!--<a href="/view/page/about.shtml" target="_blank">关于我们</a>-->
+            <!--<a href="/view/page/help.shtml" target="_blank" class="helpCenter">帮助中心</a>-->
+            <!--<a href="/view/page/help.shtml?category_id=10" target="_blank" class="security">安全保障</a>-->
+            <!--<span  class="zizhi"  >博彩资质</span>-->
+        <!--</div>-->
+        <p style="margin-top: 15px">浏览器建议：首选为Google浏览器或火狐浏览器，其次为IE9及以上浏览器。使用1024X768以上的分辨率</p>
+        <p><span style="color:#999">® 彩票中心版权所有</span><span style="color: #999">&nbsp;&nbsp;&nbsp;Copyright © 2015-2018 Golden Apple Game Technology Co., Ltd.</span></p>
+        <div class="cooperation"></div>
+    </div>
+</div>
+<script type="text/javascript">
+        if(Number($(".main").height()) + 392 < Number($(window).height())){
+                $(".main").css("minHeight",Number($(window).height()) - 392);
+            }
+        
+        $(function(){
+            $('.helpCenter').attr('href','/view/page/help.shtml?'+showTop);
+            $('.security').attr('href','/view/page/help.shtml?category_id=10&'+showTop);
+        })
+</script>

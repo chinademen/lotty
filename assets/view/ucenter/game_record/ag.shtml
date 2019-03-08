@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>游戏记录_AG真人</title>
+   <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+    <script type="text/javascript" src="/js/vendor/jquery.jedate.min.js"></script>
+</head>
+<!--#set var="locationUrl" value="gameRecord"-->
+<!--#set var="level2" value="1"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class="active" href="/view/ucenter/game_record/digital_lottery.shtml">游戏记录</a>
+            </div>
+            <div class="search-condition">
+                <div class="search-condition-content">
+                      <div class="row">
+                        查询日期&nbsp;
+                        <input type="text" name="" class="input w-3" id="datebegin" placeholder="选择开始时间" readonly>&nbsp; <span style="color: #999">至</span> &nbsp;<input type="text" name="" class="input w-3"  id="dateend" placeholder="选择结束时间" readonly> <span class=" date-search" data-time="0">今日</span>|<span class="date-search" data-time="1">上周</span>|<span class="date-search" data-time="2">本周</span>|<span class="date-search" data-time="3">本月</span>|<span class="date-search" data-time="4">上半月</span>|<span class="date-search" data-time="5">下半月</span>
+                         <span class="btn btn-blue lg search fr">搜 索</span>
+                    </div>
+                    <div class="row">
+                        用 户 名&nbsp; &nbsp;
+                        <input type="hidden" id="searchUserId">
+                        <input type="text" name="" id="searchUser" class="input w-2" ><span data-showuser="" class="icon-users"></span>&nbsp;&nbsp;&nbsp;&nbsp;游戏
+                        <select class="select "  id="gameTypeLis">
+                            <option>全部</option> 
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;玩法
+                        <select class="select w-1" id="playType">
+                            <option>全部</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <table class="table" id="listTable">
+                <thead>
+                    <tr>
+                        <th>注单编号</th>
+                        <th>用户名</th>
+                        <th>游戏 </th>
+                        <th>游戏玩法</th>
+                        <th>投注时间</th>
+                        <th>局号</th>
+                        <th>桌号</th>
+                        <th>投注金额<a href="javascript:void(0);" class="glyphicon glyphicon-resize-vertical"></a></th>
+                        <th>中奖金额</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <!--#include virtual="/view/module/pages.shtml"-->
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+       <!--#include virtual="/view/module/teamUserSelect.shtml"-->
+       <!--#config timefmt="%Y-%m-%d %H:%M:%S" -->
+<script id="transactionList" type="text/x-dot-template"> 
+{{?it.data.length>0}} 
+    {{~it.data:value:index}} 
+        <tr>
+                <td><a href="/view/page/orderDetail.shtml?order={{= value.id}}">{{= value.bill_no}}</a></td>
+                <td>{{= value.username}}</td>
+                <td>{{= value.lottery}}</td>
+                <td>
+                    <span class="red">{{= value.play_type}}</span>
+                </td>
+                <td>
+                   {{= value.bet_time}}
+                </td>
+                <td>
+                    <span class="red">{{= value.game_code}}</span>
+                </td>
+                <td>{{= value.table_code}}</td>
+                <!--判断是否有奖金-->
+                <td>
+                    <dfn>￥</dfn><span class="red" data-money-format="" style="font-size: 13px;">{{= value.bet_amount}}</span></td>
+                <td><span class="blue">{{= value.net_amount}}</span></td>
+            </tr>
+    {{~}}
+{{??}}
+    <tr><td colspan="11">没有符合条件的记录，请更改查询条件</td></tr>
+{{?}}
+</script>
+    <script type="text/javascript" src="/js/vendor/jqPaginator.js"></script>
+    <script type="text/javascript" src="/js/page/help.js"></script>
+</body>
+<!--<script type="text/javascript">-->
+         <!--var deferred1 = $.Deferred();-->
+          <!--var deferred3 = $.Deferred();-->
+          <!--registerTeamUserSelect({});-->
+
+
+           <!--$(document).on('click','#searchUser',function(){-->
+             <!--$('.icon-users').click();-->
+           <!--})-->
+            <!--//玩法-->
+            <!--ajaxData({-->
+                <!--url: getWebsiteOfHost() + "?action=getAgPlayTypeList&terminal_id=" + terminal_id,-->
+                <!--successCallback: function(data) {-->
+                    <!--var selectArray = [];-->
+                    <!--for (var o in data) {-->
+                        <!--selectArray.push('<option value="' + o + '">' + data[o] + '</option>');-->
+                    <!--}-->
+                    <!--$('#playType').append(selectArray.join(''));-->
+                    <!--deferred3.resolve('deferred3');-->
+                <!--}-->
+            <!--});-->
+
+            <!--//游戏-->
+            <!--ajaxData({-->
+                <!--url: getWebsiteOfHost() + "?action=getLotteryList&terminal_id=" + terminal_id+"&game_type=aggame",-->
+                <!--successCallback: function(data) {-->
+                    <!--var selectArray = []; -->
+
+                     <!--for (var i = 0, len = data.length; i < len; i++) {-->
+                        <!--selectArray.push('<option value="' + data[i].id + '">' + data[i].name + '</option>');-->
+                    <!--}-->
+                    <!--$('#gameTypeLis').append(selectArray.join(''));-->
+                    <!--deferred1.resolve('deferred1');-->
+                <!--}-->
+            <!--});-->
+
+
+
+            <!--function renderList(data, all) {-->
+                <!--if (all) {-->
+                    <!--var selectArray = ['<option value="">全部</option>'];-->
+                <!--} else {-->
+                    <!--var selectArray = [];-->
+                <!--}-->
+
+                <!--for (var i = 0, len = data.length; i < len; i++) {-->
+                    <!--selectArray.push('<option value="' + data[i].id + '" data-type="' + data[i].game_type + '">' + data[i].name + '</option>');-->
+                <!--}-->
+                <!--$('#lotteryList').html(selectArray.join(''));-->
+            <!--}-->
+
+            <!--$.when(deferred1, deferred3).done(function() {-->
+                <!--$('[data-time=0]').click();-->
+                 <!--doPullTableList(); -->
+            <!--});-->
+
+            <!--function createPagination(res, page) {-->
+                <!--page = page || 1;-->
+                <!--renderPagination('#pagination', res.count, page, function(num) {-->
+                    <!--if(isCreateFirst){-->
+                        <!--isCreateFirst = false;-->
+                        <!--return;-->
+                    <!--}-->
+                    <!--ajaxData({-->
+                        <!--url: getTableUrl(num),-->
+                        <!--successCallback: function(response) {-->
+                            <!--var data = response.list;-->
+                            <!--renderTableList(data);-->
+                        <!--}-->
+                    <!--});-->
+                <!--});-->
+            <!--}-->
+
+            <!--var isCreateFirst = true;-->
+            <!--function doPullTableList() {-->
+                <!--//表格pull-->
+                <!--isCreateFirst = true;-->
+                <!--ajaxData({-->
+                    <!--url: getTableUrl(),-->
+                    <!--successCallback: function(res) {-->
+                        <!--renderTableList(res.list);-->
+                        <!--$('#pagination').html('');-->
+                        <!--if (res.count/20>1) {-->
+                            <!--createPagination(res,1,isCreateFirst);-->
+                        <!--}-->
+                    <!--}-->
+                <!--});-->
+            <!--}-->
+
+            <!--//search-->
+            <!--$(document).on('click', '.search-condition-content .search', doPullTableList);-->
+
+            <!--function renderTableList(data) {-->
+                <!--doTrender({-->
+                    <!--container: '#listTable tbody',-->
+                    <!--tmplObj: '#transactionList',-->
+                    <!--data: {-->
+                        <!--data: data-->
+                    <!--},-->
+                    <!--needClear: true,-->
+                    <!--prependDom: false-->
+                <!--});-->
+            <!--}-->
+
+            <!--function getTableUrl(page) {-->
+                <!--page = page || 1;  -->
+                <!--var param = {-->
+                    <!--action:'getAgProjectList',-->
+                    <!--terminal_id:terminal_id,-->
+                    <!--created_at_from:$('#datebegin').val(),-->
+                    <!--created_at_to:$('#dateend').val(),-->
+                    <!--page:page,-->
+                    <!--username:$('#searchUser').val(),-->
+                    <!--play_type:$('#playType').val().replace('全部',''),-->
+                    <!--lottery_id:$('#gameTypeLis').val().replace('全部',''),-->
+                <!--} -->
+                <!--return getWebsiteOfHost() + "?"+serializeObj2Params(param);-->
+            <!--}-->
+
+            <!--//今日，本周 点击注册-->
+            <!--quickTimeClick('&lt;!&ndash;#echo var="DATE_LOCAL"&ndash;&gt;');-->
+              <!---->
+<!--</script>-->
+</body>
+
+</html>

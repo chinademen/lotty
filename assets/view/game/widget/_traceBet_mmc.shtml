@@ -1,0 +1,198 @@
+<!-- 追号投注 -->
+<div class="j-ui-miniwindow pop pop-panel-trace trace-panel" id="J-trace-panel" >
+    <div class="trace-radio pop-hd">
+        <i class="pop-close closeBtn"></i>
+        <a href="javascript:void(0);" data-index="0" class="current">连投设置</a>
+        <!-- <a href="javascript:void(0);" data-index="1">利润率追号</a>
+        <a href="javascript:void(0);" data-index="2" class="">翻倍追号</a> -->
+    </div>
+    <div class="trace-content">
+        <div class="chase-tab">
+
+            <div class="chase-tab-content chase-tab-content-current">
+                <div class="trace-title-param ">
+                    <div class="filter-tabs">
+                        <span class="filter-tabs-title">连续投:</span>
+                        <div class="filter-tabs-cont J-trace-tongbei-times-filter">
+                            <a href="javascript:void(0);" data-value="5" class="current">5次</a>
+                            <a href="javascript:void(0);" data-value="10">10次</a>
+                            <a href="javascript:void(0);" data-value="15">15次</a>
+                            <a href="javascript:void(0);" data-value="20">20次</a>
+                        </div>
+                    </div>
+                    <label class="param">
+                        已选:&nbsp;<input id="J-trace-tongbei-times" class="input w-1" type="text" value="5" onkeyup="value=this.value.replace(/\D+/g,'')">&nbsp;期
+                    </label>
+                    <label class="param">
+                        倍数: 
+                        <span class="_relative">
+                                <select id="" class="select lg w-1" onchange="this.nextSibling.value=this.value">
+                                    <option value="1">1</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                </select><input id="J-trace-tongbei-multiple-select" class="input select-input" value="1" onkeyup="value=this.value.replace(/\D+/g,'')">                                                      
+                            </span>
+                           倍
+                        <input id="J-trace-tongbei-multiple" class="input" type="hidden" value="1" onkeyup="value=this.value.replace(/\D+/g,'')">
+                    </label>
+                    <input type="button" class="btn btn-red btn-gold" value="生成连投计划" id="buttonSameTimes">
+                </div>
+
+                <div class="trace-table-container trace-table-container-0">
+                    <table cellpadding="0" cellspacing="0" >
+                        <thead>
+                            <tr>
+                                <th ><div class="col-1">序号</div></th>
+                                <th><div class="col-2"><input type="checkbox" checked="checked" class="checkbox checkedAll" >次数</div></th>
+                                <th><div class="col-3">倍数</div></th>
+                                <th><div class="col-4">金额</div></th> 
+                            </tr>
+                        </thead> 
+                    </table>
+                    <div class="trace-table-list">
+                        <table  cellpadding="0" cellspacing="0" id="tongbei-table">
+                             
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 利润率追号 -->
+            <div class="chase-tab-content hide">
+                <div class="trace-title-param">
+                    <label class="param right c-red" style="line-height: 28px;">注意：利润率计算使用当前用户最大奖金组计算</label>
+                    <label class="param">
+                        最低收益率:
+                        <input id="J-trace-lirunlv-num" class="input w-1" type="text" value="50" onkeyup="value=this.value.replace(/\D+/g,'')"> %
+                    </label>
+                    <label class="param">
+                        追号期数:
+                        <input id="J-trace-lirunlv-times" class="input w-1" type="text" value="10" onkeyup="value=this.value.replace(/\D+/g,'')">
+                    </label>
+                    <label class="param">
+                        起始:
+                        <span class="_relative">
+                                <select id=""  class="select lg w-1" onchange="this.nextSibling.value=this.value">
+                                    <option value="1">1</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                </select><input id="J-trace-lirunlv-multiple-select" class="input select-input" type="" value="1" onkeyup="value=this.value.replace(/\D+/g,'')">                                                     
+                            </span>
+                            倍 
+                        <input id="J-trace-lirunlv-multiple" class="input" type="hidden" value="1" onkeyup="value=this.value.replace(/\D+/g,'')">
+                    </label>
+                    <input type="button" class="btn btn-red" value="生成追号计划" id="buttonProfit">
+                </div>
+
+                <div class="trace-table-container trace-table-container-1">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><div class="col-1">序号</div></th>
+                                <th><div class="col-2"><input checked="checked"  class="checkbox checkedAll" type="checkbox"> 追号期次</div></th>
+                                <th><div class="col-3">倍数</div></th>
+                                <th><div class="col-4">金额</div></th>
+                                <th><div class="col-5">奖金</div></th>
+                                <th><div class="col-6">预期盈利金额</div></th>
+                                <th><div class="col-7">预期盈利率</div></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="trace-table-list">
+                        <table  cellpadding="0" cellspacing="0" id="lirunlv-table">
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 翻倍追号 -->
+            <div class="chase-tab-content hide">
+                <div class="trace-title-param">
+                    <label class="param">
+                        起始倍数:
+                        <input id="J-trace-fanbei-multiple" class="input w-1" type="text" value="1" onkeyup="value=this.value.replace(/\D+/g,'')">
+                    </label>
+                    <label class="param">
+                        隔
+                        <input id="J-trace-fanbei-jump" class="input w-1" type="text" value="2" onkeyup="value=this.value.replace(/\D+/g,'')">
+                    </label>
+                    <label class="param">
+                        期 倍x
+                        <input id="J-trace-fanbei-num" class="input w-1" type="text" value="2" onkeyup="value=this.value.replace(/\D+/g,'')">
+                    </label>
+                    <label class="param">
+                        追号期数:
+                        <input id="J-trace-fanbei-times" class="input w-1" type="text" value="10" onkeyup="value=this.value.replace(/\D+/g,'')">
+                    </label>
+                    <input type="button" class="btn btn-red" value="生成追号计划" id="buttonDoubled">
+                </div>
+
+                <div class="trace-table-container trace-table-container-0">
+                    <table cellpadding="0" cellspacing="0" >
+                        <thead>
+                            <tr>
+                                <th ><div class="col-1">序号</div></th>
+                                <th><div class="col-2"><input type="checkbox" checked="checked" class="checkbox checkedAll" >追号期次</div></th>
+                                <th><div class="col-3">倍数</div></th>
+                                <th><div class="col-4">金额</div></th>
+                                <th><div class="col-5">预计开奖时间</div></th>
+                            </tr>
+                        </thead> 
+                    </table>
+                    <div class="trace-table-list">
+                        <table  cellpadding="0" cellspacing="0" id="fanbei-table">
+                             
+                        </table>
+                    </div>
+                </div>
+            </div>
+ 
+        </div>
+
+        <div class="bet-statistics">
+            <table class="table">
+                <tbody><tr><th><span id="J-trace-statistics-times">0</span><br>期数</th>
+                <th><span id="J-trace-statistics-lotterys-num">0</span><br>注数</th>
+                <th><span id="J-trace-statistics-amount">0.000</span><br>连投计划总金额(元)</th>
+                <th><span id="J-trace-statistics-balance"></span><br>账户可用余额(元)</th> 
+            </tr></tbody></table>
+            <span id="J-trace-statistics-countdown" style="display:none;"></span>
+        </div>
+
+        <div class="pop-btn"> 
+            <input type="button"  class="btn btn-red btn-gold " id="J-button-trace-confirm" value="确认投注" />
+            <label class="clearfix">
+                <input type="checkbox" class="checkbox" id="J-trace-iswintimesstop" checked="checked">
+                中奖后停止连投
+            </label>  
+        </div>
+    </div> 
+</div>
+<script id="oneTraceTmpl" type="text/x-dot-template">
+{{~it.data:value:index}}
+    <tr>
+        <td ><div class="col-1">{{=value.index}}</div></td>
+        <td><div class="col-2"><input  type="checkbox" checked="checked" class="checkbox"> <span>{{=value.index}}</span></div></td>
+        <td><div class="col-3"><input class="trace-row-multiple input" onkeyup="value=this.value.replace(/\D+/g,'')" value="{{=value.multiple}}" type="text" style="width:45px;text-align:center;"> 倍</div></td>
+        <td><div class="col-4">¥ <span class="trace-row-money">{{=value.amount}}</span> 元</div></td> 
+    </tr>
+{{~}}
+</script>
+<script id="oneProfitTmpl" type="text/x-dot-template"> 
+{{~it.data:value:index}}
+    <tr>
+        <td><div class="col-1">{{=value.index}}</div></td>
+        <td><div class="col-2"><input  class="checkbox" type="checkbox" checked="checked"> <span>{{=value.period}}</span></td>
+        <td><div class="col-3"><input class="input" onkeyup="value=this.value.replace(/\D+/g,'')" value="{{=value.multiple}}" type="text" style="width:45px;text-align:center;"> 倍</div></td>
+        <td><div class="col-4">¥ <span class="trace-row-money">{{=value.amount}}</span> 元</div></td>
+        <td><div class="col-5">¥ <span class="trace-row-userGroupMoney">{{=value.amountAll}}</span> 元</div></td>
+        <td><div class="col-6">¥ <span class="trace-row-winTotalAmount">{{=value.winAmountAll}}</span> 元</div></td>
+        <td><div class="col-7"><span class="trace-row-yinglilv">{{=value.expectedProfitability}}</span></div></td>
+    </tr>
+{{~}}
+</script>

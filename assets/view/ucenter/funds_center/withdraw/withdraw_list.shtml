@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>提现记录</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+    <script type="text/javascript" src="/js/vendor/jquery.jedate.min.js"></script> 
+</head>
+<!--#set var="locationUrl" value="capitalCenter"-->
+<!--#set var="level2" value="4"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 --> 
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class="active">提现记录</a>
+                <a href="/view/ucenter/funds_center/withdraw/withdraw_application.shtml">提现申请</a>
+            </div>
+            <div class="search-condition">
+                <div class="search-condition-content">
+                    <div class="row">
+                        查询日期&nbsp;
+                        <input type="text" name="" class="input w-3" id="datebegin" placeholder="选择开始时间" readonly>&nbsp; <span style="color: #999">至</span> &nbsp;<input type="text" name="" class="input w-3"  id="dateend" placeholder="选择结束时间" readonly> <span class=" date-search" data-time="0">今日</span>|<span class="date-search" data-time="1">上周</span>|<span class="date-search" data-time="2">本周</span>|<span class="date-search" data-time="3">本月</span>|<span class="date-search" data-time="4">上半月</span>|<span class="date-search" data-time="5">下半月</span>
+                    </div>
+                    <div class="row">
+                        提现类型&nbsp;
+                        <select class="select w-3" id="transferType"> 
+                        </select>
+                        <span class="btn btn-blue lg search fr">搜 索</span>
+                    </div>
+                </div>
+            </div>
+            <table class="table" style="margin-top: 20px" id="listTable">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>时间</th>
+                        <th>账变类型</th>
+                        <th>变动金额</th>
+                        <th>变动后金额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>2017-05-31 16:27:14</td>
+                        <td>1950</td>
+                        <td>申请成功</td>
+                    </tr>
+                    <tr>
+                        <td>2017-05-31 16:27:14</td>
+                        <td>1950</td>
+                        <td>财务审核</td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <!--#include virtual="/view/module/pages.shtml"-->
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+            <!-- 格式化时间显示 -->
+    <!--#config timefmt="%Y-%m-%d %H:%M:%S" -->
+
+<script id="transactionList" type="text/x-dot-template"> 
+{{?it.data.length>0}} 
+    {{~it.data:value:index}}
+        <tr> 
+            <td>{{=value.serial_number}}</td> 
+            <td>{{=value.created_at}}</td> 
+            <td>{{=value.type}}</td>
+            <td>{{=formatMoney(value.amount)}}</td>
+            <td>{{=formatMoney(value.balance)}}</td>
+        </tr>
+    {{~}}
+{{??}}
+    <tr><td colspan="5">没有符合条件的记录，请更改查询条件</td></tr>
+{{?}}
+</script> 
+    <script type="text/javascript" src="/js/vendor/jqPaginator.js"></script>
+    <script type="text/javascript" src="/js/page/help.js"></script>
+    <script type="text/javascript">
+                //今日，本周 点击注册
+                quickTimeClick('<!--#echo var="DATE_LOCAL"-->');
+
+                //状 态  
+                ajaxData({
+                    url: getWebsiteOfHost() + "?action=getTransactionTypeList&type=withdraw&terminal_id=" + terminal_id,
+                    successCallback: function(data) {
+                        var selectArray = [];
+                        for (var i = 0, len = data.length; i < len; i++) {
+                            selectArray.push('<option value="' + data[i].id + '">' + data[i].description + '</option>');
+                        }
+                        $('#transferType').append(selectArray.join(''));
+                    }
+                });
+                
+                $('[data-time=0]').click();
+                doPullTableList();
+             
+
+                function createPagination(res, page) {
+                    page = page || 1;
+                    renderPagination('#pagination', res.count, page, function(num) {
+                        if (isCreateFirst) {
+                            isCreateFirst = false;
+                            return;
+                        }
+                        ajaxData({
+                            url: getTableUrl(num),
+                            successCallback: function(response) {
+                                var data = response.list;
+                                renderTableList(data);
+                            }
+                        });
+                    });
+                }
+
+                var isCreateFirst = true;
+                function doPullTableList() {
+                    //表格pull
+                    isCreateFirst = true;
+                    ajaxData({
+                        url: getTableUrl(),
+                        successCallback: function(res) {
+                            renderTableList(res.list);
+                            $('#pagination').html('');
+                            if (res.count/20>1) {
+                                createPagination(res,1,isCreateFirst);
+                            }
+                        }
+                    });
+
+                }
+
+                //search
+                $(document).on('click', '.search-condition-content .search', doPullTableList);
+
+                function renderTableList(data) {
+                    doTrender({
+                        container: '#listTable tbody',
+                        tmplObj: '#transactionList',
+                        data: {
+                            data: data
+                        },
+                        needClear: true,
+                        prependDom: false
+                    });
+                } 
+               
+                function getTableUrl(page) {
+                page = page || 1;  
+                var param = {
+                    action:'getTransactionList',
+                    terminal_id:terminal_id,
+                    created_at_from:$('#datebegin').val(),
+                    created_at_to:$('#dateend').val(),
+                    page:page,
+                    type:'withdraw',
+                    is_successed:1 
+                } 
+                return getWebsiteOfHost() + "?"+serializeObj2Params(param);
+            }
+    </script>
+
+</body>
+
+</html>

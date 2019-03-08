@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title>彩票中心-</title>
+      <!--#include virtual="/view/module/common.shtml"-->
+  <link rel="stylesheet" href="/images/game/game.css"> 
+
+</head>
+
+<body>
+<!-- 头部 --> 
+<!--#include virtual="/view/module/top.shtml"-->
+<!-- 头部导航 -->
+<!--#include virtual="/view/module/nav.shtml"-->
+
+<!-- 投注页面 -->
+<div class="wrap-inner clearfix wrap-game">
+    <div id="aside" class="left"> 
+        <!-- 彩票logo区域 -->
+        <!--#include virtual="/view/game/widget/_lottery_logo.shtml"-->
+        <!-- 历史彩票开奖结果 -->
+        <div class="bet-trend" id="J-minitrend-cont"> 
+            
+        </div>
+        <!-- 彩票记录区域 --> 
+        <!--#include virtual="/view/game/widget/_lottery_records.shtml"-->
+        <!-- 彩票记录区域 -->
+    </div>
+
+
+    <div id="content" class="right">
+        <div class="game-info"> 
+             <!-- 倒计时 --> 
+             <!--#include virtual="/view/game/widget/_countdown.shtml"-->
+             <div class="lottery-split-line"></div>
+            <!-- 开奖区域 --> 
+            <!--#include virtual="/view/game/widget/_lottery_board_pk10.shtml"-->
+            <!-- 开奖区域 -->
+        </div>
+        <div class="game-board">
+            <div class="play-section ">
+                <div class="section-inner">
+                    <div class="play-select">
+                       <!-- 玩法类型 -->
+                        <ul class="play-select-title clearfix" id="J-panel-gameTypes">   
+                        <!--#include virtual="/view/game/widget/_game_group.shtml"-->
+                        </ul>
+                        <!-- 具体玩法 -->
+                        <ul class="gametypes-menu-ul" id="J-gametyes-menu-panel"> 
+                        <!--#include virtual="/view/game/widget/_games.shtml"-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="number-section">
+                <!-- <div class="section-label"><span>选择幸运号码</span></div> -->
+                <div class="section-inner"> 
+                    <div id="J-balls-main-panel" class="number-section-balls-main-panel">
+                            <!-- 选号规则,中奖说明 -->
+                            <!--#include virtual="/view/game/widget/_lottery_desc.shtml"-->
+                            <!-- 选球区域 -->
+                            <div class="number-select-content">
+                                <ul class="ball-section">
+                                 
+                                </ul>
+                            </div>
+                    </div>
+                   
+                   <div id="J-balls-statistics-panel">
+                        <!-- 投注倍数，元角模式，返点设置区域 -->
+                        <!--#include virtual="/view/game/widget/_bet_statistics.shtml"-->
+                   </div>
+
+                </div>
+            </div>
+
+            <!-- 号码篮 -->
+            <!--#include virtual="/view/game/widget/_basket_box.shtml"-->
+            
+        </div>
+    </div>
+</div>
+<!--#include virtual="/view/game/widget/_message.shtml"-->
+<div class="mask hide" id="maskOfXGAME" ></div> 
+<!--#include virtual="/view/module/footer.shtml"-->
+<!-- 追号投注 --> 
+ <!--#include virtual="/view/game/widget/_traceBet.shtml"-->
+ <!--#include virtual="/view/game/widget/_submiting.shtml"-->
+<!--#include virtual="/view/game/widget/_print.shtml"-->
+<!-- data -->
+<div id="moduleShowHide"> <p> 文件加载中... </p>  </div>
+<script type="text/javascript" src="/js/core/game/pk10/data1.js"></script> 
+<script type="text/javascript" src="/js/core/game/pk10/data2.js"></script> 
+
+<!-- lib依赖 --> 
+<script type="text/javascript" src="/js/widget/easing.js"></script>
+<script type="text/javascript" src="/js/widget/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="/js/widget/jquery.jscrollpane.js"></script>
+
+<!-- 核心 -->
+<script type="text/javascript" src="/js/core/gamebase.js"></script> 
+<script type="text/javascript" src="/js/core/games.js"></script>
+<script type="text/javascript" src="/js/core/gameMapping.js"></script>
+<script type="text/javascript" src="/js/core/gameMethod.js"></script> 
+<script type="text/javascript" src="/js/core/gameCountdown.js"></script>
+<script type="text/javascript" src="/js/core/gameOrder.js"></script> 
+<script type="text/javascript" src="/js/core/gameMessage.js"></script> 
+<script type="text/javascript" src="/js/core/gameSubmit.js"></script> 
+<script type="text/javascript" src="/js/core/gameSingleBet.js"></script>
+<script type="text/javascript" src="/js/core/game/pk10/singleBet.js"></script> 
+<script type="text/javascript" src="/js/core/gameHelp.js"></script>
+<script type="text/javascript" src="/js/core/gameTrace.js"></script>  
+<script type="text/javascript" src="/js/core/gameConfig.js"></script> 
+<script type="text/javascript" src="/js/core/game.js"></script>  
+<script type="text/javascript" src="/js/tpl/template.js"></script>
+<script type="text/javascript" src="/js/widget/gagame.SliderBar.js"></script>
+<script type="text/javascript" src="/js/widget/pako.min.js"></script>
+
+<!-- 具体彩种 -->
+<script type="text/javascript" src="/js/core/game/pk10/pk10.js"></script>
+<script type="text/javascript" src="/js/core/game/pk10/config.js"></script>
+<script type="text/javascript" src="/js/core/game/pk10/init.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+    <link rel="stylesheet" href="/images/global/global.css?v=20180419">
+    <link rel="stylesheet" href="/images/index/index.css?v=20180419">
+    <script type="text/javascript" src="/js/vendor/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/doT.js"></script>
+    <script type="text/javascript" src="/js/vendor/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.jedate.min.js"></script>
+    <script type="text/javascript" src="/js/page/common.js"></script>
+    <script type="text/javascript" src="/js/widget/Base64.min.js?version=1.0.1"></script>
+
+    

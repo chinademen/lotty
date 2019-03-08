@@ -1,0 +1,727 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+                重庆时时彩-五星-走势图
+            --彩票中心游戏
+        </title>
+        <link media="all" type="text/css" rel="stylesheet" href="http://www.jinpingguo88.com/assets/images/global/global.css?130">
+        <link media="all" type="text/css" rel="stylesheet" href="http://www.jinpingguo88.com/assets/images/chart/chart.css?130">
+        <script src="http://www.jinpingguo88.com/assets/js-min/jquery-1.9.1.min.js?130"></script>
+         <script src="http://www.jinpingguo88.com/assets/js-min/jquery.easing.1.3.js?130"></script>
+        <script src="http://www.jinpingguo88.com/assets/js-min/jquery.mousewheel.min.js?130"></script>
+        <script src="http://www.jinpingguo88.com/assets/js-min/jquery.jscrollpane.js?130"></script>
+
+
+            <script src="/js/trend/gagame.base.js"></script>
+            <script src="/js/trend/gagame.Ernie.js"></script>
+            <script src="/js/trend/gagame.Select.js"></script>
+            <!--[if IE] ><script src="http://www.jinpingguo88.com/assets/js-min/excanvas.js?130"></script>
+<![endif]-->
+            <script src="/js/trend/gagame.DatePicker.js"></script>
+            <script src="/js/trend/gagame.GameChart.case.js"></script>
+            <script src="/js/trend/gagame.GameChart.js"></script>
+
+        
+
+
+    </head>
+
+    <body class="table-trend">
+            <div class="header">
+    <div class="header-inner">
+        <ul>
+                        <li class="current"><a href="http://www.jinpingguo88.com/tides/trend-view/1">重庆时时彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/2">山东11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/3">黑龙江时时彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/4">上海时时乐</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/5">江西时时彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/6">新疆时时彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/7">天津时时彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/8">江西11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/9">广东11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/10">北京PK拾</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/11">3D</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/12">排列三/五</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/13">苹果分分彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/14">苹果11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/15">江苏快三</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/16">苹果三分彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/17">苹果快三分分彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/18">甘肃快三</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/19">苹果极速PK10</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/20">苹果极速3D</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/21">广西快三</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/22">北京11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/23">甘肃11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/24">安徽11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/25">辽宁11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/27">福建11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/28">苹果五分彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/29">贵州11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/30">安徽快三</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/32">山西11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/33">河北快三</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/34">内蒙古11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/35">吉林快三</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/36">云南时时彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/37">北京快乐8</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/38">韩国快乐彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/39">四川快乐十二</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/40">山西快乐十分</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/41">重庆快乐十分</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/42">浙江快乐十二</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/44">11选5三分彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/45">北京五分彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/46">韩国1.5分彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/47">江苏11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/48">福建快三</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/49">缅甸百秒彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/50">陕西快乐十分</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/51">苹果快乐8分分彩</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/52">上海11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/53">河北11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/55">河南快三</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/56">天津11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/57">广东快乐十分</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/59">辽宁快乐十二</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/92">浙江11选5</a></li>
+                        <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/93">台湾宾果</a></li>
+                    </ul>
+    </div>
+</div>
+<div class="select-section">
+    <div class="select-section-inner clearfix">
+        <ul class="select-list">
+                    <li class="current"><a href="http://www.jinpingguo88.com/tides/trend-view/1/5">五星</a></li>
+                    <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/1/4">四星</a></li>
+                    <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/1/3f">前三</a></li>
+                    <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/1/3e">后三</a></li>
+                    <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/1/2f">前二</a></li>
+                    <li class=""><a href="http://www.jinpingguo88.com/tides/trend-view/1/2e">后二</a></li>
+                </ul>
+        <div class="select-function">
+            <i class="arrow-down"></i><a class="arrow-button" href="#" id="J-button-showcontrol">收起</a>
+            <!-- <a target="_blank" id="report-download" class="select-download" href="http://www.ph158.com/reportDownload/gametype=cqssc?dataType=periods?dataNum=30">报表下载</a> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="select-section-content clearfix" id="J-panel-control">
+    <div class="select-section-content-inner">
+        <div class="function">
+            <label class="label"><input data-action="guides" type="checkbox" class="checkbox" checked="checked">辅助线</label>
+            <label class="label"><input data-action="lost" type="checkbox" class="checkbox" checked="checked">遗漏</label>
+            <label class="label"><input data-action="lost-post" type="checkbox" class="checkbox">遗漏条</label>
+            <label class="label"><input data-action="trend" type="checkbox" class="checkbox" checked="checked">走势</label>
+            <label class="label"><input data-action="temperature" type="checkbox" class="checkbox">号温</label>
+        </div>
+        <div class="time" id="J-periods-data">
+            <a data-value="30" data-type="count"  href="javascript:void(0);" class="current">近30期</a>
+            <a data-value="50" data-type="count" href="javascript:void(0);">近50期</a>
+            <a data-value="" data-type="today" href="javascript:void(0);">今日数据</a>
+            <a data-value="2" data-type="day" href="javascript:void(0);">近2天</a>
+            <a data-value="5" data-type="day" href="javascript:void(0);">近5天</a>
+            <!--
+            <select id="J-select-param-day">
+                <option value="30">近30期</option>
+                <option value="50">近50期</option>
+                <option value="1">今日数据</option>
+                <option value="2">近2天</option>
+                <option value="5">近5天</option>
+            </select>
+        -->
+        </div>
+        <div class="search">
+            <input type="text" value="" id="J-date-star" class="input"> 至 <input id="J-date-end" type="text" value="" class="input">
+            <a id="J-time-periods" class="btn" href="javascript:void(0);">搜索</a>
+        </div>
+    </div>
+</div>
+    <!-- Star 五星 -->
+    <div class="chart-section" id="J-chart-area">
+        <table class="chart-table" id="J-chart-table">
+            <thead class="thead">
+                <tr class="title-text">
+                    <th rowspan="2" colspan="3" class="border-bottom border-right">期号</th>
+                    <th colspan="3" class="border-right">开奖号码</th>
+                    <th colspan="12" class="border-right border-bottom">万位</th>
+                    <th colspan="12" class="border-right border-bottom">千位</th>
+                    <th colspan="12" class="border-right border-bottom">百位</th>
+                    <th colspan="12" class="border-right border-bottom">十位</th>
+                    <th colspan="12" class="border-right border-bottom">个位</th>
+                    <th colspan="12" class="border-bottom">号码分布</th>
+                </tr>
+                <tr class="title-number">
+                    <th class="ball-none border-bottom-header"></th>
+                    <th class="border-bottom-header"><label class="label"><input type="checkbox" class="checkbox">全部</label></th>
+                    <th class="ball-none border-bottom-header border-right"></th>
+                    <th class="ball-none border-bottom-header td-bg"></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">0</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">1</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">2</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">3</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">4</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">5</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">6</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">7</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">8</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">9</i></th>
+                    <th class="ball-none border-bottom-header border-right td-bg"></th>
+                    <th class="ball-none border-bottom-header td-bg"></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">0</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">1</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">2</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">3</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">4</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">5</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">6</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">7</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">8</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">9</i></th>
+                    <th class="ball-none border-bottom-header border-right td-bg"></th>
+                    <th class="ball-none border-bottom-header td-bg"></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">0</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">1</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">2</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">3</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">4</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">5</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">6</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">7</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">8</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">9</i></th>
+                    <th class="ball-none border-bottom-header border-right td-bg"></th>
+                    <th class="ball-none border-bottom-header td-bg"></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">0</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">1</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">2</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">3</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">4</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">5</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">6</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">7</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">8</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">9</i></th>
+                    <th class="ball-none border-bottom-header border-right td-bg"></th>
+                    <th class="ball-none border-bottom-header td-bg"></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">0</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">1</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">2</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">3</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">4</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">5</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">6</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">7</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">8</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">9</i></th>
+                    <th class="ball-none border-bottom-header border-right td-bg"></th>
+                    <th class="ball-none border-bottom-header td-bg"></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">0</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">1</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">2</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">3</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">4</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">5</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">6</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">7</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">8</i></th>
+                    <th class="border-bottom-header td-bg"><i class="ball-noraml">9</i></th>
+                    <th class="ball-none border-bottom-header td-bg"></th>
+                </tr>
+            </thead>
+            <tbody id="J-chart-content" class="chart table-guides">
+                <tr></tr>
+            </tbody>
+
+            <tbody id="J-ball-content" class="tbody">
+
+            </tbody>
+
+            <tbody class="tbody tbody-footer-header">
+                <tr class="auxiliary-area title-number">
+                    <td rowspan="2" colspan="3" class="border-right border-bottom">期号</td>
+                    <td rowspan="2" colspan="3" class="border-right border-bottom" >开奖号码</td>
+                    <td class="ball-none border-bottom td-bg"></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">0</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">1</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">2</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">3</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">4</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">5</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">6</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">7</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">8</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">9</i></td>
+                    <td class="ball-none border-right border-bottom td-bg"></td>
+                    <td class="ball-none border-bottom td-bg"></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">0</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">1</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">2</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">3</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">4</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">5</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">6</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">7</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">8</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">9</i></td>
+                    <td class="ball-none border-right border-bottom td-bg"></td>
+                    <td class="ball-none border-bottom td-bg"></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">0</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">1</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">2</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">3</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">4</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">5</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">6</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">7</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">8</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">9</i></td>
+                    <td class="ball-none border-right border-bottom td-bg"></td>
+                    <td class="ball-none border-bottom td-bg"></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">0</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">1</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">2</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">3</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">4</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">5</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">6</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">7</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">8</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">9</i></td>
+                    <td class="ball-none border-right border-bottom td-bg"></td>
+                    <td class="ball-none border-bottom td-bg"></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">0</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">1</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">2</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">3</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">4</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">5</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">6</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">7</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">8</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">9</i></td>
+                    <td class="ball-none border-right border-bottom td-bg"></td>
+                    <td class="ball-none border-bottom td-bg"></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">0</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">1</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">2</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">3</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">4</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">5</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">6</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">7</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">8</i></td>
+                    <td class="border-bottom td-bg"><i class="ball-noraml">9</i></td>
+                    <td class="ball-none border-bottom td-bg"></td>
+                </tr>
+                <tr class="auxiliary-area title-text">
+                    <td colspan="12" class="border-right border-bottom">万位</td>
+                    <td colspan="12" class="border-right border-bottom">千位</td>
+                    <td colspan="12" class="border-right border-bottom">百位</td>
+                    <td colspan="12" class="border-right border-bottom">十位</td>
+                    <td colspan="12" class="border-right border-bottom">个位</td>
+                    <td colspan="12" class="border-bottom">号码分布</td>
+                </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+    <!-- End 五星 -->
+        <div class="prompt-text keywords-description">
+            <div class="item-title"><i class="item-icon"></i>参数说明</div>
+            <ol class="item-info">
+                <li>出现总次数：统计期数内实际出现的次数。</li>
+                <li>平均遗漏：统计期数内遗漏的平均值。（计算公式：平均遗漏＝统计期数/(出现次数+1)。）</li>
+                <li>最大遗漏：统计期数内遗漏的最大值。</li>
+                <li>最大连出值：统计期数内连续开出的最大值。</li>
+            </ol>
+        </div>
+        <div id="footer" class="wrap">
+	<div class="wrap-inner">
+		<a class="logo left" href="/">苹果游戏</a>
+<!-- 		<div class="right app-box">
+			<img src="/assets/images/global/app.png" alt="彩票中心手机端下载">
+			<br>彩票中心手机端下载
+		</div> -->
+		<div class="right ft-cont">
+			<p class="ft-link">
+				<a href="/appstore/index.html" target="_blank">软件中心</a>
+				<a href="/about" target="_blank">联系我们</a>
+				<a href="/help" target="_blank">帮助中心</a>
+				<a href="/help/10#23" target="_blank">安全保障</a>
+			</p>
+			<p>® 彩票中心游戏版权所有</p>
+			<p>Copyright © 2015-2018 Golden Apple Game Technology Co., Ltd.</p>
+		</div>
+
+	</div>
+</div>
+
+	<div class="sidebar-right">
+		<ul class="sidebar-right-ul">
+							<li name="btn-online-chat"><div class="triangle-right-out" style="display: none;" btn-online-chat><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-btn-online-chat"></i></li>
+							<li name="phone"><div class="triangle-right-out" style="display: none;" phone><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-phone"></i></li>
+					</ul>
+					<div class="suspension-frame" style="display: none;" btn-online-chat><p class="title">彩票中心在线客服</p><p>解决充值，投注，提款，手机客户端等问题</p><a class="btn btn-important btn-online-chat">在线客服</a></div>					<div class="suspension-frame" style="width: 100px; left: -154px;height:260px; display: none;" phone><img src="/assets/images/global/2weima.png"><p>安卓App扫码下载</p><br/><img src="/assets/images/global/ios_app.png"><p>IOS App扫码下载</p></div>									</div>
+
+<!-- <div class="app-down">
+	<p>安卓APP<i></i></p>
+	<img src="/assets/images/global/2weima.png">
+</div> -->
+
+
+<script type="text/javascript">
+
+	_role = '',
+			a = 1,
+			b = 1,
+			c = 0,
+			d = 0;
+	if(b){
+		_role = '测试'
+	}else if(a && !c){
+		_role = '代理'
+	}else if(a && c){
+		_role = '总代'
+	}else if(d){
+		_role = '玩家'
+	}else{
+		_role = '游客'
+	};
+	var _name = "jefftest" ? "&user_name=jefftest" : '未登录';
+
+	function getExtraParamForKFInterface(){
+		return {'name': '用户名称:'+_name ,'role': '用户角色:'+_role};
+	};
+
+	$(function(){
+		/* 右侧边栏ＱＱ，客服，二维码 */
+		var index,time;
+		$(".sidebar-right-ul").on("mouseenter","li",function(){
+			var name = $(this).attr("name");
+			clearTimeout(time);
+			$(".suspension-frame").hide();
+			$(".triangle-right-out").hide();
+			$(".suspension-frame["+name+"]").show();
+			$(".triangle-right-out["+name+"]").show();
+		}).on("mouseleave","li",function(){
+			time = setTimeout(function() {
+				$(".suspension-frame").hide();
+				$(".triangle-right-out").hide();
+			}, 500);
+		})
+
+		$(".suspension-frame").on("mouseenter",function(){
+			clearTimeout(time);
+		}).on("mouseleave",function(){
+			$(".suspension-frame").hide();
+			$(".triangle-right-out").hide();
+		})
+		/* 右侧边栏ＱＱ，客服，二维码 */
+
+		/*$('[data-call-center]').addClass('btn-online-chat');*/
+		/*$('[data-call-center]').addClass('btn-online-chat');
+
+		 var qqURL = 'http://wpd.b.qq.com/page/webchat.html?nameAccount=800112473';
+		 $('[data-call-qq]').click(function(event) {
+		 window.open(qqURL,"","height=520,width=605,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		 return false;
+		 });*/
+
+
+		//平台、设备和操作系统
+		var system ={
+			win : false,
+			mac : false,
+			xll : false
+		};
+		//检测平台
+		var p = navigator.platform;
+		system.win = p.indexOf("Win") == 0;
+		system.mac = p.indexOf("Mac") == 0;
+		system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+		if(system.win||system.mac||system.xll){
+		}else{
+			// $('div.call-center').hide();
+			$('body').css('minWidth','1200px')
+		}
+
+		/*appdown*/
+		/*$(".app-down").on("click","p",function(e){
+		 e.stopPropagation();
+		 if(!$(".app-down").data("big")){
+		 $(".app-down").data("big",true).find("i").hide();
+		 $(".app-down").animate({width: "60px",},200, function() {
+		 $(this).css({"cursor":"pointer"});
+		 });
+		 }else{
+		 if($(".app-down").data("big")){
+		 $(".app-down").find("i").show();
+		 $(".app-down").data("big",false);
+		 $(".app-down").animate({width: "120px",},200, function() {
+		 $(this).css({"cursor":"default"});
+		 });
+		 }
+		 }
+
+		 }).on("click","img",function(){
+		 if($(".app-down").data("big")){
+		 $(".app-down").find("i").show();
+		 $(".app-down").data("big",false);
+		 $(".app-down").animate({width: "120px",},200, function() {
+		 $(this).css({"cursor":"default"});
+		 });
+		 }
+		 })*/
+
+		/*判断当前设备*/
+		function mentClient(){
+			var UserClient = navigator.userAgent.toLowerCase();
+			var IsIPad = UserClient.match(/ipad/i) == "ipad";
+			var IsIphoneOs = UserClient.match(/iphone os/i) == "iphone os";
+			var IsMidp = UserClient.match(/midp/i) == "midp";
+			var IsUc7 = UserClient.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+			var IsUc = UserClient.match(/ucweb/i) == "ucweb";
+			var IsAndroid = UserClient.match(/android/i) == "android";
+			var IsCE = UserClient.match(/windows ce/i) == "windows ce";
+			var IsWM = UserClient.match(/windows mobile/i) == "windows mobile";
+			if(IsIPad || IsIphoneOs || IsMidp || IsUc7 || IsUc || IsAndroid || IsCE || IsWM){
+				$(".app-down").hide();
+			}
+		}
+		mentClient();
+
+
+	})
+
+</script>
+						<script src="https://s4.myapple888.com/Js/chat/kf.js?companyId=70722524&style=default&el=btn-online-chat&mode=2&userid=3547&name=jefftest&platform=2" > </script>
+								<script src="" > </script>
+			
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function()
+			{ (i[r].q=i[r].q||[]).push(arguments)}
+			,i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99841616-1', 'auto');
+	ga('send', 'pageview');
+
+	var EventID = "13";
+
+																																																												
+	// var wsUri ="ws://58.64.167.101:9505/";
+	// Connec = new WebSocket(wsUri);
+    //
+	// function conentserver() {
+	// 	Connectserver();
+	// }
+    //
+	// function Connectserver() {
+	// 	Connec.onopen = function(evt) {
+	// 		onOpen(evt);
+	// 	};
+	// 	Connec.onclose = function(evt) {
+	// 		onClose(evt);
+	// 	};
+	// 	Connec.onmessage = function(evt) {
+	// 		onMessage(evt);
+	// 	};
+	// 	Connec.onerror = function(evt) {
+	// 		onError(evt);
+	// 	};
+	// }
+
+																																																												
+	/***
+	 * 连接服务器
+	 * @param evt
+	 */
+	// function onOpen(evt) {
+	// 	var Connetc_msg =  ConnetcServer();
+	// 	doSend(Connetc_msg);
+	// }
+
+	/* **
+	 * 离开关闭连接
+	 * @param evt
+	 * @returns {string}*/
+
+																																																
+	/***
+	 * 发送-接收消息
+	 * @param evt
+	 */
+	// function onMessage(evt) {
+	// 	append_speak(evt.data);
+	// }
+
+
+	/***
+	 * 服务器异常关闭
+	 * @param evt
+	 */
+	// function onError(evt) {
+	// }
+
+	/***
+	 * 与服务器进行消息交互
+	 * @param message
+	 */
+	// function doSend(message) {
+	// 	Connec.send(message);
+	// }
+
+
+	function append_speak(new_msg){
+
+		var items = JSON.parse(new_msg);
+		if (items.static == "Time"){
+			var time=items.Time.split(":");
+			$(".redbag_times").eq(0).text( addZero(time[0]));
+			$(".redbag_times").eq(1).text( addZero(time[1]));
+			$(".redbag_times").eq(2).text( addZero(time[2]));
+		}
+
+
+	}
+
+	$(".redbagside_trunoff").click(function(event) {
+		$(this).parent().hide();
+	});
+	function addZero (num) {
+		var digit='';
+		if(num>=10){
+			return  num;
+		}
+		if(num<10){
+			digit="0"+num;
+			return digit;
+		}
+
+	}
+
+
+	// conentserver();
+
+</script>   
+ </body>
+
+        
+            
+        
+   <script>
+        var CHART;
+        (function($){
+
+            var sysConfig = {"lotteryId":"1","wayId":"5","nowTime":"2018-02-13 14:34:01","queryBaseUrl":"http:\/\/www.jinpingguo88.com\/tides\/trend-data"};
+
+            CHART = new gagame.GameCharts({currentGameType:'cqssc', currentGameMethod: 'Wuxing', expands:{
+                getDataUrl:function(){
+                    var dt1 = Date.parse(new Date($('#J-date-star').val())),
+                        dt2 = Date.parse(new Date($('#J-date-end').val()));
+                    dt1 = isNaN(dt1) ? '' : dt1/1000;
+                    dt2 = isNaN(dt2) ? '' : dt2/1000;
+                    var param = {
+                        'lottery_id':sysConfig.lotteryId,
+                        'num_type':sysConfig.wayId,
+                        'count':30,
+                        'begin_time':dt1,
+                        'end_time':dt2
+                    },
+                    arr = [sysConfig.queryBaseUrl + '?'],
+                    p;
+
+                    for(p in param){
+                        if(param.hasOwnProperty(p)){
+                            arr.push(p + '=' + param[p]);
+                        }
+                    }
+                    return arr.join('&');
+                },
+                reBuildData:function(data){
+                    var arrMain = [],
+                        newArr = [],
+                        timesData = data['statistics'][0],
+                        ballData = data['data'],
+                        loseBar = data['omissionBarStatus'],
+                        loseFlag = new Array(50);
+                        tempArr = [],
+                        i2 = 0,
+                        i3 = 0;
+
+                    $.each([0, 1, 2, 3, 4], function(i){
+                        arrMain[i] = [];
+                        $.each([0,1,2,3,4,5,6,7,8,9], function(j){
+                            // [times, index]
+                            arrMain[i][j] = [timesData[i*10+j], j];
+                        });
+                        arrMain[i].sort(function(a, b){
+                            return b[0] - a[0];
+                        });
+                        $.each(arrMain[i], function(k){
+                            //cold 1
+                            //hot 3
+                            //other 2
+                            if(k < 3){
+                                newArr[i*10+arrMain[i][k][1]] = 3;
+                            }else if(k > 6){
+                                newArr[i*10+arrMain[i][k][1]] = 1;
+                            }else{
+                                newArr[i*10+arrMain[i][k][1]] = 2;
+                            }
+                        });
+
+                    });
+                    $.each(ballData, function(i){
+                        i2 = 0;
+                        $.each(this, function(j){
+                            i3 = 0;
+                            if(i2 > 1 && i2 < 7){
+                                $.each(this, function(){
+                                    if(this[0] == 0){
+                                        this[2] = newArr[(i2 - 2)*10 + i3];
+                                    }
+                                    //loseBar
+                                    if(loseBar[(i2 - 2)*10 + i3] < 0){
+                                        loseFlag[(i2 - 2)*10 + i3] = true;
+                                    }
+                                    if(!loseFlag[(i2 - 2)*10 + i3]){
+                                        this[3] = 0;
+                                    }else{
+                                        this[3] = 1;
+                                    }
+                                    if(loseBar[(i2 - 2)*10 + i3] == i){
+                                        loseFlag[(i2 - 2)*10 + i3] = true;
+                                    }
+                                    i3++;
+                                });
+                            }
+                            i2++;
+                        });
+                    });
+                    return data;
+                }
+            }});
+            CHART.addEvent('afterRenderChartHtml', function(){
+                var me = this,tds = $(me.getContainer()).find('tr:last').children();
+                tds.addClass('border-bottom');
+            });
+            CHART.show();
+
+            CHART.sysConfig = sysConfig;
+
+
+        })(jQuery);
+    </script>
+
+
+</html>

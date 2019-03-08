@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>我的奖金组</title>
+       <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+</head>
+<!--#set var="locationUrl" value="cardManager"-->
+<!--#set var="level2" value="0"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main" style="position: relative;">
+            <div class="main-nav">
+                <a href="javascript:" class="active" >我的奖金组</a>
+                <span>单期最高奖金为40万</span>
+        　 </div>
+        <div class="bounsgroup-list" id="bounsgroup-list">
+        </div>
+        </div>
+    </div>
+   <div class="content" style="display: none">
+   <table class="table table-rowspan">
+    <thead>
+        <tr>
+            <th>玩法群</th>
+            <th>玩法组</th>
+            <th>玩法</th>
+            <th>奖级</th>
+            <th>奖金</th></tr>
+    </thead>
+    <tbody id="playBonusGroup">
+        <tr>
+            <td rowspan="10">五星</td>
+            <td rowspan="4">直选</td>
+            <td rowspan="1">直选复式</td>
+            <td></td>
+            <td>196,000.00</td></tr>
+        <tr>
+            <td rowspan="1">直选单式</td>
+            <td></td>
+            <td>196,000.00</td></tr>
+        <tr>
+            <td rowspan="1">直选组合</td>
+            <td></td>
+            <td>19.60</td></tr>
+        <tr>
+            <td rowspan="1">直选和值</td>
+            <td></td>
+            <td>196,000.00</td></tr>
+        <tr>
+            <td rowspan="6">组选</td>
+            <td rowspan="1">组选120</td>
+            <td></td>
+            <td>1,633.33</td></tr>
+        <tr>
+            <td rowspan="1">组选60</td>
+            <td></td>
+            <td>3,266.67</td></tr>
+        <tr>
+            <td rowspan="1">组选30</td>
+            <td></td>
+            <td>6,533.33</td></tr>
+        <tr>
+            <td rowspan="1">组选20</td>
+            <td></td>
+            <td>9,800.00</td></tr>
+        <tr>
+            <td rowspan="1">组选10</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">组选5</td>
+            <td></td>
+            <td>39,200.00</td></tr>
+        <tr>
+            <td rowspan="6">前四</td>
+            <td rowspan="2">直选</td>
+            <td rowspan="1">直选复式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">直选单式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="4">组选</td>
+            <td rowspan="1">组选24</td>
+            <td></td>
+            <td>816.67</td></tr>
+        <tr>
+            <td rowspan="1">组选12</td>
+            <td></td>
+            <td>1,633.33</td></tr>
+        <tr>
+            <td rowspan="1">组选6</td>
+            <td></td>
+            <td>3,266.67</td></tr>
+        <tr>
+            <td rowspan="1">组选4</td>
+            <td></td>
+            <td>4,900.00</td></tr>
+        <tr>
+            <td rowspan="7">后四</td>
+            <td rowspan="3">直选</td>
+            <td rowspan="1">直选复式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">直选单式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">直选组合</td>
+            <td></td>
+            <td>19.60</td></tr>
+        <tr>
+            <td rowspan="4">组选</td>
+            <td rowspan="1">组选24</td>
+            <td></td>
+            <td>816.67</td></tr>
+        <tr>
+            <td rowspan="1">组选12</td>
+            <td></td>
+            <td>1,633.33</td></tr>
+        <tr>
+            <td rowspan="1">组选6</td>
+            <td></td>
+            <td>3,266.67</td></tr>
+        <tr>
+            <td rowspan="1">组选4</td>
+            <td></td>
+            <td>4,900.00</td></tr>
+        <tr>
+            <td rowspan="17">前三</td>
+            <td rowspan="5">直选</td>
+            <td rowspan="1">直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选组合</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="7">组选</td>
+            <td rowspan="1">组三</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">组六</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">包胆</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="5">其它</td>
+            <td rowspan="1">和值尾数</td>
+            <td></td>
+            <td>19.60</td></tr>
+        <tr>
+            <td rowspan="1">特殊号码</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">豹子</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">顺子</td>
+            <td></td>
+            <td>32.67</td></tr>
+        <tr>
+            <td rowspan="1">对子</td>
+            <td></td>
+            <td>7.26</td></tr>
+        <tr>
+            <td rowspan="16">中三</td>
+            <td rowspan="4">直选</td>
+            <td rowspan="1">直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="7">组选</td>
+            <td rowspan="1">组三</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">组六</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">包胆</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="5">其它</td>
+            <td rowspan="1">和值尾数</td>
+            <td></td>
+            <td>19.60</td></tr>
+        <tr>
+            <td rowspan="1">特殊号码</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">豹子</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">顺子</td>
+            <td></td>
+            <td>32.67</td></tr>
+        <tr>
+            <td rowspan="1">对子</td>
+            <td></td>
+            <td>7.26</td></tr>
+        <tr>
+            <td rowspan="17">后三</td>
+            <td rowspan="5">直选</td>
+            <td rowspan="1">直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">直选组合</td>
+            <td></td>
+            <td>19.60</td></tr>
+        <tr>
+            <td rowspan="7">组选</td>
+            <td rowspan="1">组三</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">组六</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">包胆</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="5">其它</td>
+            <td rowspan="1">和值尾数</td>
+            <td></td>
+            <td>19.60</td></tr>
+        <tr>
+            <td rowspan="1">特殊号码</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">豹子</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">顺子</td>
+            <td></td>
+            <td>32.67</td></tr>
+        <tr>
+            <td rowspan="1">对子</td>
+            <td></td>
+            <td>7.26</td></tr>
+        <tr>
+            <td rowspan="16">二星</td>
+            <td rowspan="8">直选</td>
+            <td rowspan="1">后二复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">后二单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">后二和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">后二跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">前二复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">前二单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">前二和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">前二跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="8">组选</td>
+            <td rowspan="1">后二复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">后二单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">后二和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">后二包胆</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">前二复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">前二单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">前二和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">前二包胆</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">一星</td>
+            <td rowspan="1">定位胆</td>
+            <td rowspan="1">定位胆</td>
+            <td></td>
+            <td>19.60</td></tr>
+        <tr>
+            <td rowspan="8">不定位</td>
+            <td rowspan="4">三星不定位</td>
+            <td rowspan="1">后三一码不定位</td>
+            <td></td>
+            <td>7.23</td></tr>
+        <tr>
+            <td rowspan="1">后三二码不定位</td>
+            <td></td>
+            <td>36.30</td></tr>
+        <tr>
+            <td rowspan="1">前三一码不定位</td>
+            <td></td>
+            <td>7.23</td></tr>
+        <tr>
+            <td rowspan="1">前三二码不定位</td>
+            <td></td>
+            <td>36.30</td></tr>
+        <tr>
+            <td rowspan="2">四星不定位</td>
+            <td rowspan="1">四星一码不定位</td>
+            <td></td>
+            <td>5.70</td></tr>
+        <tr>
+            <td rowspan="1">四星二码不定位</td>
+            <td></td>
+            <td>20.12</td></tr>
+        <tr>
+            <td rowspan="2">五星不定位</td>
+            <td rowspan="1">五星二码不定位</td>
+            <td></td>
+            <td>13.36</td></tr>
+        <tr>
+            <td rowspan="1">五星三码不定位</td>
+            <td></td>
+            <td>45.06</td></tr>
+        <tr>
+            <td rowspan="5">大小单双</td>
+            <td rowspan="5">大小单双</td>
+            <td rowspan="1">后二大小单双</td>
+            <td></td>
+            <td>7.84</td></tr>
+        <tr>
+            <td rowspan="1">后三大小单双</td>
+            <td></td>
+            <td>15.68</td></tr>
+        <tr>
+            <td rowspan="1">前二大小单双</td>
+            <td></td>
+            <td>7.84</td></tr>
+        <tr>
+            <td rowspan="1">前三大小单双</td>
+            <td></td>
+            <td>15.68</td></tr>
+        <tr>
+            <td rowspan="1">五星和值大小单双</td>
+            <td></td>
+            <td>3.92</td></tr>
+        <tr>
+            <td rowspan="12">趣味</td>
+            <td rowspan="4">趣味</td>
+            <td rowspan="1">五码趣味三星</td>
+            <td></td>
+            <td>7,840.00</td></tr>
+        <tr>
+            <td rowspan="1">四码趣味三星</td>
+            <td></td>
+            <td>3,920.00</td></tr>
+        <tr>
+            <td rowspan="1">后三趣味二星</td>
+            <td></td>
+            <td>392.00</td></tr>
+        <tr>
+            <td rowspan="1">前三趣味二星</td>
+            <td></td>
+            <td>392.00</td></tr>
+        <tr>
+            <td rowspan="4">区间</td>
+            <td rowspan="1">五码区间三星</td>
+            <td></td>
+            <td>49,000.00</td></tr>
+        <tr>
+            <td rowspan="1">四码区间三星</td>
+            <td></td>
+            <td>9,800.00</td></tr>
+        <tr>
+            <td rowspan="1">后三区间二星</td>
+            <td></td>
+            <td>980.00</td></tr>
+        <tr>
+            <td rowspan="1">前三区间二星</td>
+            <td></td>
+            <td>980.00</td></tr>
+        <tr>
+            <td rowspan="4">特殊</td>
+            <td rowspan="1">一帆风顺</td>
+            <td></td>
+            <td>4.79</td></tr>
+        <tr>
+            <td rowspan="1">好事成双</td>
+            <td></td>
+            <td>24.06</td></tr>
+        <tr>
+            <td rowspan="1">三星报喜</td>
+            <td></td>
+            <td>228.97</td></tr>
+        <tr>
+            <td rowspan="1">四季发财</td>
+            <td></td>
+            <td>4,260.87</td></tr>
+        <tr>
+            <td rowspan="200">任选</td>
+            <td rowspan="70">任选二</td>
+            <td rowspan="1">前二直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">前二组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">后二直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">后二组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">前二组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">后二组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">前二直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">后二直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">前二直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">后二直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">前二直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">后二直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">前二组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">后二组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千百位直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万百位直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万十位直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万个位直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千十位直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千个位直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">百十位直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">百个位直选单式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万百位组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">万十位组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">万个位组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千百位组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千十位组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千个位组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">百十位组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">百个位组选单式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">万百位组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">万十位组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">万个位组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千百位组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千十位组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千个位组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">百十位组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">百个位组选复式</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千百位直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万百位直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万十位直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万个位直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千十位直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千个位直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">百十位直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">百个位直选跨度</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千百位直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万百位直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万十位直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万个位直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千十位直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千个位直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">百十位直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">百个位直选复式</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千百位直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万百位直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万十位直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万个位直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千十位直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">千个位直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">百十位直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">百个位直选和值</td>
+            <td></td>
+            <td>196.00</td></tr>
+        <tr>
+            <td rowspan="1">万百位组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">万十位组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">万个位组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千百位组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千十位组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">千个位组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">百十位组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="1">百个位组选和值</td>
+            <td></td>
+            <td>98.00</td></tr>
+        <tr>
+            <td rowspan="100">任选三</td>
+            <td rowspan="1">前三直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">后三直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">前三直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">后三直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">前三直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">后三直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">前三直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">后三直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">中三直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">中三直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">中三直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">中三直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万千十位直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万千个位直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万百十位直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万百个位直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万十个位直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">千百个位直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">千十个位直选单式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万千十位直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万千个位直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万百十位直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万百个位直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万十个位直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">千百个位直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">千十个位直选跨度</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万千十位直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万千个位直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万百十位直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万百个位直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万十个位直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">千百个位直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">千十个位直选复式</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万千十位直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万千个位直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万百十位直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万百个位直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">万十个位直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">千百个位直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">千十个位直选和值</td>
+            <td></td>
+            <td>1,960.00</td></tr>
+        <tr>
+            <td rowspan="1">前三组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">前三组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">后三组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">后三组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">前三混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">前三组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">前三组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">后三组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">后三组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">前三组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">后三组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">后三混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">中三组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">中三组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">中三组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">中三组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">中三混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">中三组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万千十位组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万千个位组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万百十位组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万百个位组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万十个位组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">千百个位组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">千十个位组三单式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万千十位组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万千个位组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万百十位组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万百个位组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万十个位组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">千百个位组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">千十个位组六单式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万千十位组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万千个位组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万百十位组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万百个位组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万十个位组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">千百个位组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">千十个位组三复式</td>
+            <td></td>
+            <td>653.33</td></tr>
+        <tr>
+            <td rowspan="1">万千十位组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万千个位组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万百十位组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万百个位组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万十个位组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">千百个位组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">千十个位组六复式</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万千十混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万千个位混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万百十位混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万百个位混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万十个位混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">千百个位混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">千十个位混合组选</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万千十位组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万千个位组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万百十位组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万百个位组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">万十个位组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">千百个位组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="1">千十个位组选和值</td>
+            <td></td>
+            <td>326.67</td></tr>
+        <tr>
+            <td rowspan="30">任选四</td>
+            <td rowspan="1">后四直选单式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">后四组选4</td>
+            <td></td>
+            <td>4,900.00</td></tr>
+        <tr>
+            <td rowspan="1">后四组选6</td>
+            <td></td>
+            <td>3,266.67</td></tr>
+        <tr>
+            <td rowspan="1">后四组选12</td>
+            <td></td>
+            <td>1,633.33</td></tr>
+        <tr>
+            <td rowspan="1">后四组选24</td>
+            <td></td>
+            <td>816.67</td></tr>
+        <tr>
+            <td rowspan="1">后四直选复式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">万千百个位直选单式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">万百十个位直选单式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">万千十个位直选单式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">前四组选24</td>
+            <td></td>
+            <td>816.67</td></tr>
+        <tr>
+            <td rowspan="1">前四组选6</td>
+            <td></td>
+            <td>3,266.67</td></tr>
+        <tr>
+            <td rowspan="1">万千百个位组选6</td>
+            <td></td>
+            <td>3,266.67</td></tr>
+        <tr>
+            <td rowspan="1">万千十个位组选6</td>
+            <td></td>
+            <td>3,266.67</td></tr>
+        <tr>
+            <td rowspan="1">万百十个位组选6</td>
+            <td></td>
+            <td>3,266.67</td></tr>
+        <tr>
+            <td rowspan="1">万千百个位组选24</td>
+            <td></td>
+            <td>816.67</td></tr>
+        <tr>
+            <td rowspan="1">万千十个位组选24</td>
+            <td></td>
+            <td>816.67</td></tr>
+        <tr>
+            <td rowspan="1">万百十个位组选24</td>
+            <td></td>
+            <td>816.67</td></tr>
+        <tr>
+            <td rowspan="1">前四直选复式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">万千百个位直选复式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">万百十个位直选复式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">万千十个位直选复式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="1">前四组选12</td>
+            <td></td>
+            <td>1,633.33</td></tr>
+        <tr>
+            <td rowspan="1">前四组选4</td>
+            <td></td>
+            <td>4,900.00</td></tr>
+        <tr>
+            <td rowspan="1">万千百个位组选4</td>
+            <td></td>
+            <td>4,900.00</td></tr>
+        <tr>
+            <td rowspan="1">万百十个位组选4</td>
+            <td></td>
+            <td>4,900.00</td></tr>
+        <tr>
+            <td rowspan="1">万千十个位组选4</td>
+            <td></td>
+            <td>4,900.00</td></tr>
+        <tr>
+            <td rowspan="1">万千百个位组选12</td>
+            <td></td>
+            <td>1,633.33</td></tr>
+        <tr>
+            <td rowspan="1">万千十个位组选12</td>
+            <td></td>
+            <td>1,633.33</td></tr>
+        <tr>
+            <td rowspan="1">万百十个位组选12</td>
+            <td></td>
+            <td>1,633.33</td></tr>
+        <tr>
+            <td rowspan="1">前四直选单式</td>
+            <td></td>
+            <td>19,600.00</td></tr>
+        <tr>
+            <td rowspan="20">龙虎和</td>
+            <td rowspan="20">龙虎和</td>
+            <td rowspan="2">万千</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">万百</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">万十</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">万个</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">千百</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">千十</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">千个</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">百十</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">百个</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="2">十个</td>
+            <td>一等奖</td>
+            <td>19.60</td></tr>
+        <tr>
+            <td>二等奖</td>
+            <td>4.36</td></tr>
+        <tr>
+            <td rowspan="5">猜不出</td>
+            <td rowspan="5">猜不出</td>
+            <td rowspan="1">猜1不出</td>
+            <td></td>
+            <td>3.32</td></tr>
+        <tr>
+            <td rowspan="1">猜2不出</td>
+            <td></td>
+            <td>5.98</td></tr>
+        <tr>
+            <td rowspan="1">猜3不出</td>
+            <td></td>
+            <td>11.66</td></tr>
+        <tr>
+            <td rowspan="1">猜4不出</td>
+            <td></td>
+            <td>25.21</td></tr>
+        <tr>
+            <td rowspan="1">猜5不出</td>
+            <td></td>
+            <td>62.72</td></tr>
+    </tbody>
+</table>
+   </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+    <script id="bounsgroupTpl" type="text/x-dot-template"> 
+        {{~it:value:index }}<span class="rowspan"><a data-bonus-scan="{{=value.lottery_id}}" href="###" >{{= value.lottery}} 奖金组 <i class="c-important">{{= value.prize_group}}</i></a></span>
+{{~}}
+    </script>
+   <script id="playBonusGroupTpl" type="text/x-dot-template"> 
+{{ for(var prop in it) { }}
+            <tr>
+                <td rowspan="{{=it[prop].count}}">{{=it[prop].name_cn}}</td>
+                <td rowspan="{{=it[prop].children[0].count}}">{{=it[prop].children[0].name_cn}}</td>
+                <td rowspan="{{=it[prop].children[0].children[0].count}}">{{=it[prop].children[0].children[0].name_cn}}</td>
+                {{? it[prop].children[0].children[0].count>1}}
+                <td rowspan="1">一等奖</td>
+                {{??}}
+                  <td rowspan="1"></td>
+                {{?}}
+                <td>{{=it[prop].children[0].children[0].prize[1]}}</td>
+            </tr>
+             {{? it[prop].children[0].children[0].count>1}}
+               {{ for(var b in it[prop].children[0].children[0].prize) { }}
+                  {{? b>1}}
+                   <tr>
+                     <td>{{=formatLevel(b)}}</td>
+                     <td>{{=it[prop].children[0].children[0].prize[b]}}</td>
+                   </tr>
+                  {{?}}
+              {{ } }}
+             {{?}}
+        {{ for(var key in it[prop].children[0].children) { }}
+           {{? key>0}}
+            <tr>
+                  <td rowspan="{{=it[prop].children[0].children[key].count}}">{{=it[prop].children[0].children[key].name_cn}}</td>
+                {{? it[prop].children[0].children[key].count>1}}
+                  <td>一等奖</td>
+                   {{??}}
+                   <td></td>
+                   {{?}}
+                  <td>{{=it[prop].children[0].children[key].prize[1]}}</td>
+             </tr>
+              {{? it[prop].children[0].children[key].count>1}}
+              {{ for(var b in it[prop].children[0].children[key].prize) { }}
+                  {{? b>1}}
+                   <tr>
+                     <td>{{=formatLevel(b)}}</td>
+                     <td>{{=it[prop].children[0].children[key].prize[b]}}</td>
+                   </tr>
+                  {{?}}
+              {{ } }}
+             {{?}}
+         {{?}}
+        {{ } }}
+      {{ for(var key in it[prop].children) { }}
+       {{? key>0}}
+        <tr>
+              <td rowspan="{{=it[prop].children[key].count}}">{{=it[prop].children[key].name_cn}}</td>
+               <td rowspan="1">{{=it[prop].children[key].children[0].name_cn}}</td>
+               {{? it[prop].children[key].children[0].count>1}}
+                 <td rowspan="{{=it[prop].children[0].children[key].count}}">
+                   一等奖
+                 </td>
+                 {{??}}
+                  <td rowspan="{{=it[prop].children[0].children[key].count}}">
+                  
+                 </td>
+                 {{?}}
+               <td>{{=it[prop].children[key].children[0].prize[1]}}</td>
+       </tr>
+       {{for(var a in it[prop].children[key].children) { }}
+          {{?a>0}}
+             <tr>
+                  <td rowspan="1">{{=it[prop].children[key].children[a].name_cn}}</td>
+                  {{? it[prop].children[key].children[a].count>1}}
+                  <td>一等奖</td>
+                  {{??}}
+                  <td></td>
+                  {{?}}
+                  <td rowspan="1">{{=it[prop].children[key].children[a].prize[1]}}</td>
+             </tr>
+          {{?}}
+       {{ } }}
+       {{?}}
+
+    {{ } }}
+ {{ } }}
+   </script>
+<!--     <script id="bgInfoTpl" type="text/x-dot-template"> 
+
+    </script> -->
+    <script type="text/javascript">
+        ;(function(w,$){
+            //获取各彩种奖金组列表
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=getPrizeGroups&terminal_id=" + terminal_id,
+                successCallback: function(msg) {
+                    doTrender({
+                        container: '#bounsgroup-list',
+                        tmplObj: '#bounsgroupTpl',
+                        data: msg,
+                        needClear: true,
+                        prependDom: false
+                    });
+                }
+            }) 
+
+           
+
+
+      $(document).on('click','#bounsgroup-list a',function(){
+          diolag = layer.open({
+            type: 1,
+            title:"奖金组信息",
+            area: ['1000px', '500px'], //宽高
+            content: $(".content")
+          });
+          var id=$(this).data('bonus-scan');
+          ajaxData({
+              url: getWebsiteOfHost() + "?action=getUserGamePrizeSets&lottery_id="+id,
+              successCallback: function(data) {
+                  doTrender({
+                      container: '#playBonusGroup',
+                      tmplObj: '#playBonusGroupTpl',
+                      data: data.aLotteriesPrizeSetsTable,
+                      needClear: true,
+                      prependDom: false
+                  });
+              }
+          }) 
+      })
+                
+ 
+
+
+            // w.show = show;
+
+
+        })(this,jQuery)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+/nbproject/private/
+/public/assets/pjs/*
+/public/assets-bak/*
+/public/assets/js/*
+/public/assets/pjs/*
+/UglifyJS/*
+/public/assets-bak/*
+node_modules
+Gruntfile.js
+package.json
+/.idea
+/.idea/*
+/public/packages/
+/widgets/public
+
+app/config/local/*
+/public/qrCode/*

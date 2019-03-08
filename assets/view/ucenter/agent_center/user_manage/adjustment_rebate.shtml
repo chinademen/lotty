@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>调整返点</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+</head>
+<!--#set var="locationUrl" value="teamProfit"--> 
+<!--#set var="level2" value="5"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+<div class="wrap-inner">
+    <!-- 侧边栏导航 --> 
+    <!--#include virtual="/view/module/sidebar.shtml"-->
+    <div class="main" style="position: relative;">
+        <div class="main-nav">
+            <a href="/view/ucenter/agent_center/user_manage/user_manage.shtml" class="active" style="cursor: pointer">用户列表</a>
+            <a href="/view/ucenter/agent_center/user_manage/accurate_account.shtml"   >精准开户</a>
+            <a href="/view/ucenter/agent_center/user_manage/link_account.shtml" >链接开户</a>
+            <a href="/view/ucenter/agent_center/user_manage/link_manage.shtml">链接管理</a>
+        </div>
+         <form id="j-form">
+       <div class="content link-create-wrap" id="J-panel-cont">
+           <div id="userInfo" style="text-align: center;margin-top: 20px;margin-bottom: 40px">
+               <p style="display: inline-block;"> 用户名称：<span style="font-size: 14px;font-weight: bold"></span></p>
+               <p style="display: inline-block;margin-left: 25px;">真实姓名：<span style="font-size: 14px;font-weight: bold"></span></p>
+               <p style="display: inline-block;margin-left: 25px;">用户昵称：<span style="font-size: 14px;font-weight: bold"></span></p>
+               <p style="display: inline-block;margin-left: 25px;">用户类型：<span style="font-size: 14px;font-weight: bold"></span></p>
+               <p style="display: inline-block;margin-left: 25px;">可用余额：<span style="font-size: 14px;font-weight: bold"></span>元</p>
+           </div>
+
+    <div class="item-detail item-detail-hover user-bonus-choose">
+        <div class="item-title">
+            <i class="item-icon-4"></i>竞彩游戏返点
+        </div>
+        <div class="bonusgroup-game-type  ">
+            <div class="bonusgroup-fb-list">
+                <h3>竞彩足球</h3>
+                <ul style="text-align: center">
+                    <li class="fb_single_percent" >
+                        <label>单关返点：</label>
+                        <input type="text" id="J-input-fb-s" name="fb_single" class="input J-football-input input-big w-1" value="0.0" max-data="0">&nbsp;%
+                        <span>一共有 <i style="color:#33a0ea">0</i>&nbsp;% ，可以分配</span>
+                    </li>
+                    <li class=" fb_multi_percent">
+                        <label>混合过关：</label>
+                        <input type="text" id="J-input-fb-a" name="fb_all" class="input J-football-input input-big w-1" value="0.0" max-data="0">&nbsp;%
+                        <span>一共有 <i style="color:#33a0ea">0</i>&nbsp;% ，可以分配</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="item-detail item-detail-hover user-bonus-choose">
+        <div class="item-title">
+            <i class="item-icon-4"></i>AG游戏返点
+        </div>
+        <div class="bonusgroup-game-type  ">
+            <div class="bonusgroup-fb-list">
+                <h3 style="line-height: 50px">AG游戏</h3>
+                <ul style="text-align: center">
+                    <li class="ag_percent">
+                        <label>单关返点：</label>
+                        <input type="text" id="ag_val" name="ag_percent" class="input J-football-input input-big w-1" value="0.0" max-data="0">&nbsp;%
+                        <span>一共有 <i style="color:#33a0ea">0</i>&nbsp;% ，可以分配</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="item-detail item-detail-hover user-bonus-choose">
+        <div class="item-title">
+            <i class="item-icon-4"></i>GA游戏返点
+        </div>
+            <div class="bonusgroup-fb-list">
+                <h3 style="line-height: 50px">GA游戏</h3>
+                <ul  style="text-align: center">
+                    <li class="" >
+                        <label>单关返点：</label>
+                        <input type="text" id="ga_val" name="ga_percent" class="input J-football-input input-big w-1" value="0.0" max-data="0">&nbsp;%
+                        <span>一共有 <i style="color:#33a0ea">0</i>&nbsp;% ，可以分配</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;margin-top: 20px"><span class="btn btn-red lg2" onclick="send()">保存返点设置</span></div>
+    
+</div>
+</form>
+
+        
+    </div>
+</div>
+  
+<!--#include virtual="/view/module/footer.shtml"-->
+
+<script type="text/javascript">
+    $(function() {
+        var user_id = getQueryString("user_id");
+
+        //获取频道返点数据
+        ajaxData({
+            url:getWebsiteOfHost() + "?action=getThirdPlatPercent&terminal_id=" + terminal_id + "&user_id=" + user_id,
+            successCallback: function(res) {
+                //设置ga返点
+               $("[ga_percent]").find("i").text(res.ga_percent);
+               $("[ga_percent]").find("input").attr("max-data",res.ga_percent);
+
+               //设置ag返点
+               $("[ag_percent]").find("i").text(res.ag_percent);
+               $("[ag_percent]").find("input").attr("max-data",res.ag_percent);
+
+               //设置竞彩单关返点
+               $("[fb_single_percent]").find("i").text(res.fb_single_percent);
+               $("[fb_single_percent]").find("input").attr("max-data",res.fb_single_percent);
+
+               //设置竞彩混合返点
+               $("[fb_multi_percent]").find("i").text(res.fb_multi_percent);
+               $("[fb_multi_percent]").find("input").attr("max-data",res.fb_multi_percent);
+            },
+            errorCallback:function(res){
+
+            }
+        });
+        //用户信息
+        var username = getQueryString("username");
+        ajaxData({
+            url:getWebsiteOfHost() + "?action=getUserInfo&terminal_id=" + terminal_id+"&username="+username,
+            successCallback: function(res) {
+                res.name =res.name?res.name:'无';
+                res.nickname =res.nickname?res.nickname:'无';
+                res.is_agent = res.is_agent?'代理':'玩家';
+                res.abalance = parseFloat(res.abalance).toFixed(3);
+                $("#userInfo").find('span').eq(0).text(res.username);
+                $("#userInfo").find('span').eq(1).text(res.name);
+                $("#userInfo").find('span').eq(2).text(res.nickname);
+                $("#userInfo").find('span').eq(3).text(res.is_agent);
+                $("#userInfo").find('span').eq(4).text(res.abalance);
+            },
+            errorCallback:function(res){
+
+            }
+        })
+        //游戏返点
+        var gameRebatesetting = function() {
+            var $fb = $('.J-football-input'),
+                dom = $(this).attr('id');
+            $fb.keyup(function(e) {
+                var v = $.trim(this.value),
+                    arr = [],
+                    code = e.keyCode;
+                if (code == 37 || code == 39) {
+                    return;
+                }
+                v = v.replace(/[^\d|^\.]/g, '');
+                arr = v.split('.');
+                if (arr.length > 2) {
+                    v = '' + arr[0] + '.' + arr[1];
+                }
+                arr = v.split('.');
+                if (arr.length > 1) {
+                    arr[1] = arr[1].substring(0, 2);
+                    v = arr.join('.');
+                }
+                this.value = v;
+                v = v == '' ? '&nbsp;' : v;
+                $('.' + dom).text(v);
+            });
+            $fb.focus(function() {
+                var v = $.trim(this.value),
+                    dom = $(this).attr('id');
+                if (v == '') {
+                    v = '&nbsp;';
+                };
+                $('.' + dom).text(v);
+            });
+            $fb.keyup(function() {
+                var dom = $(this).attr('id');
+                $('.' + dom).text(this.value);
+            }); 
+            $fb.blur(function() {
+                var v = Number(this.value),
+                    maxNum = Number($(this).attr('max-data')),
+                    dom = $(this).attr('id');
+                v = v > maxNum ? maxNum : v;
+                this.value = v;
+                $('.' + dom).text(v);
+            }); 
+        };
+
+        function send(){
+            ajaxData({
+                  url:getWebsiteOfHost() + "?action=setUserPercent&terminal_id=" + terminal_id ,
+                  type:"POST",
+                  data:$("#j-form").serialize() + "&user_id=" + user_id,
+                  successCallback:function(){
+                      layer.alert('操作成功!', {icon: 1});
+                  }
+              })
+        }
+ 
+            //执行函数方法
+             
+            gameRebatesetting();
+
+            window.send = send;
+ });
+   
+</script>
+</body>
+</html>
+
+
+
+

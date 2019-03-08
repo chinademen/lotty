@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>链接开户</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+    <style type="text/css">
+        .pop-control .btn.confirm{background-color: #c82834}
+        .pop-control .btn.cancel{background-color: #afa9a9;margin-left: 20px}
+    </style>
+</head>
+<!--#set var="locationUrl" value="teamProfit"--> 
+<!--#set var="level2" value="5"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+<div class="wrap-inner">
+    <!-- 侧边栏导航 --> 
+    <!--#include virtual="/view/module/sidebar.shtml"-->
+    <div class="main" style="position: relative;">
+        <div class="main-nav">
+            <a href="/view/ucenter/agent_center/user_manage/user_manage.shtml">用户列表</a>
+            <a href="/view/ucenter/agent_center/user_manage/accurate_account.shtml"   >精准开户</a>
+            <a href="/view/ucenter/agent_center/user_manage/link_account.shtml"  class="active">链接开户</a>
+            <a href="/view/ucenter/agent_center/user_manage/link_manage.shtml">链接管理</a>
+        </div>
+         <form id="j-form">
+         <input type="hidden" name="is_agent" id="J-input-userType" value="0">
+         <input type="hidden" name="prize_group_id" id="J-input-groupid" >
+         <input type="hidden" name="agent_prize_set_quota" id="J-agent-quota-limit-json" value="">
+         <input type="hidden" id="J-input-prize" value="">
+         <input type="hidden" name="prize_group_type"  value="2">
+       <div class="content link-create-wrap" id="J-panel-cont">
+    <div class="item-detail user-type-choose"> 
+        <div class="item-info tabs-switch " id="J-user-type-switch-panel">
+           <!--  <a data-usertypeid="0" href="javascript:void(0);" class="current">玩家账号</a>
+            <a data-usertypeid="1" href="javascript:void(0);" class="" style="margin-left:-4px ">代理账号</a> -->
+        </div>
+    </div>
+    <div class="item-detail item-detail-hover user-info-config">
+        <div class="item-title">
+            <i class="item-icon-9"></i>设置用户账号信息
+        </div>
+        <div class="item-info">
+                <p>
+                    <label>链接有效期：</label>
+                    <select id="J-select-link-valid" name="valid_days" class="select">
+                        <option value="">请选择</option>
+                        <option value="1" >1天</option>
+                        <option value="7" >7天</option>
+                        <option value="30" >30天</option>
+                        <option value="90">90天</option>
+                        <option value="0" >永久有效</option>
+                    </select>
+                </p>
+                <p>
+                    <label>推广渠道：</label>
+                        <select id="J-select-channel-name"  class="select">
+                            <option value="">请选择</option>
+                            <option value="论坛">论坛</option>
+                            <option value="qq群" >qq群</option>
+                            <option value="0">自定义</option>
+                        </select>
+                        &nbsp;&nbsp;
+                        <input type="text" class="input w-3" value="" id="J-input-custom"  name="channel" style="display:none;" />
+                </p>
+                <p>
+                   
+                    <label>推广QQ：<i data-qq-tips class="alert-icon">为方便客户与您联系，建议您填写真实的推广QQ并开通临时会话功能。此QQ会显示在该链接开户页面上</i></label>
+                    <input name="agent_qqs[]" class="input w-2 agentQQ" value="" type="text">
+                    <span  data-add-qq class="btn btn-normals btn-normal" data-tips="最多只能添加4个推广QQ">+</span>
+                </p>
+            </div>
+    </div>
+    <div class="item-detail item-detail-hover user-bonus-choose">
+        <div class="item-title">
+            <i class="item-icon-4"></i>数字彩奖金组
+        </div>
+        <ul class="tab-panels">
+            <li class="tab-panel-li">
+                <input type="hidden" name="series_id" id="J-input-custom-type" value="">
+                <input type="hidden" name="lottery_id" id="J-input-custom-id" value="">
+                 
+                <div class="bonusgroup-game-type  J-bonusgroup-player" style="display: none;">
+                    <div class="bonusgroup-list bonusgroup-list-line">
+                        <h3>玩家数字彩奖金组</h3>
+                        <ul>
+                            <li class="slider-range slider-range-global" onselectstart="return false;" data-slider-step="1">
+                                <div class="slider-range-scale">
+                                    <span class="slider-title">统一设置</span>
+                                    <a href="javascript:" data-bonus-scan="" class="c-important">查 看</a>
+                                    <span class="small-number" data-slider-min="">0</span>
+                                    <span class="percent-number" data-slider-percent="">22.50%</span>
+                                    <span class="big-number" data-slider-max="">450</span>
+                                </div>
+                                <div class="slider-current-value" data-slider-value="">1500</div>
+                                <div class="slider-action">
+                                    <div class="slider-range-sub disabled" data-slider-sub="">-</div>
+                                    <div class="slider-range-add" data-slider-add="">+</div>
+                                    <div class="slider-range-wrapper" data-slider-cont="">
+                                        <div class="slider-range-inner" data-slider-inner="" style="width: 0px;"></div>
+                                        <div class="slider-range-btn" data-slider-handle="" style="left: 0px;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+                <div class="bonusgroup-game-type J-bonusgroup-agent" style="display: none;">
+                    <div class="bonusgroup-list  bonusgroup-list-line">
+                        <h3>代理数字彩奖金组</h3>
+                        <ul>
+                            <li class="slider-range slider-range-global" onselectstart="return false;" data-slider-step="1">
+                                <div class="slider-range-scale">
+                                    <span class="slider-title">统一设置</span>
+                                    <a href="javascript:" data-bonus-scan="" class="c-important">查 看</a>
+                                    <span class="small-number" data-slider-min="">0</span>
+                                    <span class="percent-number" data-slider-percent="">22.95%</span>
+                                    <span class="big-number" data-slider-max="">459</span>
+                                </div>
+                                <div class="slider-current-value" data-slider-value="">1500</div>
+                                <div class="slider-action">
+                                    <div class="slider-range-sub disabled" data-slider-sub="">-</div>
+                                    <div class="slider-range-add" data-slider-add="">+</div>
+                                    <div class="slider-range-wrapper" data-slider-cont="">
+                                        <div class="slider-range-inner" data-slider-inner="" style="width: 0px;"></div>
+                                        <div class="slider-range-btn" data-slider-handle="" style="left: 0px;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <input type="hidden" id="J-input-bonusgroup-gameid" value="">
+                <input type="hidden" id="J-input-series-json" name="series_prize_group_json">
+            </li>
+        </ul>
+    </div>
+    <div class="item-detail item-detail-hover agent-user-limit J-agent-user-limit" style="display: none;">
+        <div class="item-title">
+            <i class="item-icon-3"></i>设置奖金组开户配额
+        </div>
+        <div class="item-info">
+            <p>通过此链接注册的用户最多可以拥有的相应奖金配额如下，1950以下奖金组开户无配额限制</p>
+            <ul class="agent-quota-list">
+                <li style="display: none;">
+                    <h3>1950</h3>
+                    <input type="text" class="input" data-quota="50" data-prize="1950" value="0">
+                    <p>最大允许<span class="quota-max">50</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1951</h3>
+                    <input type="text" class="input" data-quota="50" data-prize="1951" value="0">
+                    <p>最大允许<span class="quota-max">50</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1952</h3>
+                    <input type="text" class="input" data-quota="50" data-prize="1952" value="0">
+                    <p>最大允许<span class="quota-max">50</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1953</h3>
+                    <input type="text" class="input" data-quota="50" data-prize="1953" value="0">
+                    <p>最大允许<span class="quota-max">50</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1954</h3>
+                    <input type="text" class="input" data-quota="50" data-prize="1954" value="0">
+                    <p>最大允许<span class="quota-max">50</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1955</h3>
+                    <input type="text" class="input" data-quota="20" data-prize="1955" value="0">
+                    <p>最大允许<span class="quota-max">20</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1956</h3>
+                    <input type="text" class="input" data-quota="10" data-prize="1956" value="0">
+                    <p>最大允许<span class="quota-max">10</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1957</h3>
+                    <input type="text" class="input" data-quota="10" data-prize="1957" value="0">
+                    <p>最大允许<span class="quota-max">10</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1958</h3>
+                    <input type="text" class="input" data-quota="09" data-prize="1958" value="0">
+                    <p>最大允许<span class="quota-max">09</span></p>
+                </li>
+                <li style="display: none;">
+                    <h3>1959</h3>
+                    <input type="text" class="input" data-quota="10" data-prize="1959" value="0">
+                    <p>最大允许<span class="quota-max">10</span></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="item-detail item-detail-hover user-bonus-choose">
+        <div class="item-title">
+            <i class="item-icon-4"></i>竞彩游戏返点
+        </div>
+        <div class="bonusgroup-game-type  ">
+            <div class="bonusgroup-fb-list">
+                <h3>竞彩足球</h3>
+                <ul>
+                    <li class="" jc_single_percent>
+                        <label>单关返点：</label>
+                        <input type="text" id="J-input-fb-s" name="fb_single" class="input J-football-input input-big w-1" value="0.0" max-data="0">&nbsp;%
+                        <span>一共有 <i style="color:#33a0ea">0</i>&nbsp;% ，可以分配</span>
+                    </li>
+                    <li class="" jc_multi_percent>
+                        <label>混合过关：</label>
+                        <input type="text" id="J-input-fb-a" name="fb_all" class="input J-football-input input-big w-1" value="0.0" max-data="0">&nbsp;%
+                        <span>一共有 <i style="color:#33a0ea">0</i>&nbsp;% ，可以分配</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="item-detail item-detail-hover user-bonus-choose">
+        <div class="item-title">
+            <i class="item-icon-4"></i>AG游戏返点
+        </div>
+        <div class="bonusgroup-game-type  ">
+            <div class="bonusgroup-fb-list">
+                <h3 style="line-height: 50px">AG游戏</h3>
+                <ul>
+                    <li class="" ag_percent>
+                        <label>AG游戏返点：</label>
+                        <input type="text" id="ag_val" name="ag_percent" class="input J-football-input input-big w-1" value="0.0" max-data="6">&nbsp;%
+                        <span>一共有 <i style="color:#33a0ea">6</i>&nbsp;% ，可以分配</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="item-detail item-detail-hover user-bonus-choose">
+        <div class="item-title">
+            <i class="item-icon-4"></i>GA游戏返点
+        </div>
+        <div class="bonusgroup-game-type  ">
+            <div class="bonusgroup-fb-list">
+                <h3 style="line-height: 50px">GA游戏</h3>
+                <ul>
+                    <li class="" ga_percent>
+                        <label>GA游戏返点：</label>
+                        <input type="text" id="ga_val" name="ga_percent" class="input J-football-input input-big w-1" value="0.0" max-data="6">&nbsp;%
+                        <span>一共有 <i style="color:#33a0ea">6</i>&nbsp;% ，可以分配</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bonus-config-result">
+        <h3>账号设置结果</h3>
+        <div>
+            <label>账户类型<span class="J-user-type">玩家账号</span></label>
+            <label>数字彩奖金组<span class="J-init-bonusgroup">1500</span></label>
+            <label>竞彩单关<span class="J-input-fb-s">0.0</span>%</label>
+            <label>竞彩串关<span class="J-input-fb-a">0.0</span>%</label>
+            <label>AG游戏<span class="ag_val">0.0</span>%</label>
+            <label>GA游戏<span class="ga_val">0.0</span>%</label>
+        </div>
+        
+    </div>
+    <div class="row-lastsubmit">
+        <input type="button" class="btn btn-red-lg" value="生成链接" id="J-button-submit">
+    </div>
+</div>
+</form>
+
+        
+    </div>
+</div>
+<script type="text/x-dot-template" id="switch-tpl">
+    {{?it.is_top==1}}
+    <a data-usertypeid="1" href="javascript:void(0);" class="" style="margin-left:-4px ">代理账号</a>
+ {{??}}
+ <a data-usertypeid="0" href="javascript:void(0);" class="current">玩家账号</a>
+ <a data-usertypeid="1" href="javascript:void(0);" class="" style="margin-left:-4px ">代理账号</a>
+ {{?}}
+</script>
+<script type="text/x-dot-template" id="bonusGroup-tpl">
+    <ul class="prize-set-row">
+     {{~it:value:index}}
+        <li><a href="#" data-id="{{=value.lottery_id}}"><span class="name">{{=value.lottery}}</span><span class="group"></span></a></li>
+        {{~}}
+        <div class="clearfix"></div>
+    </ul>
+</script>
+<!--#include virtual="/view/module/footer.shtml"-->
+<script type="text/javascript" src="/js/page/ucenter.js"></script>
+ <script type="text/javascript" src="/js/core/gamebase.js"></script>
+ <script type="text/javascript" src="/js/widget/gagame.Tab.js"></script>
+ <script type="text/javascript" src="/js/widget/gagame.Tip.js"></script>
+<script type="text/javascript" src="/js/widget/gagame.SliderBar.js"></script>
+<script type="text/javascript" src="/js/widget/gagame.Mask.js"></script>
+<script type="text/javascript" src="/js/widget/gagame.MiniWindow.js"></script>
+<script type="text/javascript" src="/js/widget/gagame.Message.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        /**全局变量**/
+
+        // slider事件是否已经绑定，
+        // 因为slider插件中要获取元素的宽度，
+        // 在tab切换中该元素display:none导致获取宽度为0，
+        // 所以需要在其父元素显示后绑定slider对象
+        var sliderEventBinded_player = sliderEventBinded_agent = false;
+
+        // 用户类型
+        var userModel;
+        //var isTopAgent = {{intval(Session::get('is_top_agent'))}};
+
+        var confirmWin = new gagame.Message();
+        var confirmWinMask = new gagame.Mask();
+　　 var confirmBonusGroup=new gagame.Message();
+        var dataInfo = ['', '']; //数据缓存
+
+        //var prizeGroupUrl = "{{ route('user-user-prize-sets.prize-set-detail') }}"; //查看奖金组连接缓存
+        var prizeGroupUrl = "http://www.japple888.com/prize-sets/prize-set-detail"; //查看奖金组连接缓存
+        var agentPrizeGroup,playerPrizeGroup;//奖金组数据
+        var $is_agent = $("#J-user-type-switch-panel");
+
+        function renderTableList(data) {
+            doTrender({
+                container: '#J-user-type-switch-panel',
+                tmplObj: '#switch-tpl',
+                data: data,
+                needClear: true,
+                prependDom: false
+            });
+        }
+
+　　 var bonusGroupDatas={
+            title:'玩法奖金详情',
+            content:'<div id="content"></div>',
+            // cancelIsShow: true,
+            // cancelButtonText: 'cancel',
+            cssName: 'w-14',
+        }
+    　　//点击查看
+    $(document).on('click', '.c-important', function() {
+        var group = $(this).parent().siblings('.slider-current-value').text();
+        ajaxData({
+            url: getWebsiteOfHost() + "?action=getPrizeGroups&terminal_id=" + terminal_id,
+            successCallback: function(res) {
+                doTrender({
+                    container: '#content',
+                    tmplObj: '#bonusGroup-tpl',
+                    data: res,
+                    needClear: true,
+                    prependDom: false
+                });
+
+                $('.prize-set-row .group').text(group);
+            },
+            errorCallback: function(res) {
+
+            }
+        });
+        confirmBonusGroup.show(bonusGroupDatas);
+        confirmWinMask.show();
+
+    })
+
+        //获取开户相关数据
+            ajaxData({
+                url:getWebsiteOfHost() + "?action=getPrizeGroupForCreate&type=1&terminal_id=" + terminal_id,
+                successCallback: function(res) {
+                   playerPrizeGroup = res.p_prize_data// 玩家奖金组数据
+                   agentPrizeGroup = res.a_prize_data;// 代理奖金组数据
+                   
+                   /*switchUser();  */
+                   // if(res.is_top == 1){//顶级代理只显示代理账号，不显示玩家账号
+                   //      $is_agent.find("a").eq(0).remove();
+                   // }
+                      renderTableList(res);
+                　$is_agent.find('a').eq(0).click();
+                },
+                errorCallback:function(res){
+
+                }
+            });
+
+            //获取配额相关数据
+            ajaxData({
+                url:getWebsiteOfHost() + "?action=getQuotas&terminal_id=" + terminal_id,
+                successCallback: function(res) {
+                   //生成配额数据
+                    var interText = doT.template($("#peier-tpl").text());
+                    $("#agent-quota-list").html(interText(res));
+                },
+                errorCallback:function(res){
+
+                }
+            });
+
+            //获取频道返点数据
+            ajaxData({
+                url:getWebsiteOfHost() + "?action=getThirdPlatPercent&terminal_id=" + terminal_id,
+                successCallback: function(res) {
+                    //设置ga返点
+                   $("[ga_percent]").find("i").text(res.ga_percent);
+                   $("[ga_percent]").find("input").attr("max-data",res.ga_percent);
+
+                   //设置ag返点
+                   $("[ag_percent]").find("i").text(res.ag_percent);
+                   $("[ag_percent]").find("input").attr("max-data",res.ag_percent);
+
+                   //设置竞彩单关返点
+                   $("[jc_single_percent]").find("i").text(res.fb_single_percent);
+                   $("[jc_single_percent]").find("input").attr("max-data",res.fb_single_percent);
+
+                   //设置竞彩混合返点
+                   $("[jc_multi_percent]").find("i").text(res.fb_multi_percent);
+                   $("[jc_multi_percent]").find("input").attr("max-data",res.fb_multi_percent);
+                },
+                errorCallback:function(res){
+
+                }
+            });
+
+        //判断用户角色滑动控件初始化方法
+        var checkSlider = function() {
+            if (!sliderEventBinded_player && $('.J-bonusgroup-player').is(':visible')) {
+                bindAllSlider($('.J-bonusgroup-player'));
+                sliderEventBinded_player = true;
+            } else if (!sliderEventBinded_agent && $('.J-bonusgroup-agent').is(':visible')) {
+                bindAllSlider($('.J-bonusgroup-agent'));
+                sliderEventBinded_agent = true;
+            }
+        };
+
+        //开户类型切换方法
+        /*var switchUser = function() {*/
+         
+               $(document).on('click', '#J-user-type-switch-panel a',function(e) {
+                var switchHandles = $('#J-user-type-switch-panel').find('a');
+                var index = switchHandles.index(this),
+                userTypeId = $.trim($(this).attr('data-userTypeId'));
+                e.preventDefault();
+                switchHandles.removeClass('current');
+                switchHandles.eq(index).addClass('current');
+                $('#J-input-userType').val(userTypeId);
+                // 代理
+                if (userTypeId == '1') {
+                    userModel = 'agent';
+                    $('#J-panel-group').hide();
+                    $('#J-panel-group-agent').show();
+                    $('.J-bonusgroup-player').hide();
+                    $('.J-bonusgroup-agent').show();
+                    $('.J-agent-user-limit').show();
+                } else {
+                    // 玩家
+                    userModel = 'player';
+                    $('#J-panel-group').show();
+                    $('#J-panel-group-agent').hide();
+                    $('.J-bonusgroup-player').show();
+                    $('.J-bonusgroup-agent').hide();
+                    $('.J-agent-user-limit').hide();
+                }
+                // clearChooseGroup();
+                checkSlider();
+                $('.J-user-type').text($(this).text());
+            });/*.eq(0).trigger('click');*/
+        /*};*/
+
+
+        //自定义奖金组设置组件
+        var bindAllSlider = function($parent) {
+            var sliderConfig = {
+                // 'isUpOnly' : true,
+                'minDom': '[data-slider-sub]',
+                'maxDom': '[data-slider-add]',
+                'contDom': '[data-slider-cont]',
+                'handleDom': '[data-slider-handle]',
+                'innerDom': '[data-slider-inner]',
+                'minNumDom': '[data-slider-min]',
+                'maxNumDom': '[data-slider-max]'
+            };
+            $('.bonusgroup-list', $parent).each(function(idx) {
+                var $this = $(this),
+                    globalSlider, // 统一设置slider
+                    sliders = []; // 分段设置slider
+                if ($parent.hasClass('J-bonusgroup-agent')) {
+                    var bonusData = agentPrizeGroup;
+                } else {
+                    var bonusData = playerPrizeGroup;
+                }
+                $this.find('.slider-range').each(function(_idx) {
+                    var $that = $(this),
+                        settings = $.extend({}, sliderConfig, {
+                            'parentDom': $that,
+                            'step': 1,
+                            'minBound': 0,
+                            'maxBound': bonusData.length - 1,
+                            'value': 0
+                        });
+                    if ($that.hasClass('slider-range-global')) {
+                        globalSlider = new gagame.SliderBar(settings);
+                    } else {
+                        sliders.push(new gagame.SliderBar(settings));
+                    }
+                });
+                // 全局设置
+                if (globalSlider) {
+                    globalSlider.addEvent('change', function() {
+                        var value = this.getValue(),
+                            $parent = this.getDom();
+                        $.each(sliders, function(i, s) {
+                            if (s && s.setValue) {
+                                s.setValue(value);
+                            }
+                        });
+                        // 设置返奖率
+                        var maxBound = bonusData[this.maxBound]['classic_prize'],
+                            nowBound = bonusData[value]['classic_prize'];
+                        var rate = (maxBound - nowBound) / 2000;
+                        $parent.find('[data-slider-percent]').text((rate * 100).toFixed(2) + '%');
+                        // 设置值
+                        $parent.find('[data-slider-value]').text(nowBound);
+                        $('#J-input-prize').val(nowBound);
+                        // 设置平均返点率
+                        $('.J-init-bonusgroup').text(nowBound);
+                        if (userModel == 'agent') {
+                            checkQuotaLimitStatus(nowBound);
+                        }
+                      
+                    });
+                    globalSlider.setValue(0);
+                }
+            });
+            sliderEventBinded = true;
+        }
+ 
+
+        // 配额输入验证
+        var bindQuotaInput = function() {
+            $('input[data-quota]').on('change', function() {
+                var $this = $(this),
+                    val = parseInt($this.val()) || 0,
+                    max = parseInt($this.data('quota'));
+                if (val < 1) {
+                    val = 0;
+                } else if (val > max) {
+                    val = max
+                }
+                $this.val(val);
+            });
+        };
+
+        // 通过奖金组来判断某配额设置是否显示
+        var checkQuotaLimitStatus = function(prize) {
+            var prizeGroup = parseInt(prize) || 0,
+                showNum = 0;
+            $('input[data-quota]').each(function() {
+                var prize = $(this).data('prize'),
+                    quota = $(this).data('quota');
+                // console.log(prize, prizeGroup)
+                // if( prize < prizeGroup || (isTopAgent && prize == prizeGroup) ){
+                if (prize <= prizeGroup) {
+                    $(this).parent().show();
+                    showNum++;
+                } else {
+                    $(this).parent().hide();
+                }
+                // if( prize == prizeGroup && !isTopAgent ){
+                if (prize == prizeGroup) {
+                    $(this).siblings('p').find('.quota-max').text(Math.max(quota - 1, 0));
+                } else {
+                    $(this).siblings('p').find('.quota-max').text(quota);
+                }
+            });
+            if (showNum > 0 && userModel == 'agent') {
+                $('.J-agent-user-limit').show();
+            } else {
+                $('.J-agent-user-limit').hide();
+            }
+        }
+
+        // 获取当前配额设置数据对象
+        var getQuotaData = function() {
+            // 只有代理才有配额设定，所以可以直接指定获取该DOM的value值，作为最大奖金组
+            var prizeGroup = parseInt($('#J-input-prize').val()),
+                // 代理用户配额限制数据变量
+                dataObj = {};
+            $('input[data-quota]:visible').each(function() {
+                var quota = $(this).val(),
+                    prize = $(this).data('prize');
+                // if( prize < prizeGroup || (isTopAgent && prize == prizeGroup) ){
+                if (prize < prizeGroup) {
+                    dataObj[prize] = quota;
+                }
+            });
+            return dataObj;
+        };
+
+        //联系qq-tip
+        var addQQFun = function() {
+            var max_qq_num = 4;
+            var qq_html = '<input name="agent_qqs[]" class="input w-2 agentQQ" value="" type="text">&nbsp;';
+            $('[data-add-qq]').on('click', function() {
+                if ($('.agentQQ').length < max_qq_num && !$(this).hasClass('btn-disabled')) {
+                    $(this).before(qq_html);
+                }
+                if ($('.agentQQ').length >= max_qq_num) {
+                    $(this).addClass('btn-disabled').removeClass('btn-normal');
+
+                }
+                return false;
+            });
+            var tip_btn = new gagame.Tip({
+                cls: 'j-ui-tip-b w-3'
+            });
+            $('[data-add-qq]').hover(function(e) {
+                if ($(this).hasClass('btn-disabled')) {
+                    var el = $(this),
+                        text = el.data('tips');
+                    tip_btn.setText(text);
+                    tip_btn.show(-65, tip_btn.getDom().height() * -1 - 22, el);
+                    e.preventDefault();
+                }
+            }, function() {
+                tip_btn.hide();
+            });
+
+            // 添加qq tips
+            var tip_qq = new gagame.Tip({
+                cls: 'j-ui-tip-b w-6'
+            });
+            $('[data-qq-tips]').hover(function(e) {
+                var el = $(this),
+                    text = el.text();
+                tip_qq.setText(text);
+                tip_qq.show(-150, tip_qq.getDom().height() * -1 - 22, el);
+                e.preventDefault();
+            }, function() {
+                tip_qq.hide();
+            });
+        };
+ 
+
+        //确认window
+        var generateConfirmInfo = function(userType, validDays, spreadChannel, prizeGroup, fba, fbs, agentQQ, agentQuota) {
+            var userTypes = ['玩家', '代理'];
+            var validDaysDesc = +validDays ? validDays + '天' : '永久有效';
+            var htmlQuota = ['<div class="bonusgroup-title" style="margin-top:10px;">',
+                '<table width="100%">',
+                '<tbody><tr>'
+            ];
+            $.each(agentQuota, function(i, n) {
+                htmlQuota.push('<td>' + n + '<br><span class="tip">' + i + '奖金组配额数</span></td>');
+            });
+            htmlQuota.push('</tr></tbody></table></div>');
+            var html = [
+                '<div class="pop-content">',
+                '<p class="pop-text">该链接的具体信息如下，是否立即生成链接？</p>',
+                '<div class="bonusgroup-title" style="margin-top:10px;">',
+                '<table width="100%">',
+                '<tr>',
+                '<td>' + userTypes[userType] + '<br><span class="tip">用户类型</span></td>',
+                '<td>' + validDaysDesc + '<br><span class="tip">链接有效期</span></td>',
+                '<td>' + spreadChannel + '<br><span class="tip">推广渠道</span></td>',
+                // '<td class="last">' + nickName + '<br><span class="tip">用户昵称</span></td>',
+                '</tr>',
+                '</table>',
+                '</div>',
+                '<div class="bonusgroup-title" style="margin-top:10px;">',
+                '<table width="100%">',
+                '<tr>',
+                '<td><span class="tip">数字彩奖金组</span><br>' + prizeGroup + '</td>',
+                '<td><span class="tip">竞彩单关</span><br>' + fbs + '％ </td>',
+                '<td class="last"><span class="tip">竞彩串关</span><br>' + fba + '％ </td>',
+                '</tr>',
+                '</table>',
+                '</div>',
+                '<div class="bonusgroup-title" style="margin-top:10px;">',
+                '<table width="100%">',
+                '<tr>',
+                '<td>' + (agentQQ[0] ? agentQQ[0] : '') + '<br><span class="tip">推广QQ1</span></td>',
+                '<td>' + (agentQQ[1] ? agentQQ[1] : '') + '<br><span class="tip">推广QQ2</span></td>',
+                '<td>' + (agentQQ[2] ? agentQQ[2] : '') + '<br><span class="tip">推广QQ3</span></td>',
+                '<td>' + (agentQQ[3] ? agentQQ[3] : '') + '<br><span class="tip">推广QQ4</span></td>',
+                '</tr>',
+                '</table>',
+                '</div>',
+                htmlQuota.join(''),
+                '</div>'
+            ];
+            return html.join('');
+        };
+
+
+            $("#agent-quota-list").on("keyup","input",function(e){
+        var v = $.trim(this.value),
+                    arr = [],
+                    code = e.keyCode;
+                if (code == 37 || code == 39) {
+                    return;
+                }
+                v = v.replace(/[^\d|^\.]/g, '');
+                arr = v.split('.');
+                if (arr.length > 2) {
+                    v = '' + arr[0] + '.' + arr[1];
+                }
+                arr = v.split('.');
+                if (arr.length > 1) {
+                    arr[1] = arr[1].substring(0, 2);
+                    v = arr.join('.');
+                }
+                this.value = v;
+                v = v == '' ? '&nbsp;' : v;
+                $(this).text(v);
+    })
+
+    $("#agent-quota-list").on("blur","input",function(e){
+         var v = Number(this.value),
+                    maxNum = Number($(this).data('quota'));
+                v = v > maxNum ? maxNum : v;
+                this.value = v;
+                $(this).text(v);
+    })
+
+        //足球返点
+        var footballRebatesetting = function() {
+            var $fb = $('.J-football-input'),
+                dom = $(this).attr('id');
+            $fb.keyup(function(e) {
+                var v = $.trim(this.value),
+                    arr = [],
+                    code = e.keyCode;
+                if (code == 37 || code == 39) {
+                    return;
+                }
+                v = v.replace(/[^\d|^\.]/g, '');
+                arr = v.split('.');
+                if (arr.length > 2) {
+                    v = '' + arr[0] + '.' + arr[1];
+                }
+                arr = v.split('.');
+                if (arr.length > 1) {
+                    arr[1] = arr[1].substring(0, 2);
+                    v = arr.join('.');
+                }
+                this.value = v;
+                v = v == '' ? '&nbsp;' : v;
+                $('.' + dom).text(v);
+            });
+            $fb.focus(function() {
+                var v = $.trim(this.value),
+                    dom = $(this).attr('id');
+                if (v == '') {
+                    v = '&nbsp;';
+                };
+                $('.' + dom).text(v);
+            });
+            $fb.keyup(function() {
+                var dom = $(this).attr('id');
+                $('.' + dom).text(this.value);
+            }); 
+            $fb.blur(function() {
+                var v = Number(this.value),
+                    maxNum = Number($(this).attr('max-data')),
+                    dom = $(this).attr('id');
+                v = v > maxNum ? maxNum : v;
+                this.value = v;
+                $('.' + dom).text(v);
+            }); 
+        };
+ 
+            //执行函数方法
+            bindQuotaInput();
+            addQQFun();
+            footballRebatesetting();
+
+            $("#J-select-channel-name").on("change",function(){
+                var val = $(this).find("option:selected").val();
+                if(val == "0"){
+                    $("#J-input-custom").show();
+                }else{
+                    $("#J-input-custom").hide();
+                    $("#J-input-custom").val(val);
+                }
+            })
+
+            //表单提交
+            $('#J-button-submit').click(function() {
+                var userType = $("[data-usertypeid].current").attr("data-usertypeid"),//用户类型
+                    validDays = $("#J-select-link-valid").find("option:selected").val(), //有效期
+                    spreadChannel = $("#J-select-channel-name").find("option:selected").val(), //推广渠道
+                    spreadChannelValue = $.trim($('#J-input-custom').val()), //自定义推广渠道
+                    //套餐还是自定义
+                    groupType = $.trim($('#J-input-group-type').val()),
+                    prizeGroup = 0,
+                    agentQuota = getQuotaData(), // 代理用户配额限制数据变量
+                    agentQQ = [], // 推广qq
+
+                    fbaVal = $.trim($('#J-input-fb-a').val()),
+                    fbsVal = $.trim($('#J-input-fb-s').val());
+
+                var lotteryPrizeGroupCache = {},
+                    seriesPrizeGroupCache = {};
+
+                seriesPrizeGroupCache[1] = $('#J-input-prize').val() || $('.J-bonusgroup-agent .slider-current-value').text();
+
+
+                var lotteriesJsonData = JSON.stringify(lotteryPrizeGroupCache),
+                    seriesJsonData = JSON.stringify(seriesPrizeGroupCache),
+                    agentQuotaLimitJson = JSON.stringify(agentQuota);
+
+                if (lotteriesJsonData != '{}') $('#J-input-lottery-json').val(seriesJsonData);
+                if (seriesJsonData != '{}') $('#J-input-series-json').val(seriesJsonData);
+                $('#J-agent-quota-limit-json').val(agentQuotaLimitJson);
+                //推广qq
+                $('.agentQQ').each(function(index, el) {
+                    agentQQ.push($(this).val());
+                });
+
+                if (validDays == '') {
+                    alert('请选择链接有效期');
+                    return false;
+                }
+                if (spreadChannel == '') {
+                    alert('请选择推广渠道');
+                    return false;
+                }
+                if (spreadChannel == '0' && spreadChannelValue == '') {
+                    alert('自定义推广渠道，请填写渠道名称');
+                    return false;
+                } else if (spreadChannel != '0') {
+                    /*$('#J-input-custom').val(spreadChannel);*/
+                } else {
+                    spreadChannelValue = spreadChannel;
+                }
+                var QQcorrect = true;
+                for (var i = 0, l = agentQQ.length; i < l; i++) {
+                    var qqText = agentQQ[i];
+                    if (qqText && (isNaN(+qqText) || qqText < 10000)) { // || qqText > QQ_NUM_MAX
+                        QQcorrect = false;
+                        break;
+                    }
+                };
+                if (!QQcorrect) {
+                    alert('请填写真实的QQ');
+                    return false;
+                };
+
+                if (userModel == 'agent') {
+                    prizeGroup = $('.J-bonusgroup-agent').find('[data-slider-value]').text();
+                } else {
+                    prizeGroup = $('.J-bonusgroup-player').find('[data-slider-value]').text();
+
+                };
+
+                if (fbsVal == '' || fbaVal == '') {
+                    alert('请设置足球返点');
+                    return false;
+                };
+
+                var data = {
+                    title: '信息确认',
+                    content: generateConfirmInfo(userType, validDays, spreadChannel, prizeGroup, fbaVal, fbsVal, agentQQ, agentQuota),
+                    confirmIsShow: true,
+                    cancelIsShow: true,
+                    confirmButtonText: '确认',
+                    cancelButtonText: '取消',
+                    cssName: 'w-13',
+                    confirmFun: function() {
+                        var data = $("#j-form").serialize();
+                        ajaxData({
+                            url:getWebsiteOfHost() + "?action=CreateRegisterLink&terminal_id=" + terminal_id,
+                            data:data,
+                            type:"POST",
+                            successCallback: function(res) {
+                                layer.alert('创建成功!', {icon: 1});
+                                confirmWin.hide();
+                                $("#j-form")[0].reset();
+                            },
+                            errorCallback:function(res){
+                                layer.alert(res.error, {icon: 2});
+                                confirmWin.hide();
+                            }
+                        });
+                    },
+                    cancelFun: function() {
+                        confirmWin.hide();
+                        confirmWinMask.hide();
+                    }
+                };
+                confirmWin.show(data);
+                confirmWinMask.show();
+                return true;
+            }); 
+    });
+</script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,199 @@
+<!-- 彩票记录区域 -->
+<div class="game-record-section">
+    <ul class="clearfix">
+        <li class="active colsb" data-index="0"><a href="javascript:;">游戏记录</a></li>
+        <li class="colsb" data-index="1"><a href="javascript:;">追号记录</a></li>
+<!--         <li class="colsb" data-index="2" style="border-right:none;"><a href="javascript:;">资金明细</a></li> -->
+    </ul>
+    <div class="game-record-table">
+        <table cellspacing="0" cellpadding="0"></table>
+        <table cellspacing="0" cellpadding="0" class="hide"></table>
+        <table cellspacing="0" cellpadding="0" class="hide"></table>
+    </div>
+</div>
+<script id="betRecordTmpl" type="text/x-dot-template">
+ <thead>
+     <tr><td>期数</td><td>投注金额</td><td>状态</td></tr>
+ </thead>
+{{?it.data.length>0}} 
+    {{~it.data:value:index}}
+    <tr>
+        <td><div class="colsb"><a href="/view/page/orderDetail.shtml?order={{=value.id}}" target="_blank">{{= value.issue}}</a></div></td>
+        <td><div class="colsb">{{= formatMoney(value.amount)}}元</div></td>
+        {{?value.status!='已中奖'}}
+        <td><div class="colsb">{{=value.status}}</div></td>
+        {{??}}
+        <td><div class="colsb">{{=value.status}}</div></td>
+        {{?}}
+    </tr>
+    {{~}}
+{{??}}
+    <tr><td colspan="3" class="text-center">没有符合条件的记录</td></tr>
+{{?}}
+</script>
+<script id="traceRecordTmpl" type="text/x-dot-template">
+<thead>
+    <tr>
+        <td>起始期</td>
+        <td>追号期数</td>
+        <td>状态</td>
+    </tr>
+</thead>
+{{?it.data.length>0}} 
+    {{~it.data:value:index}}
+    <tr>
+        <td><div class="colsb"><a href="/view/page/chaseDetail.shtml?order={{=value.id}}">{{= value.start_issue}}期</a></div></td>
+        <td><div class="colsb">{{= value.finished_issues+'/'+value.total_issues}}期</div></td>
+        <td><div class="colsb">{{=value.status}}</div></td>
+    </tr>
+     {{~}}
+{{??}}
+    <tr><td colspan="3" class="text-center">没有符合条件的记录</td></tr>
+{{?}}
+</script>
+<script id="transactionListTmpl" type="text/x-dot-template">
+{{?it.data.length>0}} 
+    {{~it.data:value:index}}
+    <tr>
+        <td><div class="colsb">{{=value.description}}</div></td> 
+        {{?value.is_income==0}}
+        <td class="c-green"><div class="colsb">-{{=formatMoney(value.amount)}}</div></td>
+        {{??}}
+        <td class="c-red"><div class="colsb">+{{=formatMoney(value.amount)}}</div></td>
+        {{?}}
+        <td>{{=formatMoney(value.ablance)}}元</td>
+    </tr>
+     {{~}}
+{{??}}
+    <tr><td colspan="3" class="text-center">没有符合条件的记录</td></tr>
+{{?}}
+</script>
+<script type="text/javascript">
+    (function() {
+        window.OOB = {
+            '0': '待开奖',
+            '1': '已撤销',
+            '2': '未中奖',
+            '3': '已中奖',
+            '4': '已派奖',
+            '5': '系统撤销'
+        };
+        window.GRTL = {
+            init: function() {
+                this.events();
+
+            },
+            events: function() {
+                $(document).on('click', '.game-record-section li', function() {
+                    if ($(this).hasClass('active')) return;
+                    var index = $(this).data('index');
+                    $('.game-record-section li.active').removeClass('active');
+                    $(this).addClass('active');
+
+                    $('.game-record-table table').hide();
+                    $('.game-record-table table:eq(' + index + ')').show();
+
+                });
+            },
+            pullBetRecord: function(lottery_id) {
+               var created_at_from = "2018-06-01";
+                var created_at_to = "2018-08-01";
+                var page = 1;
+                var lottery_id = lottery_id;
+                var status = '';
+                var issue = '';
+                var data = {
+                    token:token,
+                    created_at_from:'',
+                    created_at_to:'',
+                    page:page,
+                    status:'',
+                    issue:'',
+                }
+              var  postdata = urlEncode(data);
+                ajaxData({
+                    url: baseUrl+ "/game/bet_record_list.do",
+                    data:{params:postdata},
+                    successCallback: function(data) {
+                        // console.log(data)
+                        doTrender({
+                            container: '.game-record-table table:eq(0)',
+                            tmplObj: '#betRecordTmpl',
+                            data: {
+                                data: data.list
+                            },
+                            needClear: true,
+                            prependDom: false
+                        });
+                    }
+                });
+            },
+            pullTraceRecord: function(lottery_id) {
+                var created_at_from = "2018-06-01";
+                var created_at_to = "2018-08-01";
+                var page = 1;
+                var lottery_id = lottery_id;
+                var status = '';
+                var issue = '';
+                var data = {
+                    token:token,
+                    created_at_from:'',
+                    created_at_to:'',
+                    page:page,
+                    status:'',
+                    issue:'',
+                }
+                var  postdata = urlEncode(data);
+                ajaxData({
+                    url: baseUrl+ "/game/trace_list.do",
+                    data:{params:postdata},
+                    successCallback: function(data) {
+
+                        doTrender({
+                            container: '.game-record-table table:eq(1)',
+                            tmplObj: '#traceRecordTmpl',
+                            data: {
+                                data: data.list
+                            },
+                            needClear: true,
+                            prependDom: false
+                        });
+                    }
+                });
+            },
+            pullTransactionList: function(lottery_id) {  var created_at_from = "2018-06-01";
+                var created_at_to = "2018-08-01";
+                var page = 1;
+                var lottery_id = lottery_id;
+                var status = '';
+                var issue = '';
+                var data = {
+                    token:token,
+                    created_at_from:'',
+                    created_at_to:'',
+                    page:page,
+                    status:'',
+                    issue:'',
+                }
+                var  postdata = urlEncode(data);
+
+                ajaxData({
+                    url: baseUrl+ "/game/trace_list.do",
+                    data:{params:postdata},
+                    successCallback: function(data) {
+                        doTrender({
+                            container: '.game-record-table table:eq(2)',
+                            tmplObj: '#transactionListTmpl',
+                            data: {
+                                data: data.list
+                            },
+                            needClear: true,
+                            prependDom: false
+                        });
+                    }
+                });
+            }
+        };
+        window.GRTL.init();
+    })();
+</script>

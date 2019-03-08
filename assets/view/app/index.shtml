@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="../../js/vendor/jquery-1.9.1.min.js"></script>
+    <title> 彩票中心手机端下载页 </title>
+    <style type="text/css">
+        .footer-phone {
+            background-color: #1b1b1b;
+            height: 200px;
+            padding: 64px 0;
+            box-sizing: border-box;
+            min-width: 1200px;
+        }
+
+        .footer-phone .links {
+            color: #7d7d7d;
+            font-size: 14px;
+        }
+
+        .footer-phone .links a {
+            color: #7d7d7d;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+
+        .footer-phone .links .zizhi {
+            float: right;
+            color: #dcb976;
+            margin: 0;
+            font-size: 12px
+        }
+
+        .footer-phone p {
+            color: #585858;
+        }
+
+        .footer-phone .cooperation {
+            background: url('./img/footer-bg.png') no-repeat;
+            width: 482px;
+            height: 31px;
+            position: absolute;
+            right: 0;
+            top: 32px;
+        }
+
+        .wrap-inner {
+            width: 1200px;
+            margin: 0 auto;
+            clear: both;
+        }
+
+        .wrap-inner:after {
+            content: '';
+            visibility: hidden;
+            display: block;
+            height: 0;
+            clear: both;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            overflow: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+    </style>
+</head>
+<body >
+<section>
+    <div class="header">
+        <div class="top_logo">
+            <a href="/"><img src="./img/logo-top.png" alt=""/></a>
+            <span class="logo_title"> 彩票中心，不止卓越 要求超越 </span>
+        </div>
+    </div>
+
+    <div class="top_main">
+        <div class="top_main_left">
+            <div class="top_main_left_phone">
+                <div class="box_lunbo">
+                    <div class="imgwrap" id="imgwrap">
+                        <div class="banner0"><img src="./img/banner.jpg" alt=""></div>
+                        <div class="banner1"><img src="./img/banner1.jpg" alt=""></div>
+                        <div class="banner2"><img src="./img/banner2.jpg" alt=""></div>
+                        <div class="banner3"><img src="./img/banner3.jpg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="top_main_right">
+            <div class="top_main_right_title">
+                <img src="./img/title.png" alt="">
+            </div>
+
+            <div class="top_main_right_erweima">
+                <ul>
+                    <li>
+                        <img class="img" src="./img/ios_app.png" alt="">
+                        <!--<p> 下载 &nbsp;&nbsp;&nbsp;-->
+                        <!--<a href="https://appi.5tigo.com/jpg.ipa"><img src="./img/ico-down.png" alt=""></a></p>-->
+                        <div class="aow"> 苹果IOS安装说明 <img src="./img/ico-aow.png" alt=""></div>
+                    </li>
+                    <li>
+                        <img class="img" src="./img/2weima.png" alt="">
+                        <p><a href="http://app.5b1c7.com/jpg.apk" style="color:rgb(255,255,255);text-decoration: none">
+                            安卓客户端下载 &nbsp;&nbsp;&nbsp;
+                            <img src="./img/ico-down.png" alt=""/></a>
+                        </p>
+                    </li>
+                    <!--<li>-->
+                    <!--<img class="img" src="./img/1-3.png" alt="">-->
+                    <!--<p> 下载 &nbsp;&nbsp;&nbsp; <img src="./img/ico-down.png" alt=""> </p>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <div class="footer_img">
+        <img src="./img/1.png" alt="">
+        <img src="./img/2.png" alt="">
+        <img src="./img/3.png" alt="">
+        <img src="./img/4.png" alt="">
+        <img src="./img/5.png" alt="">
+        <img src="./img/6.png" alt="">
+    </div>
+</footer>
+<div class="add_footer">
+        <div class="down_main">
+            <h1> <img src="./img/titles.png" alt="">  </h1>
+            <div class="down_box">
+                <ul class="one">
+                    <li class="the_other">  <img src="./img/pc.png" alt=""> <a href="">  彩票中心PC客户端  </a> </li>
+                    <li class="other"> <img src="./img/down.png" alt="">  <a href="http://app.5b1c7.com/彩票中心客户端.rar"> Windows版下载 </a> </li>
+                    <li class="other"> <img src="./img/down.png" alt=""> <a href="http://app.5b1c7.com/彩票中心客户端-mac.zip"> Mac  os版 </a> </li>
+                    <li class="other"> <img src="./img/down.png" alt="">  <a href="http://app.5b1c7.com/彩票中心客户端-linux.zip"> Linux下载 </a> </li>
+                </ul>
+                <ul class="two">
+                    <li class="the_other"> <img src="./img/jiasu.png" alt=""> <a href="">  彩票中心登录加速器 </a> </li>
+                    <li class="other"> <img src="./img/down.png" alt="">  <a href="http://app.5b1c7.com/彩票中心测速器.zip"> Windows版下载 </a> </li>
+                    <li class="other"> <img src="./img/down.png" alt=""> <a href="http://app.5b1c7.com/彩票中心测速器-mac.zip">  Mac  os版 </a> </li>
+                    <li class="other"> <img src="./img/down.png" alt="">  <a href="http://app.5b1c7.com/彩票中心测速器-linux.zip"> Linux下载 </a> </li>
+                </ul>
+            </div>
+        </div>
+</div>
+<!-- <div class="footer-phone">
+    <div class="wrap-inner" style="position: relative;">
+        <div class="links">
+            <a href="/appstore/index.html" target="_blank">软件中心</a>
+            <a href="/about" target="_blank">关于我们</a>
+            <a href="/help" target="_blank" class="helpCenter">帮助中心</a>
+            <a href="/help/10#23" target="_blank" class="security">安全保障</a>
+            <span class="zizhi">博彩资质</span>
+        </div>
+        <p style="margin-top: 15px;font-size:12px">浏览器建议：首选为Google浏览器或火狐浏览器，其次为IE9及以上浏览器。使用1024X768以上的分辨率</p>
+        <p><span style="color:#999;font-size:12px">® 彩票中心游戏版权所有</span><span style="color: #999">&nbsp;&nbsp;&nbsp;Copyright © 2015-2018 Golden Apple Game Technology Co., Ltd.</span>
+        </p>
+        <div class="cooperation"></div>
+    </div>
+</div> -->
+
+
+
+<script type="text/javascript">
+    if (Number($(".main").height()) + 392 < Number($(window).height())) {
+        $(".main").css("minHeight", Number($(window).height()) - 392);
+    }
+
+    $(function () {
+        $('.helpCenter').attr('href', '/view/page/help.shtml?' + showTop);
+        $('.security').attr('href', '/view/page/help.shtml?category_id=10&' + showTop);
+    })
+</script>
+</body>
+</html>
+<script>
+    var int = setInterval("aaa()", 2000);
+    var a = -242;
+    function aaa() {
+        var banner = document.getElementById("imgwrap");
+        banner.style.left = -(a + 242) + "px";
+        if (a >= 242 * 2) {
+            a = -242;
+        } else {
+            a += 242;
+        }
+    }
+   
+    $(".aow").on("click", function () {
+        $(document).scrollTop($(document).height());
+    })
+
+</script>

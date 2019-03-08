@@ -1,0 +1,11 @@
+ <!-- 彩票logo区域 -->
+<div class="lottery-info-basic">
+    <div class="lottery-info-logo">
+        <img id="J-lottery-logo" src="">
+    </div>
+    <div class="lottery-info-issue-box">
+        <span>第</span>
+        <span id="J-header-currentNumber"></span>
+        <span>期</span>
+    </div>
+</div>

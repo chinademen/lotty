@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>分红明细</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+</head>
+<!--#set var="locationUrl" value="teamProfit"--> 
+<!--#set var="level2" value="4"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class="active">分红明细</a>
+            </div>
+            
+            <table class="table" id="listTable">
+                <thead>
+                    <tr>
+                        <th>频道名称</th>
+                        <th>销售</th>
+                        <th>奖金</th>
+                        <th>返点</th>
+                        <th>活动奖金</th>
+                        <th>输值佣金</th>
+                        <th>盈亏</th>
+                        <th>分红占比</th>
+                        <th>分红金额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <!--  <tr>
+                        <td>burning0013</td>
+                        <td>2017-01-03</td>
+                        <td>194,017.000</td>
+                        <td>194,017.000</td>
+                        <td>194,017.000</td>
+                        <td>194,017.000</td>
+                        <td>1,031.000</td>
+                        <td>1,031.000</td>
+                        <td>1,031.000</td>
+                        <td class="red">-194,017.000</td>
+                    </tr>
+                    <tr>
+                        <td>burning0013</td>
+                        <td>2017-01-03</td>
+                        <td>194,017.000</td>
+                        <td>194,017.000</td>
+                        <td>194,017.000</td>
+                        <td>194,017.000</td>
+                        <td>1,031.000</td>
+                        <td>1,031.000</td>
+                        <td>1,031.000</td>
+                        <td class="red">-194,017.000</td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <!--#include virtual="/view/module/pages.shtml"-->
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+    
+    <script type="text/javascript" src="/js/page/ucenter.js"></script>
+    <script id="transactionList" type="text/x-dot-template"> 
+{{?it.list.length>0}} 
+    {{~it.list:value:index}}
+        <tr>
+            <td>{{=value.game_type}}</td>
+            <td>{{=formatMoney(value.sales)}}</td>
+            <td>{{=formatMoney(value.prize)}}</td>
+            <td>{{=formatMoney(value.commission)}}</td>
+            <td>{{=formatMoney(value.bonus)}}</td>
+            <td>{{=formatMoney(value.lose_commission)}}</td>
+            <td>{{=formatMoney(value.profit)}}</td>
+            <td>{{=value.rate}}</td>
+            <td>{{=formatMoney(value.amount)}}</td>
+        </tr>
+    {{~}}
+        <tr>
+            <td>合计</td>
+            <td>{{=formatMoney(it.total.sales)}}</td>
+            <td>{{=formatMoney(it.total.prize)}}</td>
+            <td>{{=formatMoney(it.total.commission)}}</td>
+            <td>{{=formatMoney(it.total.bonus)}}</td>
+            <td>{{=formatMoney(it.total.lose_commission)}}</td>
+            <td>{{=formatMoney(it.total.profit)}}</td>
+            <td>{{=it.total.rate}}</td>
+            <td>{{=formatMoney(it.total.amount)}}</td>
+        </tr>
+{{??}}
+    <tr><td colspan="11">没有符合条件的记录，请更改查询条件</td></tr>
+{{?}}
+</script> 
+ 
+<script type="text/javascript" src="/js/vendor/jqPaginator.js"></script>
+<script type="text/javascript" src="/js/page/help.js"></script>
+<script type="text/javascript">
+    var year = getQueryString("year");
+    var month = getQueryString("month");
+    var batch = getQueryString("batch");
+          // registerTeamUserSelect({});
+
+            doPullTableList();
+
+            function createPagination(res, page) {
+                page = page || 1;
+                renderPagination('#pagination', res.count, page, function(num) {
+                    if(isCreateFirst){
+                        isCreateFirst = false;
+                        return;
+                    }
+                    ajaxData({
+                        url: getTableUrl(num),
+                        successCallback: function(response) {
+                            var data = response.list;
+                            renderTableList(data);
+                        }
+                    });
+                });
+            }
+
+            var isCreateFirst = true;
+            function doPullTableList() {
+                //表格pull
+                isCreateFirst = true;
+                ajaxData({
+                    url: getTableUrl(),
+                    successCallback: function(res) {
+                        renderTableList(res);
+                        $('#pagination').html(''); 
+                        if (res.count/20>1) {
+                            createPagination(res,1,isCreateFirst);
+                        }
+                    }
+                });
+            }
+
+            //search
+            $(document).on('click', '.search-condition-content .search', doPullTableList);
+
+            function renderTableList(data) {
+                doTrender({
+                    container: '#listTable tbody',
+                    tmplObj: '#transactionList',
+                    data: data,
+                    needClear: true,
+                    prependDom: false
+                });
+            }
+
+            function getTableUrl(page) {
+                page = page || 1;  
+                var param = {
+                    action:'getDividendDetail',
+                    terminal_id:terminal_id,
+                    page:page,
+                    year:year,
+                    month:month,
+                    batch:batch
+                } 
+                return getWebsiteOfHost() + "?"+serializeObj2Params(param);
+            }
+              
+</script>
+</body>
+
+</html>

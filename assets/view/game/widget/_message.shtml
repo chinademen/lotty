@@ -1,0 +1,498 @@
+<!-- 彩种休市提示(lotteryClose) -->
+<script id="lotteryCloseTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="lotteryCloseMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3>非常抱歉，本彩种已休市。</h3> 
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+
+</script>
+
+<!-- 投注信息核对(checkLotters) -->
+<script id="checkLottersTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="checkLottersMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">投注确认</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3>彩种：{{=it.gameNameCn}}</h3>
+            <ul class="message-ul">
+                {{~it.balls:value:index}}
+                <li>{{=value.typeCN}}:   {{=value.viewBalls}}</li>
+                {{~}} 
+            </ul>
+            <div>付款总金额：<span class="color-red">{{=it.amount}}</span>元</div>
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="确 认" class="btn-normal confirm">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+
+
+</script>
+
+<!-- 未到销售时间(nonSaleTime) -->
+<script id="nonSaleTimeTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="nonSaleTimeMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3>非常抱歉，本彩种未到销售时间。</h3> 
+            <div>请与<#=orderDate#>后再购买</div>
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 通用提示(normalTime) -->
+<script id="normalTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="normalMSG1">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>{{=it.error}}</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close" onclick="clickdown()">
+    </div>
+</div>
+</script>
+
+<!-- 文件提示(上传文件加载中) -->
+<script id="fileLoadingTmpl" type="text/x-dot-template">
+    <div class="j-ui-miniwindow pop pop xGame-message" id="normalMSG">
+        <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+        <div class="pop-bd">
+            <div class="message-wrap">
+                <h3><i class="ico-waring"></i>{{=it.error}}</h3>
+            </div>
+        </div>
+        <div class="pop-control">
+            <input type="button" name="" value="关 闭" class="btn-normal close">
+        </div>
+    </div>
+</script>
+
+<!-- 无效字符提示(invalidtext) -->
+<script id="invalidtextTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="normalMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>无效字符提示~~~~</h3>
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 投注过期提示(betExpired)-->
+<script id="betExpiredTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="betExpiredMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~本期已经截止投注！ 请购买下一期哦~</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 倍数超限(multipleOver)-->
+<script id="multipleOverTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="multipleOverMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~倍数超限~</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 暂停销售(pauseBet)-->
+<script id="pauseBetTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="pauseBetMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~暂停销售~</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 成功提示(successTip)-->
+<script id="successTipTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="successTipMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-success"></i>投注成功</h3>
+            <p class="text-note" style="padding:5px 0;">
+                您可以通过”<a href="/view/ucenter/game_record/digital_lottery.shtml" target="_blank" class="bet-link">游戏记录</a>“查询您的投注记录<span id="collection_entrance"></span>
+            </p>
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="打 印" class="btn-normal" id="betPrint" data-print="{{=it.bet_record_id}}">
+        <input type="button" name="" value="关 闭" class="btn-normal close" onclick="closesuccess()">
+    </div>
+</div>
+</script>
+
+<!-- 提醒选求提示(checkBalls) -->
+<script id="checkBallsTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="checkBallsMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~请至少选择一注投注号码！</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 错误提示(errorTip) -->
+<script id="errorTipTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="errorTipMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~错误提示>>>！</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 余额不足(low_balance) -->
+<script id="low_balanceTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="low_balanceMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~余额不足>>>！</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- issue_error -->
+<script id="issue_errorTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="issue_errorMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~issue_error>>>！</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 投注失败(bet_failed) -->
+<script id="bet_failedTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="bet_failedMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~投注失败>>>！</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 只有玩家用户才可以投注  (no_right) -->
+<script id="no_rightTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="no_rightMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~只有玩家用户才可以投注>>>！</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 至少选择一注  (mustChoose) -->
+<script id="mustChooseTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="mustChooseMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3 class="pop-text"><i class="ico-waring"></i>亲~请至少选择一注投注号码！</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close btn">
+    </div>
+</div>
+</script>
+
+<!-- 网络连接异常  (netAbnormal) -->
+<script id="netAbnormalTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="netAbnormalMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~网络连接异常！</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 提交成功  (success) -->
+<script id="successTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="successMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-success"></i>亲~提交成功</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 登陆超时 (loginTimeout) -->
+<script id="loginTimeoutTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="loginTimeoutMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~登陆超时</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 服务器错误 (serverError) -->
+<script id="serverErrorTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="serverErrorMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~服务器错误</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 余额不足 Insufficientbalance  -->
+<script id="InsufficientbalanceTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="InsufficientbalanceMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~余额不足</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 非法投注工具 illegalTools  -->
+<script id="illegalToolsTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="illegalToolsMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~非法投注工具</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 提交失败 subFailed  -->
+<script id="subFailedTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="subFailedMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~提交失败</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 非法奖金组 group_error  -->
+<script id="group_errorTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message" id="group_errorMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div class="message-wrap">
+            <h3><i class="ico-waring"></i>亲~非法奖金组</h3>  
+        </div>
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+<!-- 删除错误项 -->
+<script id="singleBet_errorTmpl" type="text/x-dot-template"> 
+<div class="j-ui-miniwindow pop pop xGame-message " id="singleBet_errorMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd"> 
+        <div class="pop-waring"><i class="ico-waring"></i>
+            <div style="display:inline-block;*zoom:1;*display:inline;vertical-align:middle">
+                {{? it.errorData.length > 0 && it.showError }}
+                <h4 class="pop-text" style="display:block;font-weight:bold">{{=it.errorDataTitle}}</h4>
+                <p class="pop-text" style="display:block">{{=it.errorData}}</p>
+                {{?}}
+                {{? it.repeatData.length > 0 && it.showRepeat }}
+                <h4 class="pop-text" style="display:block;font-weight:bold">{{=it.repeatDataTitle}}</h4>
+                <p class="pop-text" style="display:block">{{=it.repeatData}}</p>
+                {{?}}
+            </div>
+        </div> 
+    </div>
+    <div class="pop-control">
+        <input type="button" name="" value="关 闭" class="btn-normal close">
+    </div>
+</div>
+</script>
+
+
+<script id="win_prizeTmpl" type="text/x-dot-template"> 
+<div class="dialog" id="win_prizeMSG" style="margin-left: -150.5px;top: 282.5px;"> <span class="prize_icon"></span>
+    <p>恭喜您，中奖<span class="highlight" data-amount="">{{=it.winMoney}}</span>元</p>
+</div>
+</script>
+
+<script id="prize_resultTmpl" type="text/x-dot-template">
+<div class="dialog " id="prize_resultMSG" style="margin-left: -440px; top: 119px;">
+    <div class="result_bg"></div>
+    <div class="result_cont">总计<span class="highlight" data-result="">{{=it.winMoney}}</span>元</div>
+</div>
+</script>
+
+<script id="no_prizeTmpl" type="text/x-dot-template">
+<div class="dialog " id="no_prizeMSG" style="margin-left: -440px; top: 119px;">
+    <div class="result_bg"></div>
+</div>
+</script>
+<script id="draw_timesTmpl" type="text/x-dot-template">
+<div class="dialog " id="draw_timesMSG" style="margin-left: -118px; top: 282.5px;">
+    <p>第<span class="highlight" data-times="">{{=it.times}}</span>次开奖</p>
+</div>
+</script>
+
+<!-- {"ball":"4|5|6","position":[["4"],["5"],["6"]],"extra":{},"moneyunit":"1.000","multiple":"1","num":1,"onePrice":2,"prizeGroup":"1950","type":"housan.zhixuan.fushi","typeCN":"后三,直选,直选复式","viewBalls":"4|5|6","wayId":"69","jsId":2,"totalMoney":2,"rebate":0.01} -->
+<!-- collection -->
+<script id="collectionTmpl" type="text/x-dot-template">
+<div class="j-ui-miniwindow pop pop xGame-message collection-win" id="collectionMSG">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">注单收藏夹</span></div>
+    <successTipMSGiv class="pop-bd">
+        <div class="message-wrap">
+             <table cellspacing="0" cellpadding="0" width="100%">
+                 <thead>
+                     <tr>
+                         <th><div class="collection-1">玩法</div></th>
+                         <th><div class="collection-2">选球</div></th>
+                         <th><div class="collection-3">倍数</div></th>
+                         <th><div class="collection-4">注数</div></th>
+                         <th><div class="collection-5">奖金组</div></th>
+                         <th><div class="collection-6">元角模式</div></th>
+                         <th><div class="collection-7">金额</div></th>
+                     </tr>
+                 </thead> 
+             </table>
+              <div class="collection-list">
+                  <table cellspacing="0" cellpadding="0" width="100%">
+                      <tbody>
+                            {{?it.length>0}}
+                                {{~it:value:index}}
+                                  <tr data-order="{{=value.jsId}}" class="collectionBom {{?index%2==0}}even{{?}}" >
+                                     <td><div class="collection-1 ellipsis">{{=value.typeCN}}</div></td>
+                                     <td><div class="collection-2 ellipsis">{{=value.viewBalls}}</div></td>
+                                     <td><div class="collection-3 ellipsis">{{=value.multiple}}</div></td>
+                                     <td><div class="collection-4 ellipsis">{{=value.num}}</div></td>
+                                     <td><div class="collection-5 ellipsis">{{=value.prizeGroup}}</div></td>
+                                     <td><div class="collection-6 ellipsis">{{=formatMoneyUnit(value.moneyunit)}}</div></td>
+                                     <td><div class="collection-7 ellipsis">{{=value.totalMoney}}</div></td>
+                                  </tr>
+                              {{~}}
+                          {{??}}
+                            <tr><td colspan="7">你尚未收藏注单，请前往<a href="/view/ucenter/game_record/digital_lottery.shtml">游戏记录</a> 收藏</td></tr>
+                          {{?}}
+                      </tbody>
+                  </table>
+              </div>
+        </div>
+    </successTipMSGiv>
+    <div class="pop-control c-red"> 
+        温馨提示:单击选择收藏夹注单可以快速填充注单
+    </div>
+</div>
+</script>
+<script>
+    function clickdown(event) {
+       $("#normalMSG1").hide();
+        $("#maskOfXGAME").hide();
+
+    }
+    function closesuccess() {
+        $("#successTipMSG").hide();
+        $("#maskOfXGAME").hide();
+    }
+</script>>

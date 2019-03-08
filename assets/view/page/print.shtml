@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css">
+    <style type="text/css">
+        body{ font-size: 9pt; margin: 0; padding: 0; color: black !important; background-image: none !important; font-family: '微软雅黑';}
+        .ptint-body{margin:0 auto;padding:6pt;background-color:#FFF; border: 1px solid #f2f2f2; position: relative;}
+        .ptint-body .table{margin-bottom:6pt;}
+        .ptint-body .table td{padding:4pt 2pt;text-align:left;}
+        .ptint-body .table th{text-align:center;}
+        .ptint-body .table-info th{font-size:12pt;font-weight:700;}
+        .ptint-body .table .lottery-number{word-break:break-all;white-space:normal;}
+        .ptint-btn{padding-bottom:10pt;text-align:center;border-bottom:1px dotted #CCC;}
+        .ptint-btn p{margin-top:8pt;color:#999;}
+        .ptint-logo{display:block;width:86pt;height:31.5pt;margin:15pt auto 0;}
+        .ptint-logo img{display:block;width:100%;border:none;}
+        .btn{position:relative;display:inline-block;*display:inline;*zoom:1;height:24pt;border:1px solid #CACACA;padding:0 11pt;line-height:24pt;text-align:center;vertical-align:middle;background-color:#F6F6F6;font-size:10.5pt;font-weight:700;color:#555;cursor:pointer;border-radius:2.25pt;background-image:-webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.06));background-image:-moz-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.06));background-image:-o-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.06));background-image:linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.06));background-color:#FFF;box-shadow:0 1px 2px rgba(0,0,0,0.2);height:26pt\9;line-height:26pt\9;border:0 none\9;background:url(ui-btn.png) no-repeat 0 0\9;}
+        @media print {
+            body{padding-top:0;}
+            .ptint-btn{display:none;}
+            .ptint-body{padding:0;}
+        }
+        @media print and (color) {
+           * {
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
+           }
+        }
+        .myprogress {
+            background: #000!important;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fff9f9f9', GradientType=0);
+        }
+
+        /* table */
+        .table{width:100%;}
+        .table th,.table td{padding:4.5pt 9pt;border-bottom:1px dashed #E3E3E3;text-align:left;}
+        .th{ height: 25px; }
+        .th span{ font-size: 9pt; padding-top: 7pt;  }
+        .table-border th,.table-border td{border:1pt dashed #E3E3E3;}
+        .table-border th{background-color:#FAFAFA;}
+        .table-border td{background-color:#FFF;}
+        .table-info th,.table-info td{text-align:center;}
+        .table-info th{padding-top:7.5pt;padding-bottom:7.5pt;}
+        .table-info td{border-bottom-style:dotted;padding-top:6pt;padding-bottom:6pt;}
+        .table-info .text-break{border-bottom-style:dotted;padding-top:6pt;padding-bottom:6pt;word-break:break-all;}
+        .table-info .highlight-cell td{color:#f00;}
+        .box1{ position: absolute; right: 0;  bottom: 15pt; background: #000; height: 12pt; width: 7pt; display: block; }
+    </style>
+</head>
+<body style="background: #f2f2f2;">
+
+<OBJECT id="WebBrowser" height="0" width="0" classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"VIEWASTEXT></OBJECT>
+    <center class=noprint  id="printContainer">
+
+</center>
+
+<script id="printTmpl" type="text/x-dot-template">
+<div class="ptint-body">
+    <div class="ptint-btn">
+        <a href="javascript:;" class="btn" id="gamePrintButton">打印</a> 
+    </div>
+
+    <table class="table table-info table-border-none">
+        <tr>
+            <th class="th" >{{=it.lottery}}</th>
+        </tr>
+        <tr>
+            <td>(编号：{{=it.serial_number}})</td>
+        </tr>
+        <tr> 
+            <td>期号：{{=it.issue}}</td> 
+        </tr>
+        <tr>
+            <td>模式：{{=it.formatted_coefficient}}</td>
+        </tr>
+        <tr>
+            <td style="word-break:break-all;">时间：{{=it.bought_at}}</td>
+        </tr>
+        <tr>
+            <td>金额：<span class="price"><dfn>￥</dfn><span>{{=it.amount}}</span></span></td>
+        </tr>
+        <tr> 
+            <td>注数：{{=it.bet_count}}注</td>
+        </tr>
+        <tr>
+            <td>倍数：{{=it.multiple}}倍</td>
+        </tr>
+        <tr> 
+          <td>追号：
+              {{=it.trace_id==0?'否':'是'}}
+            </td> 
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
+            <th >{{=it.way}}</th>
+        </tr>
+        <tr>
+            <td>投注内容</td>
+        </tr>
+        <tr>
+            <td style="word-break:break-all;line-height:12pt;">{{=it.bet_number}}</td>
+        </tr>
+    </table>
+
+
+    <div class="box1 myprogress"></div>
+</div>
+</script>
+<script type="text/javascript">
+    var project_id = getQueryString('project_id');
+    var data = {
+        "id":project_id,
+        "token":token,
+    }
+    var postData =urlEncode(data);
+     ajaxData({
+         url:  getWebsiteOfHost() + "/game/project_detailt.do",
+         data:{
+             'params':postData
+         },
+        successCallback: function(data) {
+            data.order = data.id;
+            if (data.is_trace == 0) {
+                data.trace = '否';
+            } else {
+                data.trace = '是';
+            }
+            doTrender({
+                container: '#printContainer',
+                tmplObj: '#printTmpl',
+                data: data,
+                needClear: true,
+                prependDom: false
+            });
+        }
+     });
+
+$(document).on('click', '#gamePrintButton', function() {
+    if (window.opener.window.gagame) {
+        //window.opener.window.gagame.Games.getCurrentCountdown().fireEvent('updateBetData');
+    }
+    window.print(); 
+});
+</script>
+
+</body>
+</html>
