@@ -334,8 +334,8 @@ color:#999;font-size:10px;}
 .table a{text-decoration:underline;}
 .table a+a{margin-left:10px;}
 .table td,.table th,
-.table-info td,.table-info th{padding:5px;line-height:24px;background:#fff;text-align:center;color:#666;border-left:none;border-right:none;font-size:12px;border-bottom:1px dashed #ddd;vertical-align:middle;}
-.table th,.table tfoot td,.table-info th{border-color:transparent;color:#333;background-color:#fafafa;line-height:30px;height:30px;border-bottom:2px solid #ddd;}
+.table-info td,.table-info th{padding:5px;line-height:24px;text-align:center;color:#666;border-left:none;border-right:none;font-size:12px;border-bottom:1px dashed #ddd;vertical-align:middle;}
+.table th,.table tfoot td,.table-info th{border-color:transparent;color:#333;line-height:30px;height:30px;border-bottom:2px solid #ddd;}
 .small-table th,.small-table tfoot td{line-height:20px;font-size:12px;}
 .border-table{border:1px solid #c8d0d6}
 .table tbody tr:hover td {background-color:#fdfdff;}

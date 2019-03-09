@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>玩法奖金</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" type="text/css" href="/css/iconfont.css">
+    <link rel="stylesheet" href="/lib/dcalendar.picker.css">
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css">
+    <script src="/lib/dcalendar.picker.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.jedate.min.js"></script>
+    <script type="text/javascript" src="/js/core/gamebase.js"></script>
+    <script type="text/javascript" src="/js/widget/gagame.Tip.js"></script>
+
+</head>
+<!--#set var="locationUrl" value="gameRecord"-->
+<!--#set var="level2" value="0"-->
+
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            
+            <div class="user_center_mian bonusPlay">
+                <div class="title">
+                    <span data-show="#bonusPlay_ssc" class="active"> 时时彩 </span>
+                    <span data-show="#bonusPlay_k3" > 快3 </span>
+                    <span data-show="#bonusPlay_klpk" > 快乐扑克 </span>
+                </div>
+                <div class="bonusPlayContent">
+                    <div class="title">
+                        <span> 会员返点级别: 12% 可调奖金范围: 1700~1940 </span>
+                        <span> 单人单期奖金上限： 40万 </span>
+                    </div>
+                    <div class="table">
+                        <table id="bonusPlay_ssc">
+                            <thead>
+                                <tr>
+                                <th class="gameName"> 一星 </th>
+                                <th class="introduced"> 玩法介绍 </th>
+                                <th class="gameMoney"> 奖金模式 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="gameName"> 后一直选 </td>
+                                    <td class="introduced">
+                                        <p> 从0-9的数字中，根据万位，千位，百位、十位，个位，各选择一个数字组成五注，开奖号码与所选号码的位置及数字相符，即为中奖。 </p>
+                                        <p> 例： </p>
+                                        <p> 开奖号码：1，2，3，4，5，所选号码：1，2，3，4，5，万位，千位，百位，十位，个位，所选号码及位置与开奖号码一致，即5注全中。
+                                        开奖号码：1，2，3，4，5，所选号码：1，2，3，4，4，万位，千位，百位，十位，所选号码及位置与开奖号码一致，即4注中奖。 </p>
+                                    </td>
+                                    <td class="gameMoney"> 17.0000 </td>
+                                </tr>
+                                <tr>
+                                    <td class="gameName"> 后一直选 </td>
+                                    <td class="introduced">
+                                        <p> 从0-9的数字中，根据万位，千位，百位、十位，个位，各选择一个数字组成五注，开奖号码与所选号码的位置及数字相符，即为中奖。 </p>
+                                        <p> 例： </p>
+                                        <p> 开奖号码：1，2，3，4，5，所选号码：1，2，3，4，5，万位，千位，百位，十位，个位，所选号码及位置与开奖号码一致，即5注全中。
+                                        开奖号码：1，2，3，4，5，所选号码：1，2，3，4，4，万位，千位，百位，十位，所选号码及位置与开奖号码一致，即4注中奖。 </p>
+                                    </td>
+                                    <td class="gameMoney"> 17.0000 </td>
+                                </tr>
+                                <tr>
+                                    <td class="gameName"> 后一直选 </td>
+                                    <td class="introduced">
+                                        <p> 从0-9的数字中，根据万位，千位，百位、十位，个位，各选择一个数字组成五注，开奖号码与所选号码的位置及数字相符，即为中奖。 </p>
+                                        <p> 例： </p>
+                                        <p> 开奖号码：1，2，3，4，5，所选号码：1，2，3，4，5，万位，千位，百位，十位，个位，所选号码及位置与开奖号码一致，即5注全中。
+                                        开奖号码：1，2，3，4，5，所选号码：1，2，3，4，4，万位，千位，百位，十位，所选号码及位置与开奖号码一致，即4注中奖。 </p>
+                                    </td>
+                                    <td class="gameMoney"> 17.0000 </td>
+                                </tr>
+                                <tr>
+                                    <td class="gameName"> 后一直选 </td>
+                                    <td class="introduced">
+                                        <p> 从0-9的数字中，根据万位，千位，百位、十位，个位，各选择一个数字组成五注，开奖号码与所选号码的位置及数字相符，即为中奖。 </p>
+                                        <p> 例： </p>
+                                        <p> 开奖号码：1，2，3，4，5，所选号码：1，2，3，4，5，万位，千位，百位，十位，个位，所选号码及位置与开奖号码一致，即5注全中。
+                                        开奖号码：1，2，3，4，5，所选号码：1，2，3，4，4，万位，千位，百位，十位，所选号码及位置与开奖号码一致，即4注中奖。 </p>
+                                    </td>
+                                    <td class="gameMoney"> 17.0000 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="bonusPlay_k3">
+                            <thead>
+                                <tr>
+                                <th class="gameName"> 一星 </th>
+                                <th class="introduced"> 玩法介绍 </th>
+                                <th class="gameMoney"> 奖金模式 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td class="gameName"> 后一直选 </td>
+                                <td class="introduced">
+                                    <p> 从0-9的数字中，根据万位，千位，百位、十位，个位，各选择一个数字组成五注，开奖号码与所选号码的位置及数字相符，即为中奖。 </p>
+                                    <p> 例： </p>
+                                    <p> 开奖号码：1，2，3，4，5，所选号码：1，2，3，4
+                                    开奖号码：1，2，3，4位，所选号码及位置与开奖号码一致，即4注中奖。 </p>
+                                </td>
+                                <td class="gameMoney"> 17.0000 </td>
+                                </tr>
+                                <tr>
+                                <td class="gameName"> 后一直选 </td>
+                                <td class="introduced">
+                                    <p> 从0-9的数字中，根据万位，千位，百位、十位，个位，各及数字相符，即为中奖。 </p>
+                                    <p> 例： </p>
+                                    <p> 5注全中。
+                                    开奖号码：1，2，3，4，5，所选号码：1，2，3，4，4，万位，千位，百位，十位，所选号码及位置与开奖号码一致，即4注中奖。 </p>
+                                </td>
+                                <td class="gameMoney"> 17.0000 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="bonusPlay_klpk">
+                            <thead>
+                                <tr>
+                                <th class="gameName"> 一星 </th>
+                                <th class="introduced"> 玩法介绍 </th>
+                                <th class="gameMoney"> 奖金模式 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td class="gameName"> 后一直选 </td>
+                                <td class="introduced">
+                                    <p> 从0-9的数字中，根据万位，千相符，即为中奖。 </p>
+                                    <p> 例： </p>
+                                    <p> 开奖号码：1，2，3，4，5，所选号码：1，2，3，4
+                                    开奖号码：1，2，3，4位，所选号码及位置与开奖号码一致，即4注中奖。 </p>
+                                </td>
+                                <td class="gameMoney"> 17.0000 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+     <!-- 底部 -->
+    <!--#include virtual="/view/module/footer.shtml"-->
+    <script>
+        $("#bonusPlay_ssc").show()
+        $(".bonusPlay>.title>span").on('click', function () {
+          $(this).addClass("active").siblings().removeClass("active");
+          var showid = $(this).attr("data-show");
+          $(showid).show().siblings().hide();
+        })
+      
+    </script>
+      
+</body>
+
+</html>

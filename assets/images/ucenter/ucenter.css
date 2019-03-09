@@ -1,6 +1,25 @@
 @charset "UTF-8";
 body{background-color: #fafafa}
-
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+@media (min-width: 768px) {
+.form-inline .input-group {
+    display: inline-table;
+    vertical-align: middle;
+}
 /* sidebar */
 .ucenter-left-wrap{background: #fff;width: 220px;float: left;}
 .ucenter-left { width: 219px;  border-left:1px solid #e5e5e5;border-top: 1px solid #e5e5e5;}
@@ -46,7 +65,7 @@ body{overflow-y: scroll;}
 
         display: none;
     }*/
-.main { margin-left: 220px; background-color: #f2f2f2; padding: 20px; color: #666; border: 1px solid #ddd; }
+.main { display: inline-block; width: 968px; padding: 20px; color: #666; float: left; box-sizing: border-box; }
 .main .content{background-color: #fff;padding: 20px;}
 .content-password { background-color: #fff; border: 1px solid #e5e5e5; }
 .content-password .title { color: #333; font-size: 16px; font-weight: bold; height: 54px; line-height: 54px; border-bottom: 1px solid #e5e5e5; text-indent: 30px; }
@@ -838,3 +857,693 @@ hr.clearfix{display:block;height:0;line-height:0;content:"";font-size:0;clear:bo
 .content-password .redBag{position: absolute;top: 50px;right: 150px;}
 .content-password .redBag i{width: 50px;height: 50px;background: url(redbag.png) no-repeat center;display: block;background-size: cover;vertical-align: bottom;margin: 0 auto;}
 .content-password .redBag a{font-size: 14px;text-align: center;}
+
+
+/* 新增css */
+/* 个人中心左侧导航 */
+.user_footer_left {
+    display: inline-block;
+    float: left;
+    width: 230px;
+    padding: 10px 0;
+    background: #f5f5f5;
+    overflow: hidden;
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+}
+  
+.user_foote_meun>div>p {
+    height: 50px;
+    color: #128be6;
+    font-size: 18px;
+    line-height: 50px;
+    cursor: pointer;
+    padding: 0 32px;
+  }
+  
+  .user_foote_meun>div>p i {
+    margin-right: 5px;
+  }
+  
+  .user_foote_meun>div li {
+    padding: 0 60px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #666666;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .user_foote_meun>div li:hover {
+    background: rgb(206, 206, 206);
+  }
+  
+  .user_foote_meun>div .active {
+    box-sizing: border-box;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+  }
+  
+  .user_foote_meun>div .active::after {
+    content: '';
+    width: 5px;
+    height: 38px;
+    background: #128be6;
+    position: absolute;
+    top: 0px;
+    left: -1px;
+}
+
+/*
+ * 个人资料  
+ */
+ .user_footer_right {
+    width: 968px;
+    /* height: 100%; */
+    
+  }
+  
+  .user_footer_right {
+    /* padding: 15px; */
+    background: #ffffff;
+  }
+  
+
+  /* 公共 */
+.user_center_mian>.title {
+    height: 44px;
+    border-bottom: 3px solid #f5f5f5;
+  }
+  
+  .user_center_mian>.title>span {
+    float: left;
+    font-size: 16px;
+    color: #666666;
+    padding: 11px 10px;
+    position: relative;
+  }
+  
+  .user_center_mian>.title>span::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: #128be6;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    z-index: 1;
+  }
+  
+  .user_center_mian .form-inline>ul {
+    /* overflow: hidden; */
+    height: 27px;
+  }
+  
+  .user_center_mian .form-inline>ul:not(:nth-child(1)) {
+    margin-top: 10px;
+  }
+  
+  .user_center_mian .form-inline>ul>li {
+    float: left;
+    font-size: 12px;
+    color: #666666;
+    margin-right: 20px;
+  }
+  
+  .user_center_mian .form-inline>ul>li label {
+    font-size: 12px;
+    font-weight: normal;
+  }
+  
+  .user_center_mian .form-control {
+    font-size: 12px;
+    color: #333333;
+    padding: 4px 6px;
+    box-sizing: border-box;
+    border: 1px solid #bbbbbb;
+    height: 27px;
+  }
+  
+  .user_center_mian .input-group-addon {
+    padding: 0;
+    height: 27px;
+  }
+  
+  .user_center_mian .input-group {
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .user_center_mian .input-group i {
+    position: absolute;
+    right: 6px;
+    top: 3px;
+    z-index: 100;
+  }
+  
+  .user_center_mian .calendar {
+    z-index: 999;
+  }
+  
+  .user_center_mian .conditions {
+    padding: 13px 10px;
+    margin-top: 15px;
+    background: #ebebeb;
+    border-bottom: 3px solid #128be6;
+  }
+  
+  .user_center_mian .btn-primary {
+    line-height: 1.42857143;
+    height: 26px;
+    background: #128be6;
+    font-size: 14px;
+    color: #fff;
+    padding: 3px 18px;
+    border: none;
+    margin-left: 15px;
+  }
+  
+  .user_center_mian .btn-primary:hover {
+    background: #1d99f8;
+  }
+  
+  .user_center_mian>.table {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  .user_center_mian>.table>table {
+    width: 100%;
+    border-left: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    max-height: 281px;
+    overflow: hidden;
+  }
+  
+  .user_center_mian>.table>table>thead {
+    background: #dfe9f1;
+  
+  }
+  
+  .user_center_mian>.table>table>thead>tr>th {
+    padding: 11px 10px;
+    color: #333333;
+    font-weight: bold;
+    border-right: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .user_center_mian>.table>table>tbody>tr>td {
+    color: #333333;
+    padding: 11px 10px;
+    border-right: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .user_center_mian>.table>table>tbody>tr:nth-child(even) {
+    color: #333333;
+    padding: 11px 10px;
+    background: #f3f3f3;
+  }
+  
+  .user_center_mian .table_btn {
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+  }
+  
+  .user_center_mian .table_btn span {
+    cursor: pointer;
+  }
+  
+  .user_center_mian .table_btn span:hover {
+    color: #000000;
+  }
+
+ 
+
+  .form-control {
+    line-height: 1.42857143;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+
+  h4 {
+        display: block;
+        margin-block-start: 1.33em;
+        margin-block-end: 1.33em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+  /* 个人信息 */
+.personal_username {
+    height: 52px;
+    border: 1px solid #e8e8e8;
+    margin-top: 15px;
+    padding: 0 10px;
+    color: #666666;
+    font-size: 14px;
+    line-height: 52px;
+  }
+  
+  .personal_username span {
+    font-weight: bold;
+  }
+  
+  .personal_username>div {
+    /* height: 65px; */
+    float: left;
+  }
+  
+  .personal_username .username {
+    width: 40%;
+  }
+  
+  .personal_username .nickname {
+    width: 60%;
+  }
+  
+  .personal_username .nickname b {
+    color: #fff;
+    background: #128be6;
+    margin-left: 15px;
+    padding: 4px 16px;
+    border-radius: 2px;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  
+  .personal_ifo {
+    border: 1px solid #e8e8e8;
+    margin-top: 12px;
+  }
+  
+  .personal_ifo h3 {
+    height: 39px;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 39px;
+    background: #fafafa;
+  }
+
+  .personal_bank {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+  
+  .personal_bank p:nth-child(1) {
+    margin-top: 20px;
+  }
+  
+  .personal_bank p:nth-child(2) {
+    margin-top: 13px;
+  }
+  
+  .personal_bank p:nth-child(3) {
+    margin-top: 13px;
+    color: #ff0000;
+  }
+  
+
+  /* 玩法奖金 */
+.bonusPlay>.title {
+    border-color: #128be6;
+    height: 44px;
+  }
+  
+  .bonusPlay>.title>span {
+    background: #dfdfdf;
+    margin-right: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+  }
+  
+  .bonusPlay>.title>span:hover {
+    background: #c4c4c4;
+  }
+  
+  .bonusPlay>.title>span.active {
+    background: #128be6;
+    color: #fff;
+  }
+  
+  .bonusPlay>.title>span::after {
+    width: 0;
+  }
+  
+  .bonusPlayContent {
+    margin-top: 15px;
+    min-height: 454px;
+    overflow: hidden;
+  }
+  
+  .bonusPlayContent>.title {
+    padding: 11px 10px;
+    color: #666666;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+  }
+  
+  .bonusPlayContent>.title>span:nth-child(1) {
+    float: left;
+  }
+  
+  .bonusPlayContent>.title>span:nth-child(2) {
+    float: right;
+  
+  }
+  
+  .bonusPlayContent .table {
+    /* height: 393px; */
+    overflow: auto;
+  }
+  
+  .bonusPlayContent table {
+    display: none;
+  }
+  
+  .bonusPlayContent thead {
+    background: #dfe9f1;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .bonusPlayContent tbody {
+    color: #666666;
+    font-size: 12px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .bonusPlayContent .gameName {
+    width: 132px;
+    padding: 8px 10px;
+  }
+  
+  .bonusPlayContent .introduced {
+    width: 644px;
+    padding: 8px 10px;
+  }
+  
+  .bonusPlayContent .gameMoney {
+    width: 164px;
+    padding: 8px 10px;
+  }
+  
+  .bonusPlayContent tbody .gameName {
+    padding: 20px 10px;
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+  }
+  
+  .bonusPlayContent tbody .introduced {
+    padding: 20px 10px;
+    border-top: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+  }
+  
+  .bonusPlayContent tbody .gameMoney {
+    padding: 20px 10px;
+    border-top: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .bonusPlayContent tbody tr:nth-child(even) {
+    background: #f3f3f3;
+  }
+  
+
+  /* 修改密码 */
+.changePasswordContent {
+    padding-top: 35px;
+    padding-left: 200px;
+    box-sizing: border-box;
+  }
+  
+  .changePasswordContent>div {
+    display: none;
+  }
+  
+  .changePasswordContent label {
+    width: 120px;
+    text-align: right;
+    font-size: 14px;
+    color: #666666;
+  }
+  
+  .changePasswordContent input {
+    width: 200px !important;
+  }
+  
+  .changePasswordContent .form-inline {
+    margin-top: 10px;
+  }
+  
+  .changePasswordContent button {
+    margin-left: 120px;
+    background: #128be6;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+  }
+  
+  .changePasswordContent button:hover {
+    background: #48a6ee;
+  }
+  
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+/* 绑定英银行卡 */
+.bindCard .table {
+    margin-bottom: 0;
+  }
+  
+  .bindCard .table>table {
+    width: 100%;
+    font-size: 12px;
+    color: #999999;
+  }
+  
+  .bindCard .table>table>thead>tr>th {
+    padding: 8px 20px;
+    color: #333333;
+    font-weight: bold;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .bindCard .table>table>thead>tr>th:last-child {
+    border-right: 0px solid #e0e0e0;
+  }
+  
+  .bindCard .table>table>tbody>tr>td {
+    padding: 8px 20px;
+    border-right: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+    color: #999999;
+  }
+  
+  .bindCard .table>table>tbody>tr>td:last-child {
+    border-right: 0px solid #e0e0e0;
+  }
+  
+  .bindCard .personal_ifo {
+    min-height: 142px;
+  }
+  
+  .bindCard .newCard {
+    height: 286px;
+  }
+  
+  .newCard_right {
+    float: right;
+    width: 240px;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  .newCard_left {
+    float: left;
+    margin-top: 8px;
+  }
+  
+  .newCard_right h4 {
+    font-size: 14px;
+    color: #666666;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .newCard_right p {
+    font-size: 12px;
+    color: #999999;
+    margin-top: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .newCard label {
+    width: 120px;
+    text-align: right;
+    font-weight: normal;
+    color: #333333;
+    margin-bottom: 0;
+  }
+  
+  .newCard .form-inline {
+    margin-top: 10px;
+  }
+  
+  .newCard .form-inline input {
+    width: 200px;
+  }
+  
+  .newCard .form-inline button {
+    margin-left: 123px;
+    background: #128be6;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+  }
+  
+  /* 会员报表 */
+.vipReport>.bonusPlay {
+  margin-top: 20px;
+}
+.vipReport>.user_center_mian>.table{
+  display: none;
+}
+
+
+/* 下级开户 */
+.registeLower_ifo>h3>span{
+  margin-right: 50px;
+}
+.registeLower_ifo .chase_checkbox label:before{
+  border-radius: 50px;
+}
+.registeLower_ifo_main{
+  padding: 15px 20px;
+}
+.registeLower_ifo_main .form-inline{
+  margin-bottom: 15px;
+}
+.registeLower_ifo_main .form-inline:last-child{
+  margin-bottom: 0px;
+}
+.registeLower_ifo_main .form-inline label{
+  width: 165px;
+  text-align: right;
+  font-weight: normal;
+}
+.registeLower_ifo_main .form-inline input{
+  width: 250px;
+}
+.registeLower_ifo_main .form-inline span{
+  color: #999999;
+  font-size: 12px;
+}
+.registeLower_ifo>h3>P{
+  float: right;
+}
+.registeLower_ifo>h3>P>span{
+  color: #999999;
+}
+.registeLower_ifo_main{
+  overflow: hidden;
+}
+.registeLower_ifo_main>ul{
+  float: left;
+  width: 50%;
+}
+.registeLower_ifo_main select.form-control{
+  width: 135px;
+}
+.registeLower_btn{
+  padding:20px; 
+  text-align: center;
+  color: #999999;
+}
+.registeLower_btn button{
+  display: inline-block;
+  margin: 0 10px;
+  background: #128be6;
+  padding: 4px 16px;
+  border-radius: 2px;
+  color: #fff;
+  border: none;
+}
+.registeLower_btn input{
+  width: 300px !important;
+}
+.registeLower_btn span{
+  color: #128be6;
+  cursor: pointer;
+  margin: 10px;
+}
+.registeLower>.openaccount{
+  display: none;
+}
+
+/* 发邮件 */
+.sendBox textarea {
+  height: 200px !important;
+}
+
+.sendBox form {
+  margin-top: 15px;
+}
+
+.sendBox label {
+  font-size: 12px;
+  color: #666666;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.sendBox .btn-primary {
+  margin-left: 0;
+}
+
+.sendBox .form-control {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
