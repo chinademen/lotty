@@ -19,145 +19,152 @@
 <!--#include virtual="view/module/nav.shtml"-->
 <!-- 轮播图 -->
 <div class="banner box">
-    <div class="sider-box-left arrow-left"><i class="home-icon banner-arrow-left"></i></div>
-    <div class="sider-box-right arrow-right"><i class="home-icon banner-arrow-right"></i></div>
-    <div class="img" style="width: 100%;height: 542px;">
+    <!-- <div class="sider-box-left arrow-left"><i class="home-icon banner-arrow-left"></i></div>
+    <div class="sider-box-right arrow-right"><i class="home-icon banner-arrow-right"></i></div> -->
+    <div class="img" style="width: 100%;height: 450px;">
         <ul class="clearfix">
-            <li><a href='#'><img src="/images/index/banner1.jpg" alt=""></a></li>
+            <li>
+                <a class="imgbg" href='#'>  </a>
+                    <!-- <img src="/images/index/banner1.png" alt=""> -->
+            </li>
         </ul>
     </div>
     <div class="ico"></div>
 </div>
-<div class="wrap-inner lottery-list">
-    <div class="lottery-list-top ">
-        <i class="home-icon notice"></i>
-        <div class="J-prize-marquee">
-            <ul id="new-list" style="margin: 0px;">
-
-            </ul>
-        </div>
-        <div class="lottery-list-top-right">昨日派奖：<span style="color:#f83631;font-size: 18px;font-weight: bold" id="pj"></span>元</div>
-    </div>
-    <div class="lottery-list-main clearfix">
-        <div class="lottery-list-main-left clearfix">
-
-            <div class="loatery_list shishicai" >
-                <div class="yuan">
-                    <div>
-                        <p> 时时彩 </p>
+<div class="home_main">
+        <div class="wrap-inner lottery-list">
+                <div class="lottery-list-top ">
+                    <i class="home-icon notice"></i>
+                    <div class="J-prize-marquee">
+                        <ul id="new-list" style="margin: 0px;">
+            
+                        </ul>
+                    </div>
+                    <div class="lottery-list-top-right">昨日派奖：<span style="color:#f83631;font-size: 18px;font-weight: bold" id="pj"></span>元</div>
+                </div>
+                <div class="lottery-list-main clearfix">
+                    <div class="lottery-list-main-left clearfix">
+            
+                        <div class="loatery_list shishicai" >
+                            <div class="yuan">
+                                <div>
+                                    <p> 时时彩 </p>
+                                </div>
+                            </div>
+                            <ul id="loatery_list0">
+                                <!-- <li ><a href="/view/game/ssc.shtml?lottery=PGFFC" class="c-yellow">苹果分分彩 <i class="home-icon h24"></i></a></li>
+                                <li ><a href="/view/game/ssc.shtml?lottery=PG3FC" class="c-yellow">苹果三分彩 <i class="home-icon h24"></i></a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=CQSSC"  class="c-yellow">重庆时时彩 <i class="home-icon hot"></i></a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=TJSSC" >天津时时彩</a></li>
+            
+                                <li><a href="/view/game/ssc.shtml?lottery=BJ5FC" >北京五分彩</a></li>
+                                <li ><a href="/view/game/3d.shtml?lottery=PG3D" class="c-yellow">苹果极速3D <i class="home-icon h24"></i></a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=HLJSSC" >黑龙江时时乐</a></li>
+                                <li ><a href="/view/game/mmc.shtml?lottery=PGMMC" target="_bank">苹果秒秒彩</a></li>
+                                <li ><a href="/view/game/3d.shtml?lottery=SSL">上海时时乐</a></li>
+                                <li ><a href="/view/game/ssc.shtml?lottery=PG5FC" class="c-yellow">苹果五分彩 <i class="home-icon h24"></i></a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=MDBMC">缅甸百秒彩</a></li>
+                                <li ><a href="/view/game/ssc.shtml?lottery=XJSSC" >新疆时时彩</a></li> -->
+                            </ul>
+                        </div>
+                        <div class="loatery_list" >
+                            <div class="yuan">
+                                <div>
+                                    <p> 快三 </p>
+                                </div>
+                            </div>
+                            <ul id="loatery_list1">
+                                <!-- <li><a href="/view/game/k3.shtml?lottery=JSK3" class="c-yellow">江苏快三 <i class="home-icon hot"></i></a></li>
+                                <li><a href="/view/game/k3.shtml?lottery=GSK3" >甘肃快三</a></li> -->
+                                <!-- <li><a href="/view/game/k3.shtml?lottery=FJK3" >福建快三</a></li> -->
+                                <!-- <li><a href="/view/game/k3.shtml?lottery=GXK3" >广西快三</a></li>
+                                <li><a href="/view/game/k3.shtml?lottery=PGK3">苹果快三</a></li>
+                                <li><a href="/view/game/k3.shtml?lottery=AHK3" >安徽快三</a></li>
+                                <li><a href="/view/game/k3.shtml?lottery=HEBK3" >河北快三</a></li> -->
+                            </ul>
+                        </div>
+                        <div class="loatery_list shiyi" >
+                            <div class="yuan">
+                                <div>
+                                    <p> 11选5 </p>
+                                </div>
+                            </div>
+                            <ul id="loatery_list2">
+                                <!-- <li ><a href="/view/game/l115.shtml?lottery=JS115" >江苏11选5</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=FJ115" >福建11选5</a></li>
+                                <li ><a href="/view/game/l115.shtml?lottery=SD115" >山东11选5</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=GZ115" >贵州11选5</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=JX115" >江西11选5</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=SX115" >山西11选5</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=BJ115" >北京11选5</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=LN115" >辽宁11选5</a></li>
+                                <li><a href="/view/game/pg115mmc.shtml?lottery=PG115MMC" target="_bank">11选5秒秒彩</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=PG115SFC" >11选5三分彩</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=PG115" class="c-yellow">苹果11选5 <i class="home-icon hot"></i></a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=GD115" >广东11选5</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=GS115" >甘肃11选5</a></li>
+                                <li><a href="/view/game/l115.shtml?lottery=AH115" >安徽11选5</a></li>
+                                <li ><a href="/view/game/l115.shtml?lottery=NMG115" > 内蒙古11选五 </a></li> -->
+                                <!-- <li><a href="" > +更多 </a></li> -->
+                            </ul>
+                        </div>
+                        <div class="loatery_list" >
+                            <div class="yuan">
+                                <div>
+                                    <p> 快乐十分 </p>
+                                    <p> 快乐十二 </p>
+                                </div>
+                            </div>
+                            <ul id="loatery_list3">
+                                <!-- <li><a href="/view/game/ssc.shtml?lottery=CQSSC" > 山西快乐十分 </a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=CQSSC" class="c-yellow"> 陕西快乐十分 <i class="home-icon new"></i></a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=CQSSC" class="c-yellow"> 广东快乐十分 <i class="home-icon new"></i></a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=CQSSC" > 湖南快乐十分 </a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=CQSSC" > 云南快乐十分 </a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=CQSSC" > 浙江快乐十分 </a></li> -->
+                            </ul>
+                        </div>
+                        <div class="loatery_list" >
+                            <div class="yuan">
+                                <div>
+                                    <p> PK10 </p>
+                                    <p> 低频 </p>
+                                    <p> 快乐彩 </p>
+                                </div>
+                            </div>
+                            <ul id="loatery_list4">
+                                <!-- <li><a href="/view/game/3d.shtml?lottery=F3D" >3D</a></li>
+                                <li ><a href="http://game.user.com/view/game/pk10.shtml?lottery=PGPK10" class="c-yellow">苹果极速PK10 <i class="home-icon h24"></i></a></li>
+                                <li ><a href="http://game.user.com/view/game/pk10.shtml?lottery=BJPK10" > 北京PK10 </a></li>
+            
+            
+                                <li ><a href="/view/game/kl8.shtml?lottery=BJKL8" class="c-yellow">苹果快乐8分分彩 <i class="home-icon new"></i></a></li>
+                                <li><a href="/view/game/ssc.shtml?lottery=PLW" >排列三/五</a></li> -->
+            
+                            </ul>
+                        </div>
+            
+                    </div>
+                    <div class="lottery-list-main-right">
+                        <ul class="clearfix">
+                            <!--                 <li><a href="/view/ucenter/game_record/digital_lottery.shtml"><i class="home-icon game-recond"></i><p>游戏记录</p></a></li>
+                                            <li><a href="/view/ucenter/funds_center/account_change/account_change_list.shtml"><i class="home-icon detailed"></i><p>资金明细</p></a></li> -->
+                            <!--                 <li><a href="#"><i class="home-icon trend"></i><p>走势</p></a></li>
+                                            <li><a href="/view/ucenter/message_center/platform_bulletin.shtml"><i class="home-icon notice2"></i><p>玩法奖金</p></a></li> -->
+                        </ul>
+                        <div class="announcement">
+                            <div class="announcement-title"><span>平台公告</span><a href="/view/ucenter/message_center/platform_bulletin.shtml">+更多</a></div>
+                            <ol>
+                                <!-- <li><a href="#">【平台公告】福建快三开售公告<span>10/19</span></a></li> -->
+                            </ol>
+                        </div>
+                        <!-- <img src="images/index/redpackets-bg.png"> -->
                     </div>
                 </div>
-                <ul id="loatery_list0">
-                    <!-- <li ><a href="/view/game/ssc.shtml?lottery=PGFFC" class="c-yellow">苹果分分彩 <i class="home-icon h24"></i></a></li>
-                    <li ><a href="/view/game/ssc.shtml?lottery=PG3FC" class="c-yellow">苹果三分彩 <i class="home-icon h24"></i></a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=CQSSC"  class="c-yellow">重庆时时彩 <i class="home-icon hot"></i></a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=TJSSC" >天津时时彩</a></li>
-
-                    <li><a href="/view/game/ssc.shtml?lottery=BJ5FC" >北京五分彩</a></li>
-                    <li ><a href="/view/game/3d.shtml?lottery=PG3D" class="c-yellow">苹果极速3D <i class="home-icon h24"></i></a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=HLJSSC" >黑龙江时时乐</a></li>
-                    <li ><a href="/view/game/mmc.shtml?lottery=PGMMC" target="_bank">苹果秒秒彩</a></li>
-                    <li ><a href="/view/game/3d.shtml?lottery=SSL">上海时时乐</a></li>
-                    <li ><a href="/view/game/ssc.shtml?lottery=PG5FC" class="c-yellow">苹果五分彩 <i class="home-icon h24"></i></a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=MDBMC">缅甸百秒彩</a></li>
-                    <li ><a href="/view/game/ssc.shtml?lottery=XJSSC" >新疆时时彩</a></li> -->
-                </ul>
             </div>
-            <div class="loatery_list" >
-                <div class="yuan">
-                    <div>
-                        <p> 快三 </p>
-                    </div>
-                </div>
-                <ul id="loatery_list1">
-                    <!-- <li><a href="/view/game/k3.shtml?lottery=JSK3" class="c-yellow">江苏快三 <i class="home-icon hot"></i></a></li>
-                    <li><a href="/view/game/k3.shtml?lottery=GSK3" >甘肃快三</a></li> -->
-                    <!-- <li><a href="/view/game/k3.shtml?lottery=FJK3" >福建快三</a></li> -->
-                    <!-- <li><a href="/view/game/k3.shtml?lottery=GXK3" >广西快三</a></li>
-                    <li><a href="/view/game/k3.shtml?lottery=PGK3">苹果快三</a></li>
-                    <li><a href="/view/game/k3.shtml?lottery=AHK3" >安徽快三</a></li>
-                    <li><a href="/view/game/k3.shtml?lottery=HEBK3" >河北快三</a></li> -->
-                </ul>
-            </div>
-            <div class="loatery_list shiyi" >
-                <div class="yuan">
-                    <div>
-                        <p> 11选5 </p>
-                    </div>
-                </div>
-                <ul id="loatery_list2">
-                    <!-- <li ><a href="/view/game/l115.shtml?lottery=JS115" >江苏11选5</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=FJ115" >福建11选5</a></li>
-                    <li ><a href="/view/game/l115.shtml?lottery=SD115" >山东11选5</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=GZ115" >贵州11选5</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=JX115" >江西11选5</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=SX115" >山西11选5</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=BJ115" >北京11选5</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=LN115" >辽宁11选5</a></li>
-                    <li><a href="/view/game/pg115mmc.shtml?lottery=PG115MMC" target="_bank">11选5秒秒彩</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=PG115SFC" >11选5三分彩</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=PG115" class="c-yellow">苹果11选5 <i class="home-icon hot"></i></a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=GD115" >广东11选5</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=GS115" >甘肃11选5</a></li>
-                    <li><a href="/view/game/l115.shtml?lottery=AH115" >安徽11选5</a></li>
-                    <li ><a href="/view/game/l115.shtml?lottery=NMG115" > 内蒙古11选五 </a></li> -->
-                    <!-- <li><a href="" > +更多 </a></li> -->
-                </ul>
-            </div>
-            <div class="loatery_list" >
-                <div class="yuan">
-                    <div>
-                        <p> 快乐十分 </p>
-                        <p> 快乐十二 </p>
-                    </div>
-                </div>
-                <ul id="loatery_list3">
-                    <!-- <li><a href="/view/game/ssc.shtml?lottery=CQSSC" > 山西快乐十分 </a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=CQSSC" class="c-yellow"> 陕西快乐十分 <i class="home-icon new"></i></a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=CQSSC" class="c-yellow"> 广东快乐十分 <i class="home-icon new"></i></a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=CQSSC" > 湖南快乐十分 </a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=CQSSC" > 云南快乐十分 </a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=CQSSC" > 浙江快乐十分 </a></li> -->
-                </ul>
-            </div>
-            <div class="loatery_list" >
-                <div class="yuan">
-                    <div>
-                        <p> PK10 </p>
-                        <p> 低频 </p>
-                        <p> 快乐彩 </p>
-                    </div>
-                </div>
-                <ul id="loatery_list4">
-                    <!-- <li><a href="/view/game/3d.shtml?lottery=F3D" >3D</a></li>
-                    <li ><a href="http://game.user.com/view/game/pk10.shtml?lottery=PGPK10" class="c-yellow">苹果极速PK10 <i class="home-icon h24"></i></a></li>
-                    <li ><a href="http://game.user.com/view/game/pk10.shtml?lottery=BJPK10" > 北京PK10 </a></li>
-
-
-                    <li ><a href="/view/game/kl8.shtml?lottery=BJKL8" class="c-yellow">苹果快乐8分分彩 <i class="home-icon new"></i></a></li>
-                    <li><a href="/view/game/ssc.shtml?lottery=PLW" >排列三/五</a></li> -->
-
-                </ul>
-            </div>
-
-        </div>
-        <div class="lottery-list-main-right">
-            <ul class="clearfix">
-                <!--                 <li><a href="/view/ucenter/game_record/digital_lottery.shtml"><i class="home-icon game-recond"></i><p>游戏记录</p></a></li>
-                                <li><a href="/view/ucenter/funds_center/account_change/account_change_list.shtml"><i class="home-icon detailed"></i><p>资金明细</p></a></li> -->
-                <!--                 <li><a href="#"><i class="home-icon trend"></i><p>走势</p></a></li>
-                                <li><a href="/view/ucenter/message_center/platform_bulletin.shtml"><i class="home-icon notice2"></i><p>玩法奖金</p></a></li> -->
-            </ul>
-            <div class="announcement">
-                <div class="announcement-title"><span>平台公告</span><a href="/view/ucenter/message_center/platform_bulletin.shtml">+更多</a></div>
-                <ol>
-                    <!-- <li><a href="#">【平台公告】福建快三开售公告<span>10/19</span></a></li> -->
-                </ol>
-            </div>
-            <!-- <img src="images/index/redpackets-bg.png"> -->
-        </div>
-    </div>
 </div>
+
+
 <div class="preferential-wrap" style="display: none">
     <div class="wrap-inner">
         <div class="preferential-title"><i class="home-icon youhuihuodong"></i></div>
@@ -181,6 +188,7 @@
         </ul>
     </div>
 </div>
+
 <!--#include virtual="view/module/footer.shtml"-->
 <script   type="text/x-dot-template" id="allgame-tpl">
 
@@ -278,7 +286,8 @@
     //    getGame();
 
     var baseUrl = getWebsiteOfHost();
-    var token = getQueryString('token');
+    var token =  window.sessionStorage.getItem("token");
+
 
     getLotteryData(token);
     function getLotteryData(token) {
@@ -571,11 +580,11 @@ function getPlatPrizeData() {
     })
 
 
-    $(window).on("resize",function(){
-        var bannerWidth = document.documentElement.clientWidth < 1200 ? 1200 : document.documentElement.clientWidth;
-        $(".img img").width(bannerWidth).height("auto");
-        $(".img").height($(".img img").eq(0).height()).width(bannerWidth);
-    })
+    // $(window).on("resize",function(){
+    //     var bannerWidth = document.documentElement.clientWidth < 1200 ? 1200 : document.documentElement.clientWidth;
+    //     $(".img img").width(bannerWidth).height("auto");
+    //     $(".img").height($(".img img").eq(0).height()).width(bannerWidth);
+    // })
 
     //获取第三方平台游戏连接接口
     /*ajaxData({

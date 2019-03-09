@@ -1,12 +1,12 @@
-<div class="footer">
+<!-- <div class="footer">
     <div class="wrap-inner" style="position: relative;">
-        <!--<div class="links">-->
-            <!--<a href="/view/app/index.shtml" target="_blank">客户端下载</a>-->
-            <!--<a href="/view/page/about.shtml" target="_blank">关于我们</a>-->
-            <!--<a href="/view/page/help.shtml" target="_blank" class="helpCenter">帮助中心</a>-->
-            <!--<a href="/view/page/help.shtml?category_id=10" target="_blank" class="security">安全保障</a>-->
-            <!--<span  class="zizhi"  >博彩资质</span>-->
-        <!--</div>-->
+        <div class="links">
+            <a href="/view/app/index.shtml" target="_blank">客户端下载</a>
+            <a href="/view/page/about.shtml" target="_blank">关于我们</a>
+            <a href="/view/page/help.shtml" target="_blank" class="helpCenter">帮助中心</a>
+            <a href="/view/page/help.shtml?category_id=10" target="_blank" class="security">安全保障</a>
+            <span  class="zizhi"  >博彩资质</span>
+        </div>
         <p style="margin-top: 15px">浏览器建议：首选为Google浏览器或火狐浏览器，其次为IE9及以上浏览器。使用1024X768以上的分辨率</p>
         <p><span style="color:#999">® 彩票中心版权所有</span><span style="color: #999">&nbsp;&nbsp;&nbsp;Copyright © 2015-2018 Golden Apple Game Technology Co., Ltd.</span></p>
         <div class="cooperation"></div>
@@ -21,4 +21,21 @@
             $('.helpCenter').attr('href','/view/page/help.shtml?'+showTop);
             $('.security').attr('href','/view/page/help.shtml?category_id=10&'+showTop);
         })
-</script>
+</script> -->
+
+<div class="footer" id="footer">
+  <div class="footer_main">
+    <img src="../../images/index/footerbg.png" alt="" />
+  </div>
+  <div class="footer_aboutus">
+    <ul id="footerAboutUsMeun">
+      <li data-link="aboutUs" class="active"><a href="/view/page/about.shtml" target="_blank">关于我们</a></li>
+      <li data-link="helpCenter"><a href="/view/page/help.shtml" target="_blank" class="helpCenter">帮助中心</a></li>
+      <li data-link="hijacked"> <a href="/view/page/help.shtml?category_id=10" target="_blank" class="security">安全保障</a></li>
+    </ul>
+  </div>
+  <div class="footer_me">
+    <p>© 2014 娱乐平台版权所有菲律宾政府合法博彩牌照认证</p>
+    <p>郑重提示：彩票有风险，投注需谨慎，不向未满18周岁的青少年出售彩票</p>
+  </div>
+</div>

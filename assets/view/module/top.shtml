@@ -1,64 +1,15 @@
 <div class="top-wrap">
-    <div class="wrap-inner">
-        <div class="fl">
-            <!--  <a id='old_version' href="#" style="margin-right: 15px">旧版</a> -->
-            <!--<a href="/view/app/index.shtml" target="_bank">手机客户端</a>-->
-            <a href="/index.shtml" style="margin-left: 30px" id="index-top">首页</a>
-        </div>
-        <div class="fr">
-
+  <div class="wrap-inner">
+    <div class="fl">
         <span class="top-name">
-            <i class="top-icon people1"></i><span id="top-username"></span>
+            欢迎您 , <span style="color:#f7e6b0;" id="top-username"></span>
         </span>
-
-
-            <!--<span class="top-name" onmouseover="showUcenterList()" onmouseout="hideUcenterList()">-->
-            <!--<span><a href="/view/ucenter/account_management/account_info.shtml" style="cursor: pointer;position: relative;;z-index: 99999">管理中心</a></span><i class="top-icon arrow-down"></i>-->
-            <!--<div class="ucenter-list-wrap">-->
-            <!---->
-            <!--<ul class="ucenter-list">-->
-            <!--<span class="triangle-up"></span>-->
-            <!--<li>-->
-            <!--<span class="gameRecord"> <i> </i> 游戏记录</span>-->
-            <!--<div>-->
-            <!--<a href="/view/ucenter/game_record/digital_lottery.shtml">数字彩</a>-->
-            <!--<a href="/view/ucenter/game_record/ag.shtml">真人娱乐</a>-->
-            <!--<span class="a"  target="_blank" onclick="old_version_trend();">走势图</span>-->
-            <!--</div>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<span class="fundingDetails"> <i> </i> 资金明细</span>-->
-            <!--<div>-->
-            <!--<a href="/view/ucenter/funds_center/recharge/recharge_list.shtml">充值记录</a>-->
-            <!--<a href="/view/ucenter/funds_center/withdraw/withdraw_list.shtml">提现记录</a>-->
-            <!--<a href="/view/ucenter/funds_center/transfer/transfer_list.shtml">转账记录</a>-->
-            <!--<a href="/view/ucenter/funds_center/account_change/account_change_list.shtml">帐变记录</a>-->
-            <!--</div>-->
-            <!--</li>-->
-            <!--<li class="clearfix">-->
-            <!--<span class="account"> <i> </i> 账户管理</span>-->
-            <!--<div>-->
-            <!--<a href="/view/ucenter/account_management/account_info.shtml">账户信息</a>-->
-            <!--<a href="/view/ucenter/account_management/my_bounsgroup.shtml">我的奖金组</a>-->
-            <!--<a href="/view/ucenter/account_management/bank_card_management.shtml">银行卡管理</a>-->
-            <!--<a href="/view/ucenter/account_management/login_password_edit.shtml">密码管理</a>-->
-            <!--</div>-->
-            <!--</li>-->
-            <!--<li class="clearfix isAgentShow">-->
-            <!--<span class="agent"> <i> </i> 代理中心</span>-->
-            <!--<div>-->
-            <!--<a href="/view/ucenter/agent_center/team_profits/digital.shtml">团队游戏盈亏</a>-->
-            <!--<a href="/view/ucenter/agent_center/team_profitLoss/team_profitLoss.shtml">团队盈亏</a>-->
-            <!--<a href="/view/ucenter/agent_center/dividend/dividend.shtml" class="dividendReport" style="display: none;">分红报表</a>-->
-            <!--<a href="/view/ucenter/agent_center/user_manage/user_manage.shtml">用户管理</a>-->
-            <!--<a href="/view/ucenter/agent_center/user_manage/accurate_account.shtml" class="accountManagement "style="display: none;">开户管理</a>-->
-            <!--</div>-->
-            <!--</li>-->
-            <!--<li class="signout"><i class="logout top-icon"></i>退出登录</li>-->
-            <!--</ul>-->
-            <!--</div>-->
-            <!--</span>-->
-
+        <a href="/view/ucenter/message_center/inbox.shtml">
+            <span class="bg1 i25 vam"></span>
+            <span class="message mgr30"><i class="top-icon mail"></i>站内信<i class="top-redtip">(<span style="color:#ffd648" id="msg-num"></span>)</i></span>
+        </a>
+    </div>
+    <div class="fr">
         <span style="margin-left: 18px;">
             <span id="blance">余额： ￥</span>
             <span class="top-money">2000.0071</span>
@@ -74,63 +25,120 @@
             <!--</a>-->
             <!--<span id="customer-service" style="cursor: pointer"><i class="top-icon people2"></i><span id="customer-btn">在线客服</span></span></a>-->
         </div>
+      <!-- <span class="top-name" onmouseover="showUcenterList()" onmouseout="hideUcenterList()">
+      <span><a href="/view/ucenter/account_management/account_info.shtml" style="cursor: pointer;position: relative;;z-index: 99999">管理中心</a></span><i class="top-icon arrow-down"></i>
+      <div class="ucenter-list-wrap">
+      
+      <ul class="ucenter-list">
+      <span class="triangle-up"></span>
+      <li>
+      <span class="gameRecord"> <i> </i> 游戏记录</span>
+      <div>
+      <a href="/view/ucenter/game_record/digital_lottery.shtml">数字彩</a>
+      <a href="/view/ucenter/game_record/ag.shtml">真人娱乐</a>
+      <span class="a"  target="_blank" onclick="old_version_trend();">走势图</span>
+      </div>
+      </li>
+      <li>
+      <span class="fundingDetails"> <i> </i> 资金明细</span>
+      <div>
+      <a href="/view/ucenter/funds_center/recharge/recharge_list.shtml">充值记录</a>
+      <a href="/view/ucenter/funds_center/withdraw/withdraw_list.shtml">提现记录</a>
+      <a href="/view/ucenter/funds_center/transfer/transfer_list.shtml">转账记录</a>
+      <a href="/view/ucenter/funds_center/account_change/account_change_list.shtml">帐变记录</a>
+      </div>
+      </li>
+      <li class="clearfix">
+      <span class="account"> <i> </i> 账户管理</span>
+      <div>
+      <a href="/view/ucenter/account_management/account_info.shtml">账户信息</a>
+      <a href="/view/ucenter/account_management/my_bounsgroup.shtml">我的奖金组</a>
+      <a href="/view/ucenter/account_management/bank_card_management.shtml">银行卡管理</a>
+      <a href="/view/ucenter/account_management/login_password_edit.shtml">密码管理</a>
+      </div>
+      </li>
+      <li class="clearfix isAgentShow">
+      <span class="agent"> <i> </i> 代理中心</span>
+      <div>
+      <a href="/view/ucenter/agent_center/team_profits/digital.shtml">团队游戏盈亏</a>
+      <a href="/view/ucenter/agent_center/team_profitLoss/team_profitLoss.shtml">团队盈亏</a>
+      <a href="/view/ucenter/agent_center/dividend/dividend.shtml" class="dividendReport" style="display: none;">分红报表</a>
+      <a href="/view/ucenter/agent_center/user_manage/user_manage.shtml">用户管理</a>
+      <a href="/view/ucenter/agent_center/user_manage/accurate_account.shtml" class="accountManagement "style="display: none;">开户管理</a>
+      </div>
+      </li>
+      <li class="signout"><i class="logout top-icon"></i>退出登录</li>
+      </ul>
+      </div>
+      </span> -->
+
+
+      <a class="recharge" href="/view/ucenter/game_record/digital_lottery.shtml"><span class="btn btn-gold">投注记录</span></a>
+      <a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"><span class="btn btn-gold">充值</span></a>
+      <a class ="btn_withdraw withdraw" href="javascript:void(0)"><span class="btn btn-gold">提现</span></a>
+      <a id="transfer" class ="transfer-page" href="/view/ucenter/funds_center/transfer/transfer_account.shtml"><span class="btn btn-gold">转账</span></a>
+
+      <span id="customer-service" style="cursor: pointer"><i class="top-icon people2"></i><span id="customer-btn">在线客服</span></span></a>
     </div>
+  </div>
 </div>
 <script type="text/javascript">
+  (function(w, $) {
+    $("#index-top").attr("href", "/index.shtml?token=" + token);
 
-    (function(w, $) {
+    var username = window.sessionStorage.getItem("username"); //保存用户类型
+    var userInfo;
+    //获取用户信息，设置用户相关信息
+    var merchant_identity = window.sessionStorage.getItem("merchant_identity");
 
-        $("#index-top").attr("href", "/index.shtml?token=" + token);
+    var data = {
+      terminal_id: 1,
+      //            merchant_identity: merchant_identity,
+      token: token
+    };
+    var postdata = urlEncode(data);
+    ajaxData({
+      url: baseUrl + "/game/current_user_info.do",
+      data: {
+        params: postdata,
+        merchant_identity: merchant_identity
+      },
+      successCallback: function(msg) {
+        userInfo = msg;
 
-        var username = window.sessionStorage.getItem("username");//保存用户类型
-        var userInfo;
-        //获取用户信息，设置用户相关信息
-        var merchant_identity = window.sessionStorage.getItem("merchant_identity");
+        $("#top-username").text(userInfo.username);
 
-        var data = {
-            terminal_id:1,
-//            merchant_identity: merchant_identity,
-            token:token,
+        $(".top-money").text(formatMoney(userInfo.available));
+        //充值装账
+        if (userInfo.fund_pwd_seted == 0) {
+          //                    $(".recharge").attr("href","/view/ucenter/account_management/funds_password_edit.shtml");
+          //                    $(".withdraw").attr("href","/view/ucenter/account_management/funds_password_edit.shtml");
+          $(".transfer").attr(
+            "href",
+            "/view/ucenter/account_management/funds_password_edit.shtml"
+          );
+        } else if (userInfo.has_bank_card == 0) {
+          //                    $(".recharge").attr("href","/view/ucenter/account_management/bank_card_management.shtml");
+          //                    $(".withdraw").attr("href","/view/ucenter/account_management/bank_card_management.shtml");
+          $(".transfer").attr(
+            "href",
+            "/view/ucenter/account_management/bank_card_management.shtml"
+          );
         }
-     var   postdata = urlEncode(data);
-        ajaxData({
-            url: baseUrl + "/game/current_user_info.do",
-            data:{
-                params:postdata,
-                merchant_identity:merchant_identity,
-            },
-            successCallback: function(msg) {
-                userInfo = msg;
 
+        //                if(!userInfo.is_top){
+        //                    $('#dividend-report').hide();
+        //                }
 
-                $("#top-username").text(userInfo.username);
+        //                if(!userInfo.is_agent){
+        //                    $('.transfer-page').attr('href','/view/ucenter/funds_center/transfer/plat-transfer.shtml');
+        //                }
 
-                $(".top-money").text(formatMoney(userInfo.available));
-                //充值装账
-                if(userInfo.fund_pwd_seted ==0){
-//                    $(".recharge").attr("href","/view/ucenter/account_management/funds_password_edit.shtml");
-//                    $(".withdraw").attr("href","/view/ucenter/account_management/funds_password_edit.shtml");
-                    $(".transfer").attr("href",'/view/ucenter/account_management/funds_password_edit.shtml');
-                }else if(userInfo.has_bank_card ==0){
-//                    $(".recharge").attr("href","/view/ucenter/account_management/bank_card_management.shtml");
-//                    $(".withdraw").attr("href","/view/ucenter/account_management/bank_card_management.shtml");
-                    $(".transfer").attr("href",'/view/ucenter/account_management/bank_card_management.shtml');
-                }
+        if (typeof getUserInfoCallback == "function") {
+          getUserInfoCallback(userInfo);
+        }
 
-//                if(!userInfo.is_top){
-//                    $('#dividend-report').hide();
-//                }
-
-//                if(!userInfo.is_agent){
-//                    $('.transfer-page').attr('href','/view/ucenter/funds_center/transfer/plat-transfer.shtml');
-//                }
-
-
-                if(typeof getUserInfoCallback == "function"){
-                    getUserInfoCallback(userInfo);
-                }
-
-                /* //精准开户和链接开户设置玩家账户和代理账号显示
+        /* //精准开户和链接开户设置玩家账户和代理账号显示
                  var $is_agent = $("#J-user-type-switch-panel");
                  if($is_agent.length > 0){
                  if(userInfo.is_agent == 1 && userInfo.parent == ""){//顶级代理只能开代理
@@ -139,126 +147,131 @@
                  }
                  }*/
 
-//                if(userInfo.is_agent == 0){//无法进入开户页面，甚至整个代理中心都要隐藏
-//                    $("#nav-agent").hide();//隐藏头部代理中心导航
-//                    $("#li-agent").hide();//隐藏左侧代理中心导航
-//                }
+        //                if(userInfo.is_agent == 0){//无法进入开户页面，甚至整个代理中心都要隐藏
+        //                    $("#nav-agent").hide();//隐藏头部代理中心导航
+        //                    $("#li-agent").hide();//隐藏左侧代理中心导航
+        //                }
 
-//                sessionStorage.setItem('user_id', userInfo.id);
+        //                sessionStorage.setItem('user_id', userInfo.id);
 
+        //                $('.btn_withdraw').click(function () {
+        //                            if (userInfo.can_withdraw != 1) {
+        //                                layer.alert('禁止提现');
+        //                            }else{
+        //                                window.location.href='/view/ucenter/funds_center/withdraw/withdraw.shtml';
+        //                            }
+        //                        }
+        //                );
+      }
+    });
 
-//                $('.btn_withdraw').click(function () {
-//                            if (userInfo.can_withdraw != 1) {
-//                                layer.alert('禁止提现');
-//                            }else{
-//                                window.location.href='/view/ucenter/funds_center/withdraw/withdraw.shtml';
-//                            }
-//                        }
-//                );
-            }
-        });
+    //        //获取未读站内信总数
+    //        ajaxData({
+    //            url: host + "?action=getUnreadNum&terminal_id=" + terminal_id,
+    //            successCallback: function(msg) {
+    //                $("#msg-num").text(msg.num);
+    //            }
+    //        });
 
-//        //获取未读站内信总数
-//        ajaxData({
-//            url: host + "?action=getUnreadNum&terminal_id=" + terminal_id,
-//            successCallback: function(msg) {
-//                $("#msg-num").text(msg.num);
-//            }
-//        });
+    //获取彩种信息
+    // ajaxData({
+    //     url: host + "?action=getGameSettingForBet&lottery=" + terminal_id,
+    //     successCallback: function(msg) {
 
-        //获取彩种信息
-        // ajaxData({
-        //     url: host + "?action=getGameSettingForBet&lottery=" + terminal_id,
-        //     successCallback: function(msg) {
+    //     }
+    // });
 
-        //     }
-        // });
-
-        //登出
-        $(".signout").on("click", function() {
-            ajaxData({
-                url: host + "?action=logout&terminal_id=" + terminal_id,
-                successCallback: function() {
-                    window.sessionStorage.setItem("loginFlag", false);
-                    window.location.href = "/view/page/login.shtml";
-                }
-            });
-        })
-
-        function showUcenterList() {
-            var ucenterList = document.getElementsByClassName("ucenter-list-wrap");
-            ucenterList[0].style.display = "block";
+    //登出
+    $(".signout").on("click", function() {
+      ajaxData({
+        url: host + "?action=logout&terminal_id=" + terminal_id,
+        successCallback: function() {
+          window.sessionStorage.setItem("loginFlag", false);
+          window.location.href = "/view/page/login.shtml";
         }
+      });
+    });
 
-        function hideUcenterList() {
-            var ucenterList = document.getElementsByClassName("ucenter-list-wrap");
-            ucenterList[0].style.display = "none";
-        }
+    function showUcenterList() {
+      var ucenterList = document.getElementsByClassName("ucenter-list-wrap");
+      ucenterList[0].style.display = "block";
+    }
 
-        //显示隐藏可用余额
-        function moneyShoworHide(obj) {
-            var topMoney = document.getElementsByClassName("top-money")[0];
-            var blance=document.getElementById("blance");
-            if (obj.innerText == "隐藏") {
-                topMoney.setAttribute("money", topMoney.innerText);
-                topMoney.innerText = "";
-                blance.innerText = "余额已隐藏";
-                obj.innerText = "显示";
-            } else {
-                blance.innerText = "余额： ￥";
-                topMoney.innerText = topMoney.getAttribute("money");
-                obj.innerText = "隐藏";
-            }
-        }
+    function hideUcenterList() {
+      var ucenterList = document.getElementsByClassName("ucenter-list-wrap");
+      ucenterList[0].style.display = "none";
+    }
 
-        //头部用户信息
-        // $(".ucenter-list li").on("mouseenter",function(){
-        //     var $ul = $(this).find("ul");
-        //     if($ul.length > 0){
-        //         $ul.show();
-        //     }
-        // }).on("mouseleave",function(){
-        //     var $ul = $(this).find("ul");
-        //     if($ul.length > 0){
-        //         $ul.hide();
-        //     }
-        // })
+    //显示隐藏可用余额
+    function moneyShoworHide(obj) {
+      var topMoney = document.getElementsByClassName("top-money")[0];
+      var blance = document.getElementById("blance");
+      if (obj.innerText == "隐藏") {
+        topMoney.setAttribute("money", topMoney.innerText);
+        topMoney.innerText = "";
+        blance.innerText = "余额已隐藏";
+        obj.innerText = "显示";
+      } else {
+        blance.innerText = "余额： ￥";
+        topMoney.innerText = topMoney.getAttribute("money");
+        obj.innerText = "隐藏";
+      }
+    }
 
-        w.showUcenterList = showUcenterList;
-        w.hideUcenterList = hideUcenterList;
-        w.moneyShoworHide = moneyShoworHide;
-        w.userInfo = userInfo;
-        w.old_version=old_version;
-        w.old_version_trend=old_version_trend;
-        w.old_version_moretrend=old_version_moretrend;
-        function openUrl(url) {
-            var a = $('<a href="'+url+'" target="_blank"></a>')[0];
-            var e = document.createEvent('MouseEvents');
-            e.initEvent('click', true, true);
-            a.dispatchEvent(e);
-        }
-        //新旧版切换
-        function old_version() {
-            window.location.href = (location.protocol + '//' + location.host).replace(':8080', '');
-        }
+    //头部用户信息
+    // $(".ucenter-list li").on("mouseenter",function(){
+    //     var $ul = $(this).find("ul");
+    //     if($ul.length > 0){
+    //         $ul.show();
+    //     }
+    // }).on("mouseleave",function(){
+    //     var $ul = $(this).find("ul");
+    //     if($ul.length > 0){
+    //         $ul.hide();
+    //     }
+    // })
 
-        function old_version_trend() {
-            // window.open ( (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/1');
-            // var tempwindow=window.open();
-            // tempwindow.location=(location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/1';
-            openUrl((location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/1')
-        }
+    w.showUcenterList = showUcenterList;
+    w.hideUcenterList = hideUcenterList;
+    w.moneyShoworHide = moneyShoworHide;
+    w.userInfo = userInfo;
+    w.old_version = old_version;
+    w.old_version_trend = old_version_trend;
+    w.old_version_moretrend = old_version_moretrend;
+    function openUrl(url) {
+      var a = $('<a href="' + url + '" target="_blank"></a>')[0];
+      var e = document.createEvent("MouseEvents");
+      e.initEvent("click", true, true);
+      a.dispatchEvent(e);
+    }
+    //新旧版切换
+    function old_version() {
+      window.location.href = (location.protocol + "//" + location.host).replace(
+        ":8080",
+        ""
+      );
+    }
 
+    function old_version_trend() {
+      // window.open ( (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/1');
+      // var tempwindow=window.open();
+      // tempwindow.location=(location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/1';
+      openUrl(
+        (location.protocol + "//" + location.host).replace(":8080", "") +
+          "/tides/trend-view/1"
+      );
+    }
 
-        function old_version_moretrend() {
-            var dataId=$('#J-minitrend-cont p span').data('id');
-            // var tempwindow=window.open();
-            // tempwindow.location= (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/'+dataId;
-            // window.open( (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/'+dataId);
+    function old_version_moretrend() {
+      var dataId = $("#J-minitrend-cont p span").data("id");
+      // var tempwindow=window.open();
+      // tempwindow.location= (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/'+dataId;
+      // window.open( (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/'+dataId);
 
-            window.open('http://www.lottery-trend.com/tides/trend-view/'+dataId,"height=300, width=400, top=200,left=200 toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-
-        }
-
-    })(this, jQuery)
+      window.open(
+        "http://www.lottery-trend.com/tides/trend-view/" + dataId,
+        "height=300, width=400, top=200,left=200 toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no"
+      );
+    }
+  })(this, jQuery);
 </script>
