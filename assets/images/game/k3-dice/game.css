@@ -1,9 +1,4 @@
-body{background-color: #000;}
-.main,
-.dice-wrap{
-	background: url(bg.jpg) center -20px no-repeat;
-	border: none;
-}
+
 .main{
 	position:relative;
 	z-index:1;

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,100 +14,37 @@
 <body>
 <!--#include virtual="/view/module/sidebar-right.shtml"-->
 <div class="login-wrap">
-    <div class="login-box" style="position: relative;">
-        <div class="logo-login"></div>
-        <h1>登录彩票中心</h1>
+        <!-- <img class="welcome" src="../../images//login//bg_xing.png" alt=""> -->
+        <div class="logo-login">
+            <img src="../../images/global/logo2.png" alt="">
+        </div>
         <form method="POST" accept-charset="UTF-8" role="form" target="_top" name="signinForm">
             <input type="hidden" name="terminal_id" value="5">
-            <div>
+            <div class="user-name">
                 <input type="text" name="username" placeholder="用户名" class="icon-user" id="login-name">
             </div>
-            <div>
+            <div class="user_psw"> 
                 <input type="text" placeholder="密码" class="icon-password" id="login-pass" onfocus="this.type='password'">
                 <input name="password" id="login-pass-real" type="hidden" required="">
             </div>
-            <!-- <div class="vcode">
-    <input type="text" name="captcha" style="width:125px" placeholder="验证码" id="captcha">
-    <a class="verify" href="javascript:changeCaptcha();" title="点击图片刷新验证码">
-                <img id="captchaImg" class="reg-img-vcode" src="http://www.japple888.com/captcha?166273" />
-    </a>
-</div> -->
-            <!--<div class="captcha-li">-->
-            <!--<i class="input-icon"></i>-->
-            <!--<input class="input" name="captcha" type="text" placeholder="验证码">-->
-            <!--<a class="verify" href="javascript:changeCaptcha();" title="点击图片刷新验证码"><img id="captchaImg" src=""></a>-->
-            <!--<a href="javascript:changeCaptcha();">换一张</a>-->
-            <!--</div>-->
-            <div class="error-tip"></div>
-            <span tabindex="11" id="loginButton" class="button-submit">登录</span>
-            <a href="/view/page/forgotPassword.shtml" style="position: absolute;right: 32px;bottom: 37px;">忘记密码?</a>
+            <span tabindex="11" id="loginButton" class="button-submit">登 录</span>
+            <div class="error-tip">
+            </div>
+            <a href="/view/page/forgotPassword.shtml" style="position: absolute;right: 120px; bottom: 131px;">忘记密码?</a>
         </form>
-    </div>
+        <footer>
+            <div class="browser">
+                <a class="firefox" href=""> </a>
+                <a class="google" href=""> </a>
+                <a class="ie" href=""> </a>
+                <a class="safari" href=""> </a>
+            </div>
+            <div class="download_zip"> 为了更好的操作体验为您推荐以上浏览器，点击可直接下载。 </div>
+        </footer>
 </div>
 </body>
-<script   type="text/x-dot-template" id="sidebar-right-tpl">
-    {{for(var prop in it) { }}
-    <li name="{{= it[prop]["en_name"]}}"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-{{= it[prop]["en_name"]}}"></i></li>
-    {{ } }}
-</script>
-
-<script   type="text/x-dot-template" id="sidebar-right-tpl2">
-    {{for(var prop in it) { }}
-    {{= it[prop]["html"]}}
-    {{ } }}
-</script>
 <script type="text/javascript" src="/js/vendor/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="/js/vendor/md5.js"></script>
 <script type="text/javascript">
-    //验证码
-    //    function changeCaptcha () {
-    //        /*生成验证码*/
-    //        ajaxData({
-    //            url: getWebsiteOfHost() + "?action=getCaptcha&terminal_id=" + terminal_id,
-    //            successCallback: function(res) {
-    //                $("#captchaImg").attr("src",res.src);
-    //            }
-    //        })
-    //    }
-    //判断是否显示验证码
-    //    function isShowCaptcha() {
-    //        ajaxData({
-    //            url: getWebsiteOfHost() + "?action=getLoginCaptchaStatus&terminal_id=" + terminal_id,
-    //            successCallback: function(res) {
-    //              if(res.captcha_enabled){
-    //                 $(".captcha-li").show();
-    //              }
-    //            }
-    //        })
-    //    }
-
-        //获取在线客服信息
-//    var o2 = {
-//        url: host + "?action=getClientServices&terminal_id=" + terminal_id,
-//        successCallback: function(data) {
-//            //渲染右侧边栏图标
-//            var tpl1 = doT.template($("#sidebar-right-tpl").text());
-//            $(".sidebar-right-ul").append(tpl1(data.oKfs));
-//            //渲染右侧边栏滑动内容
-//            var tpl2 = doT.template($("#sidebar-right-tpl2").text());
-//            $(".sidebar-right").append(tpl2(data.oKfs));
-//            for (var i in data.oKfs) {
-//                if (data.oKfs[i].en_name == "btn-online-chat") {
-//                    $.getScript(data.oKfs[i].script);
-//                    break;
-//                }
-//            }
-//            //头部在线客服
-//            if (data.oKf.en_name == "qq") {
-//                $("#customer-service").attr("onclick", "window.open('" + data.oKf.script + "');")
-//            } else {
-//                $("#customer-service").addClass(data.oKf.en_name)
-//            }
-//            $("#customer-btn").text(data.oKf.cn_name);
-//        }
-//    }
-//
-//    ajaxData(o2);
 
         /*新版和旧版切换*/
         $(".login-nav").on("click", "a", function() {
@@ -134,16 +70,9 @@
                 return;
             }
 
-            /*	    if(captcha == ""){
-             $tip.text("验证码不能为空").show();
-             return;
-             }*/
-
             $this.text('登录中...');
-//        $('#login-pass-real').val(md5(md5(md5(username + pwd))));
             var url = "";
             url =baseUrl+'/user/login.do';
-//        data = encrypt(urlEncode(data));
             var merchant_identity = 'TEST001';
             var data = {
                 ip:'202.168.154.115',
@@ -169,11 +98,10 @@
                         window.sessionStorage.setItem("username",username);//保存用户类型
                         window.sessionStorage.setItem("merchant_identity",pastData.merchant_identity);//保存用户类型
                         window.sessionStorage.setItem("game_lobby_url",game_lobby_url);//用来判断代理等级
-
                         window.location.href = "/index.shtml?token="+msg.data.token;
 
                     } else {
-                        $(".error-tip").text(msg.error).show();
+                        $(".error-tip").text(msg.msg).show();
                         $this.text("登录");
 
                     }
@@ -184,9 +112,5 @@
         $('form[name=signinForm]').keydown(function(event) {
             if (event.keyCode == 13) $('#loginButton').click();
         });
-
-
-
-
 </script>
 </html>

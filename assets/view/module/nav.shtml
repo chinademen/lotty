@@ -1,87 +1,86 @@
-<!--#include virtual="/view/module/sidebar-right.shtml"-->
-<!--<div class="nav-wrap">-->
-    <!--<div class="wrap-inner">-->
-        <!--<a href="/index.shtml"><span class="logo"></span></a>-->
-        <!--<a href="javascript:void(0);" class="olderVersion" id="old_version" onclick="javascript:old_version();">进入旧版</a>-->
-        <!--<ul class="fr nav-ul clearfix">-->
-            <!--<li ><a href="/index.shtml">首页</a></li>-->
-            <!--<li drow><a href="javascript:;" >彩票游戏</a></li>-->
-            <!--<li drow><a href="javascript:;" onclick="goGame('zrqjt')">真人娱乐</a></li>-->
-            <!--<li drow><a href="javascript:;" onclick="goGame('ga')">电子游艺</a></li>-->
-            <!--&lt;!&ndash; <li ><a href="javascript:;" onclick="goGame('zrbyw')">捕鱼王</a></li> &ndash;&gt;-->
-            <!--<li ><a href="javascript:;" onclick="goGame('JCZQ')">体育竞技</a></li>-->
-            <!--&lt;!&ndash; <li id="nav-agent"><a href="/view/ucenter/agent_center/team_profits/digital.shtml">代理中心</a></li> &ndash;&gt;-->
-        <!--</ul>-->
-        <!--<div class="gamelist-drow-wrap lottery-game-drow clearfix" dorw-list style="">-->
-            <!--<div class="lotteryList">-->
+<!-- #include virtual="/view/module/sidebar-right.shtml" -->
+<div class="nav-wrap">
+    <div class="wrap-inner">
+        <a href="/index.shtml"><span class="logo"></span></a>
+        <a href="javascript:void(0);" class="olderVersion" id="old_version" onclick="javascript:old_version();">进入旧版</a>
+        <ul class="fr nav-ul clearfix">
+            <li ><a href="/index.shtml">首页</a></li>
+            <li drow><a href="javascript:;" >彩票游戏</a></li>
+            <li drow><a href="javascript:;" onclick="goGame('zrqjt')">真人娱乐</a></li>
+            <li drow><a href="javascript:;" onclick="goGame('ga')">电子游艺</a></li>
+            <li ><a href="javascript:;" onclick="goGame('zrbyw')">捕鱼王</a></li>
+            <li ><a href="javascript:;" onclick="goGame('JCZQ')">体育竞技</a></li>
+            <li id="nav-agent"><a href="/view/ucenter/agent_center/team_profits/digital.shtml">代理中心</a></li> 
+        </ul>
+        <div class="gamelist-drow-wrap lottery-game-drow clearfix" dorw-list style="">
+            <div class="lotteryList">
 
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="ag-game-list gamelist-drow-wrap " dorw-list>-->
-            <!--<ul class="clearfix  ag_game">-->
+            </div>
+        </div>
+        <div class="ag-game-list gamelist-drow-wrap " dorw-list>
+            <ul class="clearfix  ag_game">
 
-            <!--</ul>-->
-        <!--</div>-->
-        <!--<div dorw-list class="gamelist-drow-wrap ag-game-list">-->
-            <!--<ul class="clearfix ga_game">-->
+            </ul>
+        </div>
+        <div dorw-list class="gamelist-drow-wrap ag-game-list">
+            <ul class="clearfix ga_game">
 
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-<!--&lt;!&ndash; prop != "ag" && prop != "ga" && prop != "sport" && prop != "pk10" &&prop != "new" &&prop != "k3" &&prop != "kl12" &&prop != "other" &&it[prop]["count"] != 0 &ndash;&gt;-->
+            </ul>
+        </div>
+    </div>
+</div>
 
-<!--<script   type="text/x-dot-template" id="nav-tpl">-->
-    <!--{{for(var prop in it) { }}-->
-    <!--{{? prop != "999" }}-->
-    <!--<div class="div clearfix">-->
-        <!--<p>{{= it[prop]["name"] }}</p>-->
-        <!--{{for(var k in it[prop]["newresult"]) { }}-->
-        <!--<ul class="clearfix">-->
-            <!--{{  for(var a = 0; a<it[prop]["newresult"][k].length;a++) { }}-->
-            <!--{{ var url = lotteryNavObj[it[prop]["newresult"][k][a]["src"]]+'lottery='+it[prop]["newresult"][k][a].identifier;}}-->
-            <!--<li>-->
-                <!--<a class="{{? it[prop]["newresult"][k][a]["new"] != 0}}c-yellow{{?? it[prop]["newresult"][k][a]["hot"] != 0}}c-yellow{{?? it[prop]["newresult"][k][a]["24h"] != 0}}c-yellow{{?}}"   href="{{? it[prop]["newresult"][k][a]["is_third"] == 0 }}{{=url}}{{??}}###{{?}}" {{? it[prop]["newresult"][k][a]["new_win"] == 1 }}target="_blank"{{?}} {{? it[prop]["newresult"][k][a]["is_third"] == 1 }}onclick="goGame('{{=it[prop]["newresult"][k][a]["identifier"]}}')"{{?}}>{{= it[prop]["newresult"][k][a]["name"] }}-->
-                <!--<i class="home-icon {{? it[prop]["newresult"][k][a]["new"] != 0}}new{{?? it[prop]["newresult"][k][a]["hot"] != 0}}hot{{?? it[prop]["newresult"][k][a]["24h"] != 0}}h24{{?}}" >-->
-                <!--</i>-->
-                <!--</a>-->
-            <!--</li>-->
-            <!--{{ } }}-->
-        <!--</ul>-->
-        <!--{{ } }}-->
-    <!--</div>-->
-    <!--{{?}}-->
-    <!--{{ } }}-->
+<script   type="text/x-dot-template" id="nav-tpl">
+    {{for(var prop in it) { }}
+    {{? prop != "999" }}
+    <div class="div clearfix">
+        <p>{{= it[prop]["name"] }}</p>
+        {{for(var k in it[prop]["newresult"]) { }}
+        <ul class="clearfix">
+            {{  for(var a = 0; a<it[prop]["newresult"][k].length;a++) { }}
+            {{ var url = lotteryNavObj[it[prop]["newresult"][k][a]["src"]]+'lottery='+it[prop]["newresult"][k][a].identifier;}}
+            <li>
+                <a class="{{? it[prop]["newresult"][k][a]["new"] != 0}}c-yellow{{?? it[prop]["newresult"][k][a]["hot"] != 0}}c-yellow{{?? it[prop]["newresult"][k][a]["24h"] != 0}}c-yellow{{?}}"   href="{{? it[prop]["newresult"][k][a]["is_third"] == 0 }}{{=url}}{{??}}###{{?}}" {{? it[prop]["newresult"][k][a]["new_win"] == 1 }}target="_blank"{{?}} {{? it[prop]["newresult"][k][a]["is_third"] == 1 }}onclick="goGame('{{=it[prop]["newresult"][k][a]["identifier"]}}')"{{?}}>{{= it[prop]["newresult"][k][a]["name"] }}
+                <i class="home-icon {{? it[prop]["newresult"][k][a]["new"] != 0}}new{{?? it[prop]["newresult"][k][a]["hot"] != 0}}hot{{?? it[prop]["newresult"][k][a]["24h"] != 0}}h24{{?}}" >
+                </i>
+                </a>
+            </li>
+            {{ } }}
+        </ul>
+        {{ } }}
+    </div>
+    {{?}}
+    {{ } }}
 
-<!--</script>-->
+</script>
 
-<!--<script   type="text/x-dot-template" id="sidebar-right-tpl">-->
-    <!--{{for(var prop in it) { }}-->
-    <!--<li name="{{= it[prop]["en_name"]}}"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-{{= it[prop]["en_name"]}}"></i></li>-->
-    <!--{{ } }}-->
-    <!--<li name="opinion"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-opinion"></i></li>-->
-<!--</script>-->
+<script   type="text/x-dot-template" id="sidebar-right-tpl">
+    {{for(var prop in it) { }}
+    <li name="{{= it[prop]["en_name"]}}"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-{{= it[prop]["en_name"]}}"></i></li>
+    {{ } }}
+    <li name="opinion"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-opinion"></i></li>
+</script>
 
-<!--<script   type="text/x-dot-template" id="sidebar-right-tpl2">-->
-    <!--{{for(var prop in it) { }}-->
-    <!--{{= it[prop]["html"]}}-->
-    <!--{{ } }}-->
-    <!--<div class="suspension-frame" style="display: none;" btn-online-chat=""><p class="title">用户反馈</p><p>关于游戏，充值/提款，手机APP，投诉意见等</p><a class="btn btn-important" href="/view/ucenter/message_center/myAdvice.shtml">提交意见</a></div>-->
-<!--</script>-->
-<!--<script   type="text/x-dot-template" id="nav-game-tpl">-->
-    <!--{{for(var prop in it) { }}-->
-    <!--<li>-->
-        <!--<a href="###" onclick="goGame('{{= it[prop]["identifier"]}}')">-->
-        <!--{{? it[prop]["game_type"] == 4}}-->
-        <!--<img src="/images/global/ag/{{= it[prop]['identifier']}}.png?20180417">-->
-        <!--{{?}}-->
-        <!--{{? it[prop]["game_type"] == 5}}-->
-        <!--<img src="/images/global/ga/ga/{{= it[prop]['identifier']}}.png?20180417">-->
-        <!--{{?}}-->
-        <!--<p>{{= it[prop].name}}</p>-->
-        <!--</a>-->
-    <!--</li>-->
-    <!--{{ } }}-->
+<script   type="text/x-dot-template" id="sidebar-right-tpl2">
+    {{for(var prop in it) { }}
+    {{= it[prop]["html"]}}
+    {{ } }}
+    <div class="suspension-frame" style="display: none;" btn-online-chat=""><p class="title">用户反馈</p><p>关于游戏，充值/提款，手机APP，投诉意见等</p><a class="btn btn-important" href="/view/ucenter/message_center/myAdvice.shtml">提交意见</a></div>
+</script>
+<script   type="text/x-dot-template" id="nav-game-tpl">
+    {{for(var prop in it) { }}
+    <li>
+        <a href="###" onclick="goGame('{{= it[prop]["identifier"]}}')">
+        {{? it[prop]["game_type"] == 4}}
+        <img src="/images/global/ag/{{= it[prop]['identifier']}}.png?20180417">
+        {{?}}
+        {{? it[prop]["game_type"] == 5}}
+        <img src="/images/global/ga/ga/{{= it[prop]['identifier']}}.png?20180417">
+        {{?}}
+        <p>{{= it[prop].name}}</p>
+        </a>
+    </li>
+    {{ } }}
 </script>
 
 <script type="text/javascript">
@@ -141,7 +140,7 @@
         // renderNav();
         //
         // function renderNav() {
-        //     var locationUrl = '<!--#echo var="locationUrl"-->';
+        //     var locationUrl = '#echo var="locationUrl"';
         //     $('.nav-ul li.active').removeClass('active');
         //     switch (locationUrl) {
         //         case 'index':

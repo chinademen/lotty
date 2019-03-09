@@ -16,6 +16,7 @@
 <!-- 头部 -->
 <!--#include virtual="view/module/top.shtml"-->
 <!-- 头部导航 -->
+<!--#include virtual="view/module/nav.shtml"-->
 <!-- 轮播图 -->
 <div class="banner box">
     <div class="sider-box-left arrow-left"><i class="home-icon banner-arrow-left"></i></div>
