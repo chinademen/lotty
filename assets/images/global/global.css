@@ -829,8 +829,23 @@ color: #999; font-size: 10px; }
 
 
 /* 彩种下拉菜单 */
-.gamelist-drow-wrap{background-color:#343644;border: 1px solid #c82834;position: absolute;display: none;line-height: 30px;width: 1200px;
-   top: 80px;box-sizing: border-box;}
+.gamelist-drow-wrap-main{
+    background-color:rgba(0,0,0,0.9);
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.gamelist-drow-wrap{
+    
+
+    line-height: 30px;
+    width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
 .lottery-game-drow  .div{
     /* width: 290px; */
     float: left;
@@ -840,7 +855,7 @@ color: #999; font-size: 10px; }
     margin:0 5px 20px;
     
 }
-.lottery-game-drow  .div > p{color:#ead17c;height: 30px;padding-left: 10px;border-bottom: 1px solid #444;}
+.lottery-game-drow  .div > p{color:#6cb8fd;height: 30px;padding-left: 10px;border-bottom: 1px solid #444;}
 .lottery-game-drow  .div > ul >li {
     /* float: left; */
     color: #fff;
@@ -858,7 +873,6 @@ color: #999; font-size: 10px; }
     .lottery-game-drow  .div > ul >li >a{color:#fff;font-size:12px;}
     .lottery-game-drow  .div > ul >li >a:hover{
         color: #fffc7e !important;
-        font-weight:bold ;
     }
 .lottery-game-drow{
     padding: 20px 0;
@@ -883,10 +897,10 @@ color: #999; font-size: 10px; }
     margin: 10px 0;
 }
 .ag-game-list .ag_game li{
-    float: left;
-    width: 270px;
+    width: 200px;
     text-align: center;
-    margin-left: 24px;
+    display: inline-block;
+    margin: 0 20px;
 }
 .ag-game-list .ga_game  li img{
     border:1px solid #343644;
@@ -896,7 +910,7 @@ color: #999; font-size: 10px; }
     opacity: 0.7;
 }
 .ag-game-list .ag_game  li img{
-    border:1px solid #343644;
+ 
     width: 100%;
     display: block;
 
@@ -941,9 +955,8 @@ color: #999; font-size: 10px; }
 }
 
 
-.ag-game-list li:hover img{ color:#ebd27f;opacity: 1;	-webkit-animation:sucaijiayuan 1s .1s ease both;
-	-moz-animation:tada 1s .1s ease both;}
-.ag-game-list li:hover p{color:#ebd27f;font-weight: bolder;}
+
+
 .ag-game-list li p{text-align: center;color:#9fa0aa;font-size: 14px;}
 
 .buyu-game-list{
@@ -995,4 +1008,49 @@ li.action{
     width: 100%;
     overflow: hidden;
     background: #d7e7f3  url(../login/bg.png) no-repeat center bottom;
+}
+.game_main {
+    text-align: center;
+}
+.game_main img{
+    width: 191px !important;
+    height: 200px !important;
+}
+.game_main .game_btn{
+    text-align: center;
+}
+.playgame{
+    padding: 5px 10px;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    background-image: -moz-linear-gradient(top, #54aafa, #4f8ef8);
+    background-image: -webkit-linear-gradient(top, #54aafa, #4f8ef8);
+    background-image: -ms-linear-gradient(top, #54aafa, #4f8ef8);
+    background-image: -linear-gradient(top, #54aafa, #4f8ef8);
+    border-radius: 14px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    opacity: 0.9;
+}
+.playgame{
+    opacity: 1;
+}
+.paygame{
+    padding: 5px 10px;
+    display: inline-block;
+    color: #fff;
+    border-radius: 14px;
+    background-image: -moz-linear-gradient(top, #ff7e67, #ff4e87);
+    background-image: -webkit-linear-gradient(top, #ff7e67, #ff4e87);
+    background-image: -ms-linear-gradient(top, #ff7e67, #ff4e87);
+    background-image: -linear-gradient(top, #ff7e67, #ff4e87);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    opacity: 0.9;
+}
+.paygame:hover{
+    opacity: 1;
 }

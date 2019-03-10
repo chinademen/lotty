@@ -21,71 +21,76 @@
 <!--#include virtual="/view/module/nav.shtml"-->
 
 <!-- 投注页面 -->
-<div class="wrap-inner clearfix wrap-game">
-    <div id="aside" class="left"> 
-        <!-- 彩票logo区域 -->
-        <!--#include virtual="/view/game/widget/_lottery_logo.shtml"-->
-        <!-- 历史彩票开奖结果 -->
-        <div class="bet-trend" id="J-minitrend-cont"> 
-            
-        </div>
-        <!-- 彩票记录区域 --> 
-        <!--#include virtual="/view/game/widget/_lottery_records.shtml"-->
-        <!-- 彩票记录区域 -->
-    </div>
-
-
-    <div id="content" class="right">
-        <div class="game-info"> 
-            <!-- 倒计时 --> 
-             <!--#include virtual="/view/game/widget/_countdown.shtml"-->
-             <div class="lottery-split-line"></div>
-            <!-- 开奖区域 --> 
-            <!--#include virtual="/view/game/widget/_lottery_board_3d.shtml"-->
-            <!-- 开奖区域 -->
-        </div>
-        <div class="game-board">
-            <div class="play-section ">
+<div class="bet_main">
+        <div class="wrap-inner clearfix wrap-game">
+          <div class="game_top">
+            <!-- 彩票logo区域 -->
+            <div class="left">
+              <!--#include virtual="/view/game/widget/_lottery_logo.shtml"-->
+            </div>
+            <div class="right">
+              <div class="game-info">
+                <!-- 倒计时 -->
+                <!--#include virtual="/view/game/widget/_countdown.shtml"-->
+                <div class="lottery-split-line"></div>
+                <!-- 开奖区域 -->
+                <!--#include virtual="/view/game/widget/_lottery_board.shtml"-->
+                <!-- 开奖区域 -->
+              </div>
+            </div>
+          </div>
+          <div id="aside" class="left">
+            <!-- 历史彩票开奖结果 -->
+            <div class="bet-trend" id="J-minitrend-cont"></div>
+            <!-- 彩票记录区域 -->
+            <!--#include virtual="/view/game/widget/_lottery_records.shtml"-->
+            <!-- 彩票记录区域 -->
+          </div>
+  
+          <div id="content" class="right">
+            <div class="game-board">
+              <div class="play-section ">
                 <div class="section-inner">
-                    <div class="play-select">
-                        <!-- 玩法类型 -->
-                        <ul class="play-select-title clearfix" id="J-panel-gameTypes">   
-                        <!--#include virtual="/view/game/widget/_game_group.shtml"-->
-                        </ul>
-                        <!-- 具体玩法 -->
-                        <ul class="gametypes-menu-ul" id="J-gametyes-menu-panel"> 
-                        <!--#include virtual="/view/game/widget/_games.shtml"-->
-                        </ul>
-                    </div>
+                  <div class="play-select">
+                    <!-- 玩法类型 -->
+                    <ul class="play-select-title clearfix" id="J-panel-gameTypes">
+                      <!--#include virtual="/view/game/widget/_game_group.shtml"-->
+                    </ul>
+                    <!-- 具体玩法 -->
+                    <ul class="gametypes-menu-ul" id="J-gametyes-menu-panel">
+                      <!--#include virtual="/view/game/widget/_games.shtml"-->
+                    </ul>
+                  </div>
                 </div>
-            </div>
-            <div class="number-section">
+              </div>
+              <div class="number-section">
                 <!-- <div class="section-label"><span>选择幸运号码</span></div> -->
-                <div class="section-inner"> 
-                    <div id="J-balls-main-panel" class="number-section-balls-main-panel">
-                            <!-- 选号规则,中奖说明 --> 
-                            <!--#include virtual="/view/game/widget/_lottery_desc.shtml"-->
-                            <!-- 选球区域 -->
-                            <div class="number-select-content">
-                                <ul class="ball-section">
-                                 
-                                </ul>
-                            </div>
+                <div class="section-inner">
+                  <div
+                    id="J-balls-main-panel"
+                    class="number-section-balls-main-panel"
+                  >
+                    <!-- 选号规则,中奖说明 -->
+                    <!--#include virtual="/view/game/widget/_lottery_desc.shtml"-->
+                    <!-- 选球区域 -->
+                    <div class="number-select-content">
+                      <ul class="ball-section"></ul>
                     </div>
-                   
-                   <div id="J-balls-statistics-panel">
-                        <!-- 投注倍数，元角模式，返点设置区域 --> 
-                        <!--#include virtual="/view/game/widget/_bet_statistics.shtml"-->
-                   </div>
-
+                  </div>
+  
+                  <div id="J-balls-statistics-panel">
+                    <!-- 投注倍数，元角模式，返点设置区域 -->
+                    <!--#include virtual="/view/game/widget/_bet_statistics.shtml"-->
+                  </div>
                 </div>
+              </div>
+  
+              <!-- 号码篮 -->
+              <!--#include virtual="/view/game/widget/_basket_box.shtml"-->
             </div>
-
-            <!-- 号码篮 --> 
-            <!--#include virtual="/view/game/widget/_basket_box.shtml"-->
+          </div>
         </div>
-    </div>
-</div> 
+      </div>
 <!--#include virtual="/view/game/widget/_message.shtml"-->
 <div class="mask hide" id="maskOfXGAME" ></div> 
 <!--#include virtual="/view/module/footer.shtml"-->

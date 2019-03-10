@@ -10,7 +10,8 @@
 .game_top{
     height: 140px;
     color: #303c66;
-    background: #fff;
+    background: #fff url('../../images/login/bg.png') no-repeat center bottom;
+    
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
 }
 .number-select-link a,

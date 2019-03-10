@@ -301,49 +301,14 @@
 <script type="text/javascript" src="js/widget/jquery.mySlider.js"></script>
 <script type="text/javascript" src="js/widget/jquery.marquee.min.js"></script>
 <script type="text/javascript">
-    //    function getGame() {
-    //        ajaxData({
-    //            url: getWebsiteOfHost() + "?action=getAllGames&terminal_id=" + terminal_id + "&lottery=" ,
-    //            successCallback: function(res) {
-    //                var agGames =[];
-    //                var gaGames =[];
-    //                for(var i=0;i<res.length;i++){
-    //                    if(res[i].game_type == 4){
-    //                        agGames.push(res[i]);
-    //                        doTrender({
-    //                            container: '.ag_game',
-    //                            tmplObj: '#ag_game',
-    //                            data: agGames,
-    //                            needClear: true,
-    //                            prependDom: false
-    //                        });
-    //                    }
-    //                    if(res[i].game_type == 5){
-    //                        gaGames.push(res[i]);
-    //                        doTrender({
-    //                            container: '.ga_game',
-    //                            tmplObj: '#nav-game-tpl',
-    //                            data: gaGames,
-    //                            needClear: true,
-    //                            prependDom: false
-    //                        });
-    //                    }
-    //                }
-    //
-    //            }
-    //        })
-    //    }
-    //    getGame();
+
 
     var baseUrl = getWebsiteOfHost();
     var token =  window.sessionStorage.getItem("token");
-
-
     getLotteryData(token);
     function getLotteryData(token) {
         var url = baseUrl + '/public/get_game_menu.do';
         var data = {
-            //     'params':'b3FrwvjYb3KUBhZmwMmi%2BGTgq05sug6piN4PnNrdSfPgPtmHh73nXQIRPF8n7GN2cV1IYtMo1IPzEdiyJRSXig==',
             'params': 'token=' + token
         }
         data = urlEncode(data);
@@ -353,7 +318,6 @@
             data:data,
             successCallback: function (res) {
 //                console.log(res);
-//                res = {"errno":0,"error":null,"data":{"recently":{"name":"\u60a8\u6700\u8fd1\u73a9\u7684","count":2,"lotteries":{"13":{"name":"\u82f9\u679c\u5206\u5206\u5f69","identifier":"PGFFC","hot":1,"new":0,"24h":1,"new_win":0,"is_third":0},"1":{"name":"\u91cd\u5e86\u65f6\u65f6\u5f69","identifier":"CQSSC","hot":1,"new":0,"24h":0,"new_win":0,"is_third":0}}},"new":{"name":"\u65b0\u589e\u5f69\u79cd","count":7,"lotteries":{"59":{"name":"\u8fbd\u5b81\u5feb\u4e50\u5341\u4e8c","identifier":"LNKL12","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"57":{"name":"\u5e7f\u4e1c\u5feb\u4e50\u5341\u5206","identifier":"GDKLSF","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"56":{"name":"\u5929\u6d2511\u90095","identifier":"TJ115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"52":{"name":"\u4e0a\u6d7711\u90095","identifier":"SH115","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"53":{"name":"\u6cb3\u531711\u90095","identifier":"HB115","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"51":{"name":"\u82f9\u679c\u5feb\u4e508\u5206\u5206\u5f69","identifier":"PGKENO","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"92":{"name":"\u6d59\u6c5f11\u90095","identifier":"ZJ115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0}}},"ssc":{"name":"\u65f6\u65f6\u5f69","count":10,"lotteries":{"13":{"name":"\u82f9\u679c\u5206\u5206\u5f69","identifier":"PGFFC","hot":1,"new":0,"24h":1,"new_win":0,"is_third":0},"16":{"name":"\u82f9\u679c\u4e09\u5206\u5f69","identifier":"PG3FC","hot":1,"new":0,"24h":1,"new_win":0,"is_third":0},"1":{"name":"\u91cd\u5e86\u65f6\u65f6\u5f69","identifier":"CQSSC","hot":1,"new":0,"24h":0,"new_win":0,"is_third":0},"20":{"name":"\u82f9\u679c\u6781\u901f3D","identifier":"PG3D","hot":0,"new":0,"24h":1,"new_win":0,"is_third":0},"6":{"name":"\u65b0\u7586\u65f6\u65f6\u5f69","identifier":"XJSSC","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"7":{"name":"\u5929\u6d25\u65f6\u65f6\u5f69","identifier":"TJSSC","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"4":{"name":"\u4e0a\u6d77\u65f6\u65f6\u4e50","identifier":"SSL","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"28":{"name":"\u82f9\u679c\u4e94\u5206\u5f69","identifier":"PG5FC","hot":0,"new":0,"24h":1,"new_win":0,"is_third":0},"3":{"name":"\u9ed1\u9f99\u6c5f\u65f6\u65f6\u5f69","identifier":"HLJSSC","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"49":{"name":"\u7f05\u7538\u767e\u79d2\u5f69","identifier":"MDBMC","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0}}},"pk10":{"name":"PK10","count":2,"lotteries":{"19":{"name":"\u82f9\u679c\u6781\u901fPK10","identifier":"PGPK10","hot":0,"new":0,"24h":1,"new_win":0,"is_third":0},"10":{"name":"\u5317\u4eacPK\u62fe","identifier":"BJPK10","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0}}},"11x5":{"name":"11\u90095","count":17,"lotteries":{"47":{"name":"\u6c5f\u82cf11\u90095","identifier":"JS115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"44":{"name":"11\u90095\u4e09\u5206\u5f69","identifier":"PG115SFC","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"14":{"name":"\u82f9\u679c11\u90095","identifier":"PG115","hot":1,"new":0,"24h":0,"new_win":0,"is_third":0},"2":{"name":"\u5c71\u4e1c11\u90095","identifier":"SD115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"8":{"name":"\u6c5f\u897f11\u90095","identifier":"JX115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"9":{"name":"\u5e7f\u4e1c11\u90095","identifier":"GD115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"22":{"name":"\u5317\u4eac11\u90095","identifier":"BJ115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"24":{"name":"\u5b89\u5fbd11\u90095","identifier":"AH115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"25":{"name":"\u8fbd\u5b8111\u90095","identifier":"LN115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"27":{"name":"\u798f\u5efa11\u90095","identifier":"FJ115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"29":{"name":"\u8d35\u5dde11\u90095","identifier":"GZ115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"32":{"name":"\u5c71\u897f11\u90095","identifier":"SX115","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"34":{"name":"\u5185\u8499\u53e411\u90095","identifier":"NMG115","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"92":{"name":"\u6d59\u6c5f11\u90095","identifier":"ZJ115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"52":{"name":"\u4e0a\u6d7711\u90095","identifier":"SH115","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"53":{"name":"\u6cb3\u531711\u90095","identifier":"HB115","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"56":{"name":"\u5929\u6d2511\u90095","identifier":"TJ115","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0}}},"k3":{"name":"\u5feb\u4e09","count":7,"lotteries":{"17":{"name":"\u82f9\u679c\u5feb\u4e09\u5206\u5206\u5f69","identifier":"PGK3","hot":0,"new":0,"24h":1,"new_win":0,"is_third":0},"15":{"name":"\u6c5f\u82cf\u5feb\u4e09","identifier":"JSK3","hot":1,"new":0,"24h":0,"new_win":0,"is_third":0},"18":{"name":"\u7518\u8083\u5feb\u4e09","identifier":"GSK3","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"48":{"name":"\u798f\u5efa\u5feb\u4e09","identifier":"FJK3","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"21":{"name":"\u5e7f\u897f\u5feb\u4e09","identifier":"GXK3","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"30":{"name":"\u5b89\u5fbd\u5feb\u4e09","identifier":"AHK3","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"33":{"name":"\u6cb3\u5317\u5feb\u4e09","identifier":"HEBK3","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0}}},"kl12":{"name":"\u5feb\u4e50\u5341\u4e8c,\u5feb\u4e50\u5341\u5206","count":5,"lotteries":{"39":{"name":"\u56db\u5ddd\u5feb\u4e50\u5341\u4e8c","identifier":"SCKL12","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"42":{"name":"\u6d59\u6c5f\u5feb\u4e50\u5341\u4e8c","identifier":"ZJKL12","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"59":{"name":"\u8fbd\u5b81\u5feb\u4e50\u5341\u4e8c","identifier":"LNKL12","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"41":{"name":"\u91cd\u5e86\u5feb\u4e50\u5341\u5206","identifier":"CQKLSF","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0},"57":{"name":"\u5e7f\u4e1c\u5feb\u4e50\u5341\u5206","identifier":"GDKLSF","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0}}},"other":{"name":"\u5176\u4ed6(\u4f4e\u9891,\u5feb\u4e50\u5f69)","count":4,"lotteries":{"11":{"name":"3D","identifier":"F3D","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"12":{"name":"\u6392\u5217\u4e09\/\u4e94","identifier":"PLW","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"51":{"name":"\u82f9\u679c\u5feb\u4e508\u5206\u5206\u5f69","identifier":"PGKENO","hot":0,"new":0,"24h":0,"new_win":0,"is_third":0},"37":{"name":"\u5317\u4eac\u5feb\u4e508","identifier":"BJKL8","hot":0,"new":1,"24h":0,"new_win":0,"is_third":0}}}}}
 //                res = res.data;
                 var newArr = [];
                 var otherlot = $.extend({}, res["pk10"].lotteries, res["other"].lotteries);
