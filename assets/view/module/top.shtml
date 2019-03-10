@@ -15,7 +15,15 @@
             <span class="top-money">2000.0071</span>
             <span class="top-hide" data-flag="1" onclick="moneyShoworHide(this)">隐藏</span>
         </span>
+        <a class="recharge" href="/view/ucenter/game_record/digital_lottery.shtml"><span class="btn btn-gold">投注记录</span></a>
+        <a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"><span class="btn btn-gold">充值</span></a>
+        <a class ="btn_withdraw withdraw" href="javascript:void(0)"><span class="btn btn-gold">提现</span></a>
+        <a id="transfer" class ="transfer-page" href="/view/ucenter/funds_center/transfer/transfer_account.shtml"><span class="btn btn-gold">转账</span></a>
+  
+       
             <a class="recharge" href="/view/userCenter/personaInfo/personalData.shtml"><span class="btn btn-gold">个人中心</span></a>
+            <span id="customer-service" style="cursor: pointer"><i class="top-icon people2"></i><span id="customer-btn">在线客服</span></span></a>
+    
             <!--<a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"><span class="btn btn-gold">充值</span></a>-->
             <!--<a class ="btn_withdraw withdraw" href="javascript:void(0)"><span class="btn btn-gold">提现</span></a>-->
             <!--<a id="transfer" class ="transfer-page" href="/view/ucenter/funds_center/transfer/transfer_account.shtml"><span class="btn btn-gold">转账</span></a>-->
@@ -71,14 +79,6 @@
       </ul>
       </div>
       </span> -->
-
-
-      <a class="recharge" href="/view/ucenter/game_record/digital_lottery.shtml"><span class="btn btn-gold">投注记录</span></a>
-      <a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"><span class="btn btn-gold">充值</span></a>
-      <a class ="btn_withdraw withdraw" href="javascript:void(0)"><span class="btn btn-gold">提现</span></a>
-      <a id="transfer" class ="transfer-page" href="/view/ucenter/funds_center/transfer/transfer_account.shtml"><span class="btn btn-gold">转账</span></a>
-
-      <span id="customer-service" style="cursor: pointer"><i class="top-icon people2"></i><span id="customer-btn">在线客服</span></span></a>
     </div>
   </div>
 </div>

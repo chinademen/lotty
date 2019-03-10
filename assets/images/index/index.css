@@ -53,15 +53,31 @@ button { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition
 /* 彩票列表 */
 .lottery-list{
     position: relative;
-    margin: 50px auto;
+    margin: 20px auto 0px;
+    border-radius: 4px;
+    box-shadow: 1px 10px 40px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    background: #fff;
 }
-.lottery-list-top{height: 45px;background-color:#c82834;line-height: 45px;padding-left: 40px;color: #fff;font-size: 12px;position: relative;overflow: hidden; }
+.lottery-list-top{
+    height: 45px;
+    line-height: 45px;
+    padding-left: 40px;
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+    overflow: hidden; 
+    color: #303c66;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+}
 .J-prize-marquee{float: left}
 .lottery-list-top > ul{width: 9999px;}
 .lottery-list-top ul  li{float:left; width: 400px;margin-right: 20px}
-.lottery-list-top-right{background: url(right-top-bg.png) no-repeat;width: 292px;height: 45px;position: absolute;right: 0;text-align: center;}
-.lottery-list-main{background: url(menu-bg-1.jpg) no-repeat 0 0;width: 1200px;height: 541px;background-size: 1200px 541px;}
-.lottery-list-main-left{width: 916px;height: 100%;font-size: 14px;float: left;}
+.lottery-list-top-right{width: 292px;height: 45px;position: absolute;right: 0;text-align: center;}
+.lottery-list-main{width: 1200px;height: 541px;background-size: 1200px 541px;}
+.lottery-list-main-left{width: 916px;height: 100%;font-size: 14px;float: left;
+    background: #343644;
+}
 .lottery-list-main-left ul{
     /*border-bottom: 1px solid #44475a;*/
     /* padding: 20px 0px 15px 13px; */
@@ -141,15 +157,21 @@ button { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition
 .lottery-list-main-left ul > li a{color:#c1c3c7;font-size:13px;}
 .lottery-list-main-left ul > li a:hover{
     color: #fffc7e !important;
-    font-weight: bolder;
 }
-/* .lottery-list-main-left ul > li:hover{border-radius: 3px;background: #DCB976;color: #181E29; } */
-.lottery-list-main-right{float: left;width: 284px;overflow: hidden;box-sizing: border-box;color: #fff;padding: 20px 0 0 16px;}
+
+.lottery-list-main-right{
+    float: left;width: 284px;
+    verflow: hidden;box-sizing: 
+    border-box;color: #fff;
+    padding: 20px 0 0 16px;
+    background: #c82834;
+    height: 541px;
+}
 .lottery-list-main-right ul li{width: 120px;height: 70px;float: left;position: relative;text-align: center;padding: 14px;box-sizing: border-box;margin: 0 10px 16px 0;background-color: #000;background-color: rgba(0,0,0,0.5)!important;filter:Alpha(opacity=50);}
 .lottery-list-main-right ul li a{color: #fff;}
 
 /* 优惠活动 */
-.preferential-wrap{height: 330px;background-color: #3e414e;margin-top: 40px;box-shadow: 0 6px 14px #4f4c4c;}
+.preferential-wrap{height: 330px;background-color: #3e414e;box-shadow: 0 6px 14px #4f4c4c;}
 .preferential-title{height: 45px;position: relative;border-bottom: 1px solid #624f42}
 .preferential-list{margin-top: 45px;}
 .preferential-list > li{float: left;margin-left: 25px;}
@@ -157,14 +179,15 @@ button { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition
 
 /* 游戏列表 */
 .game-list-wrap{
-    background: url(game-list-bg.jpg) no-repeat top center;
-    height: 430px;
+
+    height: 300px;
     box-sizing: border-box;
     overflow: hidden;
+    background: rgba(0,0,0,0);
 }
 .game-list{
     position: relative;
-    margin-top: 75px;
+    margin-top: 20px;
 }
 .game-list li{
     float: left;
@@ -270,7 +293,8 @@ button { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition
 .lottery-list-main-left{
     padding: 0 15px;
     box-sizing: border-box;
-    background: #343644;
+
+    
 }
 .lottery-list-main-left>div{
     height: 108.2px;

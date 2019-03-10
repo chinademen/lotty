@@ -32,6 +32,7 @@
     <div class="ico"></div>
 </div>
 <div class="home_main">
+
         <div class="wrap-inner lottery-list">
                 <div class="lottery-list-top ">
                     <i class="home-icon notice"></i>
@@ -42,6 +43,7 @@
                     </div>
                     <div class="lottery-list-top-right">昨日派奖：<span style="color:#f83631;font-size: 18px;font-weight: bold" id="pj"></span>元</div>
                 </div>
+
                 <div class="lottery-list-main clearfix">
                     <div class="lottery-list-main-left clearfix">
             
@@ -161,11 +163,59 @@
                         <!-- <img src="images/index/redpackets-bg.png"> -->
                     </div>
                 </div>
+
             </div>
+            <div class="game-list-wrap">
+                    <div class="wrap-inner">
+                        <ul class="game-list clearfix">
+                            <li class="active">
+                                <!-- <div class="wrap"></div> -->
+                                <!-- <p>AG真人</p> -->
+                                <div class="titles">
+                                    <p> <img src="./images/index/tt.png" alt=""> 真人娱乐 </p>
+                                    <p> 真人牛牛，炸金花，百家乐，捕鱼王，美女直播厅应有尽有！  </p>
+                                </div>
+                                <img class="imgbg" src="images/index/game-1.jpg?20180417">
+                                <!-- <div class="game-list-mask clearfix">
+                                </div> -->
+                                <div class="modu">
+                                    <span onclick="goGame('zrqjt')"> 进入游戏 </span> 
+                                </div>
+                            </li>
+                             <li class="mid">
+                                <!-- <div class="wrap"></div> -->
+                                <!-- <p >GA游戏</p> -->
+                                <div class="titles">
+                                    <p> <img src="./images/index/tt.png" alt=""> 电子娱乐 </p>
+                                    <p> 经典水果机，百家乐，老虎机，棋牌游戏，邀您共享饕客盛宴！  </p>
+                                </div>
+                                <img class="imgbg" src="images/index/game-2.jpg?20180417">
+                                <div class="modu">
+                                    <span onclick="goGame('ga')"> 进入游戏 </span> 
+                                </div>
+                            </li>
+                             <li>
+                               <!-- <div class="wrap"></div> -->
+                                <!-- <p>竞彩</p> -->
+                                <div class="titles">
+                                    <p> <img src="./images/index/tt.png" alt=""> 体育竞技 </p>
+                                    <p> 涵盖主要足球联赛，杯赛，友谊赛；玩法多、开奖快、返奖高！  </p>
+                                </div>
+                                <img class="imgbg" src="images/index/game-3.jpg?20180417">
+                                <div class="modu">
+                                    <span onclick="goGame('JCZQ')"> 进入游戏 </span> 
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 </div>
 
 
-<div class="preferential-wrap" style="display: none">
+
+
+
+<div class="preferential-wrap">
     <div class="wrap-inner">
         <div class="preferential-title"><i class="home-icon youhuihuodong"></i></div>
         <ul class="preferential-list clearfix">
@@ -428,7 +478,7 @@ function getPlatPrizeData() {
             var html = '';
             var prize_list = res.prize_list
                         for(var i = 0,len = prize_list.length;i < len;i++){
-                            html += '<li>恭喜 <span style="color: #fffc7e">'+prize_list[i].username+'</span> 在 '+prize_list[i].lottery+' 中，喜中 <span style="color: #fffc7e">'+prize_list[i].prize+' </span>元</li>';
+                            html += '<li>恭喜 <span style="color: #fa7171">'+prize_list[i].username+'</span> 在 '+prize_list[i].lottery+' 中，喜中 <span style="color: #fa7171">'+prize_list[i].prize+' </span>元</li>';
                         }
                         $("#new-list").append(html);
                         //触发新闻滚动

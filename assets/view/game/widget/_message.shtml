@@ -495,4 +495,4 @@
         $("#successTipMSG").hide();
         $("#maskOfXGAME").hide();
     }
-</script>>
+</script>

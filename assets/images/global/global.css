@@ -101,9 +101,9 @@ color:#999;font-size:10px;}
 .btn:hover{text-decoration:none;}
 .btn.lg{height:30px;line-height:30px;font-size:16px;}
 .btn.lg2{height:40px;line-height:40px;font-size:14px;width:130px;padding:0;}
-.btn-red{padding:0 15px;height:22px;line-height:22px;color:#fff;border-radius:0;border:none;background-color:#c6292f;}
-.btn-red:hover{background-color:#ce676b;}
-/*.btn-invalid{padding:0 15px;height:22px;line-height:22px;color:#fff;border-radius:0;border:none;background-color:#c6292f;}*/
+.btn-red{padding:0 15px;height:22px;line-height:22px;color:#fff;border-radius:0;border:none;background-color:#fc6e65;}
+.btn-red:hover{background-color:#fc6e65;}
+/*.btn-invalid{padding:0 15px;height:22px;line-height:22px;color:#fff;border-radius:0;border:none;background-color:#fc6e65;}*/
 .btn-gray{padding:0 15px;height:22px;line-height:22px;color:#fff;border-radius:0;border:none;background-color:#707070;}
 .btn-gray:hover{background-color:#595858;}
 .btn-blue{padding:0 15px;height:22px;line-height:22px;color:#fff;border-radius:0;border:none;background-color:#0079ca;}
@@ -430,10 +430,10 @@ color:#999;font-size:10px;}
 .filter-tabs{}
 .filter-tabs,.filter-tabs-title,.filter-tabs-cont{display:inline-block;*display:inline;*zoom:1;height:30px;vertical-align:middle;}
 .filter-tabs-title{line-height:30px;margin-right:10px;}
-.filter-tabs-cont a{height:22px;line-height:22px;padding:3px 10px;display:inline;float:left;margin-right:-1px;font-size:13px;text-align:center;border:1px solid #d1d1d1;background-color:#fafafa;color:#333;}
-.filter-tabs-cont a:hover{text-decoration:none;background-color:#c6292f;color: #fff;}
+.filter-tabs-cont a{height:22px;line-height:22px;padding:3px 10px;display:inline;float:left;margin-right:-1px;font-size:13px;text-align:center;border:1px solid #ece9e9;background-color:#fafafa;color:#333;}
+.filter-tabs-cont a:hover{text-decoration:none;background-color:#fc6e65;color: #fff;}
 .filter-tabs-cont a.current,
-.filter-tabs-cont a.current:hover{ background-color: #c6292f; color: #fff;}
+.filter-tabs-cont a.current:hover{ background-color: #fc6e65; color: #fff;}
 .filter-tabs-cont a{position:relative;z-index:1;} 
 .filter-tabs-cont a.current{z-index:2;} 
 
@@ -597,7 +597,7 @@ color:#999;font-size:10px;}
     line-height: 80px; 
     position: relative; 
     z-index: 10;   
-    min-width: 1200px;
+    min-width: 1200px; 
 }
 .nav-ul{color:#fff;margin-top: -1px;}
 .nav-ul li{float:left;height: 80px;}
@@ -686,7 +686,9 @@ color: #999; font-size: 10px; }
 
 /** 弹出层组件(z-index:700) **/
 /* pop */
-.pop{width:438px;border:1px solid #C8C8C8;background-color:#FFF;word-wrap:break-word;border-radius:3px;}
+.pop{
+    width:438px;
+   background-color:#FFF;word-wrap:break-word;border-radius:10px;}
 .pop-hd{height:44px;padding:0 15px;line-height:44px;color:#525252;border-radius:3px 3px 0 0;background-color:#fff; border-bottom:1px solid #e2e2e2;}
 .pop-title{font-size:14px;}
 /*.pop-title-ico{display:inline-block;width:14px;height:14px;margin-right:5px;background:url("../../images/game/un-icon.png") no-repeat scroll 0 -210px;vertical-align:middle;}*/

@@ -1,17 +1,60 @@
 @charset "utf-8";
 .main-content { margin-top: 20px; margin-bottom: 20px; }
 .main-content .wrap-inner { background: #E8E8E8; }
-.wrap-game { border: 1px solid #ccc; margin:20px auto 90px;    background: #f2f2f2;}
+.bet_main{
+    width: 100%;
+    overflow: hidden;
+    background: #d7e7f3 url(../login/bg.png) no-repeat center bottom;
+}
+.wrap-game {  margin:20px auto;    background: #f2f2f2; box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);border-radius: 10px; overflow: hidden;}
+.game_top{
+    height: 140px;
+    color: #303c66;
+    background: #fff;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+}
 .number-select-link a,
 .pannel-title .close,
 .panel-select .delete,
 .user-balance em,
 .user-balance i,
 .game-nav a { background-image: url(un-icons.png); background-repeat: no-repeat; }
-#aside { width: 250px;  position: relative;border-right:  1px solid #ccc; }
-.lottery-info-basic { height: 136px; float: left; text-align: center; background: #fafafa; position: relative; width: 100%; }
-.lottery-info-issue-box { line-height: 25px; font-size: 12px; color: #b63836; position: absolute; border: 1px dashed #ccc; background: #fff; width: 120px; border-radius: 20px; height: 23px; top: 40%; right: -60px; -webkit-box-shadow: 0px 4px 5px 0px rgba(250, 250, 250, 0.27); -moz-box-shadow: 0px 4px 5px 0px rgba(250, 250, 250, 0.27); box-shadow: 0px 4px 5px 0px rgba(250, 250, 250, 0.27); }
-.lottery-info-logo { width: 115px; height: 90px; margin: 15px auto; padding-top: 10px; }
+#aside { 
+    width: 250px;  
+    position: relative;
+    background: #f6f8fb;
+    -moz-box-shadow: 0px 5px 10px 0 #f4f4f4;
+    -webkit-box-shadow: 0px 5px 10px 0 #f4f4f4;
+    box-shadow: 0px 5px 10px 0 #f4f4f4;
+}
+.lottery-info-basic { 
+    height: 136px; 
+    float: left; 
+    text-align: center; 
+    position: relative; 
+    width: 250px; 
+}
+.lottery-info-issue-box { 
+    line-height: 25px; 
+    font-size: 12px; 
+    color: #fff; 
+    position: absolute; 
+    background: rgba(0, 0, 0, 0.2);
+    width: 120px; 
+    border-radius: 20px; 
+    height: 23px; 
+    top: 40%; 
+    right: -60px; 
+    webkit-box-shadow: 0px 4px 5px 0px rgba(250, 250, 250, 0.27); 
+    -moz-box-shadow: 0px 4px 5px 0px rgba(250, 250, 250, 0.27); 
+    box-shadow: 0px 4px 5px 0px rgba(250, 250, 250, 0.27); 
+}
+.lottery-info-logo { 
+    width: 115px;
+    height: 90px;
+    margin: 25px auto;
+    padding-top: 10px;
+}
 .lottery-info-logo img { display: block; max-width: 100%; }
 .lottery-info-icon { position: absolute; top: 129px; z-index: 2; width: 100%; }
 .lottery-info-icon i { width: 16px; height: 15px; overflow: hidden; background: url(sidebar-bottom-bg.png)  no-repeat; }
@@ -31,49 +74,66 @@
 .bet-trend { clear: both; height: 670px;overflow: hidden;}
 .bet-trend .table { width: 100%; margin: 0 auto; padding-top: 10px;border:none; }
 .bet-trend .table td { height: 48px; line-height: 48px; text-align: center; padding: 0; }
-.bet-trend .table th { background-color: #fff; font-size: 16px; font-weight: bold; color: #c6292f; height: 37px; line-height: 37px; border-top: 3px solid #bebebe; border-bottom: 3px solid #c6292f; }
+
+.bet-trend .table  th { 
+    font-size: 16px; 
+    font-weight: bold; 
+    height: 37px; 
+    line-height: 37px; 
+    color: #666666;
+
+}
 .bet-trend .table th.thin { font-size: 12px; font-weight: normal; padding: 5px 0; }
 .triangle { position: relative; }
-.triangle:after { border: 6px solid transparent; border-bottom: 6px solid #c6292f; width: 0; height: 0; position: absolute; content: ' '; bottom: 0; left: 50%; margin-left: -3px; }
-.bet-trend .table td { border-bottom: 1px dashed #BFBFBF; background-color: #fafafa; color: #333; }
-.bet-trend .table .first td { background-color: rgba(255, 255, 255, .2); background-color: #949a9e\9; }
+.triangle:after { border: 6px solid transparent; border-bottom: 6px solid #fc5d50; width: 0; height: 0; position: absolute; content: ' '; bottom: 0; left: 50%; margin-left: -3px; }
+
+.bet-trend .table .first td { background-color: rgba(255, 255, 255, .2);  }
 .bet-trend .table td i,.bet-trend .table td span.curr { font-style: normal; margin: 0 2px 0 0; width: 17px; height: 18px; line-height: 18px; display: inline-block; border-radius: 50%; background-color: #c6292f; color: #fff; }
 .bet-trend .table td i.normal{color: #333;background:none;}
 .bet-trend .table td i.l { color: #fff; background: #0ECA25; }
 .bet-trend .table td i.h { color: #fff; background: #FF9A02; }
 .bet-trend .table td i.p { color: #fff; background: #fff; }
-.bet-trend .table td i.circle { color: #FFFFFF; border-radius: 8px; background: #D22A2A; padding: 0 2px; height: 14px; line-height: 14px; }
+.bet-trend .table td i.circle { color: #FFFFFF; border-radius: 8px; background: #fc5d50; padding: 0 2px; height: 14px; line-height: 14px; }
 .bet-trend .table td i.curr,
-.bet-trend .table td span.curr { color: #fff; background: #D22A2A; }
+.bet-trend .table td span.curr { color: #fff; background: #fc5d50; }
 .bet-trend .table td i.long { border-radius: 8px; color: #fff; background: #0ECA25; font-style: normal; margin: 0 2px 0 0; width: 18px; height: 18px; line-height: 18px; display: inline-block; border-radius: 50%; }
 .bet-trend .table td i.hu { border-radius: 8px; color: #fff; background: #FF9A02; font-style: normal; margin: 0 2px 0 0; width: 18px; height: 18px; line-height: 18px; display: inline-block; border-radius: 50%; }
-.bet-trend .table td span.focus { color: #FFFFFF; border-radius: 8px; background: #D22A2A; padding: 0 4px; }
+.bet-trend .table td span.focus { color: #FFFFFF; border-radius: 8px; background: #fc5d50; padding: 0 4px; }
 .bet-trend .more { line-height: 30px; padding: 0 10px; }
 .bet-trend a { }
-.bet-trend a:hover { color: #c6292f; }
+.bet-trend a:hover { color: #fc5d50; }
 .bet-table-trend-klsf td i.curr,
-.bet-table-trend-klsf td span.curr { color: #FFFFFF; border-radius: 8px; background: #D22A2A; padding: 0 2px !important; }
+.bet-table-trend-klsf td span.curr { color: #FFFFFF; border-radius: 8px; background: #fc5d50; padding: 0 2px !important; }
 .bet-table-trend-pk10 td i { padding: 0 1px !important; margin: 0 1px !important; }
-.bet-table-trend-pk10 td .balls-l i { padding: 2px 3px !important; margin: 0 5px !important; color: #c6292f; }
+.bet-table-trend-pk10 td .balls-l i { padding: 2px 3px !important; margin: 0 5px !important; color: #fc5d50; }
 .bet-table-trend-pk10 td .balls-l i.l { border-radius: 8px; color: #fff; background: #0ECA25; }
 .bet-table-trend-pk10 td .balls-l i.h { border-radius: 8px; color: #fff; background: #FF9A02; }
 .bet-trend .bet-list th { font-size: 12px; }
-.bet-trend .bet-list th i { color: #c6292f; font-style: normal; border-radius: 8px; padding: 0 2px !important; margin: 0 1px !important; }
+.bet-trend .bet-list th i { color: #fc5d50; font-style: normal; border-radius: 8px; padding: 0 2px !important; margin: 0 1px !important; }
 .events-list h2 { background-color: rgba(255, 255, 255, .2); background-color: #949a9e\9; line-height: 40px; text-indent: 10px; font-size: 14px; font-weight: normal; }
 
 
 
 
 .events-list div { padding: 10px 10px 10px 20px; }
-.events-list div a { list-style: square; color: #c6292f; display: block; line-height: 20px; padding-bottom: 10px; }
-.events-list div a:hover { color: #f00; }
+.events-list div a { list-style: square; color: #fc5d50; display: block; line-height: 20px; padding-bottom: 10px; }
+.events-list div a:hover { color: #fc5d50; }
 #content { width: 949px; }
-.game-info { height: 139px; background: #c6292f; border-left: 10px solid #ad1f25; }
-.game-info h2 { color: #fff; font-size: 14px; font-weight: bold; text-align: center; line-height: 46px; }
-.lottery-split-line{ border-right: 1px solid #ad251a;float: left;height: 100px;margin-top: 20px;}
+.game-info { height: 140px;  }
+.game-info h2 { color: #303c66; font-size: 14px; font-weight: bold; text-align: center; line-height: 46px; }
+.lottery-split-line{ border-right: 1px solid rgba(255,255,255,0.1);float: left;height: 100px;margin-top: 20px;}
 .lottery-countdown { width: 440px;  float: left; text-align: center; }
 .lottery-countdown ul { }
-.lottery-countdown li { display: inline-block; *display: inline; *zoom: 1; width: 80px; height: 53px; padding-top: 16px; background: url(count-down-bg.png) left top no-repeat; position: relative; margin: 0 10px; }
+.lottery-countdown li { 
+    display: inline-block; 
+    width: 80px; 
+    height: 53px; 
+    padding-top: 16px; 
+    background: url(count-down-bg.png) left top no-repeat; 
+    background-size: cover;
+    position: relative; 
+    margin: 0 10px; 
+}
 .lottery-countdown li i { position: absolute; top: 19px; right: -17px; font-size: 36px; font-weight: bold; color: #fff; }
 .lottery-countdown li em { display: block; width: 100%; height: 100%; line-height: 55px; font-size: 36px; color: #FF4200; font-family: Monaco, Consolas, 'Lucida Consolas', monospace, 'Times New Roman', Tahoma, Arial; }
 .lottery-board { width: 496px;  position: relative; float: left;}
@@ -99,7 +159,7 @@
 .lottery-issue-board dl.current { z-index: 2; }
 
 /*.lottery-issue-board dl.current dt,*/
-.lottery-issue-board dl.current dd.current { color: #c6292f; }
+.lottery-issue-board dl.current dd.current { color: #fc5d50; }
 .lottery-issue-board dd.current { background: #ffddbf; border-color: #ffa048; z-index: 2; }
 .lottery-issue-board dd.coming { color: #999; line-height: 40px; }
 .lottery-issue-board dd.coming em { color: #999; }
@@ -109,8 +169,8 @@
         background-color:#e9ebec;
         background-image:linear-gradient( to bottom, #f4f4f4, #e9ebec );
         filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#e9ebec');*/ }
-.lottery-numbers-board h3 { font-size: 14px; line-height: 46px; text-align: center; font-weight: bold; color: #fff;  white-space: nowrap; }
-.lottery-numbers-board h3 span { padding: 0 2px; color: #ffff78; font-weight: bold; }
+.lottery-numbers-board h3 { font-size: 14px; line-height: 46px; text-align: center; font-weight: bold; color: #303c66;  white-space: nowrap; }
+.lottery-numbers-board h3 span { padding: 0 2px; color: #fc5d50; font-weight: bold; }
 .lottery-ernie-numbers,
 .loading-lottery { height: 60px; overflow: hidden; text-align: center;-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none; }
 .loading-lottery {  text-align: center; line-height: 64px; color: #fff;}
@@ -137,7 +197,7 @@
 .dice_d { background-position: -540px 0 }
 .keno-lottery-ernie-numbers,
 .keno-ballErnie { position: absolute; top: 50%; margin-top: 20px; left: 60px; overflow: hidden; width: 400px; }
-.keno-lottery-ernie-numbers span { width: 30px; height: 30px; text-align: center; line-height: 30px; display: block; float: left; border: #f2f2f2 2px solid; border-radius: 20px; background: #D22A2A; color: #fff; font-size: 16px; margin: 0 2px 2px; font-weight: bold; }
+.keno-lottery-ernie-numbers span { width: 30px; height: 30px; text-align: center; line-height: 30px; display: block; float: left; border: #f2f2f2 2px solid; border-radius: 20px; background: #fc5d50; color: #fff; font-size: 16px; margin: 0 2px 2px; font-weight: bold; }
 .pk10-lottery-ernie-numbers,
 .pk10-ballErnie { position: absolute; top: 50px; left: 60px; overflow: hidden; width: 400px;height: 62px; }
 .pk10-lottery-ernie-numbers span { background-image: url(lottery-pk10.png); background-repeat: no-repeat; text-indent: -9999em; width: 40px; height: 62px; display: block; float: left; }
@@ -163,12 +223,23 @@
 .klsf-lottery-ernie-numbers { top: 42px; position: absolute; left: 50px; }
 .klsf-lottery-ernie-numbers span { width: 40px; height: 40px; line-height: 40px; text-align: center; font-size: 24px; color: #3A484E; text-shadow: -2px 2px 1px #fff; font-family: Monaco, Consolas, 'Lucida Consolas', monospace, 'Times New Roman', Tahoma, Arial; background: #80D5FD; border: 1px solid #0B94D4; border-radius: 40px; margin: 5px; display: inline-block; }
 .klsf-lottery-20,
-.klsf-lottery-19 { background: #f80000 !important; color: #fff !important; text-shadow: -2px 2px 1px #f00 !important; border: 1px solid #d22a2a !important; }
+.klsf-lottery-19 { background: #fc5d50 !important; color: #fff !important; text-shadow: -2px 2px 1px #fc5d50 !important; border: 1px solid #fc5d50 !important; }
 .game-board { padding: 15px; }
 .bmc-lottery-info { border: 1px solid #ccc; width: 80px; height: 20px; border-radius: 3px; background: #dadada; position: absolute; top: 10px; right: 9px; text-align: center; cursor: pointer; z-index: 20; }
 .section-label { position: absolute; height: 100%; border: 1px solid #dfdfdf; border-left-color: transparent; border-top: none; border-bottom: none; width: 34px; background-color: #f9f9f9; display: none; }
-.basket-box { width: 90px; height: 38px; line-height: 38px; border: 1px solid #e5e5e5; border-bottom: 1px solid #fff; text-align: center; color: #c6292f; font-size: 14px; font-weight: bold; position: absolute; left: -1px; top: -39px; background-color: #fff; }
-
+.basket-box { 
+    width: 90px; 
+    height: 38px; 
+    line-height: 38px; 
+     text-align: center; 
+     color: #fc5d50; 
+     font-size: 14px; 
+     font-weight: bold; 
+     position: absolute;  
+     top: -38px; 
+     background-color: #fff; 
+    }
+fc5d50
 .collection-box{
      width: 90px; height: 37px; line-height: 37px; border: 1px solid #e5e5e5;  text-align: center; color: #333; font-size: 14px; font-weight: bold; position: absolute; left: 90px; top: -39px; background-color: #fff;cursor: pointer;
 }
@@ -179,18 +250,30 @@
 .section-inner { position: relative; }
 .section-bill { padding: 20px; background-color: #fff;line-height: 60px; }
 .section-bill .right { float: right; }
-.section-bill .favorites { margin-right: 15px; float: right; color: #c6292f; }
+.section-bill .favorites { margin-right: 15px; float: right; color: #fc5d50; }
 
 /*= S 玩法 */
-.play-section { position: relative; border: 1px solid #dfdfdf; background-color: #fff; }
+.play-section { 
+    position: relative; 
+    background-color: #ecf8f9; 
+    border-bottom: 6px solid #e1e8f0;
+}
 .play-section .section-label span { margin-top: -26px; }
-.play-select-title { height: 36px; background-color: #f2f2f2; border-bottom: 1px solid #dfdfdf; }
-.play-select-title li { width: 60px; float: left; text-align: center; border-right: 1px solid #dfdfdf; height: 36px; position: relative; cursor: pointer; }
+.play-select-title { height: 36px;  }
+.play-select-title li { width: 60px; float: left; text-align: center; height: 36px; position: relative; cursor: pointer; }
 .play-select-title li .title { position: absolute; top: 0; left: 0; line-height: 36px; width: 100%; }
-.play-select-title li.current .title { background-color: #fff; line-height: 32px; height: 35px; color: #c6292f; border-bottom: 1px solid #fff; top: 1px; }
+.play-select-title li.current .title { 
+    background-color: #fff; 
+    line-height: 36px; 
+    height: 35px; 
+    color: #fc5d50; 
+    border-bottom: 1px solid #fff; 
+}
 .play-select-title li .content { display: none; }
-.play-select-title .title { color: #333; font-size: 14px; }
-
+.play-select-title .title { color: #6880a0; font-size: 14px; }
+.play-select-title .title:hover{
+    color: #fc5d50; 
+}
 /*kuai3*/
 .play-section-kuai3 .play-select-title { border-bottom: none; }
 .play-section-kuai3 .play-select-title li { width: auto; min-width: 78px; _width: 78px; }
@@ -212,15 +295,20 @@
 .gametypes-menu-ul dd,
 .gametypes-menu-ul dt { display: inline-block; *display: inline; *zoom: 1; font-size: 14px; color: #333; line-height: 24px; margin: 2px; padding: 0 8px; }
 .gametypes-menu-ul dt { min-width: 60px; _width: auto; text-align: center; margin-bottom: 6px; float: left; color: #666; }
-.gametypes-menu-ul dd { cursor: pointer; border: 1px solid transparent; background-color: #fff; min-width: 30px; _width: auto; color: #525252; text-align: center; }
-.gametypes-menu-ul dd:hover { color: #c6292f; }
+.gametypes-menu-ul dd { cursor: pointer;  background-color: #fff; min-width: 30px; _width: auto;    color: #888787; text-align: center; }
+.gametypes-menu-ul dd:hover { color: #fc5d50; }
 .gametypes-menu-ul dd.current,
-.gametypes-menu-ul dd.current:hover { background-color: #f2f2f2; border-color: #e5e5e5; color: #c6292f; }
+.gametypes-menu-ul dd.current:hover { background-color: #f2f2f2;  color: #fc5d50; }
 
 /*= 选号区 */
-.number-section { position: relative; z-index: 2; background-color: #fff; border: 1px solid #dfdfdf; border-top: none; }
+.number-section { 
+    position: relative; 
+    z-index: 2; 
+    background-color: #fff; 
+    border-top: none; 
+}
 .number-section .game-method-prize {  font-size: 12px; line-height: 24px; color: #666;float: left;}
-.number-section .game-method-prize span { color: #c6292f; font-size: 14px; padding: 0 4px; font-weight: bold;}
+.number-section .game-method-prize span { color: #fc5d50; font-size: 14px; padding: 0 4px; font-weight: bold;}
 .number-section .section-label span { margin-top: -72px; }
 .number-section-balls-main-panel { padding: 10px 40px 10px 20px; }
 .number-select-title { }
@@ -369,7 +457,9 @@
 .bet-statistics li.choose-bet { color: #333; font-size: 14px; width:520px; text-align: right; height: 24px; line-height: 28px; float: right;margin-right: 15px;}
 .bet-statistics li.choose-bet em{font-weight: normal;font-size: 12px;}
 .bet-statistics li.choose-bet div { display: inline; }
-.moneyunit-choose .filter-tabs-cont a { display: block; width: 32px; margin-top: -1px; text-align: center; padding: 2px 0; }
+.moneyunit-choose .filter-tabs-cont a { 
+    display: block; width: 32px;
+     margin-top: -1px; text-align: center; padding: 2px 0; }
 .slider-range { margin: 0; width: auto; height: auto; color: #666; background: #f2f2f2; border: 1px solid #ddd; line-height: 26px; padding: 0 10px; font-size: 12px; }
 .slider-range-scale { float: left; margin: 0; text-align: center; }
 .slider-range-scale span { color: inherit; font-size: inherit; position: static; }
@@ -390,9 +480,38 @@
 .silder-range-disabled .slider-range-inner { background-color: #cdcdcd; }
 .slider-range-btn { cursor: move; width: 9px; height: 9px; border: 1px solid #b3b3b3; background: #f3f3f3; border-radius: 1px; margin-top: -6px; }
  
-.add-to-cart { cursor: pointer; width: 120px; margin: 0 5px; height: 60px; line-height: 60px; outline: none; color: #fff; border: none; border-radius: 2px; background-color: #33a0ea; font-size: 16px; }
+.add-to-cart { 
+    cursor: pointer; 
+    width: 120px; 
+    margin: 0 5px; 
+    height: 60px; 
+    line-height: 60px; 
+    outline: none; 
+    color: #fff; 
+    border: none; 
+    font-size: 16px; 
+    background: #6bd2e5;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(top, #3cd2de, #64b2f4);
+    background-image: -moz-linear-gradient(top, #3cd2de, #64b2f4);
+    background-image: -ms-linear-gradient(top, #3cd2de, #64b2f4);
+    background-image: linear-gradient(top, #3cd2de, #64b2f4);
+}
 .add-to-cart:hover { background-color: #3094d8; }
-.fast-submit-button { width: 120px; margin: 0 5px; height: 60px; line-height: 60px; outline: none; color: #c6292f; color: #fff; border: none; background-color: #c6292f; font-size: 16px; border-radius:2px; cursor: pointer; }
+.fast-submit-button { 
+    width: 120px; 
+    margin: 0 5px; 
+    height: 60px; 
+    line-height: 60px; 
+    outline: none; 
+    color: #c6292f; 
+    color: #fff; 
+    border: none; 
+    background-image: -moz-linear-gradient(0deg, rgb(255, 163, 89) 0%, rgb(255, 92, 117) 100%);
+    background-image: -webkit-linear-gradient(0deg, rgb(255, 163, 89) 0%, rgb(255, 92, 117) 100%);
+    background-image: -ms-linear-gradient(0deg, rgb(255, 163, 89) 0%, rgb(255, 92, 117) 100%);
+    border-radius: 10px;
+    font-size: 16px;  cursor: pointer; }
 .fast-submit-button:hover { background-color: #b8252a; }
 .btn-disable,
 .btn-disable:hover { cursor: default; opacity: .4; filter: alpha(opacity=40); }
@@ -406,15 +525,14 @@
     0% { opacity: .5; }
     100% { opacity: 1; }
 }
-.panel-section { position: relative; z-index: 1; background-color: #fff; border: 1px solid #e5e5e5; margin-top: 50px; }
-.panel-section .section-label,
-.panel-section .section-inner { }
+.panel-section { position: relative; z-index: 1; background-color: #fff; margin-top: 50px; }
+
 .panel-section .section-label { background-position: -15px bottom; border-left-color: #e7e7e8; }
-.panel-section .section-inner { }
+
 .panel-section .section-label span { margin-top: -79px; }
 
 /*-78/2-80/2*/
-.panel-section .section-inner { }
+
 .pannel-title { padding-left: 15px; line-height: 36px; font-size: 14px; color: #333; position: relative; }
 .pannel-title a.bt-more { position: absolute; right: 20px; line-height: 42px; top: 0; font-size: 12px; }
 .pannel-title .close { float: right; width: 20px; height: 20px; margin: 8px 8px 0 0; _display: inline; background-position: 0 -60px; }
@@ -468,10 +586,9 @@
 .game-record-section table td.status2 { color: #999; }
 .game-record-section table td.status3 { color: #33a0ea; }
 /*.game-record-section .colsb{min-width: 83px;}*/
-.game-record-section ul {  border-top: 1px solid #d2d2d2; border-bottom: 3px solid #c6292f; /*margin-top: 20px; */}
+.game-record-section ul {  border-top: 1px solid #d2d2d2; border-bottom: 1px solid #d2d2d2; /*margin-top: 20px; */}
 .game-record-section li { float: left;  height: 50px; line-height: 50px; text-align: center; color: #666; font-size: 14px; position: relative; width: 85px;}
 .game-record-section li.active a { color: #c6292f; }
-.game-record-section li.active:after { border: 6px solid transparent; border-bottom: 6px solid #c6292f; width: 0; height: 0; position: absolute; content: ' '; bottom: 0; left: 50%; margin-left: -3px; }
 .game-record-table { height: 200px; overflow: auto; }
 .game-record-section table thead td{font-weight: bold;}
 /*.tabs { }
@@ -639,7 +756,13 @@
 .favorites-window .mask { position: absolute; width: 100%; height: 305px; z-index: 1; left: 0; top: 45px; opacity: .5; filter: alpah(opacity=50); background: #fff; }
 
 /*投注倒计时*/
-.timers { background: url('timers.png') no-repeat center; width: 21px; height: 29px; display: inline-block; }
+.timers { 
+    background: url('timers.png') no-repeat center; 
+    width: 21px; 
+    height: 29px; 
+    margin-top: 5px;
+    display: inline-block;
+ }
 .timers.timers0 { background-position: 0 0; }
 .timers.timers1 { background-position: 0 -39px; }
 .timers.timers2 { background-position: 0 -76px; }
