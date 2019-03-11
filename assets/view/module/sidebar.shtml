@@ -1,83 +1,104 @@
-<div class="user_footer_left">
-    <div id="userCenterMeunList" class="user_foote_meun">
-      <div>
-        <p>
-          <i class="iconfont icon-yonghudianji"></i> 个人中心 </p>
-        <ul>
-            <li data-link="personalData" href="/view/userCenter/personaInfo/personalData.shtml"> 个人资料 </li>
-            <li data-link="changePassword" href="/view/userCenter/personaInfo/changePassword.shtml"> 密码修改 </li>
-            <li data-link="bindCard" href="/view/userCenter/personaInfo/bindCard.shtml"> 卡号绑定 </li>
-            <li data-link="bonusPlay" href="/view/userCenter/personaInfo/bonusPlay.shtml"> 玩法奖金 </li>
-        </ul>
-      </div>
-      <div>
-        <p>
-          <i class="iconfont icon-youxi"></i> 游戏记录 </p>
-        <ul>
-            <li data-link="queryOrder" href="/view/userCenter/gameRecord/queryOrder.shtml"> 订单查询 </li>
-            <li data-link="chaseRecord" href="/view/userCenter/gameRecord/chaseRecord.shtml"> 追号记录 </li>
-            <li data-link="ptRecord" href="/view/userCenter/gameRecord/ptRecord.shtml"> PT记录 </li>
-            <li data-link="gaRecord" href="/view/userCenter/gameRecord/gaRecord.shtml"> GA记录 </li>
-            <li data-link="shababRecord" href="/view/userCenter/gameRecord/shababRecord.shtml"> 沙巴记录 </li>
-            <li data-link="agRecord" href="/view/userCenter/gameRecord/agRecord.shtml"> AG记录 </li>
-        </ul>
-      </div>
-      <div class="">
-        <p>
-          <i class="iconfont icon-qianbi"></i> 资金记录 </p>
-        <ul>
-            <li data-link="withdrawalsRecords" href="/view/userCenter/moneyRecord/withdrawalsRecords.shtml"> 提款记录 </li>
-            <li data-link="moneyDetail" href="/view/userCenter/moneyRecord/moneyDetail.shtml"> 资金明细 </li>
-        </ul>
-      </div>
-      <div class="">
-        <p>
-          <i class="iconfont icon-users"></i> 代理团队 </p>
-        <ul>
-            <li data-link="vipManagement" href="/view/userCenter/agentTeam/vipManagement.shtml"> 会员管理 </li>
-            <li data-link="vipReport" href="/view/userCenter/agentTeam/vipReport.shtml"> 会员报表 </li>
-            <li data-link="registeLower" href="/view/userCenter/agentTeam/registeLower.shtml"> 注册下级 </li>
-            <li data-link="lowerOrders" href="/view/userCenter/agentTeam/lowerOrders.shtml"> 下级订单 </li>
-            <li data-link="preferentiallist" href="/view/userCenter/agentTeam/preferentiallist.shtml"> 优惠列表 </li>
-        </ul>
-      </div>
-      <div class="">
-        <p>
-          <i class="iconfont icon-informatiom"></i> 信息管理 </p>
-        <ul>
-          <li data-link="inBox" href="/view/userCenter/Information/inBox.shtml"> 收件箱 </li>
-          <li data-link="outBox" href="/view/userCenter/Information/outBox.shtml"> 发件箱 </li>
-          <li data-link="sendBox" href="/view/userCenter/Information/sendBox.shtml"> 发邮件 </li>
-        </ul>
-      </div>
-    </div>
+<div class="ucenter-left-wrap">
+  <div class="ucenter-left">
+      <ul>
+          <li>
+              <div class="item">
+                  <i class="icon-user icon-user-5"></i><span>游戏记录</span><span class="icon-down"></span>
+              </div>
+              <div class="item-list">
+                  <p><a href="/view/ucenter/game_record/digital_lottery.shtml"> 数字彩</a></p>
+               <!--    <p><a href="/view/ucenter/game_record/competing.shtml"> • 竞彩</a></p> -->
+                  <!--<p> <a href="/view/ucenter/game_record/ag.shtml"> • AG真人</a> </p>-->
+               <!--    <p><a href="/view/ucenter/game_record/ga.shtml"> • GA游戏</a></p> -->
+              </div>
+          </li>
+          <li>
+              <div class="item">
+                  <i class="icon-user icon-user-2"></i><span>资金明细</span><span class="icon-down"></span>
+              </div>
+              <div class="item-list">
+                  <!--<p><a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"> • 充值</a></p>-->
+                  <!--<p><a class="btn_withdraw withdraw" href="javascript:void(0);"> • 提现</a></p>-->
+                  <!--<p><a class="transfer" href="/view/ucenter/funds_center/transfer/plat-transfer.shtml"> • 转账</a></p>-->
+                  <!--<p><a href="/view/ucenter/funds_center/recharge/recharge_list.shtml"> • 充值记录</a></p>-->
+                  <!--<p><a href="/view/ucenter/funds_center/withdraw/withdraw_list.shtml"> • 提现记录</a></p>-->
+                  <!--<p><a href="/view/ucenter/funds_center/transfer/transfer_list.shtml"> • 转账记录</a></p>-->
+                  <p><a href="/view/ucenter/funds_center/account_change/account_change_list.shtml"> 账变记录</a></p>
+              </div>
+          </li>
+          <!--<li>-->
+              <!--<div class="item">-->
+                  <!--<i class="icon-user icon-user-4"></i><span>账户管理</span><span class="icon-down"></span>-->
+              <!--</div>-->
+              <!--<div class="item-list">-->
+                  <!--<p><a href="/view/ucenter/account_management/account_info.shtml">• 账户信息</a></p>-->
+                  <!--<p><a href="/view/ucenter/account_management/login_password_edit.shtml"> • 密码管理</a></p>-->
+                  <!--<p><a href="/view/ucenter/account_management/bank_card_management.shtml"> • 银行卡管理</a></p>-->
+              <!--</div>-->
+          <!--</li>-->
+          <!--<li id="li-agent" class="agentCenter" style="display: none;">-->
+              <!--<div class="item">-->
+                  <!--<i class="icon-user icon-user-3"></i><span>代理中心</span><span class="icon-down"></span>-->
+              <!--</div>-->
+              <!--<div class="item-list">-->
+                  <!--<p><a href="/view/ucenter/agent_center/team_profits/digital.shtml"> • 团队游戏盈亏</a></p>-->
+                  <!--&lt;!&ndash;<p><a href="/view/ucenter/agent_center/user_profits/digital.shtml"> • 用户游戏盈亏</a></p>&ndash;&gt;-->
+                  <!--<p><a href="/view/ucenter/agent_center/team_profitLoss/team_profitLoss.shtml"> • 团队盈亏</a></p>-->
+                  <!--&lt;!&ndash;<p><a href="/view/ucenter/agent_center/user_profitLoss/user_profitLoss.shtml"> • 用户盈亏</a></p>&ndash;&gt;-->
+                  <!--<p><a href="/view/ucenter/agent_center/dividend/dividend.shtml" id="dividend-report"> • 分红报表</a></p>-->
+                  <!--<p><a href="/view/ucenter/agent_center/user_manage/user_manage.shtml"> • 用户管理</a></p>-->
+              <!--</div>-->
+          <!--</li>-->
+          <li>
+              <div class="item">
+                  <i class="icon-user icon-user-1"></i><span>消息中心</span><span class="icon-down"></span>
+              </div>
+              <div class="item-list">
+                  <!--<p><a href="/view/ucenter/message_center/inbox.shtml"> • 站内信</a></p>-->
+                  <p><a href="/view/ucenter/message_center/platform_bulletin.shtml"> 平台公告</a></p>
+                  <!--<p><a href="/view/ucenter/message_center/myAdvice.shtml"> • 用户反馈</a></p>-->
+              </div>
+          </li>
+<!--             <li>
+              <div class="item" >
+                  <i class="icon-user icon-user-0"></i><span>软件下载</span><span class="icon-down"></span>
+              </div>
+              <div class="item-list">
+                  <p><a href="/view/ucenter/download/download.shtml"> •  软件下载</a></p> 
+              </div>
+          </li>  -->
+      </ul>
+  </div>
 </div>
-
-
-<script type="text/javascript">
-    // 初始化
-    var arr = location.pathname.split('/');
-    var pageName = arr[arr.length - 1].split('.')[0];
-    var li = $('#userCenterMeunList li[data-link=' + pageName + ']');
-    li.parent('ul').show().parent('div').siblings().find('ul').hide();
-    li.addClass('active');
-
-    // 切换导航
-    $('#userCenterMeunList li').on('click', function () {
-        $(this).parent('ul').show().parent('div').siblings().find('ul').hide();
-        $(this).addClass('active');
-        // 跳转页面
-        location.href = $(this).attr('href');
-    })
-    $('#userCenterMeunList>div').on('click', function () {
-        $(this).find('ul').slideDown('fast').end().siblings().find("ul").slideUp('fast');
-    })
-    $('#userCenterMeunList li').on('click', function () {
-        $('#userCenterMeunList li').removeClass('active');
-        $(this).addClass('active');
-    })
-
-    // 切换页面
-    
+<script type="text/javascript">  
+  function initNavbar() {
+      var level1 = '<!--#echo var="locationUrl"-->';
+      var level2 = '<!--#echo var="level2"-->';
+      var indexConfig = {
+          gameRecord: '0',
+          capitalCenter: '1',
+          cardManager: '2',
+          teamProfit: '3', 
+          messageCenter: '4',
+          download: '5'
+      };
+      var navLevel = $('.ucenter-left li:eq(' + indexConfig[level1] + ')');
+      navLevel.addClass('active');
+      navLevel.find('.item-list').show();
+      navLevel.find('.item-list p:eq(' + level2 + ')').addClass('active');
+  };
+  initNavbar();
+//
+//    ajaxData({
+//        url: host + "?action=getCurrentUserInfo&terminal_id=" + terminal_id,
+//        successCallback: function(msg) {
+//            userInfo = msg;
+//            if (msg.is_agent==1) {
+//              $('.agentCenter').show();
+//            }
+//        }
+//    });
 
 </script>
+
+

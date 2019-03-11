@@ -18,6 +18,7 @@
     <!--#include virtual="/view/module/top.shtml"-->
     <!-- 头部导航 -->
     <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="userCenter_main">
     <div class="wrap-inner">
         <!-- 侧边栏导航 -->
         <!--#include virtual="/view/module/sidebar.shtml"-->
@@ -35,6 +36,7 @@
                 <!--#include virtual="/view/module/pages.shtml"-->
             </div>
         </div>
+    </div>
     </div>
     <!--#include virtual="/view/module/footer.shtml"-->
     <script   type="text/x-dot-template" id="list-tpl">

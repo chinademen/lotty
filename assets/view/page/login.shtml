@@ -43,11 +43,12 @@
         </footer>
 </div>
 </body>
-<script type="text/javascript" src="/js/vendor/jquery-1.9.1.min.js"></script>
+</html>
 <script type="text/javascript">
 
-        /*新版和旧版切换*/
-        $(".login-nav").on("click", "a", function() {
+    $(function(){
+   /*新版和旧版切换*/
+   $(".login-nav").on("click", "a", function() {
             $(this).siblings('.active').removeClass("active");
             $(this).addClass("active");
         })
@@ -112,5 +113,5 @@
         $('form[name=signinForm]').keydown(function(event) {
             if (event.keyCode == 13) $('#loginButton').click();
         });
+    })     
 </script>
-</html>

@@ -25,7 +25,7 @@
 
 <div class="footer" id="footer">
   <div class="footer_main">
-    <img src="../../images/index/footerbg.png" alt="" />
+    <img src="/images/index/footerbg.png" alt="" />
   </div>
   <div class="footer_aboutus">
     <ul id="footerAboutUsMeun">

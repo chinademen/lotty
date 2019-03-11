@@ -11,7 +11,7 @@
       <li drow><a href="javascript:;" onclick="goGame('ga')">电游</a></li>
       <li><a href="javascript:;" onclick="goGame('JCZQ')">体育</a></li>
       <li id="nav-agent">
-        <a href="/view/ucenter/agent_center/team_profits/digital.shtml">管理</a>
+        <a href="/view/ucenter/game_record/digital_lottery.shtml">管理</a>
       </li>
     </ul>
     <div class="gamelist-drow-wrap-main" dorw-list>
@@ -24,21 +24,21 @@
       <div class="ag-game-list gamelist-drow-wrap ">
         <ul class="clearfix  ag_game game_main">
           <li>
-            <img src="../../images/index/bbin-zb .png" alt="" />
+            <img src="/images/index/bbin-zb .png" alt="" />
             <div class="game_btn">
               <button class="playgame">立即开始</button>
               <button class="paygame">转账</button>
             </div>
           </li>
           <li>
-            <img src="../../images/index/ag-ab.png" alt="" />
+            <img src="/images/index/ag-ab.png" alt="" />
             <div class="game_btn">
               <button class="playgame">立即开始</button>
               <button class="paygame">转账</button>
             </div>
           </li>
           <li>
-            <img src="../../images/index/pt-zb.png" alt="" />
+            <img src="/images/index/pt-zb.png" alt="" />
             <div class="game_btn">
               <button class="playgame">立即开始</button>
               <button class="paygame">转账</button>
@@ -51,21 +51,21 @@
       <div dorw-list class="gamelist-drow-wrap ag-game-list">
         <ul class="clearfix  ag_game game_main">
           <li>
-            <img src="../../images/index/bbin-dz.png" alt="" />
+            <img src="/images/index/bbin-dz.png" alt="" />
             <div class="game_btn">
               <button class="playgame">立即开始</button>
               <button class="paygame">转账</button>
             </div>
           </li>
           <li>
-            <img src="../../images/index/ag-dz.png" alt="" />
+            <img src="/images/index/ag-dz.png" alt="" />
             <div class="game_btn">
               <button class="playgame">立即开始</button>
               <button class="paygame">转账</button>
             </div>
           </li>
           <li>
-            <img src="../../images/index/pt-dz.png" alt="" />
+            <img src="/images/index/pt-dz.png" alt="" />
             <div class="game_btn">
               <button class="playgame">立即开始</button>
               <button class="paygame">转账</button>
@@ -342,28 +342,31 @@
 
   // console.log($('#datebegin').val("66"))
   /*****************************/
-  //时间控件初始化
-  if ($("#datebegin").length > 0) {
-    var start = {
-      format: "YYYY-MM-DD 00:00:00",
-      choosefun: function(elem, val, date) {
-        end.minDate = date; //开始日选好后，重置结束日的最小日期
-      }
-    };
+  $(function() {
+    //时间控件初始化
+    if ($("#datebegin").length > 0) {
+      var start = {
+        format: "YYYY-MM-DD 00:00:00",
+        choosefun: function(elem, val, date) {
+          end.minDate = date; //开始日选好后，重置结束日的最小日期
+        }
+      };
 
-    $("#datebegin").jeDate(start);
-  }
+      $("#datebegin").jeDate(start);
+    }
 
-  if ($("#dateend").length > 0) {
-    var end = {
-      format: "YYYY-MM-DD hh:mm:ss",
-      choosefun: function(elem, val, date) {
-        /* start.maxDate = date; //将结束日的初始值设定为开始日的最大日期*/
-      }
-    };
-    $("#dateend").jeDate(end);
-  }
-  /*****************************/
+    if ($("#dateend").length > 0) {
+      var end = {
+        format: "YYYY-MM-DD hh:mm:ss",
+        choosefun: function(elem, val, date) {
+          /* start.maxDate = date; //将结束日的初始值设定为开始日的最大日期*/
+        }
+      };
+      $("#dateend").jeDate(end);
+    }
+    /*****************************/
+  });
+
   function openUrl(url) {
     var a = $('<a href="' + url + '" target="_blank"></a>')[0];
     var e = document.createEvent("MouseEvents");
