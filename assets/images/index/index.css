@@ -158,13 +158,13 @@ button { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition
 .lottery-list-main-left ul > li a:hover{
     color: #fffc7e !important;
 }
-
+/* background: -webkit-linear-gradient(left, #, #55cbf1); */
 .lottery-list-main-right{
     float: left;width: 284px;
     verflow: hidden;box-sizing: 
     border-box;color: #fff;
     padding: 20px 0 0 16px;
-    background: #c82834;
+    background: #4680e8;
     height: 541px;
 }
 .lottery-list-main-right ul li{width: 120px;height: 70px;float: left;position: relative;text-align: center;padding: 14px;box-sizing: border-box;margin: 0 10px 16px 0;background-color: #000;background-color: rgba(0,0,0,0.5)!important;filter:Alpha(opacity=50);}

@@ -19,10 +19,9 @@
         <a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"><span class="btn btn-gold">充值</span></a>
         <a class ="btn_withdraw withdraw" href="javascript:void(0)"><span class="btn btn-gold">提现</span></a>
         <a id="transfer" class ="transfer-page" href="/view/ucenter/funds_center/transfer/transfer_account.shtml"><span class="btn btn-gold">转账</span></a>
-  
+        <span id="customer-service" style="cursor: pointer"><i class="top-icon people2"></i><span id="customer-btn">在线客服</span></span></a>
+        <span id="login_out" style="cursor: pointer;margin-left: 5px;"> <i class="logout top-icon"></i>退出登录</span></span></a>
        
-            <span id="customer-service" style="cursor: pointer"><i class="top-icon people2"></i><span id="customer-btn">在线客服</span></span></a>
-    
             <!--<a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"><span class="btn btn-gold">充值</span></a>-->
             <!--<a class ="btn_withdraw withdraw" href="javascript:void(0)"><span class="btn btn-gold">提现</span></a>-->
             <!--<a id="transfer" class ="transfer-page" href="/view/ucenter/funds_center/transfer/transfer_account.shtml"><span class="btn btn-gold">转账</span></a>-->
@@ -181,14 +180,16 @@
     // });
 
     //登出
-    $(".signout").on("click", function() {
-      ajaxData({
-        url: host + "?action=logout&terminal_id=" + terminal_id,
-        successCallback: function() {
-          window.sessionStorage.setItem("loginFlag", false);
-          window.location.href = "/view/page/login.shtml";
-        }
-      });
+    $("#login_out").on("click", function() {
+      // ajaxData({
+      //   url: host + "?action=logout&terminal_id=" + terminal_id,
+      //   successCallback: function() {
+      //     window.sessionStorage.setItem("loginFlag", false);
+      //     window.location.href = "/view/page/login.shtml";
+      //   }
+      // });
+      window.sessionStorage.clear();
+      window.location.href = "/view/page/login.shtml";
     });
 
     function showUcenterList() {
