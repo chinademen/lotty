@@ -76,7 +76,7 @@ button { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition
 .lottery-list-top-right{width: 292px;height: 45px;position: absolute;right: 0;text-align: center;}
 .lottery-list-main{width: 1200px;height: 541px;background-size: 1200px 541px;}
 .lottery-list-main-left{width: 916px;height: 100%;font-size: 14px;float: left;
-    background: #343644;
+    background: #3f424e;
 }
 .lottery-list-main-left ul{
     /*border-bottom: 1px solid #44475a;*/
@@ -164,14 +164,14 @@ button { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition
     verflow: hidden;box-sizing: 
     border-box;color: #fff;
     padding: 20px 0 0 16px;
-    background: #4680e8;
+    background: #705d32;
     height: 541px;
 }
 .lottery-list-main-right ul li{width: 120px;height: 70px;float: left;position: relative;text-align: center;padding: 14px;box-sizing: border-box;margin: 0 10px 16px 0;background-color: #000;background-color: rgba(0,0,0,0.5)!important;filter:Alpha(opacity=50);}
 .lottery-list-main-right ul li a{color: #fff;}
 
 /* 优惠活动 */
-.preferential-wrap{height: 330px;background-color: #3e414e;box-shadow: 0 6px 14px #4f4c4c;}
+.preferential-wrap{height: 330px;background-color: #3f424e;box-shadow: 0 6px 14px #4f4c4c;}
 .preferential-title{height: 45px;position: relative;border-bottom: 1px solid #624f42}
 .preferential-list{margin-top: 45px;}
 .preferential-list > li{float: left;margin-left: 25px;}

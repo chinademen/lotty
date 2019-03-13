@@ -420,7 +420,7 @@ color:#999;font-size:10px;}
 
 
 /**底部**/
-.footer { background-color: #1b1b1b; height: 200px; padding: 64px 0; box-sizing: border-box; }
+.footer { background-color: #222525; height: 200px; padding: 64px 0; box-sizing: border-box; }
 .footer .links { color: #7d7d7d; font-size: 14px; }
 .footer .links a { color: #7d7d7d; margin-right: 10px; font-size: 12px; }
 .footer .links a.zizhi{float: right;color:#dcb976;margin:0;}
