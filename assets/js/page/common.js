@@ -188,13 +188,15 @@
       paramStr += "&" + key + "=" + encodeURIComponent(param);
     } else {
       $.each(param, function(i) {
-        var k=key==null?i:key+(param instanceof Array?"["+i+"]":"."+i);
-        paramStr+='&'+urlEncode(this, k);
+        var k =
+          key == null
+            ? i
+            : key + (param instanceof Array ? "[" + i + "]" : "." + i);
+        paramStr += "&" + urlEncode(this, k);
       });
     }
     return paramStr.substr(1);
   };
-
 
   //aes
   function encrypt(merchant_identity, obj) {
@@ -430,7 +432,18 @@
     }
     return num;
   };
-
+  var notClose  = function () {
+    layer.open({
+      type: 1,
+      content: '<div style="padding: 20px 80px;">暂未开放</div>',
+      btn: "关闭",
+      btnAlign: "c", //按钮居中
+      shade: 0, //不显示遮罩
+      yes: function() {
+        layer.closeAll();
+      }
+    });
+  }
   w.formatMoney = formatMoney;
   w.XCOOKIE = XCOOKIE;
   w.getQueryString = getQueryString;
@@ -445,4 +458,5 @@
   w.doTrender = doTrender;
   w.ajaxData = ajaxData;
   w.formatLevel = formatLevel;
+  w.notClose = notClose;
 })(this, jQuery);

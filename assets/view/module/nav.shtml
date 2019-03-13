@@ -26,22 +26,22 @@
           <li>
             <img src="/images/index/bbin-zb .png" alt="" />
             <div class="game_btn">
-              <button class="playgame">立即开始</button>
-              <button class="paygame">转账</button>
+              <button class="playgame" onclick="notClose()">立即开始</button>
+              <button class="paygame" onclick="notClose()">转账</button>
             </div>
           </li>
           <li>
             <img src="/images/index/ag-ab.png" alt="" />
             <div class="game_btn">
-              <button class="playgame">立即开始</button>
-              <button class="paygame">转账</button>
+              <button class="playgame" onclick="notClose()">立即开始</button>
+              <button class="paygame" onclick="notClose()">转账</button>
             </div>
           </li>
           <li>
             <img src="/images/index/pt-zb.png" alt="" />
             <div class="game_btn">
-              <button class="playgame">立即开始</button>
-              <button class="paygame">转账</button>
+              <button class="playgame" onclick="notClose()">立即开始</button>
+              <button class="paygame" onclick="notClose()">转账</button>
             </div>
           </li>
         </ul>
@@ -53,22 +53,22 @@
           <li>
             <img src="/images/index/bbin-dz.png" alt="" />
             <div class="game_btn">
-              <button class="playgame">立即开始</button>
-              <button class="paygame">转账</button>
+              <button class="playgame" onclick="notClose()">立即开始</button>
+              <button class="paygame" onclick="notClose()">转账</button>
             </div>
           </li>
           <li>
             <img src="/images/index/ag-dz.png" alt="" />
             <div class="game_btn">
-              <button class="playgame">立即开始</button>
-              <button class="paygame">转账</button>
+              <button class="playgame" onclick="notClose()">立即开始</button>
+              <button class="paygame" onclick="notClose()">转账</button>
             </div>
           </li>
           <li>
             <img src="/images/index/pt-dz.png" alt="" />
             <div class="game_btn">
-              <button class="playgame">立即开始</button>
-              <button class="paygame">转账</button>
+              <button class="playgame" onclick="notClose()">立即开始</button>
+              <button class="paygame" onclick="notClose()">转账</button>
             </div>
           </li>
         </ul>

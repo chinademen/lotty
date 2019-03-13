@@ -179,7 +179,7 @@
                                 <!-- <div class="game-list-mask clearfix">
                                 </div> -->
                                 <div class="modu">
-                                    <span onclick="goGame('zrqjt')"> 进入游戏 </span> 
+                                    <span onclick="notClose()"> 进入游戏 </span> 
                                 </div>
                             </li>
                              <li class="mid">
@@ -191,7 +191,7 @@
                                 </div>
                                 <img class="imgbg" src="images/index/game-2.jpg?20180417">
                                 <div class="modu">
-                                    <span onclick="goGame('ga')"> 进入游戏 </span> 
+                                    <span onclick="notClose()"> 进入游戏 </span> 
                                 </div>
                             </li>
                              <li>
@@ -203,7 +203,7 @@
                                 </div>
                                 <img class="imgbg" src="images/index/game-3.jpg?20180417">
                                 <div class="modu">
-                                    <span onclick="goGame('JCZQ')"> 进入游戏 </span> 
+                                    <span onclick="notClose()"> 进入游戏 </span> 
                                 </div>
                             </li>
                         </ul>
@@ -265,7 +265,7 @@
     {{?}}
 </script>
 <script type="text/x-dot-template" id="message-info-tpl">
-    <div class="main" style="position: relative;margin-left: 0">
+    <div class="main_pop" style="position: relative;margin-left: 0">
         <div class="content">
             <div class="article-page">
                 <div class="article-page-title">
@@ -576,7 +576,7 @@ function getPlatPrizeData() {
                     type: 1,
                     title:"公告详情",
                     closeBtn:1,
-                    area: ['1200px','auto'], //宽高
+                    area: ['800px','600px'], //宽高
                     // maxHeight:300,
                     content: tpl(getData)
                 });

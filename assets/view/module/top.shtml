@@ -16,9 +16,18 @@
             <span class="top-hide" data-flag="1" onclick="moneyShoworHide(this)">隐藏</span>
         </span>
         <!-- <a class="recharge" href="/view/ucenter/game_record/digital_lottery.shtml"><span class="btn btn-gold">投注记录</span></a> -->
-        <a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"><span class="btn btn-gold">充值</span></a>
-        <a class ="btn_withdraw withdraw" href="javascript:void(0)"><span class="btn btn-gold">提现</span></a>
-        <a id="transfer" class ="transfer-page" href="/view/ucenter/funds_center/transfer/transfer_account.shtml"><span class="btn btn-gold">转账</span></a>
+        <!-- /view/ucenter/funds_center/recharge/recharge.shtml -->
+        <a class="recharge" href="javascript:void(0)" onclick="notClose()">
+          <span class="btn btn-gold">充值</span>
+        </a>
+        <!-- /view/ucenter/funds_center/transfer/transfer_account.shtml -->
+        <a class ="btn_withdraw withdraw" href="javascript:void(0)" onclick="notClose()">
+          <span class="btn btn-gold">提现</span>
+        </a>
+        <!-- /view/ucenter/funds_center/transfer/transfer_account.shtml -->
+        <a id="transfer" class ="transfer-page" href="javascript:void(0)" onclick="notClose()">
+          <span class="btn btn-gold">转账</span>
+        </a>
         <span id="customer-service" style="cursor: pointer"><i class="top-icon people2"></i><span id="customer-btn">在线客服</span></span></a>
         <span id="login_out" style="cursor: pointer;margin-left: 5px;"> <i class="logout top-icon"></i>退出登录</span></span></a>
        
@@ -274,4 +283,6 @@
       );
     }
   })(this, jQuery);
+
+
 </script>
