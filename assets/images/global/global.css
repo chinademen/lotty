@@ -363,11 +363,11 @@ color:#999;font-size:10px;}
 .table a{text-decoration:underline;}
 .table a+a{margin-left:10px;}
 .table td,.table th,
-.table-info td,.table-info th{padding:5px;line-height:24px;text-align:center;color:#666;border-left:none;border-right:none;font-size:12px;border-bottom:1px dashed #ddd;vertical-align:middle;}
+.table-info td,.table-info th{padding:5px;line-height:24px;text-align:center;color:#fff;border-left:none;border-right:none;font-size:12px;border-bottom:1px dashed #ddd;vertical-align:middle;}
 .table th,.table tfoot td,.table-info th{border-color:transparent;color:#333;line-height:30px;height:30px;border-bottom:2px solid #ddd;}
 .small-table th,.small-table tfoot td{line-height:20px;font-size:12px;}
 .border-table{border:1px solid #c8d0d6}
-.table tbody tr:hover td {background-color:#fdfdff;}
+.table tbody tr:hover td {    background-color: #5883ab;}
 .table-rowspan td,.table-rowspan th{border-left-width:1px;border-right-width:1px;}
 .table-rowspan tbody tr:hover td {background-color:#fff;}
 .table-toggle i{display:inline-block;width:5px;height:8px;margin:0 5px;vertical-align:middle;background-image:url("ui-table-toggle.png");background-repeat:no-repeat;overflow:hidden;}
@@ -999,7 +999,7 @@ li.action{
 .home_main{
     width: 100%;
     overflow: hidden;
-    background: #d7e7f3  url(../login/bg.png) no-repeat center bottom;
+    background: #ddd
 }
 .game_main {
     text-align: center;
