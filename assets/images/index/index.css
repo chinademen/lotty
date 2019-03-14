@@ -164,7 +164,7 @@ button { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition
     verflow: hidden;box-sizing: 
     border-box;color: #fff;
     padding: 20px 0 0 16px;
-    background: #705d32;
+    background: #4988e5;
     height: 541px;
 }
 .lottery-list-main-right ul li{width: 120px;height: 70px;float: left;position: relative;text-align: center;padding: 14px;box-sizing: border-box;margin: 0 10px 16px 0;background-color: #000;background-color: rgba(0,0,0,0.5)!important;filter:Alpha(opacity=50);}

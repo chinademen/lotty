@@ -6,12 +6,11 @@
     overflow: hidden;
     background: #d7e7f3 url(../login/bg.png) no-repeat center bottom;
 }
-.wrap-game {  margin:20px auto;    background: #f2f2f2; box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);border-radius: 10px; overflow: hidden;}
+.wrap-game {  margin:20px auto;    background: #929ea7; box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);border-radius: 10px; overflow: hidden;}
 .game_top{
     height: 140px;
     color: #303c66;
-    background: #fff url('../../images/login/bg.png') no-repeat center bottom;
-    
+    background: #499ae6;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
 }
 .number-select-link a,
@@ -23,10 +22,9 @@
 #aside { 
     width: 250px;  
     position: relative;
-    background: #f6f8fb;
-    -moz-box-shadow: 0px 5px 10px 0 #f4f4f4;
-    -webkit-box-shadow: 0px 5px 10px 0 #f4f4f4;
-    box-shadow: 0px 5px 10px 0 #f4f4f4;
+    background: #cccccc;
+
+
 }
 .lottery-info-basic { 
     height: 136px; 
@@ -119,7 +117,9 @@
 .events-list div { padding: 10px 10px 10px 20px; }
 .events-list div a { list-style: square; color: #fc5d50; display: block; line-height: 20px; padding-bottom: 10px; }
 .events-list div a:hover { color: #fc5d50; }
-#content { width: 949px; }
+#content { width: 949px;
+    
+}
 .game-info { height: 140px;  }
 .game-info h2 { color: #303c66; font-size: 14px; font-weight: bold; text-align: center; line-height: 46px; }
 .lottery-split-line{ border-right: 1px solid rgba(255,255,255,0.1);float: left;height: 100px;margin-top: 20px;}
@@ -238,7 +238,7 @@
      font-weight: bold; 
      position: absolute;  
      top: -38px; 
-     background-color: #fff; 
+     background-color: #ebf5ff; 
     }
 fc5d50
 .collection-box{
@@ -249,15 +249,15 @@ fc5d50
 .section-ico i.l { float: left; margin-left: 10px; }
 .section-ico i.r { float: right; margin-right: 10px; }
 .section-inner { position: relative; }
-.section-bill { padding: 20px; background-color: #fff;line-height: 60px; }
+.section-bill { padding: 20px; background-color: #ebf5ff;line-height: 60px; }
 .section-bill .right { float: right; }
 .section-bill .favorites { margin-right: 15px; float: right; color: #fc5d50; }
 
 /*= S 玩法 */
 .play-section { 
     position: relative; 
-    background-color: #ecf8f9; 
-    border-bottom: 6px solid #e1e8f0;
+    background-color: #a5c2db; 
+    /* border-bottom: 6px solid #e1e8f0; */
 }
 .play-section .section-label span { margin-top: -26px; }
 .play-select-title { height: 36px;  }
@@ -290,7 +290,7 @@ fc5d50
 .current span,
 .current span,
 .current span { top: -4px !important; }
-.gametypes-menu-ul { background-color: #fff; border-top: none; clear: both; padding: 10px 0; }
+.gametypes-menu-ul { background-color: #ebf5ff; border-top: none; clear: both; padding: 10px 0; }
 .gametypes-menu-ul li { display: none; }
 .gametypes-menu-ul dl { padding: 2px 0; }
 .gametypes-menu-ul dd,
@@ -305,7 +305,7 @@ fc5d50
 .number-section { 
     position: relative; 
     z-index: 2; 
-    background-color: #fff; 
+    background-color: #ebf5ff; 
     border-top: none; 
 }
 .number-section .game-method-prize {  font-size: 12px; line-height: 24px; color: #666;float: left;}
@@ -394,7 +394,14 @@ fc5d50
 0% { -webkit-transform: scale(.4); opacity: 0.4; }
 100% { -webkit-transform: scale(1); opacity: 1; }
 }
-.ball-number { background-color: #fff; background-image: url(ball-num.png); background-repeat: no-repeat; display: block; width: 40px; height: 40px; line-height: 40px; text-align: center; font-size: 16px; color: #999; font-weight: bold; }
+.ball-number { 
+    
+    background-color: #fff; background-image: url(ball-num.png); 
+    background-repeat: no-repeat; display: block; width: 40px; 
+    height: 40px; line-height: 40px; text-align: center; font-size: 16px; color: #999; 
+    font-weight: bold; 
+    border-radius:40px;
+}
 .ball-number:hover { text-decoration: none; color: #fff; background-position: 0 -50px; }
 .ball-number-current,
 .ball-number-current:hover { color: #fff; background-position: 0 -50px; }
@@ -526,7 +533,7 @@ fc5d50
     0% { opacity: .5; }
     100% { opacity: 1; }
 }
-.panel-section { position: relative; z-index: 1; background-color: #fff; margin-top: 50px; }
+.panel-section { position: relative; z-index: 1; background-color: #ebf5ff; margin-top: 50px; }
 
 .panel-section .section-label { background-position: -15px bottom; border-left-color: #e7e7e8; }
 
@@ -580,7 +587,7 @@ fc5d50
 .bet-subtotal label { cursor: default;  color: #333; }
 
 /*游戏记录*/
-.game-record-section{ background-color: #fff;}
+.game-record-section{ background-color: #cccccc;}
 .game-record-section table { width: 100%; line-height:30px; color: #333; }
 .game-record-section table td { padding: 0 2px; text-align: center;  white-space: nowrap;}
 .game-record-section table td.status1 { color: #c6292f; }
