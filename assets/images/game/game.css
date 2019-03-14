@@ -6,12 +6,12 @@
     overflow: hidden;
     background: #ddd;
 }
-.wrap-game {  margin:20px auto;    background: #929ea7; box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);border-radius: 10px; overflow: hidden;}
+.wrap-game {  margin:20px auto;     background: #b2c8d8;  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);border-radius: 10px; overflow: hidden;}
 .game_top{
     height: 140px;
     color: #303c66;
     background: #499ae6;
-    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1); */
 }
 .number-select-link a,
 .pannel-title .close,
@@ -92,7 +92,7 @@
 .bet-trend .table td i.l { color: #fff; background: #0ECA25; }
 .bet-trend .table td i.h { color: #fff; background: #FF9A02; }
 .bet-trend .table td i.p { color: #fff; background: #fff; }
-.bet-trend .table td i.circle { color: #FFFFFF; border-radius: 8px; background: #fc5d50; padding: 0 2px; height: 14px; line-height: 14px; }
+.bet-trend .table td i.circle { color: #FFFFFF; border-radius: 8px; background:#ebf5ff; padding: 0 2px; height: 14px; line-height: 14px; }
 .bet-trend .table td i.curr,
 .bet-trend .table td span.curr { color: #666; background: #ebf5ff; }
 .bet-trend .table td i.long { border-radius: 8px; color: #fff; background: #0ECA25; font-style: normal; margin: 0 2px 0 0; width: 18px; height: 18px; line-height: 18px; display: inline-block; border-radius: 50%; }
@@ -256,7 +256,7 @@ fc5d50
 /*= S 玩法 */
 .play-section { 
     position: relative; 
-    background-color: #a5c2db; 
+    background-color: #d1e4f5
     /* border-bottom: 6px solid #e1e8f0; */
 }
 .play-section .section-label span { margin-top: -26px; }
@@ -264,11 +264,11 @@ fc5d50
 .play-select-title li { width: 60px; float: left; text-align: center; height: 36px; position: relative; cursor: pointer; }
 .play-select-title li .title { position: absolute; top: 0; left: 0; line-height: 36px; width: 100%; }
 .play-select-title li.current .title { 
-    background-color: #fff; 
+    background-color: #ebf5ff; 
     line-height: 36px; 
     height: 35px; 
     color: #fc5d50; 
-    border-bottom: 1px solid #fff; 
+    border-bottom: 1px solid #ebf5ff; 
 }
 .play-select-title li .content { display: none; }
 .play-select-title .title { color: #6880a0; font-size: 14px; }
@@ -522,7 +522,7 @@ fc5d50
     font-size: 16px;  cursor: pointer; }
 .fast-submit-button:hover { background-color: #b8252a; }
 .btn-disable,
-.btn-disable:hover { cursor: default; opacity: .4; filter: alpha(opacity=40); }
+.btn-disable:hover { cursor: default; opacity: .4; background: rgb(0,0,0);}
 .choose-btn button i,
 .choose-btn button span { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; line-height: 30px; }
 .choose-btn button i { width: 30px; height: 30px; background: url(icons.png) 0 0 no-repeat; }
