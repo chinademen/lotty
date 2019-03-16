@@ -78,7 +78,7 @@
             url =baseUrl+'/user/login.do';
             var merchant_identity = 'TEST001';
             var data = {
-                ip:returnCitySN.cip,
+                ip:'45.76.188.143',
                 password:pwd,
                 username:username,
                 device:1,
