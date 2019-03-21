@@ -1,2 +1,0 @@
-# lotty
-let do it
