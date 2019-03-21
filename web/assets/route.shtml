@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>路由页面</title>
+    
+</head>
+<style type="text/css">
+    .route{
+        padding: 50px;
+    }
+    .route li{
+        margin-bottom: 20px;
+    }
+    .route h3{
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 30px;
+    }
+    .route a{
+        margin-right: 20px;
+    }
+    .route a:hover{
+        color: #bc0000;
+    }
+</style>
+<body>
+ <ul class="route">
+    <li>
+        <h3>首页</h3>
+        <div>
+            <a href="/index.shtml" target="_blank">首页.shtml</a>
+        </div>
+    </li>
+    <li>
+        <h3>投注页面</h3>
+        <div>
+            <a href="/view/game/ssc.shtml" target="_blank">时时彩</a>
+            
+            <a href="/view/game/l115.shtml" target="_blank">11选5</a>
+            <a href="/view/game/klsf.shtml" target="_blank">快乐10分</a>
+            <a href="/view/game/kl12.shtml" target="_blank">快乐12</a>
+            <a href="/view/game/pk10.shtml" target="_blank">PK10</a>
+            <a href="/view/game/k3.shtml" target="_blank">K3</a>
+            <a href="/view/game/mmc.shtml" target="_blank">秒秒彩</a>
+            <a href="/view/game/kl8.shtml" target="_blank">快乐8</a>
+        </div>
+    </li>
+
+    <li>
+        <h3>登陆注册</h3>
+        <div>
+            <a href="/view/page/login.shtml" target="_blank">登录</a>
+            <a href="/view/page/register.shtml" target="_blank">注册</a>
+        </div>
+    </li>
+   
+    <li>
+        <h3>游戏记录</h3>
+        <div> 
+            <a href="/view/ucenter/download/download.shtml" target="_blank">软件下载</a>
+            <a href="/view/ucenter/game_record/digital_lottery.shtml" target="_blank">游戏记录_数字彩</a>
+            <a href="/view/ucenter/game_record/competing.shtml" target="_blank">游戏记录_竞彩</a>
+            <a href="/view/ucenter/game_record/ag.shtml" target="_blank">游戏记录_AG真人</a>
+            <a href="/view/ucenter/game_record/ga.shtml" target="_blank">游戏记录_GA游戏</a>
+        </div>
+    </li>
+        <li>
+        <h3>消息中心</h3>
+        <div> 
+            <a href="/view/ucenter/message_center/inbox.shtml" target="_blank">站内信</a>
+            <a href="/view/ucenter/message_center/platform_bulletin.shtml" target="_blank">官方公告</a>
+        </div>
+    </li>
+    <li>
+        <h3>代理中心</h3>
+        <div>
+            <a href="/view/ucenter/agent_center/team_profits/digital.shtml" target="_blank">代理中心_团队游戏盈亏</a>
+            <a href="/view/ucenter/agent_center/user_profits/digital.shtml" target="_blank">代理中心_用户游戏盈亏</a>
+            <a href="/view/ucenter/agent_center/team_profitLoss/team_profitLoss.shtml" target="_blank">代理中心_团队盈亏</a>
+            <a href="/view/ucenter/agent_center/user_profitLoss/user_profitLoss.shtml" target="_blank">代理中心_用户盈亏</a>
+            <a href="/view/ucenter/agent_center/dividend/dividend.shtml" target="_blank">代理中心_分红报表</a>
+            <a href="/view/ucenter/agent_center/user_manage/user_manage.shtml" target="_blank">代理中心_用户管理</a>
+        </div>
+    </li>
+      <li>
+        <h3>资金中心</h3>
+        <div>
+           <a href="/view/ucenter/funds_center/recharge/recharge_zfb.shtml" target="_blank">资金中心_支付宝充值</a>
+           <a href="/view/ucenter/funds_center/recharge/recharge_confirm.shtml" target="_blank">资金中心_充值信息确认</a>
+           <a href="/view/ucenter/funds_center/recharge/recharge_success.shtml" target="_blank">资金中心_充值成功</a>
+           <a href="/view/ucenter/funds_center/recharge/recharge_list.shtml" target="_blank">资金中心_充值记录/充值申请列表</a>
+           <a href="/view/ucenter/funds_center/recharge/recharge_bank.shtml" target="_blank">资金中心_网银充值</a>
+           <a class='btn_withdraw' href="javascript:void(0);" target="_blank">资金中心_提现</a>
+           <a href="/view/ucenter/funds_center/withdraw/withdraw_confirm.shtml" target="_blank">资金中心_提现确认</a>
+           <a href="/view/ucenter/funds_center/withdraw/withdraw_list.shtml" target="_blank">资金中心_提现申请列表</a>
+           <a href="/view/ucenter/funds_center/transfer/transfer_account.shtml" target="_blank">资金中心_转账</a>
+           <a href="/view/ucenter/funds_center/transfer/transfer_list.shtml" target="_blank">资金中心_转账记录列表</a>
+           <a href="/view/ucenter/funds_center/account_change/account_change_list.shtml" target="_blank">资金中心_转账记录列表</a>
+        </div>
+    </li>
+    <li>
+        <h3>银行卡管理</h3>
+        <div>
+            <a href="/view/ucenter/account_management/my_bonus_group.shtml" target="_blank">我的奖金组</a>
+            
+            <a href="/view/ucenter/account_management/bank_card_management.shtml" target="_blank">银行卡管理</a>
+            <a href="/view/ucenter/account_management/bank_card_add.shtml" target="_blank">银行卡添加</a> 
+            <a href="/view/ucenter/account_management/login_password_edit.shtml" target="_blank">修改登录密码</a>
+            <a href="/view/ucenter/account_management/account_info.shtml" target="_blank">账户信息</a>
+ 
+        </div>
+    </li>
+</ul>
+
+</body>
+</html>
+
+
+
+

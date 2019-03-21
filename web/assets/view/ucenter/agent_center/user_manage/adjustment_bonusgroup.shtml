@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>调整奖金组</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+
+</head>
+<!--#set var="locationUrl" value="teamProfit"--> 
+<!--#set var="level2" value="5"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+<div class="wrap-inner">
+    <!-- 侧边栏导航 --> 
+    <!--#include virtual="/view/module/sidebar.shtml"-->
+    <div class="main" style="position: relative;">
+        <div class="main-nav">
+            <a href="/view/ucenter/agent_center/user_manage/user_manage.shtml" class="active" style="cursor: pointer">用户列表</a>
+            <a href="/view/ucenter/agent_center/user_manage/accurate_account.shtml" >精准开户</a>
+            <a href="/view/ucenter/agent_center/user_manage/link_account.shtml" >链接开户</a>
+            <a href="/view/ucenter/agent_center/user_manage/link_manage.shtml">链接管理</a>
+        </div>
+         <form id="j-form">
+        <input type="hidden" name="is_agent" id="J-input-userType" value="0">
+        <input type="hidden" name="prize_group_id" id="J-input-groupid" >
+       <div class="content link-create-wrap" id="J-panel-cont">
+           <div id="userInfo" style="text-align: center;margin-top: 20px;margin-bottom: 40px">
+               <p style="display: inline-block;"> 用户名称：<span style="font-size: 14px;font-weight: bold"></span></p>
+               <p style="display: inline-block;margin-left: 25px;">真实姓名：<span style="font-size: 14px;font-weight: bold"></span></p>
+               <p style="display: inline-block;margin-left: 25px;">用户昵称：<span style="font-size: 14px;font-weight: bold"></span></p>
+               <p style="display: inline-block;margin-left: 25px;">用户类型：<span style="font-size: 14px;font-weight: bold"></span></p>
+               <p style="display: inline-block;margin-left: 25px;">可用余额：<span style="font-size: 14px;font-weight: bold"></span>元</p>
+           </div>
+    <div class="item-detail item-detail-hover user-bonus-choose">
+        <div class="item-title">
+            <i class="item-icon-4"></i>数字彩奖金组
+        </div>
+        <ul class="tab-panels">
+            <li class="tab-panel-li">
+                <input type="hidden" name="series_id" id="J-input-custom-type" value="">
+                <input type="hidden" name="lottery_id" id="J-input-custom-id" value="">
+                 <input type="hidden" name="agent_prize_set_quota" id="J-agent-quota-limit-json" value="">
+                 <input type="hidden" id="J-input-prize" value="">
+                <div class="bonusgroup-game-type  J-bonusgroup-player" style="display: block;">
+                    <div class="bonusgroup-list bonusgroup-list-line">
+                        <h3>数字彩奖金组</h3>
+                        <ul>
+                            <li class="slider-range slider-range-global" onselectstart="return false;" data-slider-step="1">
+                                <div class="slider-range-scale">
+                                    <span class="slider-title">统一设置</span>
+                                    <a href="http://www.japple888.com/prize-sets/prize-set-detail/1500" data-bonus-scan="" class="c-important">查 看</a>
+                                    <span class="small-number" data-slider-min="">0</span>
+                                    <span class="percent-number" data-slider-percent="">22.50%</span>
+                                    <span class="big-number" data-slider-max="">450</span>
+                                </div>
+                                <div class="slider-current-value" data-slider-value="">1500</div>
+                                <div class="slider-action">
+                                    <div class="slider-range-sub disabled" data-slider-sub="">-</div>
+                                    <div class="slider-range-add" data-slider-add="">+</div>
+                                    <div class="slider-range-wrapper" data-slider-cont="">
+                                        <div class="slider-range-inner" data-slider-inner="" style="width: 0px;"></div>
+                                        <div class="slider-range-btn" data-slider-handle="" style="left: 0px;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+                <input type="hidden" id="J-input-bonusgroup-gameid" value="">
+                <input type="hidden" id="J-input-series-json" name="series_prize_group_json">
+            </li>
+        </ul>
+        <p style="text-align: center;margin-top: 20px;color: #c6292f;">特别提示：调整用户奖金组时，一旦调高并保存后，将不允许恢复或调低，请谨慎操作！</p>
+    </div>
+    <div style="text-align: center;margin-top: 20px;"><span class="btn btn-red lg2" id="send">保存奖金组设置</span></div>
+    </div>
+</form>
+
+        
+    </div>
+</div>
+  
+<!--#include virtual="/view/module/footer.shtml"-->
+ <script type="text/javascript" src="/js/core/gamebase.js"></script>
+<script type="text/javascript" src="/js/widget/gagame.SliderBar.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        /**全局变量**/
+
+        // slider事件是否已经绑定，
+        // 因为slider插件中要获取元素的宽度，
+        // 在tab切换中该元素display:none导致获取宽度为0，
+        // 所以需要在其父元素显示后绑定slider对象
+        var sliderEventBinded_player = sliderEventBinded_agent = false;
+
+        // 用户类型
+        var user_id = getQueryString("user_id");
+        var username = getQueryString("username");
+
+        var agentPrizeGroup,playerPrizeGroup;
+
+        //获取开户相关数据
+            ajaxData({
+                url:getWebsiteOfHost() + "?action=getPrizeGroupForSet&terminal_id=" + terminal_id + "&user_id=" + user_id,
+                successCallback: function(res) {
+                   agentPrizeGroup = res.prize_data;// 代理奖金组数据
+                   checkSlider();
+                   /*switchUser();  */
+                },
+                errorCallback:function(res){
+
+                }
+            });
+
+        ajaxData({
+            url:getWebsiteOfHost() + "?action=getUserInfo&terminal_id=" + terminal_id+"&username="+username,
+            successCallback: function(res) {
+                res.name =res.name?res.name:'无';
+                res.nickname =res.nickname?res.nickname:'无';
+                res.is_agent = res.is_agent?'代理':'玩家';
+                res.abalance = parseFloat(res.abalance).toFixed(3);
+                $("#userInfo").find('span').eq(0).text(res.username);
+                $("#userInfo").find('span').eq(1).text(res.name);
+                $("#userInfo").find('span').eq(2).text(res.nickname);
+                $("#userInfo").find('span').eq(3).text(res.is_agent);
+                $("#userInfo").find('span').eq(4).text(res.abalance);
+            },
+            errorCallback:function(res){
+
+            }
+        })
+        //判断用户角色滑动控件初始化方法
+        var checkSlider = function() {
+            if (!sliderEventBinded_player && $('.J-bonusgroup-player').is(':visible')) {
+                bindAllSlider($('.J-bonusgroup-player'));
+                sliderEventBinded_player = true;
+            } else if (!sliderEventBinded_agent && $('.J-bonusgroup-agent').is(':visible')) {
+                bindAllSlider($('.J-bonusgroup-agent'));
+                sliderEventBinded_agent = true;
+            }
+        };
+
+        //自定义奖金组设置组件
+        var bindAllSlider = function($parent) {
+            var sliderConfig = {
+                // 'isUpOnly' : true,
+                'minDom': '[data-slider-sub]',
+                'maxDom': '[data-slider-add]',
+                'contDom': '[data-slider-cont]',
+                'handleDom': '[data-slider-handle]',
+                'innerDom': '[data-slider-inner]',
+                'minNumDom': '[data-slider-min]',
+                'maxNumDom': '[data-slider-max]'
+            };
+            $('.bonusgroup-list', $parent).each(function(idx) {
+                var $this = $(this),
+                    globalSlider, // 统一设置slider
+                    sliders = []; // 分段设置slider
+                    var bonusData = agentPrizeGroup;
+           
+                $this.find('.slider-range').each(function(_idx) {
+                    var $that = $(this),
+                        settings = $.extend({}, sliderConfig, {
+                            'parentDom': $that,
+                            'step': 1,
+                            'minBound': 0,
+                            'maxBound': bonusData.length - 1,
+                            'value': 0
+                        });
+                    if ($that.hasClass('slider-range-global')) {
+                        globalSlider = new gagame.SliderBar(settings);
+                    } else {
+                        sliders.push(new gagame.SliderBar(settings));
+                    }
+                });
+                // 全局设置
+                if (globalSlider) {
+                    globalSlider.addEvent('change', function() {
+                        var value = this.getValue(),
+                            $parent = this.getDom();
+                        $.each(sliders, function(i, s) {
+                            if (s && s.setValue) {
+                                s.setValue(value);
+                            }
+                        });
+                        // 设置返奖率
+                        var maxBound = bonusData[this.maxBound]['classic_prize'],
+                            nowBound = bonusData[value]['classic_prize'];
+                        var rate = (maxBound - nowBound) / 2000;
+                        $parent.find('[data-slider-percent]').text((rate * 100).toFixed(2) + '%');
+                        // 设置值
+                        $parent.find('[data-slider-value]').text(nowBound);
+                        $('#J-input-prize').val(nowBound);
+                        // 设置平均返点率
+                        $('.J-init-bonusgroup').text(nowBound);
+                      
+                    });
+                    globalSlider.setValue(0);
+                }
+            });
+            sliderEventBinded = true;
+        }
+
+        //保存奖金组
+        $("#send").on("click",function(){
+            var seriesPrizeGroupCache = {};
+            seriesPrizeGroupCache[1] = $('#J-input-prize').val() || $('.J-bonusgroup-agent .slider-current-value').text();
+            var seriesJsonData = JSON.stringify(seriesPrizeGroupCache);
+            ajaxData({
+                  url:getWebsiteOfHost() + "?action=setUserPrizeGroup&terminal_id=" + terminal_id,
+                  type:"POST",
+                  data:{"user_id":user_id,"series_prize_group_json":seriesJsonData},
+                  successCallback:function(){
+                      layer.alert('操作成功!', {icon: 1});
+                  }
+              })
+        })
+
+    });
+</script>
+</body>
+</html>
+
+
+
+

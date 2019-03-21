@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>充值</title>
+          <link rel="stylesheet" href="/images/global/global.css?v=20180419">
+    <link rel="stylesheet" href="/images/index/index.css?v=20180419">
+    <script type="text/javascript" src="/js/vendor/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/doT.js"></script>
+    <script type="text/javascript" src="/js/vendor/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.jedate.min.js"></script>
+    <script type="text/javascript" src="/js/page/common.js"></script>
+    <script type="text/javascript" src="/js/widget/Base64.min.js?version=1.0.1"></script>
+
+    
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+    <script type="text/javascript" src="/js/vendor/clipboard.min.js"></script>
+</head>
+
+
+
+<body>
+    <!-- 头部 -->
+    <div class="top-wrap">
+    <div class="wrap-inner">
+        <div class="fl">
+           <!--  <a id='old_version' href="#" style="margin-right: 15px">旧版</a> -->
+            <a href="/view/app/index.shtml" target="_bank">手机客户端</a>
+        </div>
+        <div class="fr">
+        
+        <span class="top-name">
+            <i class="top-icon people1"></i><span id="top-username"></span>
+        </span>
+
+
+        <span class="top-name" onmouseover="showUcenterList()" onmouseout="hideUcenterList()">
+            <span><a href="/view/ucenter/account_management/account_info.shtml" style="cursor: pointer;position: relative;;z-index: 99999">管理中心</a></span><i class="top-icon arrow-down"></i>
+            <div class="ucenter-list-wrap">
+                
+                <ul class="ucenter-list">
+                <span class="triangle-up"></span>
+                    <li>
+                      <span class="gameRecord"> <i> </i> 游戏记录</span>
+                      <div>
+                          <a href="/view/ucenter/game_record/digital_lottery.shtml">数字彩</a>
+                          <a href="/view/ucenter/game_record/ag.shtml">真人娱乐</a>
+                          <span class="a"  target="_blank" onclick="old_version_trend();">走势图</span>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="fundingDetails"> <i> </i> 资金明细</span>
+                      <div>
+                          <a href="/view/ucenter/funds_center/recharge/recharge_list.shtml">充值记录</a>
+                          <a href="/view/ucenter/funds_center/withdraw/withdraw_list.shtml">提现记录</a>
+                          <a href="/view/ucenter/funds_center/transfer/transfer_list.shtml">转账记录</a>
+                          <a href="/view/ucenter/funds_center/account_change/account_change_list.shtml">帐变记录</a>
+                      </div>
+                    </li>
+                    <li class="clearfix">
+                      <span class="account"> <i> </i> 账户管理</span>
+                      <div>
+                          <a href="/view/ucenter/account_management/account_info.shtml">账户信息</a>
+                          <a href="/view/ucenter/account_management/my_bounsgroup.shtml">我的奖金组</a>
+                          <a href="/view/ucenter/account_management/bank_card_management.shtml">银行卡管理</a>
+                          <a href="/view/ucenter/account_management/login_password_edit.shtml">密码管理</a>
+                      </div>
+                    </li>
+                    <li class="clearfix isAgentShow">
+                      <span class="agent"> <i> </i> 代理中心</span>
+                      <div>
+                          <a href="/view/ucenter/agent_center/team_profits/digital.shtml">团队游戏盈亏</a>
+                          <a href="/view/ucenter/agent_center/team_profitLoss/team_profitLoss.shtml">团队盈亏</a>
+                          <a href="/view/ucenter/agent_center/dividend/dividend.shtml" class="dividendReport" style="display: none;">分红报表</a>
+                          <a href="/view/ucenter/agent_center/user_manage/user_manage.shtml">用户管理</a>
+                          <a href="/view/ucenter/agent_center/user_manage/accurate_account.shtml" class="accountManagement "style="display: none;">开户管理</a>
+                      </div>
+                    </li>
+                    <li class="signout"><i class="logout top-icon"></i>退出登录</li>
+                </ul>
+            </div>
+        </span>
+
+        <span style="margin-left: 18px;">
+            <span id="blance">余额： ￥</span>
+            <span class="top-money">2000.0071</span>  
+            <span class="top-hide" data-flag="1" onclick="moneyShoworHide(this)">隐藏</span>
+        </span>
+
+        <a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"><span class="btn btn-gold">充值</span></a>
+        <a class ="btn_withdraw withdraw" href="javascript:void(0)"><span class="btn btn-gold">提现</span></a>
+        <a id="transfer" class ="transfer-page" href="/view/ucenter/funds_center/transfer/transfer_account.shtml"><span class="btn btn-gold">转账</span></a>
+        <a href="/view/ucenter/message_center/inbox.shtml">
+            <span class="bg1 i25 vam"></span>
+            <span class="message mgr30"><i class="top-icon mail"></i>站内信<i class="top-redtip">(<span style="color:#ffd648" id="msg-num"></span>)</i></span>
+            </a>
+        <span id="customer-service" style="cursor: pointer"><i class="top-icon people2"></i><span id="customer-btn">在线客服</span></span></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    (function(w, $) {
+        var userInfo;
+        //获取用户信息，设置用户相关信息
+        ajaxData({
+            url: host + "?action=getCurrentUserInfo&terminal_id=" + terminal_id,
+            successCallback: function(msg) {
+                userInfo = msg;
+                if (msg.is_top==1) {
+                  $('.dividendReport').show();
+                }
+                if (msg.is_agent==1) {
+                  $('.accountManagement').show();
+                  $('.isAgentShow').show();
+                }
+                $("#top-username").text(userInfo.nickname);
+                $(".top-money").text(formatMoney(userInfo.abalance));
+                //充值装账
+                if(userInfo.fund_pwd_seted ==0){
+                    $(".recharge").attr("href","/view/ucenter/account_management/funds_password_edit.shtml");
+                    $(".withdraw").attr("href","/view/ucenter/account_management/funds_password_edit.shtml");
+                    $(".transfer").attr("href",'/view/ucenter/account_management/funds_password_edit.shtml');
+                }else if(userInfo.has_bank_card ==0){
+                    $(".recharge").attr("href","/view/ucenter/account_management/bank_card_management.shtml");
+                    $(".withdraw").attr("href","/view/ucenter/account_management/bank_card_management.shtml");
+                    $(".transfer").attr("href",'/view/ucenter/account_management/bank_card_management.shtml');
+                }
+
+                if(!userInfo.is_top){
+                    $('#dividend-report').hide();
+                }
+
+                if(!userInfo.is_agent){
+                    $('.transfer-page').attr('href','/view/ucenter/funds_center/transfer/plat-transfer.shtml');
+                }
+
+
+                if(typeof getUserInfoCallback == "function"){
+                    getUserInfoCallback(userInfo);
+                }
+
+               /* //精准开户和链接开户设置玩家账户和代理账号显示
+                var $is_agent = $("#J-user-type-switch-panel");
+                if($is_agent.length > 0){
+                    if(userInfo.is_agent == 1 && userInfo.parent == ""){//顶级代理只能开代理
+                        $is_agent.find("a").eq(1).trigger("click");
+                        $is_agent.find("a").eq(0).hide();
+                    }
+                }*/
+
+                if(userInfo.is_agent == 0){//无法进入开户页面，甚至整个代理中心都要隐藏
+                    $("#nav-agent").hide();//隐藏头部代理中心导航
+                    $("#li-agent").hide();//隐藏左侧代理中心导航
+                }
+
+                sessionStorage.setItem('user_id', userInfo.id);
+
+
+                    $('.btn_withdraw').click(function () {
+                                if (userInfo.can_withdraw != 1) {
+                                    layer.alert('禁止提现');
+                                }else{
+                                    window.location.href='/view/ucenter/funds_center/withdraw/withdraw.shtml';
+                                }
+                            }
+                    );
+            }
+        });
+
+        //获取未读站内信总数
+        ajaxData({
+            url: host + "?action=getUnreadNum&terminal_id=" + terminal_id,
+            successCallback: function(msg) {
+                $("#msg-num").text(msg.num);
+            }
+        });
+
+     　//获取彩种信息
+        // ajaxData({
+        //     url: host + "?action=getGameSettingForBet&lottery=" + terminal_id,
+        //     successCallback: function(msg) {
+              
+        //     }
+        // });
+
+        //登出
+        $(".signout").on("click", function() {
+            ajaxData({
+                url: host + "?action=logout&terminal_id=" + terminal_id,
+                successCallback: function() {
+                    window.sessionStorage.setItem("loginFlag", false);
+                    window.location.href = "/view/page/login.shtml";
+                }
+            });
+        })
+
+        function showUcenterList() {
+            var ucenterList = document.getElementsByClassName("ucenter-list-wrap");
+            ucenterList[0].style.display = "block";
+        }
+
+        function hideUcenterList() {
+            var ucenterList = document.getElementsByClassName("ucenter-list-wrap");
+            ucenterList[0].style.display = "none";
+        }
+
+        //显示隐藏可用余额
+        function moneyShoworHide(obj) {
+            var topMoney = document.getElementsByClassName("top-money")[0];
+            var blance=document.getElementById("blance");
+            if (obj.innerText == "隐藏") {
+                topMoney.setAttribute("money", topMoney.innerText);
+                 topMoney.innerText = "";
+                blance.innerText = "余额已隐藏";
+                obj.innerText = "显示";
+            } else {
+                blance.innerText = "余额： ￥";
+                topMoney.innerText = topMoney.getAttribute("money");
+                obj.innerText = "隐藏";
+            }
+        }
+
+        //头部用户信息
+        // $(".ucenter-list li").on("mouseenter",function(){
+        //     var $ul = $(this).find("ul");
+        //     if($ul.length > 0){
+        //         $ul.show();
+        //     }
+        // }).on("mouseleave",function(){
+        //     var $ul = $(this).find("ul");
+        //     if($ul.length > 0){
+        //         $ul.hide();
+        //     }
+        // })
+
+        w.showUcenterList = showUcenterList;
+        w.hideUcenterList = hideUcenterList;
+        w.moneyShoworHide = moneyShoworHide;
+        w.userInfo = userInfo;
+        w.old_version=old_version;
+        w.old_version_trend=old_version_trend;
+        w.old_version_moretrend=old_version_moretrend;
+        function openUrl(url) {
+            var a = $('<a href="'+url+'" target="_blank"></a>')[0];
+            var e = document.createEvent('MouseEvents');
+            e.initEvent('click', true, true);
+            a.dispatchEvent(e);
+        }
+        //新旧版切换
+        function old_version() {
+            window.location.href = (location.protocol + '//' + location.host).replace(':8080', '');
+        }
+
+          function old_version_trend() {
+            // window.open ( (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/1');
+            // var tempwindow=window.open();
+            // tempwindow.location=(location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/1';
+            openUrl((location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/1')
+        }
+ 
+       
+           function old_version_moretrend() {
+            var dataId=$('#J-minitrend-cont p span').data('id');
+            // var tempwindow=window.open();
+            // tempwindow.location= (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/'+dataId;
+            // window.open( (location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/'+dataId);
+            // openUrl((location.protocol + '//' + location.host).replace(':8080', '')+'/tides/trend-view/'+dataId)
+               openUrl((location.protocol + '//' + location.host).replace(':8080', '')+'/trend?lottery_id='+dataId)
+           }
+
+    })(this, jQuery)
+</script>
+    <!-- 头部导航 -->
+    <div class="sidebar-right">
+	<ul class="sidebar-right-ul">
+<!-- 	<li><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-phone"></i></li>
+	<li><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-qq"></i></li>
+	<li><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-customer"></i></li> -->
+	</ul>
+	<!-- <div class="suspension-frame" style="width: 100px;left: -154px"><img src="/images/global/app.png"><p>安卓App扫码下载</p></div>
+	<div class="suspension-frame"><p class="title">彩票中心在线客服</p><p>解决充值，投注，提款，
+	手机客户端等问题</p><span class="btn btn-red lg">在线客服</span></div>
+	<div class="suspension-frame"><p class="title">QQ在线客服</p><p>解决充值，投注，提款，
+	手机客户端等问题</p><span class="btn btn-red lg">QQ客服</span></div> -->
+</div>
+<script type="text/javascript">
+	$(function(){
+		var index,time;
+		$(".sidebar-right-ul").on("mouseenter","li",function(){
+			index = $(this).index(".sidebar-right-ul li");
+			clearTimeout(time);
+			$(".suspension-frame").hide();
+			$(".triangle-right-out").hide();
+			$(".suspension-frame").eq(index).show();
+			$(".triangle-right-out").eq(index).show();
+		}).on("mouseleave","li",function(){
+			time = setTimeout(function() {
+				$(".suspension-frame").hide();
+				$(".triangle-right-out").hide();
+			}, 500);
+		})
+
+		$(".sidebar-right").on("mouseenter",".suspension-frame",function(){
+			clearTimeout(time);
+		}).on("mouseleave",".suspension-frame",function(){
+			$(".suspension-frame").hide();
+			$(".triangle-right-out").hide();
+		})
+	})
+</script>
+<div class="nav-wrap">
+	<div class="wrap-inner">
+		<a href="/index.shtml"><span class="logo"></span></a>
+             <a href="javascript:void(0);" class="olderVersion" id="old_version" onclick="javascript:old_version();">进入旧版</a>
+			<ul class="fr nav-ul clearfix"> 
+			<li ><a href="/index.shtml">首页</a></li>
+			<li drow><a href="javascript:;" >彩票游戏</a></li>
+			<li drow><a href="javascript:;" onclick="goGame('zrqjt')">真人娱乐</a></li>
+            <li drow><a href="javascript:;" onclick="goGame('ga')">电子游艺</a></li>
+			<!-- <li ><a href="javascript:;" onclick="goGame('zrbyw')">捕鱼王</a></li> -->
+			<li ><a href="javascript:;" onclick="goGame('JCZQ')">体育竞技</a></li>
+			<!-- <li id="nav-agent"><a href="/view/ucenter/agent_center/team_profits/digital.shtml">代理中心</a></li> -->
+		</ul>
+		 <div class="gamelist-drow-wrap lottery-game-drow clearfix" dorw-list style="">
+			 <div class="lotteryList">
+
+             </div>
+		 </div>
+		 <div class="ag-game-list gamelist-drow-wrap " dorw-list>
+			 <ul class="clearfix  ag_game">
+
+			 </ul>
+		 </div>
+		 <div dorw-list class="gamelist-drow-wrap ag-game-list">
+	                       <ul class="clearfix ga_game">
+
+                            </ul>
+		 </div>
+	</div>
+</div> 
+<!-- prop != "ag" && prop != "ga" && prop != "sport" && prop != "pk10" &&prop != "new" &&prop != "k3" &&prop != "kl12" &&prop != "other" &&it[prop]["count"] != 0 -->
+
+<script   type="text/x-dot-template" id="nav-tpl">
+    {{for(var prop in it) { }}
+    {{? prop != "999" }}
+    <div class="div clearfix">
+       <p>{{= it[prop]["name"] }}</p>
+       {{for(var k in it[prop]["newresult"]) { }}
+       <ul class="clearfix">
+           {{  for(var a = 0; a<it[prop]["newresult"][k].length;a++) { }}
+           {{ var url = lotteryNavObj[it[prop]["newresult"][k][a]["src"]]+'lottery='+it[prop]["newresult"][k][a].identifier;}}
+           <li>
+               <a class="{{? it[prop]["newresult"][k][a]["new"] != 0}}c-yellow{{?? it[prop]["newresult"][k][a]["hot"] != 0}}c-yellow{{?? it[prop]["newresult"][k][a]["24h"] != 0}}c-yellow{{?}}"   href="{{? it[prop]["newresult"][k][a]["is_third"] == 0 }}{{=url}}{{??}}###{{?}}" {{? it[prop]["newresult"][k][a]["new_win"] == 1 }}target="_blank"{{?}} {{? it[prop]["newresult"][k][a]["is_third"] == 1 }}onclick="goGame('{{=it[prop]["newresult"][k][a]["identifier"]}}')"{{?}}>{{= it[prop]["newresult"][k][a]["name"] }}
+                   <i class="home-icon {{? it[prop]["newresult"][k][a]["new"] != 0}}new{{?? it[prop]["newresult"][k][a]["hot"] != 0}}hot{{?? it[prop]["newresult"][k][a]["24h"] != 0}}h24{{?}}" >
+                   </i>
+               </a>
+           </li>
+           {{ } }}
+        </ul>
+       {{ } }}
+    </div>
+    {{?}}
+    {{ } }}
+    
+</script>
+
+<script   type="text/x-dot-template" id="sidebar-right-tpl">
+	 {{for(var prop in it) { }}
+		<li name="{{= it[prop]["en_name"]}}"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-{{= it[prop]["en_name"]}}"></i></li>
+	{{ } }}
+  <li name="opinion"><div class="triangle-right-out"><div class="triangle-right-in"></div></div><i class="sidebar-bg sidebar-opinion"></i></li>
+</script>
+
+<script   type="text/x-dot-template" id="sidebar-right-tpl2">
+	 {{for(var prop in it) { }}
+		{{= it[prop]["html"]}}
+	{{ } }}
+  <div class="suspension-frame" style="display: none;" btn-online-chat=""><p class="title">用户反馈</p><p>关于游戏，充值/提款，手机APP，投诉意见等</p><a class="btn btn-important" href="/view/ucenter/message_center/myAdvice.shtml">提交意见</a></div>
+</script>
+<script   type="text/x-dot-template" id="nav-game-tpl">
+    {{for(var prop in it) { }}
+    <li>
+        <a href="###" onclick="goGame('{{= it[prop]["identifier"]}}')">
+            {{? it[prop]["game_type"] == 4}}
+            <img src="/images/global/ag/{{= it[prop]['identifier']}}.png?20180417">
+            {{?}}
+            {{? it[prop]["game_type"] == 5}}
+            <img src="/images/global/ga/ga/{{= it[prop]['identifier']}}.png?20180417">
+            {{?}}
+            <p>{{= it[prop].name}}</p>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+<script type="text/javascript">
+    function getGame() {
+        ajaxData({
+            url: getWebsiteOfHost() + "?action=getAllGames&terminal_id=" + terminal_id + "&lottery=" ,
+            successCallback: function(res) {
+                var agGames =[];
+                var gaGames =[];
+                var football = [];
+                for(var i=0;i<res.length;i++){
+                    if(res[i].game_type == 4){
+                        agGames.push(res[i]);
+                        res['agGames'] = agGames;
+                        res['isAgGame'] = 1;
+                        doTrender({
+                            container: '.ag_game',
+                            tmplObj: '#nav-game-tpl',
+                            data: agGames,
+                            needClear: true,
+                            prependDom: false
+                        });
+                    }
+                    if(res[i].game_type == 5){
+                        gaGames.push(res[i]);
+                        res['gaGames'] = gaGames;
+                        res['isGaGame'] = 1;
+                        doTrender({
+                            container: '.ga_game',
+                            tmplObj: '#nav-game-tpl',
+                            data: gaGames,
+                            needClear: true,
+                            prependDom: false
+                        });
+                    }
+                    if(res[i].game_type == 2){
+                        football.push(res[i]);
+                        res['football'] = football;
+                        res['isFootball'] = 1;
+                    }
+                }
+                doTrender({
+                    container: '.game-list-mask',
+                    tmplObj: '#allgame-tpl',
+                    data: res,
+                    needClear: true,
+                    prependDom: false
+                });
+
+            }
+        })
+    }
+    getGame();
+$(function() {
+    /*****************************/
+    //渲染菜单选中
+    renderNav();
+
+    function renderNav() {
+        var locationUrl = 'capitalCenter';
+        $('.nav-ul li.active').removeClass('active');
+        switch (locationUrl) {
+            case 'index':
+                $('.nav-ul li:eq(0)').addClass('active');
+                break;
+            case 'teamProfit':
+                $('.nav-ul li:eq(6)').addClass('active');
+                break;
+        }
+    }
+    /*****************************/
+
+    /*****************************/
+   // 获取下拉彩种信息
+    var o1 = {
+        url: host + "?action=getGameMenu&terminal_id=" + terminal_id,
+        successCallback: function(res) {
+            // var tpl = doT.template($("#nav-tpl").text());
+            // $(".lottery-game-drow").append(tpl(res));
+
+            // 重排彩种 筛选 合并
+            var newArr = []
+            
+            if(res.recently.count>0){newArr.push(res.recently)}
+            if(res.ssc.count>0){newArr.push(res.ssc)}
+            if(res["11x5"].count>0){newArr.push(res["11x5"])}
+            if(res.k3.count>0){newArr.push(res.k3)}
+            if(res.kl12.count>0){newArr.push(res.kl12)}
+            if(res.other.count>0){newArr.push(res.other)}
+            if(res.pk10.count>0){newArr.push(res.pk10)}
+      
+            for(var a = 0;a<newArr.length;a++){
+                // console.log(0)
+                newArr[a]["result"] = [];
+                for(var i in newArr[a].lotteries){
+                    newArr[a].lotteries[i]["src"] = i
+                    newArr[a]["result"].push(newArr[a].lotteries[i])
+                }
+            }
+         
+            for(var a = 0;a<newArr.length;a++){
+                newArr[a]["newresult"] = [];
+                for(var i=0,len=newArr[a].result.length;i<len;i+=5){
+                    newArr[a]["newresult"].push(newArr[a].result.slice(i,i+5));
+                }
+            }
+            
+            
+
+            doTrender({
+               container: '.lotteryList',
+               tmplObj: '#nav-tpl',
+               data: newArr,
+               needClear: true,
+               prependDom: false
+            })
+            // console.log(res)
+            // console.log($(".lottery-game-drow").outerWidth(true))
+            // setTimeout(() => {
+
+            // }
+            // }, 5000);
+
+             
+
+            if($(".game-list-mask").length > 0){
+            //    doTrender({
+            //    container: '.game-list-mask',
+            //    tmplObj: '#allgame-tpl',
+            //    data: res,
+            //    needClear: true,
+            //    prependDom: false
+            // });
+            }
+
+        }
+    }
+    ajaxData(o1);
+    /*****************************/
+
+    /*****************************/
+    //控制显示隐下拉菜单，定义一个显示下拉菜单的index和一个隐藏下拉菜单的index;
+    var drow_show_index = 0,
+        drow_hide_index = 0,
+        $drowshow = $("[dorw-list]").eq(drow_show_index),
+        $drowhide = $("[dorw-list]").eq(drow_hide_index),
+        timeDrow;
+
+    $("[drow]").on("mouseenter", function() {
+        
+
+
+
+        drow_show_index = $("[drow]").index($(this)), $drowshow = $("[dorw-list]").eq(drow_show_index); //移入时更新drow_show_index和$drowshow
+        if (drow_hide_index != drow_show_index) { //判断如果index不一样需要把下拉菜单隐藏
+            $drowhide.hide();
+        }
+
+        if ($drowshow.is(":hidden")) {
+            $drowshow.fadeIn();
+        } else {
+            window.clearTimeout(timeDrow);
+        }
+        // 排列位置，始终让元素彩票列表居中
+        var outerWidths = 0;
+        var realwidth = 0;
+        for(var i = 0 ;i<$(".lotteryList .div").size();i++) {
+            var a = $(".lotteryList .div").eq(i).outerWidth(true);
+            // console.log(a)
+            outerWidths += parseInt(a)
+            if(outerWidths>=1198){
+                for(var b = 0 ; b<i;b++ ){
+                    var c =  $(".lotteryList .div").eq(b).outerWidth(true);
+                    realwidth += c
+                }
+                $(".lotteryList").css({
+                    "width":realwidth+i,
+                    "margin":"0 auto",
+                })
+                // console.log(realwidth)
+                break;
+            }
+        }
+        
+
+    }).on("mouseleave", function() {
+        drow_hide_index = $("[drow]").index($(this)), $drowhide = $("[dorw-list]").eq(drow_hide_index);
+        timeDrow = window.setTimeout(function() {
+            $drowhide.hide();
+        }, 200);
+    })
+
+    $("[dorw-list]").on("mouseenter", function() {
+            window.clearTimeout(timeDrow);
+        }).on("mouseleave", function() {
+            timeDrow = window.setTimeout(function() {
+                $drowhide.hide();
+            }, 200);
+        })
+        /*****************************/
+
+    /*****************************/
+    //获取在线客服信息
+    var o2 = {
+        url: host + "?action=getClientServices&terminal_id=" + terminal_id,
+        successCallback: function(data) {
+            //渲染右侧边栏图标
+            var tpl1 = doT.template($("#sidebar-right-tpl").text());
+            $(".sidebar-right-ul").append(tpl1(data.oKfs));
+            //渲染右侧边栏滑动内容                
+            var tpl2 = doT.template($("#sidebar-right-tpl2").text());
+            $(".sidebar-right").append(tpl2(data.oKfs));
+            for (var i in data.oKfs) {
+                if (data.oKfs[i].en_name == "btn-online-chat") {
+                    $.getScript(data.oKfs[i].script);
+                    break;
+                }
+            }
+
+            //头部在线客服    
+            if (data.oKf.en_name == "qq") {
+                $("#customer-service").attr("onclick", "window.open('" + data.oKf.script + "');")
+            } else {
+                $("#customer-service").addClass(data.oKf.en_name)
+            }
+            $("#customer-btn").text(data.oKf.cn_name);
+        }
+    }
+
+    ajaxData(o2);
+    /*****************************/
+    // var now = new Date(nowTime); //当前日期 
+    // function formatDate(date) {
+    //     var myyear = date.getFullYear();
+    //     var mymonth = date.getMonth() + 1;
+    //     var myweekday = date.getDate();
+    //     if (mymonth < 10) {
+    //         mymonth = "0" + mymonth;
+    //     }
+    //     if (myweekday < 10) {
+    //         myweekday = "0" + myweekday;
+    //     }
+    //     return (myyear + "-" + mymonth + "-" + myweekday+" "+"00"+":"+"00"+":"+"00");
+    // }
+
+    // console.log($('#datebegin').val("66"))
+    /*****************************/
+    //时间控件初始化
+    if ($('#datebegin').length > 0) {
+        var start = {
+            format: 'YYYY-MM-DD 00:00:00',
+            choosefun: function(elem, val, date) {
+                end.minDate = date; //开始日选好后，重置结束日的最小日期
+            }
+        };
+
+     
+        
+        $('#datebegin').jeDate(start);
+    }
+
+    if ($('#dateend').length > 0) {
+        var end = {
+            format: 'YYYY-MM-DD hh:mm:ss',
+            choosefun: function(elem, val, date) {
+                /* start.maxDate = date; //将结束日的初始值设定为开始日的最大日期*/
+            }
+        };
+        $('#dateend').jeDate(end);
+    }
+    /*****************************/
+    function openUrl(url) {
+        var a = $('<a href="'+url+'" target="_blank"></a>')[0];
+        var e = document.createEvent('MouseEvents');
+        e.initEvent('click', true, true);
+        a.dispatchEvent(e);
+    }
+
+    function goGame(s){
+        // var tempwindow=window.open();
+        ajaxData({
+                url: getWebsiteOfHost() + "?action=getThirdLotteryLink&terminal_id=" + terminal_id + "&lottery=" + s,
+                async: false,
+                successCallback: function(res) {
+                    window.open(res.request_url)
+                    // tempwindow.location=res.request_url;
+                    // openUrl(res.request_url)
+                }
+            }) 
+    }
+    window.goGame = goGame;
+
+});
+
+
+</script>
+
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <div class="ucenter-left-wrap">
+    <div class="ucenter-left">
+        <ul>
+            <li>
+                <div class="item">
+                    <i class="icon-user icon-user-5"></i><span>游戏记录</span><span class="icon-down"></span>
+                </div>
+                <div class="item-list">
+                    <p><a href="/view/ucenter/game_record/digital_lottery.shtml"> • 数字彩</a></p>
+                 <!--    <p><a href="/view/ucenter/game_record/competing.shtml"> • 竞彩</a></p> -->
+                    <p> <a href="/view/ucenter/game_record/ag.shtml"> • AG真人</a> </p>
+                 <!--    <p><a href="/view/ucenter/game_record/ga.shtml"> • GA游戏</a></p> -->
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <i class="icon-user icon-user-2"></i><span>资金明细</span><span class="icon-down"></span>
+                </div>
+                <div class="item-list">
+                    <p><a class="recharge" href="/view/ucenter/funds_center/recharge/recharge.shtml"> • 充值</a></p>
+                    <p><a class="btn_withdraw withdraw" href="javascript:void(0);"> • 提现</a></p>
+                    <p><a class="transfer" href="/view/ucenter/funds_center/transfer/plat-transfer.shtml"> • 转账</a></p>
+                    <p><a href="/view/ucenter/funds_center/recharge/recharge_list.shtml"> • 充值记录</a></p>
+                    <p><a href="/view/ucenter/funds_center/withdraw/withdraw_list.shtml"> • 提现记录</a></p>
+                    <p><a href="/view/ucenter/funds_center/transfer/transfer_list.shtml"> • 转账记录</a></p>
+                    <p><a href="/view/ucenter/funds_center/account_change/account_change_list.shtml"> • 账变记录</a></p> 
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <i class="icon-user icon-user-4"></i><span>账户管理</span><span class="icon-down"></span>
+                </div>
+                <div class="item-list">
+                    <p><a href="/view/ucenter/account_management/account_info.shtml">• 账户信息</a></p>
+                    <p><a href="/view/ucenter/account_management/login_password_edit.shtml"> • 密码管理</a></p>
+                    <p><a href="/view/ucenter/account_management/bank_card_management.shtml"> • 银行卡管理</a></p>
+                </div>
+            </li>
+            <li id="li-agent" class="agentCenter" style="display: none;">
+                <div class="item">
+                    <i class="icon-user icon-user-3"></i><span>代理中心</span><span class="icon-down"></span>
+                </div>
+                <div class="item-list">
+                    <p><a href="/view/ucenter/agent_center/team_profits/digital.shtml"> • 团队游戏盈亏</a></p>
+                    <!--<p><a href="/view/ucenter/agent_center/user_profits/digital.shtml"> • 用户游戏盈亏</a></p>-->
+                    <p><a href="/view/ucenter/agent_center/team_profitLoss/team_profitLoss.shtml"> • 团队盈亏</a></p>
+                    <!--<p><a href="/view/ucenter/agent_center/user_profitLoss/user_profitLoss.shtml"> • 用户盈亏</a></p>-->
+                    <p><a href="/view/ucenter/agent_center/dividend/dividend.shtml" id="dividend-report"> • 分红报表</a></p>
+                    <p><a href="/view/ucenter/agent_center/user_manage/user_manage.shtml"> • 用户管理</a></p>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <i class="icon-user icon-user-1"></i><span>消息中心</span><span class="icon-down"></span>
+                </div>
+                <div class="item-list">
+                    <p><a href="/view/ucenter/message_center/inbox.shtml"> • 站内信</a></p>
+                    <p><a href="/view/ucenter/message_center/platform_bulletin.shtml"> • 平台公告</a></p>
+                    <p><a href="/view/ucenter/message_center/myAdvice.shtml"> • 用户反馈</a></p>
+                </div>
+            </li>
+<!--             <li>
+                <div class="item" >
+                    <i class="icon-user icon-user-0"></i><span>软件下载</span><span class="icon-down"></span>
+                </div>
+                <div class="item-list">
+                    <p><a href="/view/ucenter/download/download.shtml"> •  软件下载</a></p> 
+                </div>
+            </li>  -->
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">  
+    function initNavbar() {
+        var level1 = 'capitalCenter';
+        var level2 = '0';
+        var indexConfig = {
+            gameRecord: '0',
+            capitalCenter: '1',
+            cardManager: '2',
+            teamProfit: '3', 
+            messageCenter: '4',
+            download: '5'
+        };
+        var navLevel = $('.ucenter-left li:eq(' + indexConfig[level1] + ')');
+        navLevel.addClass('active');
+        navLevel.find('.item-list').show();
+        navLevel.find('.item-list p:eq(' + level2 + ')').addClass('active');
+    };
+    initNavbar();
+
+    ajaxData({
+        url: host + "?action=getCurrentUserInfo&terminal_id=" + terminal_id,
+        successCallback: function(msg) {
+            userInfo = msg;
+            if (msg.is_agent==1) {
+              $('.agentCenter').show();
+            }
+        }
+    });
+
+</script>
+
+
+
+        <div class="main">
+       <!--  //{'1':网银支付 , '2':'微信扫码','3':'支付宝扫码','4':'网银转账','5':'QQ扫码','6':'支付宝转账'} -->
+            <div class="main-nav" id="paymentContainer">
+                <!-- <a class="active" href="javascript:;" data-payment="6">支付宝转账</a>
+                <a href="javascript:;" data-payment="2">微信扫码</a>
+                <a href="javascript:;" data-payment="5">QQ扫码</a>
+                <a href="javascript:;" data-payment="1">网银</a>
+                <a href="javascript:;" data-payment="3">支付宝扫码</a>
+                <a href="javascript:;" data-payment="4">网银转账</a> -->
+            </div>
+            <div class="bg-fff" id="rechargeContainer">
+                <div class="content recharge-netbank" id="rechargeNetbank">
+                    <div class="recharge-box">
+                            <input name="bank" value="100" id="bank-name" type="hidden">
+                            <table width="100%" class="table-field">
+                                <tr>
+                                    <td align="right"><div style="width:120px;">充值渠道：</div></td>
+                                    <td align="left" >
+                                        <div style="width:420px;" id="rechargeChannels">
+<!--                                     <span>123</span>
+                                         <span>456</span>
+                                         <span>789</span> -->
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr id="bankListWrap">
+                                    <td width="120" align="right" valign="top">
+                                        <span class="field-name">选择充值银行：</span>
+                                    </td>
+                                    <td>
+                                        <div class="bank_dropdown" tabindex="0">
+                                        <p class="dropdown_toggle" data-toggle="dropdown">
+                                            <i class="toggle_icon">选择银行</i>
+                                            <span data-id=" " class="ico-bank "></span>
+                                        </p>
+                                        <div class="bank-list" id="J-bank-list"></div>
+                                    </div>
+                                    </td>
+                                </tr>
+                                <tr id = 'rechargeTail'>
+                                    <td align="right" style="width: 120px;vertical-align:top;">充值说明：</td>
+                                    <td>支付宝转账是您通过支付宝（APP或PC端皆可）→转账→转到银行卡的方式进行充值，充值成功自动上分。请注意支付宝转账需要输入充值金额和支付宝真实姓名，且都必须和实际情况一致，否则无法到帐。<span style="color: #FB3400">支付宝会收取0.1%的服务费，服务费会返还。</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">充值说明：</td>
+                                    <td>
+                                        <table class="table border-table small-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>最低限额（元）</th>
+                                                    <th>最高限额（元）</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="c-important minLoadMoney" id="J-money-min"  data-money-format></span></td>
+                                                    <td><span class="c-important maxLoadMoney" id="J-money-max" data-money-format></span></td>
+                                                </tr>
+                                            </tbody>
+                                            <!-- @if( $oPlatform->id == 1)
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3"><span class="c-important">本平台不接受信用卡充值，请不要透过信用卡来充值智付哦！</span></td>
+                                            </tr>
+                                        </tfoot>
+                                        @endif -->
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr id="rechargeMoney">
+                                    <td align="right" valign="top"><span class="field-name">充值金额：</span></td>
+                                    <td>
+                                        <input type="text" class="input w-2 input-ico-money" id="J-input-money" name="amount" />
+                                        
+                                    </td>
+                                </tr>
+                                <tr id = 'payer_name'>
+                                    <td align="right" valign="top">付款人：</td>
+                                    <td><input name="payer_name" class="input w-2" type="text" value="" style="text-align: left;" /><span style="margin-left:15px ;color: #FB3400" >请如实填写支付宝真实姓名</span>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <span style="color: #FB3400">为了您的充值能快速到帐,推荐您填写带小数的金额</span>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                <td></td>
+                                <td>
+                                    @if($isQr)
+                                        <span class="tip">为了您的充值能快速到帐,推荐您填写带小数的金额</span>
+                                    @else
+                                        <span class="tip">充值额度限定：最低 <span id="J-money-min">{{ $fMinLoad }}</span>,最高 <span >{{ $fMaxLoad }}</span> 元</span>
+                                    @endif
+                                </td>
+                            </tr> -->
+                                <!-- @if($checkFundPassword)
+                            <tr>
+                                <td align="right" valign="top">资金密码：</td>
+                                <td>
+                                    <input type="password" maxlength="16" class="input w-2 input-ico-lock" id="J-input-password" name="fund_password" />
+                                </td>
+                            </tr>
+                            @endif -->
+                                <tr>
+                                    <td align="right" valign="top">&nbsp;</td>
+                                    <td>
+                                        <input id="J-submit" class="btn btn-red lg2" type="button" value="   立即充值   " />
+                                    </td>
+                                </tr>
+                            </table> 
+                    </div>
+                    <div class="recharge-help help_plz1" style="display: none;">
+                        <h3>常见问题</h3>
+                        <div class="prompt">
+                            单笔充值最高限额<span class="maxLoadMoney"></span>元，单日充值总额无上限，充值无手续费
+                            <!--充值额度为 {{$fMinLoad}} 至 {{$fMaxLoad}} 元，给您带来的不便，敬请谅解。-->
+                        </div>
+                        <h4>为什么银行充值成功了无法到账？</h4>
+                        <p>
+                            平台填写金额必须和银行转账金额一致（不包含手续费），否则充值无法到账。
+                        </p>
+                        <h4>每次充值的额度限定是多少？</h4>
+                        <p>所有银行充值额度限定最低是<span class="minLoadMoney"></span>元，最高额度限定根据不同银行有不同的标准，具体可以查看相应银行的充值额度限定标准。</p>
+                        <h4>温馨提示</h4>
+                        <p class="c-important">为保障您资金权益，充值完成后，请截下充值成功画面并妥善保存。</p>
+                        <!-- <h3> 温馨提示 </h3>
+                        <h4>1）本充值方式为自动上分操作，请您在完成转账后等待自动上分。</h4>
+                        <h4>2）因为我们会不定期更换收款银行、户名、和卡（账）号；请您在使用“支付宝转账”充值方式前，务必在充值页面发起请求，获取最新的收款账号信息；否则一旦因收款账号信息的更换造成我们无法收到款项，将无法为您执行上分操作。</h4> -->
+                        
+                    </div>
+
+                    <div class="recharge-help help_plz2" style="display: none;">
+                        <!-- <h3>常见问题</h3>
+                        <div class="prompt">
+                            单笔充值最高限额<span class="maxLoadMoney"></span>元，单日充值总额无上限，充值无手续费 -->
+                            <!--充值额度为 {{$fMinLoad}} 至 {{$fMaxLoad}} 元，给您带来的不便，敬请谅解。-->
+                        <!-- </div>
+                        <h4>为什么银行充值成功了无法到账？</h4>
+                        <p>
+                            平台填写金额必须和银行转账金额一致（不包含手续费），否则充值无法到账。
+                        </p>
+                        <h4>每次充值的额度限定是多少？</h4>
+                        <p>所有银行充值额度限定最低是<span class="minLoadMoney"></span>元，最高额度限定根据不同银行有不同的标准，具体可以查看相应银行的充值额度限定标准。</p>
+                        <h4>温馨提示</h4>
+                        <p class="c-important">为保障您资金权益，充值完成后，请截下充值成功画面并妥善保存。</p> -->
+                        <h3> 温馨提示 </h3>
+                        <h4>1）在充值过程中要记好自己的充值订单号，若充值中遇到任何问题，请带上相关截图和订单号咨询客服；</h4>
+                        <h4>2）本充值方式为自动上分操作，请您在完成转账后等待自动上分。</h4>
+                        <h4>3）因为我们会不定期更换收款银行、户名、和卡（账）号； <span style="color: #FB3400 ">请您在使用“支付宝转账”充值方式前，务必在充值页面发起请求，获取最新的收款账号信息；</span>否则一旦因收款账号信息的更换造成我们无法收到款项，将无法为您执行上分操作；对此给您造成的损失，我们概不负责。</h4>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+    <div class="wrap-inner" style="position: relative;">
+        <div class="links">
+            <a href="/view/app/index.shtml" target="_blank">客户端下载</a>
+            <a href="/view/page/about.shtml" target="_blank">关于我们</a>
+            <a href="/view/page/help.shtml" target="_blank" class="helpCenter">帮助中心</a>
+            <a href="/view/page/help.shtml?category_id=10" target="_blank" class="security">安全保障</a>
+            <span  class="zizhi"  >博彩资质</span>
+        </div>
+        <p style="margin-top: 15px">浏览器建议：首选为Google浏览器或火狐浏览器，其次为IE9及以上浏览器。使用1024X768以上的分辨率</p>
+        <p><span style="color:#999">® 彩票中心游戏版权所有</span><span style="color: #999">&nbsp;&nbsp;&nbsp;Copyright © 2015-2018 Golden Apple Game Technology Co., Ltd.</span></p>
+        <div class="cooperation"></div>
+    </div>
+</div>
+<script type="text/javascript">
+        if(Number($(".main").height()) + 392 < Number($(window).height())){
+                $(".main").css("minHeight",Number($(window).height()) - 392);
+            }
+        
+        $(function(){
+            $('.helpCenter').attr('href','/view/page/help.shtml?'+showTop);
+            $('.security').attr('href','/view/page/help.shtml?category_id=10&'+showTop);
+        })
+</script>
+<script id="rechargeChannelsTpl" type="text/x-dot-template"> 
+{{~it:value:index}}
+      <label style="margin-right: 20px;cursor: pointer" data-id="{{=value.id}}">
+            {{?index==0}}
+            <input type="radio" style="cursor: pointer" name="rechargeType" checked="checked" data-id="{{=value.id}}">{{=value.name}}
+            {{??}}
+            <input type="radio" style="cursor: pointer" name="rechargeType" checked="" data-id="{{=value.id}}">{{=value.name}}
+            {{?}}
+      </label>
+{{~}}
+</script>
+<script id="bankListTpl"  type="text/x-dot-template">
+{{ for(var o in it){  }} 
+    {{  var bankIdentifier = typeof(it[o].bank_identifier) == 'undefined' ? it[o].identifier:it[o].bank_identifier; }}
+    <label class="img-bank" for="J-bank-name-{{=bankIdentifier}}">
+        <span data-id="{{=it[o].id}}" class="ico-bank {{=bankIdentifier}}"></span>
+    </label>
+{{ } }}
+</script>
+
+<script id="rechargeRemindTpl"  type="text/x-dot-template">
+<div class="j-ui-miniwindow pop " style="z-index: 700; position: fixed;  top: 213px; opacity: 1;left:50%;margin-left:-220px;" id="rechargeRemindWin">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">温馨提示</span></div>
+    <div class="pop-bd">
+        <div>当前可受理您的充值金额为：<span style="color:#c80000;">{{=it.money}}</span> 元，</div>
+        <div>您是否确认充值？</div>
+    </div>
+    <div class="pop-control">
+        <a style="background-color: #E82626;color: #fff;  border: none;" href="javascript:void(0);" class="btn confirm">确 认</a>
+        <a style="color: #444; background-color: #F1F1F1;" href="javascript:void(0);" class="btn cancel">取 消</a>
+    </div>
+</div>
+</script>
+
+
+<script id="rechargeQRCodeTpl"  type="text/x-dot-template">
+<div class="j-ui-miniwindow pop " style="z-index: 700; position: fixed;  top: 213px; opacity: 1;left:50%;margin-left:-220px;" id="rechargeQRCodeWin">
+    <div class="pop-hd"><i class="pop-close closeBtn"></i><span class="pop-title">扫码充值</span></div>
+    <div class="pop-bd">
+        <div style="margin-bottom:10px;">充值金额：{{=it.amount}} 元</div> 
+        <div>
+            <img src="{{=it.qr_path}}" width="200" height="200" />
+        </div>
+    </div> 
+</div>
+</script>
+
+<script id="rechargeConfirmTpl"  type="text/x-dot-template">
+<div class="content recharge-confirm" id="rechargeConfirmWrap">
+    <div class="prompt">
+        请您在转账前，确保以下收款信息是发起充值申请后<span class="c-red">十五分钟内</span>的有效信息，若超过时间请返回重新申请充值获取最新收款信息。
+        <input type="hidden" value="1800" id="J-time-second" />
+    </div>
+
+
+    <table width="100%" class="table-field" id="J-table">
+        <tbody><tr>
+            <td width="150" align="right" valign="top">收款银行：</td>
+            <td>
+                <label class="img-bank" for="J-bank-name-{{=it.bank_identifier}}" style="cursor:default;">
+                    <input name="bank[]" id="J-bank-name-{{=it.bank_identifier}}" type="radio" style="visibility:hidden;">
+                    <span class="ico-bank {{=it.bank_identifier}}">{{=it.bank_name}}</span>
+                </label>
+                <br>
+                <span class="tip f14">
+                    您目前选择的是 <span style="color: #FB3400">{{=it.bank_name}}</span>
+                    充值服务
+                </span>
+            </td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">收款账户名：</td>
+          <td>
+            <span class="field-value-width data-copy">{{=it.account_name}}</span>
+             <input type="button" class="btn btn-small" value="点击复制" id="J-button-name" data-clipboard-text="{{=it.account_name}}"  style="color: #444;background-color: #F1F1F1;" >
+          </td>
+      </tr>
+        <tr>
+          <td align="right" valign="top">收款账号：</td>
+          <td>
+                <span class="field-value-width data-copy">{{=it.account}}</span>
+                <input type="button" class="btn btn-small" value="点击复制" id="J-button-card" data-clipboard-text="{{=it.account}}"  style="color: #444;background-color: #F1F1F1;">
+          </td>
+      </tr> 
+        <!--<tr>-->
+          <!--<td align="right" valign="top">附言(充值订单号)：</td>-->
+          <!--<td>-->
+            <!--<span class="field-value-width">-->
+                <!--<span class="c-red data-copy">{{=it.postscript}}</span>-->
+            <!--</span>-->
+            <!--<input type="button" class="btn btn-small" value="点击复制" id="J-button-msg" data-clipboard-text="{{=it.postscript}}" style="color: #444;background-color: #F1F1F1;">-->
+            <!--<span class="ui-text-prompt">(附言区分大小写，请正确复制)</span>-->
+          <!--</td>-->
+      <!--</tr>-->
+        {{if(it.amount){}}
+        <tr>
+            <td align="right">充值金额：</td>
+            <td><span>{{=it.amount}}元</span>  <span style="color: #FB3400">实际转账金额和充值金额须一致</span>，否则将无法到账</td>
+        </tr>
+        {{}}}
+
+        {{if(it.restitution){ }}
+        <tr>
+            <td align="right">充值返还：</td>
+            <td><span>{{=it.restitution}}元</span></td>
+        </tr>
+        {{}}}
+        <tr>
+          <td align="right" valign="top">充值说明：</td>
+            {{if(it.amount){}}
+          <td>
+            <div class="prompt-text">
+                1.当充值支付宝账户真实姓名和发起充值申请时填写的姓名不一致，会导致无法到账；<br>
+                2.每笔充值申请只能充值一次，重复充值或转账会导致无法到账；<br>
+                3.收款信息会不定时更新，请在获取最新收款信息后进行充值，建议申请超过15分钟即重新申请；<br>
+                4.<span style="color: #FB3400">支付宝会收取0.1%的服务费，服务费会返还。</span>            </div>
+          </td>
+            {{}else{}}
+            <td>
+                <div class="prompt-text">
+                    <p><span style="color: rgb(255, 51, 0); font-size: 14px;">注意事项：</span><br>1、<span style="color: rgb(255, 51, 0);">务必复制“充值订单号”到工行汇款页面的“附言”栏中进行粘帖(键盘 CTRL+V)</span>，否则充值将无法到账。<br>2、充值订单号为随机生成，一个订单号只能充值一次，<span style="color: rgb(255, 51, 0);">过期或重复使用</span>充值将无法到账。<br>3、收款账户名和收款账号会不定期更换，请在获取最新信息后充值，否则充值将无法到账。<br>4、“订单金额”与网银转账金额不符，充值将无法到账。<br>5、登陆工行网银，点击“转账汇款”后选择“E-mail汇款”。<br>6、只支持工商银行网银自动转账。<br>7、充值手续费返款会以“手续费返还”形式加入银行账户。</p>
+            </td>
+            {{}}}
+      </tr>
+                <tr>
+          <td align="right" valign="top"></td>
+          <!--<td>-->
+              <!--农业银行：<a class="link-url" href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp" target="_blank">https://mybank.icbc.com.cn/icbc/perbank/index.jsp</a><br>-->
+              <!--工商银行：<a class="link-url" href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp" target="_blank">https://mybank.icbc.com.cn/icbc/perbank/index.jsp</a><br>-->
+              <!--建设银行：<a class="link-url" href="https://ibsbjstar.ccb.com.cn/CCBIS/V6/STY1/CN/login.jsp" target="_blank">https://ibsbjstar.ccb.com.cn/CCBIS/V6/STY1/CN/login.jsp</a><br>-->
+              <!--交通银行：<a class="link-url" href="https://pbank.95559.com.cn/personbank/logon.jsp" target="_blank">https://pbank.95559.com.cn/personbank/logon.jsp</a><br>-->
+              <!--招商银行：<a class="link-url" href="https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx" target="_blank">https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx</a><br>-->
+              <!--民生银行：<a class="link-url" href="https://per.cmbc.com.cn/pweb/static/login.html" target="_blank">https://per.cmbc.com.cn/pweb/static/login.html</a><br>-->
+              <!--中信银行：<a class="link-url" href="https://e.bank.ecitic.com/perbank5/" target="_blank">https://e.bank.ecitic.com/perbank5/</a><br>-->
+              <!--浦发银行：<a class="link-url" href="https://ebank.spdb.com.cn/per/gb/otplogin.jsp" target="_blank">https://ebank.spdb.com.cn/per/gb/otplogin.jsp</a><br>-->
+              <!--中国银行：<a class="link-url" href="http://www.boc.cn/" target="_blank">http://www.boc.cn/</a><br>-->
+       <!--</td>-->
+      </tr>
+        {{if(!it.identifier){}}
+        <tr>
+          <td align="right" valign="top">&nbsp;</td>
+          <td>
+              <a href="{{=it.hoplink}}" class="btn" target="_blank" style="color: #444;background-color: #F1F1F1;">点击充值</a>
+          </td>
+      </tr>
+        {{}}}
+    </tbody></table>
+</div>
+</script> 
+<script type="text/javascript" src="/js/vendor/ZeroClipboard.js"></script>
+<script type="text/javascript">
+   //监听浏览器后退事件
+　　$(document).ready(function(e) { 
+            if (window.history && window.history.pushState) {
+                             $(window).on('popstate', function () {
+                                            $('.copy').hide();
+                                });
+              }
+              window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+              window.history.forward(1);
+});
+
+        registerDropdownList();
+      
+          var depositData = null;
+          var operationData = null;
+          var currentDepositData = null; 
+
+         var default_id;
+          ajaxData({
+              url: getWebsiteOfHost() + "?action=getDefaultPlatform&terminal_id=" + terminal_id,
+              successCallback: function(data) {
+                  default_id=data.default_id;
+              }
+          });
+
+
+          ajaxData({
+              url: getWebsiteOfHost() + "?action=getBankCardList&terminal_id=" + terminal_id,
+              successCallback: function(data) {
+                    if (data.list.length==0) {
+                          window.location.href = "/view/ucenter/account_management/bank_card_management.shtml?bangFlag=0";
+                    }
+              }
+          });
+
+
+        ajaxData({
+            url: getWebsiteOfHost() + "?action=getAvailablePaymentType&terminal_id=" + terminal_id,
+            successCallback: function(data) {
+                var types = [];
+                for (var o in data) {
+                    types.push('<a href="javascript:;" data-payment="' + o + '">' + data[o] + '</a>');
+                }
+                $('#paymentContainer').html(types.join(''));
+                ajaxData({
+                    url: getWebsiteOfHost() + "?action=getDepositPlatformList&terminal_id=" + terminal_id,
+                    successCallback: function(data) {
+                        // console.log(data);
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].id == default_id) {
+                                payment_type_id = data[i].payment_type_id;
+                                // $('#paymentContainer [data-payment=4]').click();
+                            }
+                        }
+                        depositData = data;
+                        var payment_type_id;
+                        if (payment_type_id!==undefined) {
+                            $('#paymentContainer [data-payment='+payment_type_id+']').click();
+                            $('#rechargeChannels [data-id='+default_id+']').click();
+                        }else{
+                            $('#paymentContainer a:eq(0)').click();
+                        }
+                     
+                    }
+                });
+            }
+        });
+
+          //控制写入浏览器历史事件的开关
+          var i=0;
+          var payment_type_id =1 ;
+
+          $(document).on('click', '#paymentContainer a', function() {
+             $('.copy').hide();//隐藏点击复制按钮
+            $('#paymentContainer a.active').removeClass('active');
+              $(this).addClass('active');
+              payment_type_id = $(this).data('payment');
+
+            operationData = getDepositData(payment_type_id, depositData);
+            renderRechargeChannels(operationData);
+            $('#rechargeChannels label:eq(0)').click();
+            $('#rechargeNetbank').show();
+            $('#rechargeConfirmWrap').hide();
+            if(payment_type_id == 6){
+                $(".help_plz2").show()
+                $(".help_plz1").hide()
+            }else{
+                $(".help_plz2").hide()
+                $(".help_plz1").show()
+            }
+//              console.log(111,i,payment_type_id);
+            //首次进入页面不写入历史事件
+              if (i > 0 && payment_type_id != null) {
+                  window.history.pushState(payment_type_id, null, null);
+              }
+              i++;
+          });
+
+          //劫持返回事件
+        $(document).ready(function () {
+            $(window).on('popstate', function () {
+                        if (window.history && window.history.pushState) {
+                            var payment_id = window.history.state;
+                            if(payment_id != null) {
+                                showPaymentTemplate(payment_id);
+                            }else{
+                                showPaymentTemplate(1);
+                            }
+                        }
+                    }
+            )
+        });
+
+
+          $(document).on('click', '#rechargeChannels label', function() {
+            var id = $(this).data('id');
+            currentDepositData = getCurrentDepositData(id, operationData);
+            //不支持银行卡选择
+              if(id == 70){
+                  $("#rechargeTail").show();
+                  $("#payer_name").show();
+              }else{
+                  $("#rechargeTail").hide();
+                  $("#payer_name").hide();
+              }
+            if (!currentDepositData.need_bank) {
+                $('#bankListWrap').hide();
+            } else {
+                renderBankList(currentDepositData.banks);
+                $('#J-bank-list  .img-bank:eq(0)').click();
+                $('#bankListWrap').show();
+            }
+
+              if (!currentDepositData.is_third && id != 70) {
+                  $('#rechargeMoney').hide();
+              } else {
+                  $('#rechargeMoney').show();
+              }
+              var minmaxObj = getMinMaxMoney();
+              loadMinMaxMoney(minmaxObj.minNum,minmaxObj.maxNum);
+            $('#J-input-money').val('');
+
+          });
+
+           // 金额格式化
+          var  moneyInput = $('#J-input-money');
+           moneyInput.keyup(function(e) {
+               var v = $.trim(this.value),
+                   arr = [],
+                   code = e.keyCode;
+               if (code == 37 || code == 39) {
+                   return;
+               }
+               v = v.replace(/[^\d|^\.]/g, '');
+               arr = v.split('.');
+               if (arr.length > 2) {
+                   v = '' + arr[0] + '.' + arr[1];
+               }
+               arr = v.split('.');
+               if (arr.length > 1) {
+                   arr[1] = arr[1].substring(0, 2);
+                   v = arr.join('.');
+               }
+               this.value = v;
+               v = v == '' ? '&nbsp;' : v;
+               if (!isNaN(Number(v))) {
+                   v = formatMoney(v);
+               }
+           });
+
+          //立即充值
+          $(document).on('click', '#J-submit', function() {
+            clearInterval(intx);
+             time();
+            var money = $('#J-input-money');
+            var minmaxObj = getMinMaxMoney();
+            if (currentDepositData != null && currentDepositData.is_third) {
+                if ($.trim(money.val()) == '') {
+                    layer.alert('金额不能为空');
+                    money.focus();
+                    return false;
+                }
+                var v = Number(money.val());
+
+                if (v < Number(minmaxObj.minNum.replace(/,/g, '')) || v > Number(minmaxObj.maxNum.replace(/,/g, ''))) {
+                    layer.alert('金额超出范围：金额须在' + minmaxObj.minNum + '至' + minmaxObj.maxNum + '元之间');
+                    money.focus();
+                    return false;
+                }
+                if (currentDepositData.is_qr ) {//&& v % 10 == 0 && v != minmaxObj.pureMinNum
+                    //rechargeRemindTpl
+                    confirmRecharge(v);
+                    return false;
+                }
+                doRecharge();
+
+            } else if(currentDepositData.name=="支付宝转账YF") {
+                var v = Number(money.val());
+                if (v < minmaxObj.minNum || v > minmaxObj.maxNum ) {
+                    layer.alert('金额超出范围：金额须在' + minmaxObj.minNum + '至' + minmaxObj.maxNum + '元之间');
+                    money.focus();
+                    return false;
+                }
+                var payer = $("input[name=payer_name]").val();
+                if(payer=='') {
+                    layer.alert('请填写支付宝真实姓名');
+                    $("#payer").children('input').focus();
+                    return false;
+                }
+                ajaxData({
+                    url: getWebsiteOfHost(),
+                    type: 'post',
+                    data: {
+                        action: 'bankDeposit',
+                        terminal_id:terminal_id,
+                        amount:$("#J-input-money").val(),
+                        payer_name:payer,
+                        platform_id: currentDepositData.id,
+                        bank_id: $('#bank-name').val()
+                    },
+                    successCallback: function(data) {
+                        $('#rechargeNetbank').hide();
+                        $('#rechargeConfirmWrap').remove();
+                        renderRechargeConfirm(data);
+                    }
+                });
+            }else{
+                ajaxData({
+                    url: getWebsiteOfHost(),
+                    type: 'post',
+                    data: {
+                        action: 'bankDeposit',
+                        terminal_id:terminal_id,
+                        platform_id: currentDepositData.id,
+                        bank_id: $('#bank-name').val()
+                    },
+                    successCallback: function(data) {
+                        $('#rechargeNetbank').hide();
+                        $('#rechargeConfirmWrap').remove();
+                        renderRechargeConfirm(data);
+                    }
+                });
+              }
+             //点击立即充值写入历史事件
+              window.history.pushState(payment_type_id, null, null);
+          });
+
+           var clipboard = new Clipboard('.btn-small'); 
+            
+           clipboard.on('success', function(e) { 
+              layer.alert('复制成功');
+               e.clearSelection(); 
+           }); 
+
+          //money input event
+          $(document).on('keydown', '#J-input-money', function(event) {
+            if (!(event.keyCode == 35) && !(event.keyCode == 36) && !(event.keyCode == 46) && !(event.keyCode == 8) && !(event.keyCode == 37) && !(event.keyCode == 39)&& !(event.keyCode == 190)&& !(event.keyCode == 110)) {
+                if (!((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105))) {
+                    return false;
+                }
+                if ($.trim($(this).val()).length > 6) {
+                    return false;
+                }
+            }
+          }).on('keyup', function() {
+            var v = parseInt($.trim($('#J-input-money').val()));
+            var minmaxObj = getMinMaxMoney();
+           
+            if (v < Number(minmaxObj.minNum.replace(/,/g, '')) || v > Number(minmaxObj.maxNum.replace(/,/g, ''))) {
+                $('#amount_notify').html('金额超出范围：金额须在' + minmaxObj.minNum + '至' + minmaxObj.maxNum + '元之间').show();
+                $('#J-input-money').get(0).focus();
+            }else{
+                $('#amount_notify').hide();
+            }
+          });
+
+          //close win
+          $(document).on('click','.j-ui-miniwindow .cancel,.j-ui-miniwindow .closeBtn',function(){
+                $(this).parents('.j-ui-miniwindow').remove();
+          });
+
+          //confirm
+          $(document).on('click','#rechargeRemindWin .confirm',function(){
+                $(this).parents('.j-ui-miniwindow').remove();
+                doRecharge();
+          });
+
+        //显示支付方式详情
+        function showPaymentTemplate(payment_type_id) {
+            operationData = getDepositData(payment_type_id, depositData);
+
+            $('#paymentContainer a.active').removeClass('active');
+            $('#paymentContainer a').filter('[data-payment=' + payment_type_id + ']').addClass('active');
+            renderRechargeChannels(operationData);
+            // $('#rechargeChannels label:eq(0)').click();
+
+            $('#rechargeNetbank').show();
+            $('#rechargeConfirmWrap').hide();
+
+          }
+
+          function doRecharge() {
+            var money = $('#J-input-money');
+            var data = {
+                action: 'deposit',
+                terminal_id:terminal_id,
+                platform_id: currentDepositData.id,
+                amount: Number(money.val())
+            };
+            if(!currentDepositData.is_qr){
+                data.bank_id = $('#bank-name').val();
+            }
+            if(currentDepositData.is_qr && currentDepositData.save_qr){
+               var layer_load =  layer.msg('努力获取中...',{icon:16,shade:[0.5,'#f5f5f5'],scrollbar:false,offset:'350px',time:100000});
+            }
+
+            ajaxData({
+                url: getWebsiteOfHost(),
+                type: 'post',
+                data: data,
+                async: false,
+                successCallback: function(data) {
+                    if (currentDepositData.save_qr == 0) {
+                        //jump to third plate
+                        XCOOKIE.setCookie('NBRecharge', JSON.stringify(data), 0.1);
+                        window.open(window.location.origin + '/view/ucenter/funds_center/recharge/doDeposit.shtml', '充值');
+                    }
+                    if (currentDepositData.save_qr == 1) {
+                        //jump self page
+                        data.qr_path = '/web'+data.qr_path;
+                        renderQrCode(data);
+                    }
+                    if(currentDepositData.is_qr && currentDepositData.save_qr){
+                        layer.close(layer_load);
+                    }
+                }
+            });
+          }
+
+          function confirmRecharge(money) {
+            var min = 9800;
+            var max = 9950;
+            var minmaxObj = getMinMaxMoney();
+            var random = getRandomArbitrary(min, max) / 10000;
+            //money != minmaxObj.pureMinNum
+            var moneyValue = money == Number(minmaxObj.minNum.replace(/,/g, ''))?(Number(minmaxObj.minNum.replace(/,/g, ''))+0.01).toFixed(2):(money * random).toFixed(2);
+              moneyValue= moneyValue<Number(minmaxObj.minNum.replace(/,/g, ''))?(Number(minmaxObj.minNum.replace(/,/g, ''))+0.01):moneyValue;
+            $('#J-input-money').val(moneyValue);
+            doTrender({
+                container: 'body',
+                tmplObj: '#rechargeRemindTpl',
+                data: {
+                    money: moneyValue
+                },
+                needClear: false,
+                prependDom: false
+            });
+          }
+
+          function getRandomArbitrary(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+          }
+          function getMinMaxMoney() {
+            var minNum, maxNum;
+              minNum = currentDepositData.min_amount;
+              maxNum = currentDepositData.max_amount;
+            return {
+                minNum: minNum,
+                maxNum: maxNum,
+//                pureMinNum:Number(minNum.replace(/,/g, '')),
+//                pureMaxNum:Number(maxNum.replace(/,/g, ''))
+            };
+          }
+
+          //{'1':网银支付 , '2':'微信扫码','3':'支付宝扫码','4':'网银转账','5':'QQ扫码','6':'支付宝转账'}
+          function getDepositData(payment_type_id, depositData) {
+            var deposit = [];
+            for (var i = 0, len = depositData.length; i < len; i++) {
+                if (depositData[i].payment_type_id == payment_type_id) {
+                    deposit.push(depositData[i]); 
+                }
+            }
+            return deposit;
+          }
+
+          function getCurrentDepositData(id,data){
+            var deposit = null;
+            for (var i = 0, len = data.length; i < len; i++) {
+                if (data[i].id == id) {
+                    deposit = data[i];
+                    break;
+                }
+            }
+            return deposit;
+          }
+
+          // function registerCopy() {  
+          //   var clip_name = new ZeroClipboard.Client(),
+          //       clip_card = new ZeroClipboard.Client(), 
+          //       clip_msg = new ZeroClipboard.Client(),
+          //       table = $('#J-table'),
+          //       fn = function(client) {
+          //           var el = $(client.domElement),
+          //               value = $.trim(el.parent().find('.data-copy').text());
+          //           client.setText(value);
+          //           layer.alert('复制成功:\n\n' + value);
+          //       };
+
+          //   clip_name.setCSSEffects(true);
+          //   clip_card.setCSSEffects(true); 
+          //   clip_msg.setCSSEffects(true);
+
+          //   clip_name.addEventListener("mouseUp", fn);
+          //   clip_card.addEventListener("mouseUp", fn); 
+          //   clip_msg.addEventListener("mouseUp", fn);
+
+          //   clip_name.glue('J-button-name');
+          //   clip_card.glue('J-button-card'); 
+          //   clip_msg.glue('J-button-msg');
+          // }
+
+          function renderRechargeConfirm(data) { 
+            doTrender({
+                container: '#rechargeContainer',
+                tmplObj: '#rechargeConfirmTpl',
+                data: data,
+                needClear: false,
+                prependDom: false
+            });
+
+            // registerCopy();
+          }
+
+          function renderRechargeChannels(data) {
+            doTrender({
+                container: '#rechargeChannels',
+                tmplObj: '#rechargeChannelsTpl',
+                data: data,
+                needClear: true,
+                prependDom: false
+            });
+          }
+
+          function renderQrCode(data) { 
+            doTrender({
+                container: 'body',
+                tmplObj: '#rechargeQRCodeTpl',
+                data:data,
+                needClear: false,
+                prependDom: false
+            });
+          }
+
+          function renderBankList(data) {
+            //rechargeChannels
+            doTrender({
+                container: '#J-bank-list',
+                tmplObj: '#bankListTpl',
+                data: data,
+                needClear: true,
+                prependDom: false
+            });
+          }
+
+          
+          //add event to drop list
+          function registerDropdownList() {
+            // 选择银行卡下拉
+            var $dropdown = $('.bank_dropdown');
+            $dropdown.on({
+                mousedown: function(e) {
+                    if ($(this).hasClass('open')) return false;
+                    $(this).addClass('open');
+                    // return false;
+                },
+                click: function(e) {
+                    e.preventDefault();
+                }, // 失去焦点
+                blur: function(e) {
+                    //console.log('失去焦点');
+                    $(this).removeClass('open');
+                }
+            });
+            $(document).on('click', '#J-bank-list  .img-bank', function() {
+                var $bank = $(this).find('.ico-bank');
+                var value = $bank.data('id');
+
+                // addClass/removeClass active
+                $(this).siblings('.active').removeClass('active').end()
+                    .addClass('active');
+                $('.dropdown_toggle .ico-bank').replaceWith($bank.clone());
+                $('#bank-name').val(value);
+                $dropdown.removeClass('open');
+            });
+            
+          }
+
+          function loadMinMaxMoney(min, max) {
+            $('.maxLoadMoney').html(formatMoney(max));
+            $('.minLoadMoney').html(formatMoney(min));
+          }
+
+
+  var intx;
+  function time() {
+      var intDiff = parseInt(1800); //倒计时总秒数量
+      function times() {
+          var day = 0,
+              hour = 0,
+
+              minute = 0,
+              second = 0; //时间默认值    
+          if (intDiff > 0) {
+              day = Math.floor(intDiff / (60 * 60 * 24));
+              hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+              minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+              second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+          } else { //当时间耗尽，刷新页面
+              window.location.reload();
+          }
+          if (minute <= 9) minute = '0' + minute;
+          if (second <= 9) second = '0' + second;
+          $("#J-time-dom").html('<font>' + minute + '分' + second + '</font>');
+          intDiff--;
+      }
+      intx = setInterval(times, 1000);
+  }
+
+  // $(function(){
+  //     $('#rechargeChannels [data-id=36]').click();
+  // })
+    
+</script>
+</body>
+
+</html>

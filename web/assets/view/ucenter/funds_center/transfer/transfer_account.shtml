@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>转账</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+   
+</head>
+<!--#set var="locationUrl" value="capitalCenter"-->
+<!--#set var="level2" value="2"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class="active" id="transfer">转账</a>
+                <a class="channelTransfer" href="/view/ucenter/funds_center/transfer/plat-transfer.shtml">频道转账</a>
+            </div>
+            <div class="bg-fff">
+                <div class="content recharge-netbank">
+                    <div class="recharge-box">
+                        <form action="" method="post" id="J-form">
+                            <table width="100%" class="table-field">
+                                <tr>
+                                    <td width="200" align="right" valign="top">
+                                        <span class="field-name">可用余额：</span>
+                                    </td>
+                                    <td>
+                                        <span class="c-red"><b id="customerBalance"></b> 元</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top">
+                                        <span class="field-name">转账说明：</span>
+                                    </td>
+                                    <td>
+                                        <select name="desc" id="transferType" class="select w-4"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top">
+                                        <span class="field-name">收款人：</span>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" id="searchUserId">
+                                        <input type="text" class="input w-4" name="username" placeholder="请输入收款人用户名" value=''  id="searchUser"  />
+                                        <span data-showuser class="icon-users">点击选择收款人</span> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top">
+                                        <span class="field-name">转账金额：</span>
+                                    </td>
+                                    <td>
+                                        <input id="J-input-money" type="text" class="input w-2 input-ico-money" placeholder="请输入金额" />&nbsp; 元
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top">
+                                        <span class="field-name">资金密码：</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="input w-4" id="fundsPassword"   placeholder="请输入密码" onfocus="this.type='password'"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top">
+                                        <span class="field-name">银行卡户名：</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="input w-4" id="accountName" />
+                                        <br>
+                                        <span class="c-red">请输入您已绑定的任意一张银行卡开户人姓名</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top">&nbsp;</td>
+                                    <td>
+                                        <input type="button" class="btn btn-red lg2" value="立即转账" id="J-submit" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="recharge-help">
+                        <h3>转账提示</h3>
+                        <div class="prompt">代理向下级充值，该下级需要完成此充值金额的相应流水，才可以提款。
+                            <br/>代理向下级发放工资,提现时不需要投注流水。</div>
+                        <h4>举例：</h4>
+                        <p>您向下级A用户充值500元，则A用户在提款时需要完成这500元的相应流水才可提款。
+                            <br/>您向下级A用户发放工资500元,则A用户在提款时不需要完成任何流水即可提款。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+    <!--#include virtual="/view/module/teamUserSelect.shtml"-->
+ <script type="text/javascript" src="/js/page/help.js"></script>
+    <script type="text/javascript"> 
+    registerTeamUserSelect({});
+     
+
+     $(document).on('click','#searchUser',function(){
+       $('.icon-users').click();
+     })
+    //为下级转账的类型
+    ajaxData({
+        url: getWebsiteOfHost() + "?action=getTransactionTypeList&type=transfer-out&terminal_id=" + terminal_id,
+        successCallback: function(data) {
+            var selectArray = [];
+            for (var i = 0, len = data.length; i < len; i++) {
+                selectArray.push('<option value="' + data[i].id + '">' + data[i].description + '</option>');
+            }
+            $('#transferType').append(selectArray.join(''));
+        }
+    });
+
+//    //获取用户信息，设置用户相关信息
+//    function balance(){
+//        var userData = null;
+//        ajaxData({
+//            url: getWebsiteOfHost() + "?action=getCurrentUserInfo&terminal_id=" + terminal_id,
+//            successCallback: function(msg) {
+//                userData = msg;
+//                $("#customerBalance").text(formatMoney(msg.abalance));
+//            }
+//        });
+//    }
+     balance();
+
+       //其他频道名称
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=getAvailablePlats&terminal_id=" + terminal_id,
+                successCallback: function(data) {
+                    if (data.length==0) {
+                    $('.channelTransfer').hide();
+                }
+                 }
+            });
+
+    //money input
+    // $(document).on('keydown', '#J-input-money', function(event) {
+    //     if (!(event.keyCode == 35) && !(event.keyCode == 36) && !(event.keyCode == 46) && !(event.keyCode == 8) && !(event.keyCode == 37) && !(event.keyCode == 39)) {
+    //         if (!((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105))) {
+    //             return false;
+    //         }
+    //         if ($.trim($(this).val()).length > 6) {
+    //             return false;
+    //         }
+    //     }
+    // }).on('keyup', function() {
+    //     var v = parseInt($.trim(this.value));
+    //     if (v > 70000) {
+    //         this.value = 70000;
+    //     }
+    //     //todo 
+    // });
+
+    var moneyInput = $('#J-input-money');
+    moneyInput.keyup(function(e){
+        var v = $.trim(this.value),arr = [],code = e.keyCode;
+        if(code == 37 || code == 39){
+            return;
+        }
+        v = v.replace(/[^\d|^\.]/g, '');
+        arr = v.split('.');
+        if(arr.length > 2){
+            v = '' + arr[0] + '.' + arr[1];
+        }
+        arr = v.split('.');
+        if(arr.length > 1){
+            arr[1] = arr[1].substring(0, 2);
+            v = arr.join('.');
+        }
+        this.value = v;
+        v = v == '' ? '&nbsp;' : v;
+        if(!isNaN(Number(v))){
+            v = formatMoney(v);
+        }
+    });
+
+    moneyInput.blur(function(){
+        var v = Number(this.value),withdrawable = Number($('#customerBalance').text().replace(/,/g, ''));
+        v = v > withdrawable ? withdrawable : v;
+        this.value = formatMoney(v).replace(/,/g, '');
+    });
+
+    function _disabled(obj){
+        var $self = $(obj);
+        $self.attr('disabled');
+        $self.addClass('btn-gray');
+    }
+
+    function _active(obj){
+        var $self = $(obj);
+        $self.removeAttr('disabled');
+        $self.removeClass('btn-gray');
+    }
+
+    //submit transfer
+    $(document).on('click', '#J-submit', function() {
+        var searchUser = $('#searchUser').val();
+        var o = this;
+        if ($.trim(searchUser).length == 0) {
+            layer.alert('请点击选择收款人');
+            return;
+        }
+
+        var inputMoney = $('#J-input-money').val();
+        if ($.trim(inputMoney).length == 0) {
+            layer.alert('请输入转账金额');
+            return;
+        }
+
+        var fundsPassword = $('#fundsPassword').val();
+        if ($.trim(fundsPassword).length == 0) {
+            layer.alert('请输入资金密码');
+            return;
+        }
+
+        var accountName = $('#accountName').val();
+        if ($.trim(accountName).length == 0) {
+            layer.alert('请输入银行卡户名');
+            return;
+        }
+        _disabled(o);
+        var layer_load =  layer.msg('转账中...',{icon:16,shade:[0.5,'#f5f5f5'],scrollbar:false,offset:'350px',time:100000});
+        ajaxData({
+            url: getWebsiteOfHost() ,
+            type:'post',
+            data: {
+                action:'doTransfer',
+                terminal_id:terminal_id,
+                username: $.trim(searchUser),
+                userid:$('#searchUserId').val(),
+                amount: $.trim(inputMoney),
+                fund_password: $.trim(fundsPassword),
+                account_name: $.trim(accountName),
+                desc:$('#transferType').val()
+            },
+            successCallback: function(msg) {
+                layer.close(layer_load);
+                layer.alert('转账成功');
+                _active(o);
+                $('.table-field').find('tr input[type=text]').val('');
+                $('.table-field').find('tr input[type=password]').val('');       
+                balance();
+            },errorCallback:function(res){
+                    layer.close(layer_load);
+                    layer.alert(res.error);
+                    _active(o);
+                }
+        });
+
+    });
+
+    </script>
+</body>
+
+</html>

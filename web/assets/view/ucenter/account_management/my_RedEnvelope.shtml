@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>账户信息</title>
+     <!--#include virtual="/view/module/common.shtml"-->
+    
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css">
+    
+</head>
+<!--#set var="locationUrl" value="cardManager"-->
+<!--#set var="level2" value="0"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main" style="position: relative;">
+            <div class="main-nav">
+                <a href="javascript:;" class="active">我的红包</a>
+            </div>
+            <div class="content-password">
+                <div class="hongbao-box">
+                    <div class="hb-top">
+                        <div class="right">
+                        <div class="list-show-mode">
+                        <a href="javascript:void(0);" data-mode="view" class="view-mode active">图片模式</a>
+                        <a href="javascript:void(0);" data-mode="list" class="list-mode">列表模式</a></div>
+                        </div>
+                        <div class="filter-tabs">
+                            <div class="filter-tabs-cont">
+                                <a class="current" id="allRed" href="javascript:" data-id=''>全部(<span></span>)</a>
+                                <a href="javascript:" id="canReceive" data-id='2'>可领取(<span></span>)</a>
+                                <a href="javascript:" id="received" data-id='4'>已领取(<span></span>)</a>
+                                <a href="javascript:" id="expired" data-id='6'>已过期(<span></span>)</a>
+                           </div>
+                        </div>
+                    </div>
+                    <ul class="hb-list clearfix" id="J-hb-list" data-show-mode="view" style="display: block;">
+              
+                   
+                    </ul>
+                    <div class="hb-list" id="J-hb-list2" data-show-mode="list" style="display: none;">
+                        
+                    </div>
+                    <!-- 分页 -->
+                    <!--#include virtual="/view/module/pages.shtml"-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+ <script id="redBagList" type="text/x-dot-template"> 
+     {{?it.list.data.length>0}}
+ 　     {{~it.list.data:value:index}}
+          <li class="hb-rebate hb-claimed" data-id='allRed'>
+              <div class="css-flip css-flip-x">
+                  <div class="flip-front hb-cover">
+                      <span class="hb-icon"></span>
+                  </div>
+                  <div class="flip-back">
+                      <dl>
+                          <dt>
+                              <span class="c-important">红包</span></dt>
+                          <dt>获得于：</dt>
+                          <dd>{{=value.created_at}}</dd>
+                          <dt>获得自：</dt>
+                          <dd>
+                              <span class="c-important">{{=it.oEvents[value.event_id-1].description}}</span>
+                          </dd>
+                          <dt>领取过期时间：</dt>
+                          <dd>
+                              <span class="c-important">{{=it.oEvents[value.event_id-1].expired_at}}</span>
+                          </dd>
+                      </dl>
+                  </div>
+              </div>
+              <p>
+                  <span data-money-format="" style="font-size: 13px;">
+                      <small>{{=value.amount}}</small></span>元</p>
+            {{?value.status==4}}
+              <a class="btn" href="javascript:void(0);">已领取</a>
+            {{?? value.status==2}}
+               <a class="btn canReceive-btn " href="javascript:void(0);" data-id={{=value.id}}>可领取</a>
+            {{?? value.status==6}}
+                  <a class="btn" href="javascript:void(0);">已过期</a>
+             {{?}}
+          </li>
+        {{~}}
+        {{??}}
+          <div class="no-data">暂时没有找到符合当前条件的红包哦～</div>
+          {{?}}
+ </script>
+ <script id="redBagList2" type="text/x-dot-template"> 
+      {{?it.list.data.length>0}}
+ 　      <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>红包类型</th>
+                                    <th>获得途径</th>
+                                    <th>获得时间</th>
+                                    <th>红包金额（元）</th>
+                                    <th>过期时间</th>
+                                    <th>红包状态</th>
+                                </tr>
+                                {{~it.list.data:value:index}}
+                                <tr>
+                                    <td>活动红包</td>
+                                    <td>{{=it.oEvents[value.event_id-1].description}}</td>
+                                    <td>{{=value.created_at}}</td>
+                                    <td>
+                                        <span>{{=value.amount}}</span>元</td>
+                                    <td>{{=it.oEvents[value.event_id-1].expired_at}}</td>
+                                    {{?value.status==4}}
+                                     <td>已领取</td>
+                                    {{?? value.status==2}}
+                                       <td class="canReceive-btn"  style="cursor: pointer;color: #c6292f" data-id={{=value.id}}>可领取</td>
+                                    {{?? value.status==6}}
+                                       <td>已过期</td>
+                                     {{?}}
+                                    </tr>
+                              {{~}}
+                            </tbody>
+                        </table>
+                        {{??}}
+                        <div class="no-data">暂时没有找到符合当前条件的红包哦～</div>
+                        {{?}}
+ </script>
+<script type="text/javascript" src="/js/vendor/jqPaginator.js"></script>
+<!-- <script type="text/javascript" src="/js/page/help.js"></script> -->
+<script type="text/javascript">
+        var id='';
+       doPullTableList(); 
+
+      function createPagination(res, page) {
+          page = page || 1;
+          renderPagination('#pagination', res.count, page, function(num) {
+              if(isCreateFirst){
+                  isCreateFirst = false;
+                  return;
+              }
+              ajaxData({
+                  url: getTableUrl(num),
+                  successCallback: function(response) {
+                      var data = response;
+                      renderTableList(data);
+                  }
+              });
+          });
+      }
+
+      var isCreateFirst = true;
+      function doPullTableList() {
+          //表格pull
+          isCreateFirst = true;
+          ajaxData({
+              url: getTableUrl(),
+              successCallback: function(res) {
+                 $('#allRed span').text(res.iHongBaoTotalCount);
+                 $('#canReceive span').text(res.iHongBaoAvailableCount);
+                 $('#received span').text(res.iHongBaoReceivedCount);
+                 $('#expired span').text(res.iHongBaoExpiredCount);
+
+                  renderTableList(res);
+                  $('#pagination').html(''); 
+                  if (res.count/20>1) {
+                      createPagination(res,1,isCreateFirst);
+                  }
+              }
+          });
+      }
+
+
+      function renderTableList(data) {
+          doTrender({
+              container: '#J-hb-list',
+              tmplObj: '#redBagList',
+              data: data,
+              needClear: true,
+              prependDom: false
+          });
+          doTrender({
+              container: '#J-hb-list2',
+              tmplObj: '#redBagList2',
+              data: data,
+              needClear: true,
+              prependDom: false
+          });
+      }
+  
+      function getTableUrl(page) {
+          page = page || 1;  
+          var param = {
+              action:'getUserHB',
+              terminal_id:terminal_id,
+              status:id,
+              page:page,
+          } 
+          return getWebsiteOfHost() + "?"+serializeObj2Params(param);
+      }
+
+      $('.css-flip').hover(function(){
+          $(this).toggleClass('flip-hover');
+      })
+
+
+      $(document).on('mouseenter','.css-flip',function(){
+              $(this).addClass('flip-hover');
+      })
+    
+    $(document).on('mouseleave','.css-flip',function(){
+              $(this).removeClass('flip-hover');
+      })
+
+   // 切换红包状态
+    $(document).on('click','.filter-tabs-cont a',function(){
+      $(this).addClass('current').siblings('a').removeClass('current');
+       id=$(this).data('id');
+          doPullTableList(); 
+    })
+              
+
+// 领取红包
+     $(document).on('click','.canReceive-btn',function(){
+          var id=$(this).data('id');
+          ajaxData({
+                  url: getWebsiteOfHost() + "?action=getHB&terminal_id=" + terminal_id+'&id='+id,
+                  type: 'post',
+                  successCallback: function(res) {
+                   var canReceive= $('#canReceive span').text(),
+                          received=$('#received span').text();
+                   $('#canReceive span').text(canReceive-1);
+                   $('#received span').text(Number(received)+1);
+                   layer.alert('领取成功');
+                  }
+              }); 
+     })
+
+//切换红包视图和列表
+$(document).on('click','.view-mode',function(){
+  $(this).addClass('active');
+  $(this).siblings('.list-mode').removeClass('active');
+  $('#J-hb-list').show();
+  $('#J-hb-list2').hide();
+});
+$(document).on('click','.list-mode',function(){
+  $(this).addClass('active');
+  $(this).siblings('.view-mode').removeClass('active');
+  $('#J-hb-list').hide();
+  $('#J-hb-list2').show();
+})
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!-- 投注倍数，元角模式，返点设置区域 -->
+<ul class="bet-statistics clearfix bet-statistics-0">
+    <!-- 元角模式 -->
+    <li class="moneyunit-choose">
+        <div class="filter-tabs-cont" id="J-balls-statistics-moneyUnit"></div>
+    </li>
+    <!-- 倍数控制 -->
+    <li class="multiple-choose clearfix">
+        <span>倍数</span>
+        <span class="add-sub add-sub3 normal-less">&nbsp;</span>
+        <input type="text" name="" class="input" value="" onkeyup="value=this.value.replace(/\D+/g,'')" onkeydown="value=this.value.replace(/\D+/g,'')">
+        <span class="add-sub add-sub1 normal-add">&nbsp;</span>
+    </li>
+    <!-- 设置奖金组及返点-->
+    <li class="bonus-choose" style="display:none;">
+        <div class="slider-range J-prize-group-slider" onselectstart="return false;" data-slider-step="1">
+            <div class="slider-range-scale">
+                <span>返点</span>
+                <span class="small-number" data-slider-min="">0</span>
+                <span class="percent-number" data-slider-percent=""> </span>
+                <span class="big-number" data-slider-max=""></span>
+            </div>
+            <div class="right">
+                <span class="slider-current-value" data-slider-value=""></span>
+                <span>奖金组</span>
+            </div>
+            <div class="slider-action">
+                <div class="slider-range-sub" data-slider-sub="">-</div>
+                <div class="slider-range-add" data-slider-add="">+</div>
+                <div class="slider-range-wrapper" data-slider-cont="">
+                    <div class="slider-range-inner" data-slider-inner="" style="width: 40.5039px;"></div>
+                    <div class="slider-range-btn" data-slider-handle="" style="left: 40.5039px;"></div>
+                </div>
+            </div>
+        </div>
+        <input id="J-bonus-select-value" type="hidden" value="0">
+    </li>
+    <li class="choose-btn" >
+
+        <button type="button" id="J-fast-submit" title="点击后直接确认投注" class="ui-button fast-submit-button btn-disable  hide"><span>立即投注</span></button>
+        <button type="button" id="J-add-order" class="ui-button add-to-cart btn-disable"><span>添加号码</span></button>
+        <div class="j-ui-tip j-ui-tip-alert j-ui-tip-b j-ui-tip-showrule"  id="smallMoneyTip">
+            <i class="sj sj-b"></i>
+            <span class="ui-tip-text">使用厘模式进行投注，单注注单最小金额为0.02元</span>
+        </div>
+    </li>
+    <!-- 投注信息区域 -->
+    <li class="choose-bet" >
+        <div class="choose-bet-1">
+            <span>投</span> <em id="J-balls-statistics-lotteryNum">0</em>
+            <span>注,</span>
+        </div>
+        <div class="choose-bet-2">
+            <em id="J-balls-statistics-multipleNum">1</em>
+            <span>倍，</span>
+        </div>
+        <div class="choose-bet-3">
+            <span>返还</span>
+            <em id="J-balls-statistics-rebate">0.00</em>
+            <span>元，</span>
+        </div>
+        <div class="choose-bet-4">
+            <span>共</span> <em id="J-balls-statistics-amount">0.000</em>
+            <span>元</span>
+        </div>
+    </li>
+</ul>
+<script id="moneyUnitTmpl" type="text/x-dot-template">
+{{~it.data:value:index}} 
+    <a href="###" data-value="{{=value.value}}">{{=value.text}}</a> 
+{{~}}
+</script>

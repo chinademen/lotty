@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>频道转账</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+     <style type="text/css">
+        .table-field{margin: 10px 0}
+    </style>
+</head>
+<!--#set var="locationUrl" value="capitalCenter"-->
+<!--#set var="level2" value="2"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class='transfer-page' href="/view/ucenter/funds_center/transfer/transfer_account.shtml">转账</a>
+                <a class="active">频道转账</a>
+            </div>
+            <div class="bg-fff">
+                <div class="content recharge-netbank">
+                    <div class="recharge-box clearfix" style="margin-top: 60px;width: 600px;padding: 0;">
+                        <form action="" style="width: 269px;height: 250px;overflow: hidden;">
+                                            <input type="hidden" name="_token" value="tLs4z6kQ4RoVUXV5p7EwCoegaZmCPIbATFWBfgZ4">
+                                            <input type="hidden" name="transfer_type" value="0">
+                                            <table width="100%" class="table-field">
+                                                <tbody><tr>
+                                                    <td width="100" align="right" valign="top">
+                                                        <span class="field-name">转出：</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="c-red"> 平台转出到频道</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100" align="right" valign="top">
+                                                        <span class="field-name">平台可转余额：</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="c-red"><b id="amount-user">--</b> 元</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="right" valign="top">
+                                                        <span class="field-name">转入：</span>
+                                                    </td>
+                                                    <td>
+                                                        <select class="select w-2" id="J-plat-id" name="plat_id" >
+                                                        <option value="0">请选择</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="right" valign="top">
+                                                        <span class="field-name">转账金额：</span>
+                                                    </td>
+                                                    <td style="padding: 7px 4px">
+                                                        <input type="text" class="input w-2 input-ico-money" id="turnIn" name="amount" formatmoney max-data>&nbsp; 元
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="right" valign="top">&nbsp;</td>
+                                                    <td >
+                                                        <input type="button" class="btn btn-red lg J-submit" value="立即转账" data-transfer_type="0">
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </form>
+                                        <form action="" style="margin-left: 11px;width: 269px;height: 250px;overflow: hidden;">
+                                                            <input type="hidden" name="_token" value="tLs4z6kQ4RoVUXV5p7EwCoegaZmCPIbATFWBfgZ4">
+                                                            <input type="hidden" name="transfer_type" value="1">
+                                                            <table width="100%" class="table-field">
+                                                                <tbody><tr>
+                                                                    <td width="100" align="right" valign="top">
+                                                                        <span class="field-name">转出：</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="c-red"> 频道转出到平台</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="100" align="right" valign="top">
+                                                                        <span class="field-name">频道可转余额：</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="c-red"><b id="_plat-balance">--</b> 元</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="right" valign="top">
+                                                                        <span class="field-name">转出：</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <select class="select w-2" id="J-plat-id-fb" name="plat_id">
+                                                                        <option value="0">请选择</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="right" valign="top">
+                                                                        <span class="field-name">转账金额：</span>
+                                                                    </td>
+                                                                    <td style="padding: 7px 4px">
+                                                                        <input type="text" class="input w-2 input-ico-money" id="turnOut" name="amount" formatmoney>&nbsp; 元
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td align="right" valign="top">&nbsp;</td>
+                                                                    <td>
+                                                                        <input type="button" class="btn btn-red lg J-submit" value="立即转账" data-transfer_type="1">
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </form>
+                    </div>
+                    <div class="recharge-help">
+                                    <h3>频道转账提示</h3>
+                                    <div class="prompt">彩票中心平台账户金额与竞彩游戏频道资金可以互转，提现时，必须把竞彩游戏频道的资金转入彩票中心平台，方可提现。</div>
+                                    <h4>举例：</h4>
+                                    <p>从彩票中心账户转入100元进入竞彩足球，当提现时需要把竞彩足球中的100元转出到彩票中心，才可以提现100元。</p>
+                                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+ <script type="text/javascript" src="/js/page/help.js"></script>
+    <script type="text/javascript"> 
+
+    //获取频道类型
+//        ajaxData({
+//            url: getWebsiteOfHost() + "?action=getCurrentUserInfo&terminal_id=" + terminal_id,
+//            successCallback: function(res) {
+////                console.log(res);
+//                $("#amount-user").text(res.abalance);
+//                if(!res.is_agent){
+//                    $('.transfer-page').hide();
+//                }
+//            }
+//        });
+
+        //获取频道类型
+        ajaxData({
+            url: getWebsiteOfHost() + "?action=getAvailablePlats&terminal_id=" + terminal_id,
+            successCallback: function(res) {
+                var html = "";
+                for(var i = 0,len = res.length;i < len;i++){
+                    html += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                }
+                $("[name='plat_id']").each(function(){
+                    $(this).append(html);
+                })
+            }
+        });
+
+        //获取用户信息的可用金额
+        function getUserInfoCallback(data){
+            var m = formatMoney(data.abalance);
+            $("#amount-user").text(m);
+            $("[max-data]").attr("max-data",data.abalance);
+        }
+
+        //获取转出频道金额
+        $("#J-plat-id-fb").on("change",function(){
+            var plat_id = $("#J-plat-id-fb").find("option:selected").val();
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=getPlatAccount&plat_id=" + plat_id + "&terminal_id=" + terminal_id,
+                successCallback: function(res) {
+                    var amount = res[plat_id]["balance"];
+                    $("#_plat-balance").text(amount);
+                }
+            });
+        })
+
+        function _disabled(obj){
+        var $self = $(obj);
+        $self.attr('disabled');
+        $self.addClass('btn-gray');
+
+    }
+
+    function _active(obj){
+        var $self = $(obj);
+        $self.removeAttr('disabled');
+        $self.removeClass('btn-gray');
+    }
+
+        //立即转账
+        $(".J-submit").on("click",function(){
+            var $this = $(this),$form = $this.parents("form"),amount = Number($form.find("[name='amount']").val()),plat_id = $form.find("[name='plat_id']").find("option:selected").val(),transfer_type = $this.data("transfer_type");
+            var o = this;
+            if(plat_id == 0){
+                layer.alert("请选择频道!");
+                return;
+            }
+
+            if(!amount){
+                layer.alert("转账金额不能为零!");
+                return;
+            }
+
+            _disabled(o);
+            var layer_load =  layer.msg('努力获取中...',{icon:16,shade:[0.5,'#f5f5f5'],scrollbar:false,offset:'350px',time:100000});
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=platTransfer&terminal_id=" + terminal_id,
+                type:"POST",
+                data:{plat_id:plat_id,transfer_type:transfer_type,amount:amount},
+                successCallback: function(res) {
+                    _active(o);
+                    layer.alert("转账成功",function(){
+                        layer.close(layer_load);
+                        window.location.reload();
+                    });
+
+                },
+                errorCallback:function(res){
+                    layer.alert(res.error);
+                    layer.close(layer_load);
+                    _active(o);
+                }
+            });
+
+        })
+
+
+    //money input
+    // $(document).on('keydown', '#J-input-money', function(event) {
+    //     if (!(event.keyCode == 35) && !(event.keyCode == 36) && !(event.keyCode == 46) && !(event.keyCode == 8) && !(event.keyCode == 37) && !(event.keyCode == 39)) {
+    //         if (!((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105))) {
+    //             return false;
+    //         }
+    //         if ($.trim($(this).val()).length > 6) {
+    //             return false;
+    //         }
+    //     }
+    // }).on('keyup', function() {
+    //     var v = parseInt($.trim(this.value));
+    //     if (v > 70000) {
+    //         this.value = 70000;
+    //     }
+    //     //todo 
+    // });
+
+ var moneyInput = $('.input-ico-money');
+ moneyInput.keyup(function(e) {
+     var v = $.trim(this.value),
+         arr = [],
+         code = e.keyCode;
+     if (code == 37 || code == 39) {
+         return;
+     }
+     v = v.replace(/[^\d|^\.]/g, '');
+     arr = v.split('.');
+     if (arr.length > 2) {
+         v = '' + arr[0] + '.' + arr[1];
+     }
+     arr = v.split('.');
+     if (arr.length > 1) {
+         arr[1] = arr[1].substring(0, 2);
+         v = arr.join('.');
+     }
+     this.value = v;
+     v = v == '' ? '&nbsp;' : v;
+     if (!isNaN(Number(v))) {
+         v = formatMoney(v);
+     }
+ });
+
+
+ $('#turnIn').blur(function() {
+     var v = Number(this.value),withdrawable = Number($('#amount-user').text().replace(/,/g, ''));
+     v = v > withdrawable ? withdrawable : v;
+     this.value =formatMoney(v).replace(/,/g, '');
+ });
+
+  $('#turnOut').blur(function() {
+     var v = Number(this.value),withdrawable = Number($('#_plat-balance').text().replace(/,/g, ''));
+     // v = v > withdrawable ? withdrawable : v;
+     this.value =formatMoney(v).replace(/,/g, '');
+ });
+
+
+    //submit transfer
+    $(document).on('click', '#J-submit', function() {
+        var searchUser = $('#searchUser').val();
+        if ($.trim(searchUser).length == 0) {
+            alert('请点击选择收款人');
+            return;
+        }
+
+        var inputMoney = $('#J-input-money').val();
+        if ($.trim(inputMoney).length == 0) {
+            alert('请输入转账金额');
+            return;
+        }
+
+        var fundsPassword = $('#fundsPassword').val();
+        if ($.trim(fundsPassword).length == 0) {
+            alert('请输入资金密码');
+            return;
+        }
+
+        var accountName = $('#accountName').val();
+        if ($.trim(accountName).length == 0) {
+            alert('请输入银行卡户名');
+            return;
+        }
+        var layer_load =  layer.msg('努力获取中...',{icon:16,shade:[0.5,'#f5f5f5'],scrollbar:false,offset:'350px',time:100000});
+        ajaxData({
+            url: getWebsiteOfHost() ,
+            type:'post',
+            data: {
+                action:'doTransfer',
+                terminal_id:terminal_id,
+                username: $.trim(searchUser),
+                userid:$('#searchUserId').val(),
+                amount: $.trim(inputMoney),
+                fund_password: $.trim(fundsPassword),
+                account_name: $.trim(accountName),
+                desc:$('#transferType').val()
+            },
+            successCallback: function(msg) {
+                alert('转账成功');
+                layer.close(layer_load);
+            },
+            errorCallback:function(msg){
+                alert('msg.error');
+                layer.close(layer_load);
+            }
+        });
+
+    });
+
+    </script>
+</body>
+
+</html>

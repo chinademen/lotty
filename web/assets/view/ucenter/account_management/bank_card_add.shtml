@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>银行卡添加</title>
+     <!--#include virtual="/view/module/common.shtml"-->
+    
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main" style="position: relative;">
+            <div class="main-nav">
+                <a href="javascript:;" class="active">银行卡管理</a>
+            </div>
+            <div class="content">
+                <div class="bank-card-add">
+                    <h3>添加一张银行卡吧</h3>
+                    <div class="bank-card">
+                        添加银行卡
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mask hide"></div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+    <!-- 资金密码设定 -->
+    <!--#include virtual="/view/ucenter/account_management/_funds_password_setting.shtml"-->
+    <!-- 银行卡表单 -->
+    <!--#include virtual="/view/ucenter/account_management/_bank_card_add_form.shtml"-->
+    <!-- 银行卡表单确认 -->
+    <!--#include virtual="/view/ucenter/account_management/_bank_card_add_confirm.shtml"-->
+    <!-- 银行卡绑定消息 -->
+    <!--#include virtual="/view/ucenter/account_management/_bank_card_add_message.shtml"--> 
+    <script>
+    $(function() {
+        var mask = $('.mask');
+
+        //资金密码设定
+        var funsPwdSetting = $('#funsPwdSetting');
+
+        //银行卡表单
+        var bankCardAddForm = $('#bankCardAddForm');
+
+        //银行卡表单确认
+        var bankCardAddFormConfirm = $('#bankCardAddFormConfirm');
+
+        //银行卡绑定消息
+        var bankCardAddMessage = $('#bankCardAddMessage');
+
+        $(document).on('click', '.bank-card', function() {
+            //funsPwdSetting.show();
+            bankCardAddForm.show();
+            mask.show();
+        });
+
+        $(document).on('click', '.pop-head a', function() {
+            funsPwdSetting.hide();
+            bankCardAddForm.hide();
+            bankCardAddFormConfirm.hide();
+            bankCardAddMessage.hide();
+            mask.hide();
+        });
+
+        $(document).on('click', '#bankCardAddForm .pop-footer input', function() {
+            bankCardAddForm.hide();
+            bankCardAddFormConfirm.show();
+        });
+
+
+        $(document).on('click', '#bankCardAddFormConfirm #submitForm', function() {
+            bankCardAddFormConfirm.hide();
+            bankCardAddMessage.show();
+        });
+
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!-- 选号规则,中奖说明 -->
+<div class="number-select-title balls-type-title clearfix">
+    <div class="number-select-link"> 
+        <a href="javascript:;" class="pick-rule">选号规则
+            <div class="j-ui-tip j-ui-tip-b j-ui-tip-showrule" style="position: absolute;right: -30px;margin-top:33px;display:none;">
+                <i class="sj sj-b"></i>
+                <span class="ui-tip-text"></span>
+            </div>
+        </a>
+        <a href="javascript:;" class="win-info">中奖说明
+            <div class="j-ui-tip j-ui-tip-b j-ui-tip-showrule" style="position: absolute;right: -130px;margin-top:33px;display:none;">
+                <i class="sj sj-b"></i>
+                <span class="ui-tip-text"></span>
+            </div>
+        </a>
+    </div>
+    <div class="function-select-title"></div>
+</div>

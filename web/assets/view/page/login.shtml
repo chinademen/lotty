@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>彩票中心</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/login/login.css">
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
+</head>
+
+<body>
+<!--#include virtual="/view/module/sidebar-right.shtml"-->
+<div class="login-wrap">
+        <!-- <img class="welcome" src="../../images//login//bg_xing.png" alt=""> -->
+        <div class="logo-login">
+            <img src="../../images/global/logo2.png" alt="">
+        </div>
+        <form method="POST" accept-charset="UTF-8" role="form" target="_top" name="signinForm">
+            <input type="hidden" name="terminal_id" value="5">
+            <div class="user-name">
+                <input type="text" name="username" placeholder="用户名" class="icon-user" id="login-name">
+            </div>
+            <div class="user_psw"> 
+                <input type="text" placeholder="密码" class="icon-password" id="login-pass" onfocus="this.type='password'">
+                <input name="password" id="login-pass-real" type="hidden" required="">
+            </div>
+            <span tabindex="11" id="loginButton" class="button-submit">登 录</span>
+            <div class="error-tip">
+            </div>
+            <a href="/view/page/forgotPassword.shtml" style="position: absolute;right: 120px; bottom: 131px;">忘记密码?</a>
+        </form>
+        <footer>
+            <div class="browser">
+                <a class="firefox" href=""> </a>
+                <a class="google" href=""> </a>
+                <a class="ie" href=""> </a>
+                <a class="safari" href=""> </a>
+            </div>
+            <div class="download_zip"> 为了更好的操作体验为您推荐以上浏览器，点击可直接下载。 </div>
+        </footer>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(function(){
+   /*新版和旧版切换*/
+   console.log(returnCitySN.cip)
+   $(".login-nav").on("click", "a", function() {
+            $(this).siblings('.active').removeClass("active");
+            $(this).addClass("active");
+        })
+
+        var $tip = $(".error-tip"); //错误提示信息
+
+        $('#loginButton').click(function(e) {
+            var pwd = $('#login-pass').val();
+            var username = ($('#login-name').val()).toLowerCase();
+            var device = 1;
+            var $this = $(this);
+            /*var captcha = $("#captcha").val();*/
+            if (username == "") {
+                $tip.text("用户名不能为空").show();
+                return;
+            }
+
+            if (pwd == "") {
+                $tip.text("密码不能为空").show();
+                return;
+            }
+
+            $this.text('登录中...');
+            var url = "";
+            url =baseUrl+'/user/login.do';
+            var merchant_identity = 'TEST001';
+            var data = {
+                ip:'45.76.188.143',
+                password:pwd,
+                username:username,
+                device:1,
+            }
+            data = encrypt(merchant_identity,data);
+            var pastData = {
+                'merchant_identity':merchant_identity,
+                'params':data,
+
+            }
+            $.ajax({
+                url: url,
+                data: pastData,
+                type:'post',
+                success: function(msg) {
+                    if (msg.status == 200) {
+                        var game_lobby_url = msg.data.game_lobby_url;
+                        window.sessionStorage.setItem("loginFlag", true); //登录成功保存登录状态
+//                        window.sessionStorage.setItem("token",msg.data.token);//保存用户类型
+                        window.sessionStorage.setItem("username",username);//保存用户类型
+                        window.sessionStorage.setItem("merchant_identity",pastData.merchant_identity);//保存用户类型
+                        window.sessionStorage.setItem("game_lobby_url",game_lobby_url);//用来判断代理等级
+                        window.location.href = "/index.shtml?token="+msg.data.token;
+
+                    } else {
+                        $(".error-tip").text(msg.msg).show();
+                        $this.text("登录");
+
+                    }
+                }
+            })
+        });
+
+        $('form[name=signinForm]').keydown(function(event) {
+            if (event.keyCode == 13) $('#loginButton').click();
+        });
+    })     
+</script>

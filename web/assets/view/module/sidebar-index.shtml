@@ -1,0 +1,85 @@
+<div class="index-sidebar">
+	<div class="index-sidebar-content">
+		<div class="index-sidebar-item">扫码快充
+			<div class="rechare-content" content>
+				<div class="rechare-content-item"><i class="index-sidebar-bg index-sidebar-zfb"></i>支付宝</div>
+				<div class="rechare-content-item"><i class="index-sidebar-bg index-sidebar-weixin"></i>微信</div>
+				<div class="rechare-content-item">
+					<div class="rechare-content-money">
+						<div class="money"><span>50</span><span>100</span><span>500</span><span class="active">1000</span></div>
+						<div><span>金额:</span><input type="text" name="" placeholder="50-1000"></div>
+						<p><span class="btn btn-red">确认</span></p>
+						<p>充值金额为50—1000</p>
+					</div>
+					<div class="rechare-content-ewm"><img src="/images/global/app.png"><span class="btn btn-red">返回</span></div>
+					<i class="index-sidebar-bg index-sidebar-qq"></i>QQ钱包
+				</div>
+				
+			</div>
+		</div>
+		<div class="index-sidebar-item" style="padding-left: 14px">
+			<i class="index-sidebar-bg index-sidebar-phone"></i>
+			<div class="phone-content" content>
+				<p>安卓APP下载</p>
+				<img src="/images/global/app.png">
+			</div>
+		</div>
+		<div class="index-sidebar-item">
+			<i class="index-sidebar-bg index-sidebar-opinion"></i>
+			<div class="opinion-content" content>客户意见</div>
+		</div>
+		<div class="index-sidebar-item" style="padding-left: 11px"><i class="index-sidebar-bg index-sidebar-customer"></i><div class="customer-content" content>在线客服</div></div>
+	</div>
+	<div class="index-sidebar-arrow1 index-sidebar-bg"></div>
+</div>
+<div class="index-sidebar-show">
+	<i class="index-sidebar-bg index-sidebar-arrow2"></i>
+</div>
+<script type="text/javascript">
+	$(".index-sidebar-item").on("mouseover",function(){
+		var index = $(this).index(".index-sidebar-item");
+		switch (index){
+			case 0:
+				$(this).addClass('active');
+				break;
+			case 1:
+				$(".index-sidebar-phone").removeClass('index-sidebar-phone').addClass('index-sidebar-phone2');
+				break;
+			case 2:
+				$(".index-sidebar-opinion").removeClass('index-sidebar-opinion').addClass('index-sidebar-opinion2');
+				break;
+			case 3:
+				$(".index-sidebar-customer").removeClass('index-sidebar-customer').addClass('index-sidebar-customer2');
+				break;
+		}
+		$("[content]").hide();
+		$(this).find("[content]").show();
+	}).on("mouseout",function(){
+		var index = $(this).index(".index-sidebar-item");
+		switch (index){
+			case 0:
+				$(this).removeClass('active');
+				break;
+			case 1:
+				$(".index-sidebar-phone2").removeClass('index-sidebar-phone2').addClass('index-sidebar-phone');
+				break;
+			case 2:
+				$(".index-sidebar-opinion2").removeClass('index-sidebar-opinion2').addClass('index-sidebar-opinion');
+				break;
+			case 3:
+				$(".index-sidebar-customer2").removeClass('index-sidebar-customer2').addClass('index-sidebar-customer');
+				break;
+		}
+		$(this).find("[content]").hide();
+	}).eq(0).mouseover();
+
+	$(".index-sidebar-arrow1").on("click",function(){
+		$(".index-sidebar").hide();
+		$(".index-sidebar-show").show();
+	})
+
+	$(".index-sidebar-show").on("click",function(){
+		$(".index-sidebar").show();
+		$(".index-sidebar-show").hide();
+	})
+</script>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>追号记录</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css"> 
+    <script type="text/javascript" src="/js/vendor/jquery.jedate.min.js"></script>
+</head>
+<!--#set var="locationUrl" value="gameRecord"-->
+<!--#set var="level2" value="0"-->
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="userCenter_main">
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+         <div class="main">
+            <div class="main-nav">
+                <a  href="/view/ucenter/game_record/digital_lottery.shtml">游戏记录</a>
+                <a class="active" href="/view/ucenter/game_record/trace_record.shtml">追号记录</a>
+            </div>
+            <div class="search-condition">
+                <div class="search-condition-content">
+                      <div class="row">
+                        查询日期&nbsp;
+                        <input type="text" name="" class="input w-3" id="datebegin" placeholder="选择开始时间" readonly>&nbsp; <span style="color: #999">至</span> &nbsp;<input type="text" name="" class="input w-3"  id="dateend" placeholder="选择结束时间" readonly> <span class=" date-search" data-time="0">今日</span>|<span class="date-search" data-time="1">上周</span>|<span class="date-search" data-time="2">本周</span>|<span class="date-search" data-time="3">本月</span>|<span class="date-search" data-time="4">上半月</span>|<span class="date-search" data-time="5">下半月</span>
+                        <span class="btn btn-blue lg search fr">搜 索</span>
+                    </div>
+                    <div class="row">
+                        <!--用 户 名&nbsp; &nbsp;-->
+                        <input type="hidden" id="searchUserId">
+                        <!--<input type="text" name="" id="searchUser" class="input w-2" ><span data-showuser="" class="icon-users"></span>-->
+                        &nbsp;&nbsp;&nbsp;&nbsp;彩系  &nbsp;&nbsp;&nbsp;&nbsp;
+                        <select class="select "  id="gameTypeLis">
+                            <option>全部</option> 
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;彩种
+                        <select class="select " id="lotteryList">
+                            <option>全部</option>
+                            <option>重庆时时彩</option>
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;状态
+                        <select class="select w-1" id="statusSelect">
+                            <option>全部</option>
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;开始期号&nbsp; &nbsp;
+                        <input type="text" name="" class="input w-2" id="start_issue">      
+                    </div>
+                </div>
+            </div>
+            <table class="table" id="listTable">
+                <thead>
+                    <tr>
+                        <th>订单编号</th>
+                        <th>用户名</th>
+                        <th>发起时间<a href="javascript:void(0);" class=" glyphicon-resize-vertical"></a></th>
+                        <th>游戏与玩法</th>
+                        <th>投注奖金组 <a href="javascript:void(0);" class=" glyphicon-resize-vertical"></a></th>
+                        <th>追号信息</th>
+                        <th>追号金额</th>
+                        <th>中奖即停</th>
+                        <th>状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+ 
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <!--#include virtual="/view/module/pages.shtml"-->
+        </div>
+    </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+       <!--#include virtual="/view/module/teamUserSelect.shtml"-->
+       <!--#config timefmt="%Y-%m-%d %H:%M:%S" -->
+<script id="transactionList" type="text/x-dot-template"> 
+{{?it.data.length>0}} 
+    {{~it.data:value:index}} 
+        <tr>
+                <td><a href="/view/page/chaseDetail.shtml?order={{=value.id}}">{{= value.serial_number}}</a></td>
+                <td>{{= value.username}}</td>
+                <td>{{= value.bought_at}}</td>
+                <td>
+                    <span class="red">{{= value.lottery}}</span>
+                    <br>
+                    <span>{{= value.way}}</span>
+                </td>
+                <td>{{= value.prize_group}}</td>
+                <td>
+                    <span class="cell-label">期号</span>{{= value.start_issue}}<br>
+                    <span class="cell-label">追号</span>{{= value.finished_issues}}/{{= value.total_issues}}期
+                    <br>
+                </td>
+                <td>
+                    <span>总金额￥</span>{{= formatMoney(value.amount)}}<br>
+                    <span>已完成￥</span>{{= formatMoney(value.finished_amount_formatted)}}<br>
+                    <span>已取消￥</span>{{= formatMoney(value.canceled_amount_formatted)}}
+                </td>
+                <!--判断是否有奖金-->
+                <td>
+                   {{?value.stop_on_won==1}}
+                    <span>是</span>
+                    {{??}}
+                    <span>否</span>
+                    {{?}}
+                </td>
+                <td><span class="blue">{{= value.status}}</span></td>
+            </tr>
+    {{~}}
+{{??}}
+    <tr><td colspan="11">没有符合条件的记录，请更改查询条件</td></tr>
+{{?}}
+</script>
+    <script type="text/javascript" src="/js/vendor/jqPaginator.js"></script>
+    <script type="text/javascript" src="/js/page/help.js"></script>
+</body>
+<script type="text/javascript">
+          var deferred1 = $.Deferred();
+          var deferred2 = $.Deferred();
+          var deferred3 = $.Deferred();
+          registerTeamUserSelect({});
+
+          
+           $(document).on('click','#searchUser',function(){
+             $('.icon-users').click();
+           })
+
+
+
+          var data = {
+              //     'params':'b3FrwvjYb3KUBhZmwMmi%2BGTgq05sug6piN4PnNrdSfPgPtmHh73nXQIRPF8n7GN2cV1IYtMo1IPzEdiyJRSXig==',
+              'params': "token=" + token,
+          }
+          var lotteryList = null;
+          data = urlEncode(data);
+            //状态
+            ajaxData({
+                url: getWebsiteOfHost() + "/public/get_bet_record.do",
+                data:data,
+                // url: getWebsiteOfHost() + "?action=getTraceStatus&terminal_id=" + terminal_id,
+                successCallback: function(data) {
+                    var selectArray = [];
+                    for (var o in data.traces_status) {
+                        selectArray.push('<option value="' + o + '">' + data.traces_status[o] + '</option>');
+                    }
+                    $('#statusSelect').append(selectArray.join(''));
+                        deferred3.resolve('deferred3');
+
+
+
+
+                    var selectArrays = [];
+                    for (var i = 0, len = data.series.length; i < len; i++) {
+
+                        selectArrays.push('<option value="' + data.series[i].id + '">' + data.series[i].name + '</option>');
+                    }
+                    $('#gameTypeLis').append(selectArrays.join(''));
+                    deferred1.resolve('deferred1');
+
+
+                    lotteryList = data.lotteries;
+                    renderList(data, true);
+                    deferred2.resolve('deferred2');
+                }
+            });
+          function dateFormat(formatStr, fdate){
+              var fTime, fStr = 'ymdhis';
+              if (!formatStr)
+                  formatStr= "y-m-d h:i:s";
+              if (fdate)
+                  fTime = new Date(fdate);
+              else
+                  fTime = new Date();
+              var formatArr = [
+                  fTime.getFullYear().toString(),
+                  (fTime.getMonth()+1).toString(),
+                  fTime.getDate().toString(),
+                  fTime.getHours().toString(),
+                  fTime.getMinutes().toString(),
+                  fTime.getSeconds().toString()
+              ];
+              for (var i=0; i<formatArr.length; i++){
+                  formatStr = formatStr.replace(fStr.charAt(i), formatArr[i]);
+              }
+              return formatStr;
+          }
+            //彩系
+            // ajaxData({
+            //     url: getWebsiteOfHost() + "?action=getGameSeries&terminal_id=" + terminal_id,
+            //     successCallback: function(data) {
+            //         var selectArray = [];
+            //
+            //          for (var i = 0, len = data.length; i < len; i++) {
+            //             selectArray.push('<option value="' + data[i].id + '">' + data[i].name + '</option>');
+            //         }
+            //         $('#gameTypeLis').append(selectArray.join(''));
+            //          deferred1.resolve('deferred1');
+            //     }
+            // });
+
+
+
+            //彩种
+            // ajaxData({
+            //     url: getWebsiteOfHost() + "?action=getLotteryList&terminal_id=" + terminal_id,
+            //     successCallback: function(data) {
+            //         lotteryList = data;
+            //         renderList(data, true);
+            //         deferred2.resolve('deferred2');
+            //     }
+            // });
+
+            $('#gameTypeLis').on('change', function() {
+                var value = $(this).val();
+                if (value == ""||value=="全部") {
+                    renderList(lotteryList, true);
+                    return;
+                }
+                var tmp = [];
+                for (var i = 0, len = lotteryList.length; i < len; i++) {
+                    if (value == lotteryList[i].series_id) {
+                        tmp.push(lotteryList[i]);
+                    }
+                }
+                renderList(tmp);
+            });
+
+            function renderList(data, all) {
+                if (all) {
+                    var selectArray = ['<option value="">全部</option>'];
+                } else {
+                    var selectArray = [];
+                }
+
+                for (var i = 0, len = data.length; i < len; i++) {
+                    selectArray.push('<option value="' + data[i].id + '" data-type="' + data[i].game_type + '">' + data[i].name + '</option>');
+                }
+                $('#lotteryList').html(selectArray.join(''));
+            }
+
+            $.when(deferred1, deferred2, deferred3).done(function() {
+                 $('[data-time=0]').click();
+                 doPullTableList(); 
+            });
+
+            function createPagination(res, page) {
+                page = page || 1;
+                renderPagination('#pagination', res.count, page, function(num) {
+                    if(isCreateFirst){
+                        isCreateFirst = false;
+                        return;
+                    }
+                    var created_at_to =$('#dateend').val();
+                    if(!created_at_to){
+                        created_at_to =dateFormat('',new Date());
+                        $("#dateend").val(created_at_to);
+                    }
+                    var datas = {
+                        //     'params':'b3FrwvjYb3KUBhZmwMmi%2BGTgq05sug6piN4PnNrdSfPgPtmHh73nXQIRPF8n7GN2cV1IYtMo1IPzEdiyJRSXig==',
+                        '&params': "token="+token+   "&created_at_from="+$('#datebegin').val()+
+                        "&created_at_to="+created_at_to+
+                        "&page="+num+ "&lottery_id="+$('#lotteryList').val().replace('全部','')+ "&status="+$('#statusSelect').val().replace('全部','')+ "&start_issue="+$('#start_issue').val(),
+
+                    }
+                    datas = urlEncode(datas);
+                    ajaxData({
+                            url:getWebsiteOfHost() + "/game/trace_list.do",
+                            data:datas,
+
+                        successCallback: function(response) {
+                            var data = response.list;
+                            renderTableList(data);
+                        }, errorCallback:function(msg){
+
+                            layer.msg(msg.msg, {icon: 2});
+                            setTimeout(function () {
+                                location.reload();
+                            },1000)
+
+                        }
+                    });
+                });
+            }
+
+            var isCreateFirst = true;
+            function doPullTableList() {
+                //表格pull
+                isCreateFirst = true;
+
+                // var param = {
+                //     action:'getTraceList',
+                //     terminal_id:terminal_id,
+                //     created_at_from:$('#datebegin').val(),
+                //     created_at_to:$('#dateend').val(),
+                //     page:page,
+                //     lottery_id:$('#lotteryList').val().replace('全部',''),
+                //     status:$('#statusSelect').val().replace('全部',''),
+                //     start_issue:$('#start_issue').val(),
+                //     username:$('#searchUser').val()
+                // }
+               var page;
+               page= page || 1;
+                var created_at_to =$('#dateend').val();
+                if(!created_at_to){
+                    created_at_to =dateFormat('',new Date());
+                    $("#dateend").val(created_at_to);
+                }
+                var datas = {
+                    //     'params':'b3FrwvjYb3KUBhZmwMmi%2BGTgq05sug6piN4PnNrdSfPgPtmHh73nXQIRPF8n7GN2cV1IYtMo1IPzEdiyJRSXig==',
+                    '&params': "token="+token+   "&created_at_from="+$('#datebegin').val()+
+                    "&created_at_to="+created_at_to+
+                    "&page="+page+ "&lottery_id="+$('#lotteryList').val().replace('全部','')+ "&status="+$('#statusSelect').val().replace('全部','')+ "&start_issue="+$('#start_issue').val(),
+
+                }
+                datas = urlEncode(datas);
+                ajaxData({
+                    url:getWebsiteOfHost() + "/game/trace_list.do",
+                    data:datas,
+                    successCallback: function(res) {
+                        renderTableList(res.list);
+                        $('#pagination').html(''); 
+                        if (res.count/20>1) {
+                            createPagination(res,1,isCreateFirst);
+                        }
+                    }, errorCallback:function(msg){
+
+                        layer.msg(msg.msg, {icon: 2});
+                        setTimeout(function () {
+                            location.reload();
+                        },1000)
+
+                    }
+                });
+            }
+
+            //search
+            $(document).on('click', '.search-condition-content .search', doPullTableList);
+
+            function renderTableList(data) {
+                doTrender({
+                    container: '#listTable tbody',
+                    tmplObj: '#transactionList',
+                    data: {
+                        data: data
+                    },
+                    needClear: true,
+                    prependDom: false
+                });
+            }
+
+            function getTableUrl(page) {
+                var created_at_to =$('#dateend').val();
+                if(!created_at_to){
+                    created_at_to =dateFormat('',new Date());
+                    $("#dateend").val(created_at_to);
+                }
+                page = page || 1;  
+                var param = {
+                    action:'getTraceList',
+                    terminal_id:terminal_id,
+                    created_at_from:$('#datebegin').val(),
+                    created_at_to:created_at_to,
+                    page:page,
+                    lottery_id:$('#lotteryList').val().replace('全部',''),
+                    status:$('#statusSelect').val().replace('全部',''),
+                    start_issue:$('#start_issue').val(),
+                    username:$('#searchUser').val()
+                } 
+                return getWebsiteOfHost() + "?"+serializeObj2Params(param);
+            }
+
+            //今日，本周 点击注册
+            quickTimeClick('<!--#echo var="DATE_LOCAL"-->');
+              
+</script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>支付宝充值</title>
+       <!--#include virtual="/view/module/common.shtml"-->
+    <link rel="stylesheet" href="/images/ucenter/ucenter.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+        <!-- 侧边栏导航 -->
+        <!--#include virtual="/view/module/sidebar.shtml"-->
+        <div class="main">
+            <div class="main-nav">
+                <a class="active">支付宝</a>
+                <a>微信</a>
+                <a>QQ</a>
+                <a>网银</a>
+            </div>
+            <div class="bg-fff">
+                <div class="content recharge-netbank">
+                    <div class="" style="margin: 0 auto">
+                        <form action="{{ route('user-recharges.quick', $oPlatform->id) }}" method="post" id="J-form">
+                            <table width="100%" class="table-field">
+                                <tr>
+                                    <td align="right" width="50%">用户名：</td>
+                                    <td align="left">
+                                        bunning
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">充值方式：</td>
+                                    <td align="left">
+                                        支付宝
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">充值渠道：</td>
+                                    <td align="left">
+                                        支付宝一
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">充值金额：</td>
+                                    <td align="left">
+                                        4,000.00元
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <input id="J-submit" class="btn btn-red lg2" type="submit" value="   充值确认   " />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+ 
+</body>
+
+</html>

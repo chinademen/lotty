@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>帮助中心</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+<!-- 　<link rel="stylesheet" href="/images/ucenter/ucenter.css">  -->
+   <link rel="stylesheet" type="text/css" href="/images/help/helps.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <!--#include virtual="/view/module/top.shtml"-->
+    <!-- 头部导航 -->
+    <!--#include virtual="/view/module/nav.shtml"-->
+    <div class="wrap-inner">
+　　　<div class="g_33 main clearfix">
+    <div class="main-sider">
+       <div class="help-side">
+            <h3>常见问题</h3>
+        <div class="help-side-nav">
+                        <a href="javascript:void(0)" onclick="href_method()">充提类</a>
+                        <a href="javascript:void(0)" onclick="href_method()">游戏类</a>
+                        <a href="javascript:void(0)" onclick="href_method()">安全类</a>
+                    </div>
+            <h3>账户</h3>
+        <div class="help-side-nav">
+                        <a href="javascript:void(0)" onclick="href_method()">注册开户</a>
+                        <a href="javascript:void(0)" onclick="href_method()">密码</a>
+                        <a href="javascript:void(0)" onclick="href_method()">个人资料</a>
+                    </div>
+            <h3>充值提现</h3>
+        <div class="help-side-nav">
+                        <a href="javascript:void(0)" onclick="href_method()">充值方式</a>
+                        <a href="javascript:void(0)" onclick="href_method()">网银充值</a>
+                        <a href="javascript:void(0)" onclick="href_method()">快捷充值</a>
+                        <a href="javascript:void(0)" onclick="href_method()">充值相关</a>
+                        <a href="javascript:void(0)" onclick="href_method()">提现相关</a>
+                        <a href="javascript:void(0)" onclick="href_method()">银行卡相关</a>
+                    </div>
+            <h3>游戏玩法</h3>
+        <div class="help-side-nav">
+                        <a href="javascript:void(0)" onclick="href_method()">时时彩玩法</a>
+                        <a href="javascript:void(0)" onclick="href_method()">11选5玩法</a>
+                        <a href="javascript:void(0)" onclick="href_method()">P3/P5</a>
+                        <a href="javascript:void(0)" onclick="href_method()">3D</a>
+                    </div>
+            <h3>购彩</h3>
+        <div class="help-side-nav">
+                        <a href="javascript:void(0)" onclick="href_method()">购彩</a>
+                    </div>
+            <h3>兑奖</h3>
+        <div class="help-side-nav">
+                        <a href="javascript:void(0)" onclick="href_method()">平台各彩种开奖时间表</a>
+                        <a href="javascript:void(0)" onclick="href_method()">派奖流程</a>
+                        <a href="javascript:void(0)" onclick="href_method()">奖金限额</a>
+                    </div>
+            <h3>安全保障</h3>
+        <div class="help-side-nav">
+                        <a href="javascript:void(0)" onclick="href_method()">账号安全</a>
+                        <a href="javascript:void(0)" onclick="href_method()">购彩安全</a>
+                        <a href="javascript:void(0)" onclick="href_method()">加密防盗技术</a>
+                    </div>
+    </div>
+
+    </div>
+
+    <div class="main-content">
+
+        <div class="nav-bg">
+            <div class="title-normal">帮助中心</div>
+        </div>
+        <div class="content help-center-content clearfix">
+
+            <div class="help-side">
+            <h3>常见问题</h3>
+        <div class="help-side-nav">
+                        <a href="#3" >充提类</a>
+                        <a href="#4" >游戏类</a>
+                        <a href="#5">安全类</a>
+                    </div>
+            <h3>账户</h3>
+        <div class="help-side-nav">
+                        <a href="#6" >注册开户</a>
+                        <a href="#7">密码</a>
+                        <a href="#8">个人资料</a>
+                    </div>
+            <h3>充值提现</h3>
+        <div class="help-side-nav">
+                        <a href="#9">充值方式</a>
+                        <a href="#10">网银充值</a>
+                        <a href="#11">快捷充值</a>
+                        <a href="#12">充值相关</a>
+                        <a href="#13">提现相关</a>
+                        <a href="#14">银行卡相关</a>
+                    </div>
+            <h3>游戏玩法</h3>
+        <div class="help-side-nav">
+                        <a href="#15">时时彩玩法</a>
+                        <a href="#16">11选5玩法</a>
+                        <a href="#38">P3/P5</a>
+                        <a href="#39">3D</a>
+                    </div>
+            <h3>购彩</h3>
+        <div class="help-side-nav">
+                        <a href="#17">购彩</a>
+                    </div>
+            <h3>兑奖</h3>
+        <div class="help-side-nav">
+                        <a href="#18">平台各彩种开奖时间表</a>
+                        <a href="#19">派奖流程</a>
+                        <a href="#21">奖金限额</a>
+                    </div>
+            <h3>安全保障</h3>
+        <div class="help-side-nav">
+                        <a href="#23">账号安全</a>
+                        <a href="#26">购彩安全</a>
+                        <a href="#28">加密防盗技术</a>
+                    </div>
+    </div>
+
+
+            <div class="help-content help-content-detail">
+                <ul class="help-shortcuts">
+                    <li class="help-sc-1">
+                        <span><i class="shortcut-icon-1"></i></span>
+                        <a href="/view/ucenter/account_management/login_password_edit.shtml">修改登录密码</a>
+                    </li>
+                    <li class="help-sc-1">
+                        <span><i class="shortcut-icon-2"></i></span>
+                        <a href="/view/ucenter/account_management/funds_password_edit.shtml">修改资金密码</a>
+                    </li>
+                    <!--<li class="help-sc-1">-->
+                        <!--<span><i class="shortcut-icon-3"></i></span>-->
+                        <!--<a href="http://www.gapple.com/users/personal">修改用户昵称</a>-->
+                    <!--</li>-->
+                </ul>
+                <h3>热门问题</h3>
+                <ul class="help-list">
+                    <li><a href="javascript:void(0)" onclick="href_method(8,17)">如何在彩票中心游戏平台进行游戏？</a></li>
+                    <li><a href="javascript:void(0)" onclick="href_method(5,6)">怎么注册彩票中心游戏平台的账号？</a></li>
+                    <li><a href="javascript:void(0)" onclick="href_method(9,18)">彩票中心游戏平台的时时彩开奖时间和官方一致吗？</a></li>
+                    <li><a href="javascript:void(0)" onclick="href_method(9,19)">彩票中心游戏的派奖流程是什么样的？</a></li>
+                    <li><a href="javascript:void(0)" onclick="href_method(9,21)">彩票中心游戏的奖金限额是多少？</a></li>
+                    <li><a href="javascript:void(0)" onclick="href_method(10,26)">在彩票中心购彩安全吗？</a></li>
+                    <li><a href="javascript:void(0)" onclick="href_method(6,11)">彩票中心支持工商银行充值吗？</a></li>
+                    <li><a href="javascript:void(0)" onclick="href_method(6,13)">提现的限额是多少？</a></li>
+                </ul>
+                 <!--<div class="article-page-title text-left">-->
+                    <!--<h1></h1>-->
+                 <!--</div>-->
+
+                <!--<div class="article-page-content">-->
+                <!--</div>-->
+            </div>
+            <div class="help-feedback">
+                <p>
+                    <i class="alert-icon"></i>
+                    <span>如果以上内容无法解决您的问题，请联系我们的客服</span>
+                </p>
+                <p>
+                    <!-- <a class="btn btn-important"  href="javascript:void(0);"  data-call-qq class="qqkf" target="_blank"><i></i><span>QQ客服</span></a> -->
+                    <a class="btn-online-chat" href="javascript:" data-call-btn-online-chat="">在线咨询</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+        　
+    </div>
+    <!--#include virtual="/view/module/footer.shtml"-->
+    http://game.user.com/service?action=helpCenter&category_id=8&article_id=17&terminal_id=5
+    
+    <script type="text/javascript">
+        function href_method(category_id,article_id) {
+
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=helpCenter&category_id="+category_id+"&article_id="+article_id+"&terminal_id="+terminal_id,
+                successCallback: function (data) {
+                    var allContent = data.datas;
+                    var html ='';
+                    for(var key in allContent){
+                        html+='<div class="article-page-title text-left"><h1 id="'+allContent[key].id +'"></h1>'+allContent[key].title+'</div><div class="article-page-content">'+allContent[key].content+'</div>'
+                    }
+                    
+                    $(".help-content-detail").html(html);
+                }
+            })
+        }
+        if(getQueryString('category_id')){
+            // console.log(999)
+            var category_id = getQueryString('category_id');
+            var article_id = 23;
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=helpCenter&category_id="+category_id+"&article_id="+article_id+"&terminal_id="+terminal_id,
+                successCallback: function (data) {
+                    var allContent = data.datas;
+                    var html ='';
+                    for(var key in allContent){
+                        html+='<div class="article-page-title text-left"><h1 id="'+allContent[key].id +'"></h1>'+allContent[key].title+'</div><div class="article-page-content">'+allContent[key].content+'</div>'
+                    }
+                    $(".help-content-detail").html(html);
+                }
+            })
+        }
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+        (function () {
+            ajaxData({
+                url: getWebsiteOfHost() + "?action=helpCenter&category_id=4&terminal_id="+terminal_id,
+                successCallback: function (data) {
+                    var allContent = data.aTitles;
+                    // console.log(allContent)
+                    var html ='';
+                    for(var key in allContent){
+                        html+='<div class="article-page-title text-left"><h1 id="'+allContent[key].id +'"></h1>'+allContent[key].title+'</div><div class="article-page-content">'+allContent[key].content+'</div>'
+                    }
+                    //$(".help-content-detail").html(html);
+                }
+            })
+
+
+
+            $(".help-side-nav a").click(function () {
+                var title = $(this).text();
+                var data = filterTitle(title);
+                var category_id = data[0];
+                var article_id = null;
+                if(data.length>1){
+                    article_id = data[1];
+                }
+                ajaxData({
+                    url: getWebsiteOfHost() + "?action=helpCenter&category_id="+category_id+"&article_id="+article_id+"&terminal_id="+terminal_id,
+                    successCallback: function (data) {
+                        var allContent = data.datas;
+                        var html ='';
+                        for(var key in allContent){
+                            html+='<div class="article-page-title text-left"><h1 id="'+allContent[key].id +'"></h1>'+allContent[key].title+'</div><div class="article-page-content">'+allContent[key].content+'</div>'
+                        }
+                        $(".help-content-detail").html(html);
+                    }
+                })
+            });
+
+
+            function filterTitle(title) {
+                switch (title){
+                    case '充提类':
+                        return [4,3];
+                        break;
+                    case '游戏类':
+                        return [4,4];
+                        break;
+                    case '安全类':
+                        return [4,5];
+                        break;
+                    case '注册开户':
+                        return [5,6];
+                        break;
+                    case '密码':
+                        return [5,7];
+                        break;
+                    case '个人资料':
+                        return [5,8];
+                        break;
+                    case '充值方式':
+                        return [6,9];
+                        break;
+                    case '网银充值':
+                        return [6,10];
+                        break;
+                    case '快捷充值':
+                        return [6,11];
+                        break;
+                    case '提现相关':
+                        return [6,13];
+                        break;
+                    case '银行卡相关':
+                        return [6,14];
+                        break;
+                    case '充值相关':
+                        return [6,12];
+                        break;
+                    case 'P3/P5':
+                        return [7,38];
+                        break;
+                    case '3D':
+                        return [7,39];
+                        break;
+                    case '11选5玩法':
+                        return [7,16];
+                        break;
+                    case '时时彩玩法':
+                        return [7,15];
+                        break;
+                    case '购彩':
+                        return [8,17];
+                        break;
+                    case '奖金限额':
+                        return [9,21];
+                        break;
+                    case '派奖流程':
+                        return [9,19];
+                        break;
+                    case '派奖时间':
+                        return [9,20];
+                        break;
+                    case '中奖查看':
+                        return [9,22];
+                        break;
+                    case '平台各彩种开奖时间表':
+                        return [9,18];
+                        break;
+                    case '购彩安全':
+                        return [10,26];
+                        break;
+                    case '账号安全':
+                        return [10,23];
+                        break;
+                    case '加密防盗技术':
+                        return [10,28];
+                        break;
+                    case '资金安全':
+                        return [10,25];
+                        break;
+                    case '隐私安全':
+                        return [10,27];
+                        break;
+                    case '充提安全':
+                        return [10,24];
+                        break;
+                }
+            }
+        })()
+
+
+
+
+    </script>
+</body>
+
+</html>
