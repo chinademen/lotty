@@ -1,8 +1,0 @@
-<!-- 玩法类型 --> 
-<script id="D-panel-gameTypes" type="text/x-dot-template"> 
-    {{~it.data:value:index}}
-    <li data-index="{{=index}}" id="gameGroup{{=value.id}}">
-        <div class="title">{{= value.name_cn  }}<span></span></div>
-    </li>
-    {{~}} 
-</script>
