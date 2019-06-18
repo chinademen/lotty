@@ -567,7 +567,7 @@
             }
             // console.log(data);
             if (that.getPostLock()) return;
-
+            console.log(JSON.stringify(data) );
             if (compress) {
 
                      data =  encodeURIComponent(that.getCompressData(data))

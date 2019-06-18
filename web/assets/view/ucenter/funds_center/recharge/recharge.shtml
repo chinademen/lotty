@@ -626,7 +626,7 @@ $(function() {
         }
     }
 
-    ajaxData(o2);
+    // ajaxData(o2);
     /*****************************/
     // var now = new Date(nowTime); //当前日期 
     // function formatDate(date) {

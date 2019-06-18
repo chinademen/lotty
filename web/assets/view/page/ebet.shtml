@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/images/ucenter/ucenter.css">
+    <!--#include virtual="/view/module/common.shtml"-->
+    <title>Ebet娱乐</title>
+    <!--#include virtual="/view/module/common.shtml"-->
+</head>
+<!--#set var="locationUrl" value="index"-->
+<body style="min-width: 1200px;">
+<!-- 头部 -->
+<!--#include virtual="/view/module/top.shtml"-->
+<!-- 头部导航 -->
+<!--#include virtual="/view/module/nav.shtml"-->
+
+
+
+
+<!--#include virtual="/view/module/footer.shtml"-->
+</body>
+</html>
+<script>
+
+var ebetConfig = {
+
+    api:{
+        is_first:'/ebet/is_first.do',
+        get_bet_limit:'/ebet/get_bet_limit.do',
+        login:'/ebet/login.do',
+
+    },
+
+    data:{
+        baseUrl:getWebsiteOfHost(),
+        token:window.sessionStorage.getItem("token"),
+    },
+   
+    // 是否第一次进入游戏 
+    firstDo:function(){
+        var url = this.data.baseUrl + this.api.is_first;
+        var dataJson = {
+            'params': 'token=' + token
+        }
+        data = urlEncode(dataJson);
+        ajaxData({
+        url: url,
+        data:dataJson,
+        // async: false,
+        successCallback: function(res) {}
+        });
+    },
+
+    // 获取用户限制
+    getBetLimit:function(){
+        var url = this.data.baseUrl + this.api.get_bet_limit;
+        var dataJson = { 'params': 'token=' + token }
+        data = urlEncode(dataJson);
+        ajaxData({
+        url: url,
+        data:dataJson,
+        // async: false,
+        successCallback: function(res) {}
+        });
+    },
+
+    // 用户登录
+    login:function(){
+        var url = this.data.baseUrl + this.api.login;
+        var dataJson = { 'params': 'token=' + token }
+        data = urlEncode(dataJson);
+        ajaxData({
+        url: url,
+        data:dataJson,
+        // async: false,
+        successCallback: function(res) {}
+        });
+    },
+
+};
+
+ebetConfig.firstDo();
+ebetConfig.getBetLimit();
+ebetConfig.login();
+
+</script>

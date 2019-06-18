@@ -44,6 +44,13 @@
               <button class="paygame" onclick="notClose()">转账</button>
             </div>
           </li>
+          <li>
+            <img src="/images/index/ebet-zb.png" alt="" />
+            <div class="game_btn">
+              <button class="playgame" onclick="goGameEbet()">立即开始</button>
+              <button class="paygame" onclick="goGameEbet()">转账</button>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -312,7 +319,7 @@
     }
   };
 
-  ajaxData(o2);
+  // ajaxData(o2);
   /*****************************/
   // var now = new Date(nowTime); //当前日期
   function formatDate(date) {
@@ -388,6 +395,21 @@
         window.open(res.request_url);
         // tempwindow.location=res.request_url;
         // openUrl(res.request_url)
+      }
+    });
+  }
+  function goGameEbet (){
+    var url = baseUrl + '/ebet/is_first.do';
+    var data = {
+        'params': 'token=' + token
+    }
+    data = urlEncode(data);
+    ajaxData({
+      url: url,
+      data:data,
+      async: false,
+      successCallback: function(res) {
+
       }
     });
   }
